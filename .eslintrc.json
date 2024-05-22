@@ -8,7 +8,6 @@
         "plugin:@typescript-eslint/stylistic-type-checked",
         "plugin:@tanstack/eslint-plugin-query/recommended",
         "airbnb/hooks",
-        "airbnb/whitespace",
         "airbnb-typescript",
         "prettier"
     ],
