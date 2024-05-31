@@ -1,9 +1,10 @@
-import { Text, View } from 'react-native';
+import { Text } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export function OnboardingGenderSelectionScreen() {
     return (
-        <View>
+        <SafeAreaView>
             <Text>Onboarding Gender Selection Screen</Text>
-        </View>
+        </SafeAreaView>
     );
 }
