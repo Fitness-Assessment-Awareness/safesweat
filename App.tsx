@@ -1,21 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import * as SplashScreen from 'expo-splash-screen';
+import React from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { Screens } from './app/navigation/Screens';
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
+SplashScreen.preventAutoHideAsync();
+const queryClient = new QueryClient();
 
 // eslint-disable-next-line import/no-default-export
 export default function App() {
+    const onNavigationReady = () => {
+        SplashScreen.hideAsync();
+    };
+
     return (
-        <View style={styles.container}>
-            <Text>Open up App.tsx to start working on your app!</Text>
-            <StatusBar style="auto" />
-        </View>
+        <SafeAreaProvider>
+            <QueryClientProvider client={queryClient}>
+                <NavigationContainer onReady={onNavigationReady}>
+                    <Screens />
+                </NavigationContainer>
+            </QueryClientProvider>
+        </SafeAreaProvider>
     );
 }
