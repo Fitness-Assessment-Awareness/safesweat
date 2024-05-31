@@ -7,7 +7,10 @@ import { RootStack, Tab } from './AppNavigator';
 
 function HomeTabScreens() {
     return (
-        <Tab.Navigator screenOptions={{ headerShown: false }}>
+        <Tab.Navigator
+            initialRouteName="WorkoutStack"
+            screenOptions={{ headerShown: false }}
+        >
             <Tab.Screen
                 name="WorkoutStack"
                 component={WorkoutScreens}
