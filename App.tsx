@@ -8,7 +8,7 @@ import React from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { TamaguiProvider } from 'tamagui';
 import { Screens } from './app/navigation/Screens';
-import { appConfig } from './tamagui.config';
+import appConfig from './tamagui.config';
 
 SplashScreen.preventAutoHideAsync();
 const queryClient = new QueryClient();
