@@ -6,7 +6,10 @@ import { Label } from '../../../components/Label';
 import { Paragraph } from '../../../components/Paragraph';
 import { Screen } from '../../../components/Screen';
 
+type TabsValue = 'beginner' | 'intermediate' | 'advanced';
+
 export function WorkoutLandingScreen() {
+    const [selectedTab, setSelectedTab] = React.useState<TabsValue>('beginner');
     const daysInWeek: number[] = [6, 7, 8, 9, 10, 11, 12];
     return (
         <Screen
@@ -70,14 +73,59 @@ export function WorkoutLandingScreen() {
                     ))}
                 </XStack>
             </Card>
-            <Tabs defaultValue="beginner">
-                <Tabs.List>
-                    <Tabs.Tab value="beginner">
-                        <Label>Beginner</Label>
+            <Tabs
+                value={selectedTab}
+                onValueChange={(value) => setSelectedTab(value as TabsValue)}
+                flexDirection="column"
+                orientation="vertical"
+                alignItems="flex-start"
+            >
+                <Tabs.List
+                    flexDirection="row"
+                    columnGap="$4"
+                >
+                    <Tabs.Tab
+                        value="beginner"
+                        unstyled
+                    >
+                        <Label
+                            size="large"
+                            textDecorationLine={selectedTab === 'beginner' ? 'underline' : 'none'}
+                        >
+                            Beginner
+                        </Label>
+                    </Tabs.Tab>
+                    <Tabs.Tab
+                        value="intermediate"
+                        unstyled
+                    >
+                        <Label
+                            size="large"
+                            textDecorationLine={selectedTab === 'intermediate' ? 'underline' : 'none'}
+                        >
+                            Intermediate
+                        </Label>
+                    </Tabs.Tab>
+                    <Tabs.Tab
+                        value="advanced"
+                        unstyled
+                    >
+                        <Label
+                            size="large"
+                            textDecorationLine={selectedTab === 'advanced' ? 'underline' : 'none'}
+                        >
+                            Advanced
+                        </Label>
                     </Tabs.Tab>
                 </Tabs.List>
                 <Tabs.Content value="beginner">
                     <Label>Beginner</Label>
+                </Tabs.Content>
+                <Tabs.Content value="intermediate">
+                    <Label>Intermediate</Label>
+                </Tabs.Content>
+                <Tabs.Content value="advanced">
+                    <Label>Advanced</Label>
                 </Tabs.Content>
             </Tabs>
         </Screen>
