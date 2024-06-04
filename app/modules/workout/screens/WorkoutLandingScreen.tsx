@@ -1,16 +1,18 @@
 import { Pencil } from '@tamagui/lucide-icons';
 import React from 'react';
-import { Card, Circle, Tabs, XStack, YStack } from 'tamagui';
+import { Card, Circle, Image, Tabs, XStack, YStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
 import { Paragraph } from '../../../components/Paragraph';
 import { Screen } from '../../../components/Screen';
+import { WorkoutAssets } from '../assets';
 
 type TabsValue = 'beginner' | 'intermediate' | 'advanced';
 
 export function WorkoutLandingScreen() {
     const [selectedTab, setSelectedTab] = React.useState<TabsValue>('beginner');
     const daysInWeek: number[] = [6, 7, 8, 9, 10, 11, 12];
+
     return (
         <Screen
             px="$3"
@@ -65,6 +67,7 @@ export function WorkoutLandingScreen() {
                 >
                     {daysInWeek.map((day) => (
                         <Circle
+                            key={day}
                             size="$4"
                             backgroundColor="#DCE0EC"
                         >
@@ -119,7 +122,27 @@ export function WorkoutLandingScreen() {
                     </Tabs.Tab>
                 </Tabs.List>
                 <Tabs.Content value="beginner">
-                    <Label>Beginner</Label>
+                    <Card
+                        elevate
+                        overflow="hidden"
+                    >
+                        <Card.Footer>
+                            <Label
+                                size="large"
+                                color="white"
+                            >
+                                Workout Beginner
+                            </Label>
+                        </Card.Footer>
+                        <Card.Background>
+                            <Image
+                                objectFit="cover"
+                                alignSelf="center"
+                                style={{ width: '100%', height: '100%' }}
+                                source={WorkoutAssets.workoutBeginner}
+                            />
+                        </Card.Background>
+                    </Card>
                 </Tabs.Content>
                 <Tabs.Content value="intermediate">
                     <Label>Intermediate</Label>
