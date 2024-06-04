@@ -1,6 +1,6 @@
 import { Pencil } from '@tamagui/lucide-icons';
 import React from 'react';
-import { Card, Circle, XStack, YStack } from 'tamagui';
+import { Card, Circle, Tabs, XStack, YStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
 import { Paragraph } from '../../../components/Paragraph';
@@ -70,6 +70,16 @@ export function WorkoutLandingScreen() {
                     ))}
                 </XStack>
             </Card>
+            <Tabs defaultValue="beginner">
+                <Tabs.List>
+                    <Tabs.Tab value="beginner">
+                        <Label>Beginner</Label>
+                    </Tabs.Tab>
+                </Tabs.List>
+                <Tabs.Content value="beginner">
+                    <Label>Beginner</Label>
+                </Tabs.Content>
+            </Tabs>
         </Screen>
     );
 }

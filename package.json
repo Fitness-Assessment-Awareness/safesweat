@@ -55,5 +55,9 @@
         "prettier": "^4.0.0-alpha.8",
         "typescript": "^5.4.5"
     },
+    "overrides": {
+        "react": "18.2.0",
+        "react-dom": "18.2.0"
+    },
     "private": true
 }
