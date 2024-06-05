@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import React from 'react';
+import { LogBox } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { TamaguiProvider } from 'tamagui';
 import { Screens } from './app/navigation/Screens';
@@ -40,3 +41,5 @@ export default function App() {
         </TamaguiProvider>
     );
 }
+
+LogBox.ignoreLogs([/Cannot update a component/]);
