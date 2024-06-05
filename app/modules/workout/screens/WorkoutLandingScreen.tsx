@@ -8,9 +8,12 @@ import { Screen } from '../../../components/Screen';
 import { WorkoutAssets } from '../assets';
 import { WorkoutLandingTabs } from '../components/WorkoutLandingTabs';
 import { WorkoutPlanCard } from '../components/WorkoutPlanCard';
+import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
 
 export function WorkoutLandingScreen() {
     const daysInWeek: number[] = [6, 7, 8, 9, 10, 11, 12];
+
+    const navigation = useWorkoutNavigation<'WorkoutLanding'>();
 
     return (
         <Screen>
@@ -87,11 +90,9 @@ export function WorkoutLandingScreen() {
                             title="ABS BEGINNER"
                             description="20 MINS | 16 EXERCISES"
                             imageSource={WorkoutAssets.workoutBeginner}
-                        />
-                        <WorkoutPlanCard
-                            title="ABS BEGINNER"
-                            description="20 MINS | 16 EXERCISES"
-                            imageSource={WorkoutAssets.workoutBeginner}
+                            onPress={() => {
+                                navigation.navigate('WorkoutPlanDetails');
+                            }}
                         />
                         <WorkoutPlanCard
                             title="ABS BEGINNER"
@@ -123,21 +124,11 @@ export function WorkoutLandingScreen() {
                             description="20 MINS | 16 EXERCISES"
                             imageSource={WorkoutAssets.workoutBeginner}
                         />
-                        <WorkoutPlanCard
-                            title="ABS BEGINNER"
-                            description="20 MINS | 16 EXERCISES"
-                            imageSource={WorkoutAssets.workoutBeginner}
-                        />
                     </WorkoutLandingTabs.Content>
                     <WorkoutLandingTabs.Content
                         selectedTab="advanced"
                         rowGap="$4"
                     >
-                        <WorkoutPlanCard
-                            title="ABS BEGINNER"
-                            description="20 MINS | 16 EXERCISES"
-                            imageSource={WorkoutAssets.workoutBeginner}
-                        />
                         <WorkoutPlanCard
                             title="ABS BEGINNER"
                             description="20 MINS | 16 EXERCISES"
