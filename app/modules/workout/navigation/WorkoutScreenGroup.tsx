@@ -11,13 +11,13 @@ export function WorkoutScreens() {
         <WorkoutStack.Navigator
             screenOptions={{
                 headerTitle: '',
-                headerLeft: ({ canGoBack }) => {
+                headerLeft: (props) => {
                     // eslint-disable-next-line react-hooks/rules-of-hooks
                     const navigation = useWorkoutNavigation();
 
                     return (
                         <HeaderBackButton
-                            canGoBack={canGoBack}
+                            {...props}
                             onPress={() => {
                                 navigation.goBack();
                             }}
@@ -36,7 +36,7 @@ export function WorkoutScreens() {
             <WorkoutStack.Screen
                 name="WorkoutPlanDetails"
                 component={WorkoutPlanDetailsScreen}
-                options={{ headerTransparent: true }}
+                options={{ headerTransparent: true, headerTintColor: 'white' }}
             />
         </WorkoutStack.Navigator>
     );
