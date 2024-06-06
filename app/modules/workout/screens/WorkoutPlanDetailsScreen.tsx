@@ -88,6 +88,13 @@ export function WorkoutPlanDetailsScreen() {
                     })}
                 </WorkoutExerciseOverview.Group>
             </ScrollView>
+            <Button
+                themeInverse
+                m="$4"
+                borderRadius="$8"
+            >
+                Start
+            </Button>
             <WorkoutExerciseDetailsSheet
                 open={open}
                 onOpenChange={setOpen}
