@@ -1,17 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
-import LottieView from 'lottie-react-native';
 import React, { useState } from 'react';
-import { Button, Image, ScrollView, Separator, View, XStack, YStack } from 'tamagui';
+import { Button, Image, ScrollView, Separator, View, XStack } from 'tamagui';
 import { LottieAssets } from '../../../assets/lottie';
 import { Heading } from '../../../components/Heading';
-import { Label } from '../../../components/Label';
 import { Paragraph } from '../../../components/Paragraph';
 import { Screen } from '../../../components/Screen';
 import { WorkoutAssets } from '../assets';
 import { WorkoutExerciseDetailsSheet } from '../components/WorkoutExerciseDetailsSheet';
+import { WorkoutExerciseOverview } from '../components/WorkoutExerciseOverview';
 
 export function WorkoutPlanDetailsScreen() {
-    const [open, setOpen] = useState(false);
+    const [selectedWorkout, setSelectedWorkout] = useState('');
 
     return (
         <Screen flex={1}>
@@ -49,49 +48,30 @@ export function WorkoutPlanDetailsScreen() {
                     </Button>
                 </XStack>
                 <Separator borderColor="#D0D3D8" />
-                <XStack
-                    p="$2"
-                    onPress={() => {
-                        setOpen(true);
-                    }}
-                >
-                    <LottieView
-                        source={LottieAssets.jumpingJack}
-                        style={{ width: 100, height: '100%' }}
-                        autoPlay
-                        loop
-                        speed={1.5}
+                <WorkoutExerciseOverview.Group onValueChange={setSelectedWorkout}>
+                    <WorkoutExerciseOverview
+                        type="duration"
+                        value="jumpingJacks"
+                        title="JUMPING JACKS"
+                        duration={20}
+                        lottieSource={LottieAssets.jumpingJack}
                     />
-                    <YStack
-                        flex={1}
-                        p="$4"
-                    >
-                        <Label size="large">JUMPING JACKS</Label>
-                        <Paragraph size="large">0:20</Paragraph>
-                    </YStack>
-                </XStack>
-                <Separator borderColor="#D0D3D8" />
-                <XStack p="$2">
-                    <LottieView
-                        source={LottieAssets.pushUp}
-                        autoPlay
-                        loop
-                        speed={1.5}
-                        style={{ width: 100 }}
+                    <Separator borderColor="#D0D3D8" />
+                    <WorkoutExerciseOverview
+                        type="reps"
+                        value="pushUp"
+                        title="PUSH UP"
+                        reps={5}
+                        lottieSource={LottieAssets.pushUp}
                     />
-                    <YStack
-                        flex={1}
-                        p="$4"
-                    >
-                        <Label size="large">PUSH UP</Label>
-                        <Paragraph size="large">x5</Paragraph>
-                    </YStack>
-                </XStack>
-                <Separator borderColor="#D0D3D8" />
+                    <Separator borderColor="#D0D3D8" />
+                </WorkoutExerciseOverview.Group>
             </ScrollView>
             <WorkoutExerciseDetailsSheet
-                open={open}
-                onOpenChange={setOpen}
+                open={!!selectedWorkout}
+                onOpenChange={() => {
+                    setSelectedWorkout('');
+                }}
                 lottieSource={LottieAssets.jumpingJack}
                 title="JUMPING JACKS"
                 duration={20}
