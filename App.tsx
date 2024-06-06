@@ -7,7 +7,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import React from 'react';
 import { LogBox } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { TamaguiProvider } from 'tamagui';
+import { PortalProvider, TamaguiProvider } from 'tamagui';
 import { Screens } from './app/navigation/Screens';
 import appConfig from './tamagui.config';
 
@@ -30,11 +30,16 @@ export default function App() {
     };
 
     return (
-        <TamaguiProvider config={appConfig}>
+        <TamaguiProvider
+            defaultTheme="light"
+            config={appConfig}
+        >
             <SafeAreaProvider>
                 <QueryClientProvider client={queryClient}>
                     <NavigationContainer onReady={onNavigationReady}>
-                        <Screens />
+                        <PortalProvider shouldAddRootHost>
+                            <Screens />
+                        </PortalProvider>
                     </NavigationContainer>
                 </QueryClientProvider>
             </SafeAreaProvider>
