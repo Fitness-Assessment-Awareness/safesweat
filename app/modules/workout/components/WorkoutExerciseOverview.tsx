@@ -3,9 +3,10 @@ import React, { ReactNode, createContext, useContext, useMemo } from 'react';
 import { XStack, YStack } from 'tamagui';
 import { Label } from '../../../components/Label';
 import { Paragraph } from '../../../components/Paragraph';
+import { ExerciseKey } from '../data/exercises';
 
 interface WorkoutExerciseOverviewContext {
-    onValueChange: (value: string) => void;
+    onValueChange: (value: ExerciseKey) => void;
 }
 
 interface WorkoutExerciseOverviewGroupProps extends WorkoutExerciseOverviewContext {
@@ -26,7 +27,7 @@ function WorkoutExerciseOverviewGroup({ onValueChange, children }: WorkoutExerci
 }
 
 interface BaseComponentProps {
-    value: string;
+    value: ExerciseKey;
     title: string;
     lottieSource: AnimationObject;
 }

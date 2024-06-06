@@ -13,20 +13,30 @@ interface CommonMistakes {
     description: string;
 }
 
-interface ComponentProps extends SheetProps {
+interface BaseComponentProps extends SheetProps {
     title: string;
     lottieSource: AnimationObject;
-    duration: number;
     instructions: string;
     focusAreas: string[];
     commonMistakes: CommonMistakes[];
     breathingTips: string[];
 }
 
+interface DurationComponentProps extends BaseComponentProps {
+    type: 'duration';
+    duration: number;
+}
+
+interface RepsComponentProps extends BaseComponentProps {
+    type: 'reps';
+    reps: number;
+}
+
+type ComponentProps = DurationComponentProps | RepsComponentProps;
+
 export function WorkoutExerciseDetailsSheet({
     title,
     lottieSource,
-    duration,
     instructions,
     focusAreas,
     commonMistakes,
@@ -42,7 +52,7 @@ export function WorkoutExerciseDetailsSheet({
                 p="$4"
                 pb={0}
             >
-                JUMPING JACKS
+                {title}
             </Heading>
             <Sheet.ScrollView
                 px="$4"
@@ -63,9 +73,11 @@ export function WorkoutExerciseDetailsSheet({
                         color="$blue11Light"
                         size="small"
                     >
-                        DURATION
+                        {otherProps.type === 'reps' ? 'REPS' : 'DURATION'}
                     </Heading>
-                    <Label size="large">{duration}s</Label>
+                    <Label size="large">
+                        {otherProps.type === 'reps' ? `x${otherProps.reps}` : `${otherProps.duration}s`}
+                    </Label>
                 </XStack>
                 <Heading
                     color="$blue11Light"
