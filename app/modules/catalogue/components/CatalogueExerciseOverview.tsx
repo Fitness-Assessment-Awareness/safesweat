@@ -2,29 +2,16 @@ import LottieView, { AnimationObject } from 'lottie-react-native';
 import React from 'react';
 import { XStack, YStack } from 'tamagui';
 import { Label } from '../../../components/Label';
-import { Paragraph } from '../../../components/Paragraph';
-import { ExerciseKey } from '../data/exercises';
+import { ExerciseKey } from '../../workout/data/exercises';
 
-interface BaseComponentProps {
+interface ComponentProps {
     value: ExerciseKey;
     title: string;
     lottieSource: AnimationObject;
     onValueChange: (value: ExerciseKey) => void;
 }
 
-interface DurationComponentProps extends BaseComponentProps {
-    type: 'duration';
-    duration: number;
-}
-
-interface RepsComponentProps extends BaseComponentProps {
-    type: 'reps';
-    reps: number;
-}
-
-type ComponentProps = DurationComponentProps | RepsComponentProps;
-
-export function WorkoutExerciseOverview({ value, title, lottieSource, onValueChange, ...props }: ComponentProps) {
+export function WorkoutExerciseOverview({ value, title, lottieSource, onValueChange }: ComponentProps) {
     return (
         <XStack
             p="$2"
@@ -42,12 +29,9 @@ export function WorkoutExerciseOverview({ value, title, lottieSource, onValueCha
             <YStack
                 flex={1}
                 p="$4"
+                justifyContent="center"
             >
                 <Label size="large">{title}</Label>
-                {/* TODO: Use dayjs to parse duration */}
-                <Paragraph size="large">
-                    {props.type === 'duration' ? `0:${props.duration}` : `x${props.reps}`}
-                </Paragraph>
             </YStack>
         </XStack>
     );

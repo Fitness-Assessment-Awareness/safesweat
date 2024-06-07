@@ -55,38 +55,39 @@ export function WorkoutPlanDetailsScreen() {
             </XStack>
             <Separator borderColor="#D0D3D8" />
             <ScrollView flex={1}>
-                <WorkoutExerciseOverview.Group
-                    onValueChange={(value) => {
-                        setOpen(true);
-                        setSelectedWorkout(value);
-                    }}
-                >
-                    {absBeginner.exercises.map((exercise) => {
-                        const exerciseDetails = EXERCISES[exercise.exerciseKey];
-                        return (
-                            <Fragment key={exercise.exerciseKey}>
-                                {exercise.type === 'duration' ? (
-                                    <WorkoutExerciseOverview
-                                        type={exercise.type}
-                                        value={exercise.exerciseKey}
-                                        title={exerciseDetails.title}
-                                        duration={exercise.duration}
-                                        lottieSource={exerciseDetails.lottieSource}
-                                    />
-                                ) : (
-                                    <WorkoutExerciseOverview
-                                        type={exercise.type}
-                                        value={exercise.exerciseKey}
-                                        title={exerciseDetails.title}
-                                        reps={exercise.reps}
-                                        lottieSource={exerciseDetails.lottieSource}
-                                    />
-                                )}
-                                <Separator borderColor="#D0D3D8" />
-                            </Fragment>
-                        );
-                    })}
-                </WorkoutExerciseOverview.Group>
+                {absBeginner.exercises.map((exercise) => {
+                    const exerciseDetails = EXERCISES[exercise.exerciseKey];
+                    return (
+                        <Fragment key={exercise.exerciseKey}>
+                            {exercise.type === 'duration' ? (
+                                <WorkoutExerciseOverview
+                                    type={exercise.type}
+                                    value={exercise.exerciseKey}
+                                    title={exerciseDetails.title}
+                                    duration={exercise.duration}
+                                    lottieSource={exerciseDetails.lottieSource}
+                                    onValueChange={(exerciseKey) => {
+                                        setOpen(true);
+                                        setSelectedWorkout(exerciseKey);
+                                    }}
+                                />
+                            ) : (
+                                <WorkoutExerciseOverview
+                                    type={exercise.type}
+                                    value={exercise.exerciseKey}
+                                    title={exerciseDetails.title}
+                                    reps={exercise.reps}
+                                    lottieSource={exerciseDetails.lottieSource}
+                                    onValueChange={(exerciseKey) => {
+                                        setOpen(true);
+                                        setSelectedWorkout(exerciseKey);
+                                    }}
+                                />
+                            )}
+                            <Separator borderColor="#D0D3D8" />
+                        </Fragment>
+                    );
+                })}
             </ScrollView>
             <Button
                 themeInverse
