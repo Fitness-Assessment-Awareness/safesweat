@@ -45,7 +45,7 @@ export function SearchBar({ searchText, onChangeText, ...viewProps }: ComponentP
                     </Pressable>
                 ) : (
                     <Pressable>
-                        <Search size="$2" />
+                        <Search size="$1.5" />
                     </Pressable>
                 )}
             </View>
