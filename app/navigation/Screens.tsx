@@ -84,6 +84,9 @@ export function Screens() {
             <RootStack.Screen
                 name="HomeTab"
                 component={HomeTabScreens}
+                options={{
+                    gestureEnabled: false,
+                }}
             />
         </RootStack.Navigator>
     );

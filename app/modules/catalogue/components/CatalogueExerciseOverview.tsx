@@ -11,7 +11,7 @@ interface ComponentProps {
     onValueChange: (value: ExerciseKey) => void;
 }
 
-export function WorkoutExerciseOverview({ value, title, lottieSource, onValueChange }: ComponentProps) {
+export function CatalogueExerciseOverview({ value, title, lottieSource, onValueChange }: ComponentProps) {
     return (
         <XStack
             p="$2"
@@ -21,7 +21,7 @@ export function WorkoutExerciseOverview({ value, title, lottieSource, onValueCha
         >
             <LottieView
                 source={lottieSource}
-                style={{ width: 100, height: '100%' }}
+                style={{ width: 100, height: 80 }}
                 autoPlay
                 loop
                 speed={1.5}
