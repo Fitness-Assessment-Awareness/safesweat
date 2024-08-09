@@ -5,9 +5,10 @@ import { Input, View, ViewProps } from 'tamagui';
 interface ComponentProps extends ViewProps {
     searchText: string;
     onChangeText: (text: string) => void;
+    inputPlaceholder?: string;
 }
 
-export function SearchBar({ searchText, onChangeText, ...viewProps }: ComponentProps) {
+export function SearchBar({ searchText, onChangeText, inputPlaceholder, ...viewProps }: ComponentProps) {
     return (
         <View
             width="100%"
@@ -21,7 +22,7 @@ export function SearchBar({ searchText, onChangeText, ...viewProps }: ComponentP
                 onChangeText={onChangeText}
                 fontSize={14}
                 letterSpacing={-0.07}
-                placeholder="Exercise Name"
+                placeholder={inputPlaceholder || 'Exercise Name'}
                 placeholderTextColor="#A0A3A8"
             />
             <View
