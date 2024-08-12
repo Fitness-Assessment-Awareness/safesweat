@@ -1,12 +1,31 @@
 /* eslint-disable react/no-unstable-nested-components */
+import { HeaderBackButton } from '../../../components/HeaderBackButton';
 import { HeaderTitle } from '../../../components/HeaderTitle';
 import { EducationPostDetailsScreen } from '../screens/EducationPostDetailsScreen';
 import { ExploreLandingScreen } from '../screens/ExploreLandingScreen';
 import { ExploreStack } from './ExploreStack';
+import { useExploreNavigation } from './useExploreNavigation';
 
 export function ExploreScreens() {
     return (
-        <ExploreStack.Navigator>
+        <ExploreStack.Navigator
+            screenOptions={{
+                headerTitle: '',
+                headerLeft: (props) => {
+                    // eslint-disable-next-line react-hooks/rules-of-hooks
+                    const navigation = useExploreNavigation();
+
+                    return (
+                        <HeaderBackButton
+                            {...props}
+                            onPress={() => {
+                                navigation.goBack();
+                            }}
+                        />
+                    );
+                },
+            }}
+        >
             <ExploreStack.Screen
                 name="ExploreLanding"
                 component={ExploreLandingScreen}
@@ -18,7 +37,7 @@ export function ExploreScreens() {
             <ExploreStack.Screen
                 name="EducationPostDetails"
                 component={EducationPostDetailsScreen}
-                options={{ headerTitle: '', headerTransparent: true, headerTintColor: 'white' }}
+                options={{ headerTransparent: true, headerTintColor: 'white' }}
             />
         </ExploreStack.Navigator>
     );
