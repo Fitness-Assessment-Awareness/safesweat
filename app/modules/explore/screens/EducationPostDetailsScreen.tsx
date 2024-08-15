@@ -27,10 +27,10 @@ export function EducationPostDetailsScreen({ route }: ComponentProps) {
     return (
         <Screen flex={1}>
             <StatusBar style="light" />
-            <View backgroundColor="red">
+            <View>
                 <Image
                     style={{ height: 250, width: '100%' }}
-                    objectFit="contain"
+                    objectFit="cover"
                     source={{ uri: thumbnailUrl }}
                 />
             </View>
