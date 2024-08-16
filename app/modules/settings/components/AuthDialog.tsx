@@ -1,6 +1,6 @@
 import { Mail } from '@tamagui/lucide-icons';
 import React, { useState } from 'react';
-import { Adapt, Button, Dialog, Input, SheetProps, Text, XStack, YStack } from 'tamagui';
+import { Adapt, Button, Dialog, Input, SheetProps, Spinner, Text, XStack, YStack } from 'tamagui';
 import { HeaderTitle } from '../../../components/HeaderTitle';
 import { Label } from '../../../components/Label';
 import { Sheet } from '../../../components/Sheet';
@@ -9,23 +9,34 @@ import { supabase } from '../../../utils/Supabase';
 interface ComponentProps extends SheetProps {}
 
 export function AuthDialog({ ...otherProps }: ComponentProps) {
-    const [email, setEmail] = useState('');
+    const [form, setForm] = useState({
+        email: '',
+        password: '',
+        errorMsg: '',
+    });
     const [isVerifyEmailPage, setIsVerifyEmailPage] = useState(false);
-    const [password, setPassword] = useState('');
-    const [errorMsg, setErrorMsg] = useState<string>('');
     const [action, setAction] = useState<'login' | 'signup'>('login');
+    const [loading, setLoading] = useState(false);
 
     async function signInWithEmail() {
+        setLoading(true);
+        const { email, password } = form;
         const { error } = await supabase.auth.signInWithPassword({
             email,
             password,
         });
         if (error) {
-            setErrorMsg(error.message);
+            setForm({
+                ...form,
+                errorMsg: error.message,
+            });
         }
+        setLoading(false);
     }
 
     async function signUpWithEmail() {
+        setLoading(true);
+        const { email, password } = form;
         const {
             data: { session },
             error,
@@ -34,11 +45,15 @@ export function AuthDialog({ ...otherProps }: ComponentProps) {
             password,
         });
         if (error) {
-            setErrorMsg(error.message);
+            setForm({
+                ...form,
+                errorMsg: error.message,
+            });
         }
         if (!session) {
             setIsVerifyEmailPage(true);
         }
+        setLoading(false);
     }
 
     return (
@@ -84,21 +99,33 @@ export function AuthDialog({ ...otherProps }: ComponentProps) {
                             >
                                 <Label htmlFor="email">Email</Label>
                                 <Input
+                                    disabled={loading}
                                     id="email"
-                                    value={email}
-                                    onChangeText={setEmail}
+                                    value={form.email}
+                                    onChangeText={(e) =>
+                                        setForm({
+                                            ...form,
+                                            email: e,
+                                        })
+                                    }
                                     placeholder="abc@gmail.com"
                                 />
                                 <Label htmlFor="password">Password</Label>
                                 <Input
+                                    disabled={loading}
                                     secureTextEntry
                                     id="password"
-                                    value={password}
-                                    onChangeText={setPassword}
+                                    value={form.password}
+                                    onChangeText={(e) =>
+                                        setForm({
+                                            ...form,
+                                            password: e,
+                                        })
+                                    }
                                     placeholder="Password"
                                 />
                                 {action === 'login' && <Label alignSelf="flex-end">Forgot your password?</Label>}
-                                {errorMsg && (
+                                {form.errorMsg && (
                                     <Text
                                         backgroundColor="red"
                                         color="white"
@@ -106,7 +133,7 @@ export function AuthDialog({ ...otherProps }: ComponentProps) {
                                         textAlign="center"
                                         p="$2"
                                     >
-                                        {errorMsg}
+                                        {form.errorMsg}
                                     </Text>
                                 )}
                                 <Button
@@ -114,7 +141,7 @@ export function AuthDialog({ ...otherProps }: ComponentProps) {
                                     themeInverse
                                     onPress={action === 'login' ? signInWithEmail : signUpWithEmail}
                                 >
-                                    OK
+                                    {loading ? <Spinner size="large" /> : 'OK'}
                                 </Button>
 
                                 <XStack alignSelf="center">
@@ -124,7 +151,11 @@ export function AuthDialog({ ...otherProps }: ComponentProps) {
                                             <Label
                                                 textDecorationLine="underline"
                                                 onPress={() => {
-                                                    setErrorMsg('');
+                                                    setForm({
+                                                        email: '',
+                                                        password: '',
+                                                        errorMsg: '',
+                                                    });
                                                     setAction('signup');
                                                 }}
                                             >
@@ -138,7 +169,11 @@ export function AuthDialog({ ...otherProps }: ComponentProps) {
                                             <Label
                                                 textDecorationLine="underline"
                                                 onPress={() => {
-                                                    setErrorMsg('');
+                                                    setForm({
+                                                        email: '',
+                                                        password: '',
+                                                        errorMsg: '',
+                                                    });
                                                     setAction('login');
                                                 }}
                                             >
@@ -165,7 +200,7 @@ export function AuthDialog({ ...otherProps }: ComponentProps) {
                             >
                                 <Mail size="$8" />
                                 <Label size="large">Please check your inbox for email verification!</Label>
-                                {errorMsg && (
+                                {form.errorMsg && (
                                     <Text
                                         backgroundColor="red"
                                         color="white"
@@ -173,27 +208,27 @@ export function AuthDialog({ ...otherProps }: ComponentProps) {
                                         textAlign="center"
                                         p="$2"
                                     >
-                                        {errorMsg}
+                                        {form.errorMsg}
                                     </Text>
                                 )}
                             </YStack>
-                            <Dialog.Close
-                                displayWhenAdapted
-                                asChild
-                                my="$2"
+
+                            <Button
+                                themeInverse
+                                m="$4"
+                                borderRadius="$8"
+                                onPress={() => {
+                                    setIsVerifyEmailPage(false);
+                                    setAction('login');
+                                    setForm({
+                                        email: '',
+                                        password: '',
+                                        errorMsg: '',
+                                    });
+                                }}
                             >
-                                <Button
-                                    themeInverse
-                                    m="$4"
-                                    borderRadius="$8"
-                                    onPress={() => {
-                                        setErrorMsg('');
-                                        setIsVerifyEmailPage(false);
-                                    }}
-                                >
-                                    OK
-                                </Button>
-                            </Dialog.Close>
+                                OK
+                            </Button>
                         </>
                     )}
                 </Dialog.Content>
