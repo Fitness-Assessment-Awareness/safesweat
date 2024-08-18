@@ -2,6 +2,7 @@ import { BottomSheetModal } from '@gorhom/bottom-sheet';
 import { useNetInfo } from '@react-native-community/netinfo';
 import { ArrowDown, ArrowUp, Settings2, WifiOff } from '@tamagui/lucide-icons';
 import React, { useEffect, useRef, useState } from 'react';
+import { Pressable } from 'react-native';
 import { Paragraph, ScrollView, Separator, Text, View, XStack, YStack } from 'tamagui';
 import { Screen } from '../../../components/Screen';
 import { SearchBar } from '../../../components/SearchBar';
@@ -72,11 +73,13 @@ export function ExploreLandingScreen() {
                             onChangeText={setSearchText}
                             inputPlaceholder="Post Title"
                         />
-                        <Settings2
+                        <Pressable
                             onPress={() => {
                                 sheetRef.current?.present();
                             }}
-                        />
+                        >
+                            <Settings2 />
+                        </Pressable>
                     </XStack>
                 </View>
                 <Separator borderColor="#D0D3D8" />
