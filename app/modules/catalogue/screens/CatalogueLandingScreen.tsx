@@ -1,5 +1,5 @@
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
-import React, { Fragment, useRef, useState } from 'react';
+import { Fragment, useRef, useState } from 'react';
 import { Paragraph, ScrollView, Separator, View } from 'tamagui';
 import { Screen } from '../../../components/Screen';
 import { SearchBar } from '../../../components/SearchBar';
@@ -31,29 +31,32 @@ function ScreenContent({ onExercisePress }: ScreenContentProps) {
                     onChangeText={setSearchText}
                 />
             </View>
+
             <Separator borderColor="#D0D3D8" />
-            {filteredExercises.length > 0 ? (
-                filteredExercises.map(([key, value]) => (
-                    <Fragment key={key}>
-                        <CatalogueExerciseOverview
-                            value={key}
-                            title={value.title}
-                            lottieSource={value.lottieSource}
-                            onValueChange={(exerciseKey) => {
-                                onExercisePress(exerciseKey);
-                            }}
-                        />
-                        <Separator borderColor="#D0D3D8" />
-                    </Fragment>
-                ))
-            ) : (
-                <Paragraph
-                    m="$8"
-                    alignSelf="center"
-                >
-                    No exercise found...
-                </Paragraph>
-            )}
+            <ScrollView>
+                {filteredExercises.length > 0 ? (
+                    filteredExercises.map(([key, value]) => (
+                        <Fragment key={key}>
+                            <CatalogueExerciseOverview
+                                value={key}
+                                title={value.title}
+                                lottieSource={value.lottieSource}
+                                onValueChange={(exerciseKey) => {
+                                    onExercisePress(exerciseKey);
+                                }}
+                            />
+                            <Separator borderColor="#D0D3D8" />
+                        </Fragment>
+                    ))
+                ) : (
+                    <Paragraph
+                        m="$8"
+                        alignSelf="center"
+                    >
+                        No exercise found...
+                    </Paragraph>
+                )}
+            </ScrollView>
         </>
     );
 }
@@ -69,9 +72,7 @@ export function CatalogueLandingScreen() {
 
     return (
         <Screen flex={1}>
-            <ScrollView flex={1}>
-                <ScreenContent onExercisePress={onExercisePress} />
-            </ScrollView>
+            <ScreenContent onExercisePress={onExercisePress} />
             <Sheet
                 ref={sheetRef}
                 snapPoints={['85%']}

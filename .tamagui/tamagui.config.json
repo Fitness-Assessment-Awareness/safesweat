@@ -53724,10 +53724,7 @@
     },
     "selectionStyles": "Function",
     "settings": {
-      "webContainerType": "inline-size",
       "defaultFont": "body",
-      "shouldAddPrefersColorThemes": true,
-      "themeClassNameOnRoot": true,
       "mediaQueryDefaultActive": {
         "xl": true,
         "lg": true,
@@ -53735,7 +53732,10 @@
         "sm": true,
         "xs": true,
         "xxs": false
-      }
+      },
+      "themeClassNameOnRoot": true,
+      "webContainerType": "inline-size",
+      "shouldAddPrefersColorThemes": true
     },
     "unset": {
       "fontFamily": "$body"

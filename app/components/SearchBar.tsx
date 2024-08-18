@@ -16,7 +16,6 @@ export function SearchBar({ searchText, onChangeText, inputPlaceholder, ...viewP
         >
             <Input
                 size="$4"
-                flex={1}
                 borderRadius="$8"
                 value={searchText}
                 onChangeText={onChangeText}
