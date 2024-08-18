@@ -1,5 +1,5 @@
 import LottieView, { AnimationObject } from 'lottie-react-native';
-import { SheetProps, XStack, YStack } from 'tamagui';
+import { XStack, YStack } from 'tamagui';
 import { BulletPoint } from '../../../components/BulletPoint';
 import { Chip } from '../../../components/Chip';
 import { Heading } from '../../../components/Heading';
@@ -13,7 +13,7 @@ interface CommonMistakes {
     description: string;
 }
 
-interface BaseComponentProps extends SheetProps {
+interface BaseComponentProps {
     title: string;
     lottieSource: AnimationObject;
     instructions: string;
@@ -34,7 +34,7 @@ interface RepsComponentProps extends BaseComponentProps {
 
 type ComponentProps = DurationComponentProps | RepsComponentProps;
 
-export function WorkoutExerciseDetailsSheet({
+export function WorkoutExerciseDetailsSheetContent({
     title,
     lottieSource,
     instructions,
@@ -44,10 +44,7 @@ export function WorkoutExerciseDetailsSheet({
     ...otherProps
 }: ComponentProps) {
     return (
-        <Sheet
-            snapPoints={[85]}
-            {...otherProps}
-        >
+        <>
             <Heading
                 p="$4"
                 pb={0}
@@ -132,6 +129,6 @@ export function WorkoutExerciseDetailsSheet({
                     </BulletPoint>
                 ))}
             </Sheet.ScrollView>
-        </Sheet>
+        </>
     );
 }

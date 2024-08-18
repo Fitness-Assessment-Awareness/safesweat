@@ -1,18 +1,19 @@
-import React, { Fragment, useState } from 'react';
+import { BottomSheetModal } from '@gorhom/bottom-sheet';
+import React, { Fragment, useRef, useState } from 'react';
 import { Paragraph, ScrollView, Separator, View } from 'tamagui';
 import { Screen } from '../../../components/Screen';
 import { SearchBar } from '../../../components/SearchBar';
+import { Sheet } from '../../../components/Sheet';
 import { Exercise } from '../../workout/data/entities/Exercise';
 import { EXERCISES, ExerciseKey } from '../../workout/data/exercises';
-import { CatalogueExerciseDetailsSheet } from '../components/CatalogueExerciseDetailsSheet';
+import { CatalogueExerciseDetailsSheetContent } from '../components/CatalogueExerciseDetailsSheet';
 import { CatalogueExerciseOverview } from '../components/CatalogueExerciseOverview';
 
 interface ScreenContentProps {
-    setOpen: (open: boolean) => void;
-    setSelectedWorkout: (workout: ExerciseKey) => void;
+    onExercisePress: (workout: ExerciseKey) => void;
 }
 
-function ScreenContent({ setOpen, setSelectedWorkout }: ScreenContentProps) {
+function ScreenContent({ onExercisePress }: ScreenContentProps) {
     const exercises = Object.entries(EXERCISES) as [ExerciseKey, Exercise][];
     const [searchText, setSearchText] = useState('');
 
@@ -39,8 +40,7 @@ function ScreenContent({ setOpen, setSelectedWorkout }: ScreenContentProps) {
                             title={value.title}
                             lottieSource={value.lottieSource}
                             onValueChange={(exerciseKey) => {
-                                setOpen(true);
-                                setSelectedWorkout(exerciseKey);
+                                onExercisePress(exerciseKey);
                             }}
                         />
                         <Separator borderColor="#D0D3D8" />
@@ -59,22 +59,25 @@ function ScreenContent({ setOpen, setSelectedWorkout }: ScreenContentProps) {
 }
 
 export function CatalogueLandingScreen() {
-    const [open, setOpen] = useState(false);
     const [selectedWorkout, setSelectedWorkout] = useState<ExerciseKey>('jumpingJacks');
+    const sheetRef = useRef<BottomSheetModal>(null);
+
+    const onExercisePress = (workout: ExerciseKey) => {
+        setSelectedWorkout(workout);
+        sheetRef.current?.present();
+    };
 
     return (
         <Screen flex={1}>
             <ScrollView flex={1}>
-                <ScreenContent
-                    setSelectedWorkout={setSelectedWorkout}
-                    setOpen={setOpen}
-                />
+                <ScreenContent onExercisePress={onExercisePress} />
             </ScrollView>
-            <CatalogueExerciseDetailsSheet
-                open={open}
-                onOpenChange={setOpen}
-                {...EXERCISES[selectedWorkout]}
-            />
+            <Sheet
+                ref={sheetRef}
+                snapPoints={['85%']}
+            >
+                <CatalogueExerciseDetailsSheetContent {...EXERCISES[selectedWorkout]} />
+            </Sheet>
         </Screen>
     );
 }

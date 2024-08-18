@@ -1,10 +1,12 @@
+import { BottomSheetModal } from '@gorhom/bottom-sheet';
 import { StatusBar } from 'expo-status-bar';
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useRef, useState } from 'react';
 import { Button, Image, ScrollView, Separator, View, XStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Paragraph } from '../../../components/Paragraph';
 import { Screen } from '../../../components/Screen';
-import { WorkoutExerciseDetailsSheet } from '../components/WorkoutExerciseDetailsSheet';
+import { Sheet } from '../../../components/Sheet';
+import { WorkoutExerciseDetailsSheetContent } from '../components/WorkoutExerciseDetailsSheet';
 import { WorkoutExerciseOverview } from '../components/WorkoutExerciseOverview';
 import { EXERCISES, ExerciseKey } from '../data/exercises';
 import { WORKOUTS } from '../data/workouts';
@@ -12,7 +14,7 @@ import { WORKOUTS } from '../data/workouts';
 const { absBeginner } = WORKOUTS;
 
 export function WorkoutPlanDetailsScreen() {
-    const [open, setOpen] = useState(false);
+    const sheetRef = useRef<BottomSheetModal>(null);
     const [selectedWorkout, setSelectedWorkout] = useState<ExerciseKey>('jumpingJacks');
 
     const selectedExerciseDetails = absBeginner.exercises.find((exercise) => exercise.exerciseKey === selectedWorkout)!;
@@ -67,8 +69,8 @@ export function WorkoutPlanDetailsScreen() {
                                     duration={exercise.duration}
                                     lottieSource={exerciseDetails.lottieSource}
                                     onValueChange={(exerciseKey) => {
-                                        setOpen(true);
                                         setSelectedWorkout(exerciseKey);
+                                        sheetRef.current?.present();
                                     }}
                                 />
                             ) : (
@@ -79,8 +81,8 @@ export function WorkoutPlanDetailsScreen() {
                                     reps={exercise.reps}
                                     lottieSource={exerciseDetails.lottieSource}
                                     onValueChange={(exerciseKey) => {
-                                        setOpen(true);
                                         setSelectedWorkout(exerciseKey);
+                                        sheetRef.current?.present();
                                     }}
                                 />
                             )}
@@ -96,12 +98,15 @@ export function WorkoutPlanDetailsScreen() {
             >
                 Start
             </Button>
-            <WorkoutExerciseDetailsSheet
-                open={open}
-                onOpenChange={setOpen}
-                {...selectedExerciseDetails}
-                {...EXERCISES[selectedWorkout]}
-            />
+            <Sheet
+                ref={sheetRef}
+                snapPoints={['85%']}
+            >
+                <WorkoutExerciseDetailsSheetContent
+                    {...selectedExerciseDetails}
+                    {...EXERCISES[selectedWorkout]}
+                />
+            </Sheet>
         </Screen>
     );
 }

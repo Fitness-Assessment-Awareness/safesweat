@@ -1,11 +1,13 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable global-require */
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { NavigationContainer } from '@react-navigation/native';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import React from 'react';
 import { LogBox } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { PortalProvider, TamaguiProvider } from 'tamagui';
 import { Screens } from './app/navigation/Screens';
@@ -34,15 +36,19 @@ export default function App() {
             defaultTheme="light"
             config={appConfig}
         >
-            <SafeAreaProvider>
-                <QueryClientProvider client={queryClient}>
-                    <NavigationContainer onReady={onNavigationReady}>
-                        <PortalProvider shouldAddRootHost>
-                            <Screens />
-                        </PortalProvider>
-                    </NavigationContainer>
-                </QueryClientProvider>
-            </SafeAreaProvider>
+            <GestureHandlerRootView style={{ flex: 1 }}>
+                <SafeAreaProvider>
+                    <QueryClientProvider client={queryClient}>
+                        <NavigationContainer onReady={onNavigationReady}>
+                            <BottomSheetModalProvider>
+                                <PortalProvider shouldAddRootHost>
+                                    <Screens />
+                                </PortalProvider>
+                            </BottomSheetModalProvider>
+                        </NavigationContainer>
+                    </QueryClientProvider>
+                </SafeAreaProvider>
+            </GestureHandlerRootView>
         </TamaguiProvider>
     );
 }

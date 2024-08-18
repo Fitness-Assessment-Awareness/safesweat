@@ -1,40 +1,52 @@
-import { Sheet, SheetProps } from 'tamagui';
+import {
+    BottomSheetBackdrop,
+    BottomSheetBackdropProps,
+    BottomSheetModal,
+    BottomSheetModalProps,
+    BottomSheetScrollView,
+} from '@gorhom/bottom-sheet';
+import { ComponentProps, forwardRef, useCallback } from 'react';
+import { getToken, styled } from 'tamagui';
 
-function SheetInternal({ children, ...otherProps }: SheetProps) {
+const SheetInternal = forwardRef<BottomSheetModal, BottomSheetModalProps>(({ children, ...otherProps }, ref) => {
+    const renderBackdrop = useCallback(
+        (props: BottomSheetBackdropProps) => (
+            <BottomSheetBackdrop
+                {...props}
+                style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}
+                pressBehavior="close"
+                enableTouchThrough={false}
+                appearsOnIndex={0}
+                disappearsOnIndex={-1}
+            />
+        ),
+        [],
+    );
+
     return (
-        <Sheet
-            zIndex={100_000}
-            animation="quick"
-            dismissOnSnapToBottom
-            snapPointsMode="percent"
-            snapPoints={[50]}
-            modal
+        <BottomSheetModal
+            ref={ref}
+            backdropComponent={renderBackdrop}
+            handleIndicatorStyle={{ backgroundColor: '#DFE2E6', width: 44, height: 4, borderRadius: getToken('$8') }}
+            backgroundStyle={{ borderTopLeftRadius: getToken('$8'), borderTopRightRadius: getToken('$8') }}
             {...otherProps}
         >
-            <Sheet.Overlay
-                animation="lazy"
-                enterStyle={{ opacity: 0 }}
-                exitStyle={{ opacity: 0 }}
-            />
-
-            <Sheet.Frame
-                borderTopLeftRadius="$8"
-                borderTopRightRadius="$8"
-            >
-                <Sheet.Handle
-                    mt="$2"
-                    width="$6"
-                    alignSelf="center"
-                    height={6}
-                    opacity={0.3}
-                    backgroundColor="black"
-                />
-                {children}
-            </Sheet.Frame>
-        </Sheet>
+            {children}
+        </BottomSheetModal>
     );
-}
+});
 
-SheetInternal.ScrollView = Sheet.ScrollView;
+const SheetNamespace = Object.assign(SheetInternal, {
+    ScrollView: styled(
+        BottomSheetScrollView,
+        {},
+        {
+            accept: {
+                contentContainerStyle: 'style',
+            },
+        },
+    ),
+});
 
-export { SheetInternal as Sheet };
+export type SheetProps = ComponentProps<typeof SheetInternal>;
+export const Sheet = SheetNamespace;

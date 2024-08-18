@@ -1,5 +1,5 @@
 import LottieView, { AnimationObject } from 'lottie-react-native';
-import { SheetProps, XStack, YStack } from 'tamagui';
+import { XStack, YStack } from 'tamagui';
 import { BulletPoint } from '../../../components/BulletPoint';
 import { Chip } from '../../../components/Chip';
 import { Heading } from '../../../components/Heading';
@@ -13,7 +13,7 @@ interface CommonMistakes {
     description: string;
 }
 
-interface ComponentProps extends SheetProps {
+interface ComponentProps {
     title: string;
     lottieSource: AnimationObject;
     instructions: string;
@@ -22,20 +22,16 @@ interface ComponentProps extends SheetProps {
     breathingTips: string[];
 }
 
-export function CatalogueExerciseDetailsSheet({
+export function CatalogueExerciseDetailsSheetContent({
     title,
     lottieSource,
     instructions,
     focusAreas,
     commonMistakes,
     breathingTips,
-    ...otherProps
 }: ComponentProps) {
     return (
-        <Sheet
-            snapPoints={[85]}
-            {...otherProps}
-        >
+        <>
             <Heading
                 p="$4"
                 pb={0}
@@ -106,6 +102,6 @@ export function CatalogueExerciseDetailsSheet({
                     </BulletPoint>
                 ))}
             </Sheet.ScrollView>
-        </Sheet>
+        </>
     );
 }

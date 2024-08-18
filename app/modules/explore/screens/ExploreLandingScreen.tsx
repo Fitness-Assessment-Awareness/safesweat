@@ -1,12 +1,14 @@
+import { BottomSheetModal } from '@gorhom/bottom-sheet';
 import { useNetInfo } from '@react-native-community/netinfo';
 import { ArrowDown, ArrowUp, Settings2, WifiOff } from '@tamagui/lucide-icons';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Paragraph, ScrollView, Separator, Text, View, XStack, YStack } from 'tamagui';
 import { Screen } from '../../../components/Screen';
 import { SearchBar } from '../../../components/SearchBar';
+import { Sheet } from '../../../components/Sheet';
 import { fetchEducationCategories, fetchEducationPosts } from '../../../services/EducationPostService';
 import { EducationPostCard } from '../components/EducationPostCard';
-import { ExploreSortFilterSheet } from '../components/ExploreSortFilterSheet';
+import { ExploreSortFilterSheetContent } from '../components/ExploreSortFilterSheet';
 import { EducationCategory } from '../data/entities/EducationCategory';
 import { EducationPost } from '../data/entities/EducationPost';
 import { SortOption } from '../data/SortOption';
@@ -28,9 +30,9 @@ const sortOptions: SortOption[] = [
 ] as const;
 
 export function ExploreLandingScreen() {
+    const sheetRef = useRef<BottomSheetModal>(null);
     const [educationPosts, setEducationPosts] = useState<EducationPost[]>([]);
     const [searchText, setSearchText] = useState('');
-    const [open, setOpen] = useState(false);
     const [categories, setCategories] = useState<EducationCategory[]>([]);
     const [selectedOption, setSelectedOption] = useState<SortOption | null>(null);
     const [selectedCategory, setSelectedCategory] = useState<EducationCategory | null>(null);
@@ -70,7 +72,11 @@ export function ExploreLandingScreen() {
                             onChangeText={setSearchText}
                             inputPlaceholder="Post Title"
                         />
-                        <Settings2 onPress={() => setOpen(true)} />
+                        <Settings2
+                            onPress={() => {
+                                sheetRef.current?.present();
+                            }}
+                        />
                     </XStack>
                 </View>
                 <Separator borderColor="#D0D3D8" />
@@ -118,16 +124,21 @@ export function ExploreLandingScreen() {
                     </XStack>
                 )}
             </ScrollView>
-            <ExploreSortFilterSheet
-                open={open}
-                onOpenChange={setOpen}
-                selectedCategory={selectedCategory}
-                selectedOption={selectedOption}
-                setSelectedCategory={setSelectedCategory}
-                setSelectedOption={setSelectedOption}
-                sortOptions={sortOptions}
-                categories={categories}
-            />
+            <Sheet
+                ref={sheetRef}
+                enableDynamicSizing
+            >
+                <Sheet.ScrollView>
+                    <ExploreSortFilterSheetContent
+                        selectedCategory={selectedCategory}
+                        selectedOption={selectedOption}
+                        setSelectedCategory={setSelectedCategory}
+                        setSelectedOption={setSelectedOption}
+                        sortOptions={sortOptions}
+                        categories={categories}
+                    />
+                </Sheet.ScrollView>
+            </Sheet>
         </Screen>
     );
 }
