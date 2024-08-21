@@ -1,6 +1,6 @@
-import { PostDetails } from '../screens/EducationPostDetailsScreen';
+import { PostDetails } from '../screens/ExploreEducationPostDetailsScreen';
 
 export type ExploreStackParamList = {
     ExploreLanding: undefined;
-    EducationPostDetails: PostDetails;
+    ExploreEducationPostDetails: PostDetails;
 };

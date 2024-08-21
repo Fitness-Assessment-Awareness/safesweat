@@ -7,11 +7,11 @@ import { Paragraph, ScrollView, Separator, Text, View, XStack, YStack } from 'ta
 import { Screen } from '../../../components/Screen';
 import { SearchBar } from '../../../components/SearchBar';
 import { Sheet } from '../../../components/Sheet';
-import { fetchEducationCategories, fetchEducationPosts } from '../../../services/EducationPostService';
 import { EducationPostCard } from '../components/EducationPostCard';
 import { ExploreSortFilterSheetContent } from '../components/ExploreSortFilterSheet';
 import { EducationCategory } from '../data/entities/EducationCategory';
 import { EducationPost } from '../data/entities/EducationPost';
+import { fetchEducationCategories, fetchEducationPosts } from '../data/services/EducationPostService';
 import { SortOption } from '../data/SortOption';
 import { useExploreNavigation } from '../navigation/useExploreNavigation';
 
@@ -98,7 +98,7 @@ export function ExploreLandingScreen() {
                                     }}
                                     backgroundColor="$colorTransparent"
                                     onPress={() => {
-                                        navigation.navigate('EducationPostDetails', {
+                                        navigation.navigate('ExploreEducationPostDetails', {
                                             title: post.titleEn,
                                             thumbnailUrl: post.imageUrl,
                                             content: post.contentEn,

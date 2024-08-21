@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unstable-nested-components */
 import { HeaderBackButton } from '../../../components/HeaderBackButton';
 import { HeaderTitle } from '../../../components/HeaderTitle';
-import { EducationPostDetailsScreen } from '../screens/EducationPostDetailsScreen';
+import { ExploreEducationPostDetailsScreen } from '../screens/ExploreEducationPostDetailsScreen';
 import { ExploreLandingScreen } from '../screens/ExploreLandingScreen';
 import { ExploreStack } from './ExploreStack';
 import { useExploreNavigation } from './useExploreNavigation';
@@ -35,8 +35,8 @@ export function ExploreScreens() {
                 }}
             />
             <ExploreStack.Screen
-                name="EducationPostDetails"
-                component={EducationPostDetailsScreen}
+                name="ExploreEducationPostDetails"
+                component={ExploreEducationPostDetailsScreen}
                 options={{ headerTransparent: true, headerTintColor: 'white' }}
             />
         </ExploreStack.Navigator>

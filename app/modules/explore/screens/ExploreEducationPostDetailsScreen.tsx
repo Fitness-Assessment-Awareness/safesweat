@@ -18,10 +18,10 @@ export interface PostDetails {
 }
 
 interface ComponentProps {
-    route: RouteProp<{ EducationPostDetails: PostDetails }, 'EducationPostDetails'>;
+    route: RouteProp<{ ExploreEducationPostDetails: PostDetails }, 'ExploreEducationPostDetails'>;
 }
 
-export function EducationPostDetailsScreen({ route }: ComponentProps) {
+export function ExploreEducationPostDetailsScreen({ route }: ComponentProps) {
     const { thumbnailUrl, title, content, likeCount, category, createdBy, lastUpdatedBy } = route.params;
 
     return (

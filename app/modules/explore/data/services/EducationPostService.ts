@@ -1,6 +1,6 @@
-import { EducationCategory } from '../modules/explore/data/entities/EducationCategory';
-import { EducationPost } from '../modules/explore/data/entities/EducationPost';
-import { Network } from '../network/Network';
+import { Network } from '../../../../network/Network';
+import { EducationCategory } from '../entities/EducationCategory';
+import { EducationPost } from '../entities/EducationPost';
 
 export const fetchEducationPosts = async () => {
     const response = await Network.get<EducationPost[]>('/education-post/list');
