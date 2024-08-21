@@ -48,26 +48,30 @@ export function ExploreSortFilterSheetContent({
                     </Chip>
                 ))}
             </XStack>
-            <Heading
-                p="$4"
-                pb={0}
-            >
-                Filter
-            </Heading>
-            <XStack
-                p="$4"
-                gap="$3"
-            >
-                {categories.map((category) => (
-                    <Chip
-                        backgroundColor={selectedCategory === category ? '$blue8' : '$gray4'}
-                        key={category.categoryId}
-                        onPress={() => setSelectedCategory(selectedCategory === category ? null : category)}
+            {categories.length > 0 && (
+                <>
+                    <Heading
+                        p="$4"
+                        pb={0}
                     >
-                        {category.name}
-                    </Chip>
-                ))}
-            </XStack>
+                        Filter
+                    </Heading>
+                    <XStack
+                        p="$4"
+                        gap="$3"
+                    >
+                        {categories.map((category) => (
+                            <Chip
+                                backgroundColor={selectedCategory === category ? '$blue8' : '$gray4'}
+                                key={category.categoryId}
+                                onPress={() => setSelectedCategory(selectedCategory === category ? null : category)}
+                            >
+                                {category.name}
+                            </Chip>
+                        ))}
+                    </XStack>
+                </>
+            )}
         </>
     );
 }
