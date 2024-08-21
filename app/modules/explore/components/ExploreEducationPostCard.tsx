@@ -8,7 +8,7 @@ interface ComponentProps extends CardProps {
     imageSource: ImageSourcePropType;
 }
 
-export function EducationPostCard({ title, imageSource, ...cardProps }: ComponentProps) {
+export function ExploreEducationPostCard({ title, imageSource, ...cardProps }: ComponentProps) {
     return (
         <Card
             borderRadius="$9"

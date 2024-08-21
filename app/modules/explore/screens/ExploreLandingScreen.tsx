@@ -7,7 +7,7 @@ import { Paragraph, ScrollView, Separator, Text, View, XStack, YStack } from 'ta
 import { Screen } from '../../../components/Screen';
 import { SearchBar } from '../../../components/SearchBar';
 import { Sheet } from '../../../components/Sheet';
-import { EducationPostCard } from '../components/EducationPostCard';
+import { ExploreEducationPostCard } from '../components/ExploreEducationPostCard';
 import { ExploreSortFilterSheetContent } from '../components/ExploreSortFilterSheet';
 import { EducationCategory } from '../data/entities/EducationCategory';
 import { EducationPost } from '../data/entities/EducationPost';
@@ -90,7 +90,7 @@ export function ExploreLandingScreen() {
                     >
                         {filteredEducationPosts.length > 0 ? (
                             filteredEducationPosts.map((post) => (
-                                <EducationPostCard
+                                <ExploreEducationPostCard
                                     key={post.postId}
                                     title={post.titleEn}
                                     imageSource={{
