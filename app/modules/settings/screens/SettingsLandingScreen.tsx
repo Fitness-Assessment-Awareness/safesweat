@@ -1,14 +1,17 @@
+import { BottomSheetModal } from '@gorhom/bottom-sheet';
 import { Session } from '@supabase/supabase-js';
 import { AlertTriangle, ChevronRight, Globe, PencilLine, RefreshCw } from '@tamagui/lucide-icons';
-import React, { useEffect, useState } from 'react';
-import { Image, ListItem, ScrollView, Separator, YGroup } from 'tamagui';
+import React, { useEffect, useRef, useState } from 'react';
+import { Button, Image, ListItem, ScrollView, Separator, YGroup } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Screen } from '../../../components/Screen';
+import { Sheet } from '../../../components/Sheet';
 import { supabase } from '../../../utils/Supabase';
 import { SettingsAssets } from '../assets';
-import { AuthDialog } from '../components/AuthDialog';
+import { SettingsAuthSheetContent } from '../components/SettingsAuthSheet';
 
 export function SettingsLandingScreen() {
+    const sheetRef = useRef<BottomSheetModal>(null);
     const [userSession, setUserSession] = useState<Session | null>(null);
 
     useEffect(() => {
@@ -74,8 +77,27 @@ export function SettingsLandingScreen() {
                     </YGroup.Item>
                     <Separator borderColor="#D0D3D8" />
                 </YGroup>
-                <AuthDialog />
+                <Button
+                    backgroundColor="$green11"
+                    pressStyle={{ backgroundColor: '$green10' }}
+                    color="white"
+                    m="$4"
+                    borderRadius="$8"
+                    onPress={() => {
+                        sheetRef.current?.present();
+                    }}
+                >
+                    Login
+                </Button>
             </ScrollView>
+            <Sheet
+                ref={sheetRef}
+                enableDynamicSizing
+            >
+                <Sheet.ScrollView>
+                    <SettingsAuthSheetContent />
+                </Sheet.ScrollView>
+            </Sheet>
         </Screen>
     );
 }
