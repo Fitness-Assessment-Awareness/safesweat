@@ -77,7 +77,6 @@ export function Screens() {
             id="root"
             screenOptions={{
                 orientation: 'portrait',
-                headerShown: false,
             }}
         >
             {OnboardingScreenGroup}
@@ -85,6 +84,7 @@ export function Screens() {
                 name="HomeTab"
                 component={HomeTabScreens}
                 options={{
+                    headerShown: false,
                     gestureEnabled: false,
                 }}
             />
