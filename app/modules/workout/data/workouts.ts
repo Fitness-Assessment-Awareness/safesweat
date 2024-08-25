@@ -13,3 +13,5 @@ export const WORKOUTS = {
         thumbnail: WorkoutAssets.workoutBeginner,
     },
 } as const satisfies Record<string, Workout>;
+
+export type WorkoutKey = keyof typeof WORKOUTS;

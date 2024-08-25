@@ -5,7 +5,7 @@ import { CatalogueStackParamList } from '../modules/catalogue/navigation/Catalog
 import { ExploreStackParamList } from '../modules/explore/navigation/ExploreStackParamList';
 import { OnboardingRootStackParamList } from '../modules/onboarding/navigation/OnboardingRootStackParamList';
 import { SettingsStackParamList } from '../modules/settings/navigation/SettingsStackParamList';
-import { WorkoutStackParamList } from '../modules/workout/navigation/WorkoutStackParamList';
+import { WorkoutRootStackParamList, WorkoutStackParamList } from '../modules/workout/navigation/WorkoutStackParamList';
 
 export type HomeTabParamList = {
     WorkoutStack: NavigatorScreenParams<WorkoutStackParamList>;
@@ -16,7 +16,8 @@ export type HomeTabParamList = {
 
 export type NavigationStackParamList = {
     HomeTab: NavigatorScreenParams<HomeTabParamList>;
-} & OnboardingRootStackParamList;
+} & OnboardingRootStackParamList &
+    WorkoutRootStackParamList;
 
 export const RootStack = createNativeStackNavigator<NavigationStackParamList>();
 export const Tab = createBottomTabNavigator<HomeTabParamList>();

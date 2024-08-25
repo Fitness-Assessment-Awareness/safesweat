@@ -1,4 +1,5 @@
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
+import { RouteProp, useRoute } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import React, { Fragment, useRef, useState } from 'react';
 import { Button, Image, ScrollView, Separator, View, XStack } from 'tamagui';
@@ -10,14 +11,23 @@ import { WorkoutExerciseDetailsSheetContent } from '../components/WorkoutExercis
 import { WorkoutExerciseOverview } from '../components/WorkoutExerciseOverview';
 import { EXERCISES, ExerciseKey } from '../data/exercises';
 import { WORKOUTS } from '../data/workouts';
+import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
+import { WorkoutStackParamList } from '../navigation/WorkoutStackParamList';
 
 const { absBeginner } = WORKOUTS;
 
 export function WorkoutPlanDetailsScreen() {
-    const sheetRef = useRef<BottomSheetModal>(null);
-    const [selectedWorkout, setSelectedWorkout] = useState<ExerciseKey>('jumpingJacks');
+    const { navigate } = useWorkoutNavigation<'WorkoutPlanDetails'>();
+    const { params } = useRoute<RouteProp<WorkoutStackParamList, 'WorkoutPlanDetails'>>();
+    const { workoutKey } = params;
 
-    const selectedExerciseDetails = absBeginner.exercises.find((exercise) => exercise.exerciseKey === selectedWorkout)!;
+    const sheetRef = useRef<BottomSheetModal>(null);
+
+    const workoutPlan = WORKOUTS[workoutKey];
+    const [selectedExercise, setSelectedExercise] = useState<ExerciseKey>('jumpingJacks');
+    const selectedExerciseDetails = workoutPlan.exercises.find(
+        (exercise) => exercise.exerciseKey === selectedExercise,
+    )!;
 
     return (
         <Screen flex={1}>
@@ -69,7 +79,7 @@ export function WorkoutPlanDetailsScreen() {
                                     duration={exercise.duration}
                                     lottieSource={exerciseDetails.lottieSource}
                                     onValueChange={(exerciseKey) => {
-                                        setSelectedWorkout(exerciseKey);
+                                        setSelectedExercise(exerciseKey);
                                         sheetRef.current?.present();
                                     }}
                                 />
@@ -81,7 +91,7 @@ export function WorkoutPlanDetailsScreen() {
                                     reps={exercise.reps}
                                     lottieSource={exerciseDetails.lottieSource}
                                     onValueChange={(exerciseKey) => {
-                                        setSelectedWorkout(exerciseKey);
+                                        setSelectedExercise(exerciseKey);
                                         sheetRef.current?.present();
                                     }}
                                 />
@@ -95,6 +105,9 @@ export function WorkoutPlanDetailsScreen() {
                 themeInverse
                 m="$4"
                 borderRadius="$8"
+                onPress={() => {
+                    navigate('WorkoutStartInitial', { workoutKey });
+                }}
             >
                 Start
             </Button>
@@ -104,7 +117,7 @@ export function WorkoutPlanDetailsScreen() {
             >
                 <WorkoutExerciseDetailsSheetContent
                     {...selectedExerciseDetails}
-                    {...EXERCISES[selectedWorkout]}
+                    {...EXERCISES[selectedExercise]}
                 />
             </Sheet>
         </Screen>

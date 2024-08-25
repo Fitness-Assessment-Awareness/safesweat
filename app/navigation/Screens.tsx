@@ -1,11 +1,14 @@
 /* eslint-disable react/no-unstable-nested-components */
 import { BookMarked, Dumbbell, Globe2, Settings } from '@tamagui/lucide-icons';
+import { HeaderBackButton } from '../components/HeaderBackButton';
 import { CatalogueScreens } from '../modules/catalogue/navigation/CatalogueScreenGroup';
 import { ExploreScreens } from '../modules/explore/navigation/ExploreScreenGroup';
 import { OnboardingScreenGroup } from '../modules/onboarding/navigation/OnboardingScreenGroup';
 import { SettingsScreens } from '../modules/settings/navigation/SettingsScreenGroup';
+import { WorkoutRootScreens } from '../modules/workout/navigation/WorkoutRootScreenGroup';
 import { WorkoutScreens } from '../modules/workout/navigation/WorkoutScreenGroup';
 import { RootStack, Tab } from './AppNavigator';
+import { useRootNavigation } from './useAppNavigation';
 
 function HomeTabScreens() {
     return (
@@ -77,6 +80,21 @@ export function Screens() {
             id="root"
             screenOptions={{
                 orientation: 'portrait',
+                headerTitle: '',
+                headerLeft: (props) => {
+                    // eslint-disable-next-line react-hooks/rules-of-hooks
+                    const navigation = useRootNavigation();
+
+                    return (
+                        <HeaderBackButton
+                            {...props}
+                            onPress={() => {
+                                navigation.goBack();
+                            }}
+                        />
+                    );
+                },
+                headerTintColor: 'black',
             }}
         >
             {OnboardingScreenGroup}
@@ -88,6 +106,7 @@ export function Screens() {
                     gestureEnabled: false,
                 }}
             />
+            {WorkoutRootScreens()}
         </RootStack.Navigator>
     );
 }

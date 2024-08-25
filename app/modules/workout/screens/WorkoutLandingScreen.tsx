@@ -91,7 +91,7 @@ export function WorkoutLandingScreen() {
                             description="20 MINS | 16 EXERCISES"
                             imageSource={WorkoutAssets.workoutBeginner}
                             onPress={() => {
-                                navigation.navigate('WorkoutPlanDetails');
+                                navigation.navigate('WorkoutPlanDetails', { workoutKey: 'absBeginner' });
                             }}
                         />
                         <WorkoutPlanCard
