@@ -31,7 +31,10 @@ export function WorkoutPlanDetailsScreen() {
 
     return (
         <Screen flex={1}>
-            <StatusBar style="light" />
+            <StatusBar
+                style="light"
+                animated
+            />
             <View>
                 <Image
                     style={{ height: 250, width: '100%' }}
