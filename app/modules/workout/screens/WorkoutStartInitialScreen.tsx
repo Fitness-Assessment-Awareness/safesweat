@@ -1,11 +1,11 @@
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
 import { RouteProp, useRoute } from '@react-navigation/native';
-import { Info } from '@tamagui/lucide-icons';
+import { ChevronRight, Info } from '@tamagui/lucide-icons';
 import { StatusBar } from 'expo-status-bar';
 import LottieView from 'lottie-react-native';
 import { useRef, useState } from 'react';
+import { Pressable } from 'react-native';
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { getTokenValue, View } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
@@ -19,7 +19,6 @@ import { WorkoutRootStackParamList } from '../navigation/WorkoutStackParamList';
 export function WorkoutStartInitialScreen() {
     const { params } = useRoute<RouteProp<WorkoutRootStackParamList, 'WorkoutStartInitial'>>();
     const { workoutKey } = params;
-    const insets = useSafeAreaInsets();
     const sheetRef = useRef<BottomSheetModal>(null);
 
     const [isCountingDown, setIsCountingDown] = useState(true);
@@ -30,7 +29,7 @@ export function WorkoutStartInitialScreen() {
         <>
             <Screen
                 flex={1}
-                pt={insets.top + getTokenValue('$8')}
+                pt="$8"
             >
                 <StatusBar
                     style="dark"
@@ -69,7 +68,10 @@ export function WorkoutStartInitialScreen() {
                             hitSlop={4}
                         />
                     </View>
-                    <View pt="$4">
+                    <View
+                        position="relative"
+                        pt="$4"
+                    >
                         <CountdownCircleTimer
                             isPlaying={isCountingDown}
                             colors={getTokenValue('$blue11Light')}
@@ -79,6 +81,18 @@ export function WorkoutStartInitialScreen() {
                         >
                             {({ remainingTime }) => <Heading size="large">{remainingTime}</Heading>}
                         </CountdownCircleTimer>
+                        <Pressable
+                            style={{
+                                position: 'absolute',
+                                top: '50%',
+                                left: '30%',
+                            }}
+                            onPress={() => {
+                                console.log('Next exercise');
+                            }}
+                        >
+                            <ChevronRight size={36} />
+                        </Pressable>
                     </View>
                 </View>
             </Screen>

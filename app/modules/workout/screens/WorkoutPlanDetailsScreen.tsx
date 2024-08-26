@@ -5,7 +5,6 @@ import React, { Fragment, useRef, useState } from 'react';
 import { Button, Image, ScrollView, Separator, View, XStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Paragraph } from '../../../components/Paragraph';
-import { Screen } from '../../../components/Screen';
 import { Sheet } from '../../../components/Sheet';
 import { WorkoutExerciseDetailsSheetContent } from '../components/WorkoutExerciseDetailsSheet';
 import { WorkoutExerciseOverview } from '../components/WorkoutExerciseOverview';
@@ -30,7 +29,7 @@ export function WorkoutPlanDetailsScreen() {
     )!;
 
     return (
-        <Screen flex={1}>
+        <View flex={1}>
             <StatusBar
                 style="light"
                 animated
@@ -123,6 +122,6 @@ export function WorkoutPlanDetailsScreen() {
                     {...EXERCISES[selectedExercise]}
                 />
             </Sheet>
-        </Screen>
+        </View>
     );
 }
