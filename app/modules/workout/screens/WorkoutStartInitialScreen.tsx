@@ -11,12 +11,14 @@ import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
 import { Screen } from '../../../components/Screen';
 import { Sheet } from '../../../components/Sheet';
+import { useRootNavigation } from '../../../navigation/useAppNavigation';
 import { WorkoutExerciseDetailsSheetContent } from '../components/WorkoutExerciseDetailsSheet';
 import { EXERCISES } from '../data/exercises';
 import { WORKOUTS } from '../data/workouts';
 import { WorkoutRootStackParamList } from '../navigation/WorkoutStackParamList';
 
 export function WorkoutStartInitialScreen() {
+    const { replace } = useRootNavigation();
     const { params } = useRoute<RouteProp<WorkoutRootStackParamList, 'WorkoutStartInitial'>>();
     const { workoutKey } = params;
     const sheetRef = useRef<BottomSheetModal>(null);
@@ -24,6 +26,13 @@ export function WorkoutStartInitialScreen() {
     const [isCountingDown, setIsCountingDown] = useState(true);
     const workout = WORKOUTS[workoutKey];
     const firstWorkoutExercise = workout.exercises[0];
+
+    const onNextExercise = () => {
+        replace('WorkoutResting', {
+            workoutKey,
+            index: 0,
+        });
+    };
 
     return (
         <>
@@ -78,6 +87,7 @@ export function WorkoutStartInitialScreen() {
                             duration={20}
                             size={100}
                             strokeWidth={8}
+                            onComplete={onNextExercise}
                         >
                             {({ remainingTime }) => <Heading size="large">{remainingTime}</Heading>}
                         </CountdownCircleTimer>
@@ -87,9 +97,7 @@ export function WorkoutStartInitialScreen() {
                                 top: '50%',
                                 left: '30%',
                             }}
-                            onPress={() => {
-                                console.log('Next exercise');
-                            }}
+                            onPress={onNextExercise}
                         >
                             <ChevronRight size={36} />
                         </Pressable>

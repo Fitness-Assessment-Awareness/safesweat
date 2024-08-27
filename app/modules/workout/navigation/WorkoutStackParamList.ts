@@ -8,6 +8,11 @@ interface WorkoutStartInitialParams {
     workoutKey: WorkoutKey;
 }
 
+interface WorkoutRestingParams {
+    workoutKey: WorkoutKey;
+    index: number;
+}
+
 export type WorkoutStackParamList = {
     WorkoutLanding: undefined;
     WorkoutPlanDetails: WorkoutPlanDetailsParams;
@@ -15,4 +20,5 @@ export type WorkoutStackParamList = {
 
 export type WorkoutRootStackParamList = {
     WorkoutStartInitial: WorkoutStartInitialParams;
+    WorkoutResting: WorkoutRestingParams;
 };

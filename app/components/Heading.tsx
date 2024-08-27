@@ -25,6 +25,11 @@ export const Heading = styled(Text, {
                 lineHeight: 40,
                 letterSpacing: -0.96,
             },
+            'x-large': {
+                fontSize: 48,
+                lineHeight: 48,
+                letterSpacing: -0.96,
+            },
         },
     },
     defaultVariants: {
