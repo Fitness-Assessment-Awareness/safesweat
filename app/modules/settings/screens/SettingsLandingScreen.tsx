@@ -2,9 +2,8 @@ import { BottomSheetModal } from '@gorhom/bottom-sheet';
 import { Session } from '@supabase/supabase-js';
 import { AlertTriangle, ChevronRight, Globe, PencilLine, RefreshCw } from '@tamagui/lucide-icons';
 import React, { useEffect, useRef, useState } from 'react';
-import { Button, Image, ListItem, ScrollView, Separator, YGroup } from 'tamagui';
+import { Button, Image, ListItem, ScrollView, Separator, View, YGroup } from 'tamagui';
 import { Heading } from '../../../components/Heading';
-import { Screen } from '../../../components/Screen';
 import { Sheet } from '../../../components/Sheet';
 import { supabase } from '../../../utils/Supabase';
 import { SettingsAssets } from '../assets';
@@ -25,7 +24,7 @@ export function SettingsLandingScreen() {
     }, []);
 
     return (
-        <Screen flex={1}>
+        <View flex={1}>
             <ScrollView flex={1}>
                 <YGroup>
                     {userSession !== null && (
@@ -98,6 +97,6 @@ export function SettingsLandingScreen() {
                     <SettingsAuthSheetContent />
                 </Sheet.ScrollView>
             </Sheet>
-        </Screen>
+        </View>
     );
 }

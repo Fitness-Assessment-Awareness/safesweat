@@ -1,10 +1,9 @@
 import { Pencil } from '@tamagui/lucide-icons';
 import React from 'react';
-import { Card, Circle, ScrollView, XStack, YStack } from 'tamagui';
+import { Card, Circle, ScrollView, View, XStack, YStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
 import { Paragraph } from '../../../components/Paragraph';
-import { Screen } from '../../../components/Screen';
 import { WorkoutAssets } from '../assets';
 import { WorkoutLandingTabs } from '../components/WorkoutLandingTabs';
 import { WorkoutPlanCard } from '../components/WorkoutPlanCard';
@@ -16,7 +15,7 @@ export function WorkoutLandingScreen() {
     const navigation = useWorkoutNavigation<'WorkoutLanding'>();
 
     return (
-        <Screen>
+        <View>
             <ScrollView
                 contentContainerStyle={{
                     px: '$3',
@@ -147,6 +146,6 @@ export function WorkoutLandingScreen() {
                     </WorkoutLandingTabs.Content>
                 </WorkoutLandingTabs>
             </ScrollView>
-        </Screen>
+        </View>
     );
 }

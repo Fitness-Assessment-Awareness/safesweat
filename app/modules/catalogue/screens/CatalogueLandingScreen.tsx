@@ -1,7 +1,6 @@
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
 import { Fragment, useRef, useState } from 'react';
 import { Paragraph, ScrollView, Separator, View } from 'tamagui';
-import { Screen } from '../../../components/Screen';
 import { SearchBar } from '../../../components/SearchBar';
 import { Sheet } from '../../../components/Sheet';
 import { Exercise } from '../../workout/data/entities/Exercise';
@@ -71,7 +70,7 @@ export function CatalogueLandingScreen() {
     };
 
     return (
-        <Screen flex={1}>
+        <View flex={1}>
             <ScreenContent onExercisePress={onExercisePress} />
             <Sheet
                 ref={sheetRef}
@@ -79,6 +78,6 @@ export function CatalogueLandingScreen() {
             >
                 <CatalogueExerciseDetailsSheetContent {...EXERCISES[selectedWorkout]} />
             </Sheet>
-        </Screen>
+        </View>
     );
 }

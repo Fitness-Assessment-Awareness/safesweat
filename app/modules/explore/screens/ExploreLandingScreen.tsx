@@ -4,7 +4,6 @@ import { ArrowDown, ArrowUp, Settings2, WifiOff } from '@tamagui/lucide-icons';
 import React, { useEffect, useRef, useState } from 'react';
 import { Pressable } from 'react-native';
 import { Paragraph, ScrollView, Separator, Text, View, XStack, YStack } from 'tamagui';
-import { Screen } from '../../../components/Screen';
 import { SearchBar } from '../../../components/SearchBar';
 import { Sheet } from '../../../components/Sheet';
 import { ExploreEducationPostCard } from '../components/ExploreEducationPostCard';
@@ -56,7 +55,7 @@ export function ExploreLandingScreen() {
     }, [isConnected]);
 
     return (
-        <Screen flex={1}>
+        <View flex={1}>
             <ScrollView flex={1}>
                 <View
                     py="$2"
@@ -142,6 +141,6 @@ export function ExploreLandingScreen() {
                     />
                 </Sheet.ScrollView>
             </Sheet>
-        </Screen>
+        </View>
     );
 }
