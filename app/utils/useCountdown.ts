@@ -11,6 +11,7 @@ interface CountdownResult {
     seconds: number;
     startCountdown: (duration: number, unit?: plugin.DurationUnitType) => void;
     stopCountdown: () => void;
+    resetCountdown: () => void;
 }
 
 type UseCountdown = (options?: Options) => CountdownResult;
@@ -42,7 +43,7 @@ export const useCountdown: UseCountdown = (options?: Options) => {
     }, []);
 
     // using 0 count and NaN check to re-trigger the interval again when the startCountdown is called
-    useInterval(decrementCounter, !count ? null : intervalMs);
+    const clearInterval = useInterval(decrementCounter, !count ? null : intervalMs);
 
     const startCountdown = useCallback((duration: number, unit: plugin.DurationUnitType = 'seconds') => {
         /**
@@ -56,11 +57,12 @@ export const useCountdown: UseCountdown = (options?: Options) => {
         setCount(initialCount);
     }, []);
 
-    const stopCountdown = useCallback(() => setCount(0), []);
+    const resetCountdown = useCallback(() => setCount(0), []);
 
     return {
         seconds: remainingDuration.asSeconds(),
         startCountdown,
-        stopCountdown,
+        stopCountdown: clearInterval,
+        resetCountdown,
     };
 };
