@@ -69,13 +69,15 @@ export function WorkoutStartInitialScreen() {
                         columnGap="$1"
                     >
                         <Label size="large">JUMPING JACKS</Label>
-                        <Info
+                        <Pressable
                             onPress={() => {
                                 sheetRef.current?.present();
                                 setIsCountingDown(false);
                             }}
                             hitSlop={4}
-                        />
+                        >
+                            <Info size={20} />
+                        </Pressable>
                     </View>
                     <View
                         position="relative"

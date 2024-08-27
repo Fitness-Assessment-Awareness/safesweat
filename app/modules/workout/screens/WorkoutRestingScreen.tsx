@@ -5,6 +5,7 @@ import dayjs from 'dayjs';
 import { StatusBar } from 'expo-status-bar';
 import LottieView from 'lottie-react-native';
 import { useEffect, useRef } from 'react';
+import { Pressable } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Button, getTokenValue, View } from 'tamagui';
 import { Heading } from '../../../components/Heading';
@@ -83,15 +84,18 @@ export function WorkoutRestingScreen() {
                                 >
                                     {exercise.title}
                                 </Heading>
-                                <Info
+                                <Pressable
                                     onPress={() => {
                                         sheetRef.current?.present();
                                         stopCountdown();
                                     }}
-                                    color="white"
-                                    strokeWidth={2.5}
                                     hitSlop={4}
-                                />
+                                >
+                                    <Info
+                                        color="white"
+                                        strokeWidth={2.5}
+                                    />
+                                </Pressable>
                             </View>
                             <Heading
                                 size="small"
