@@ -31,8 +31,12 @@ export function WorkoutExercisingScreen() {
     const { seconds, startCountdown, stopCountdown } = useCountdown();
 
     const onFinishExercise = useCallback(() => {
+        if (index === workout.exercises.length - 1) {
+            replace('WorkoutSuccess', { workoutKey });
+            return;
+        }
         replace('WorkoutResting', { workoutKey, index: index + 1 });
-    }, [index, replace, workoutKey]);
+    }, [index, replace, workout.exercises, workoutKey]);
 
     useEffect(() => {
         if (workoutExercise.type === 'duration') {

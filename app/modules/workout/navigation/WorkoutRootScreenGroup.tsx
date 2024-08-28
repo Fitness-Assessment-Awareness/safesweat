@@ -2,6 +2,7 @@ import { RootStack } from '../../../navigation/AppNavigator';
 import { WorkoutExercisingScreen } from '../screens/WorkoutExercisingScreen';
 import { WorkoutRestingScreen } from '../screens/WorkoutRestingScreen';
 import { WorkoutStartInitialScreen } from '../screens/WorkoutStartInitialScreen';
+import { WorkoutSuccessScreen } from '../screens/WorkoutSuccessScreen';
 
 export function WorkoutRootScreens() {
     return (
@@ -20,6 +21,11 @@ export function WorkoutRootScreens() {
                 name="WorkoutExercising"
                 component={WorkoutExercisingScreen}
                 options={{ headerTransparent: true, headerTintColor: 'black', gestureEnabled: false }}
+            />
+            <RootStack.Screen
+                name="WorkoutSuccess"
+                component={WorkoutSuccessScreen}
+                options={{ headerShown: false }}
             />
         </>
     );

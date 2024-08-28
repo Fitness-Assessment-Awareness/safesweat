@@ -96,6 +96,7 @@ export function Screens() {
                 },
                 headerTintColor: 'black',
             }}
+            initialRouteName="HomeTab"
         >
             {OnboardingScreenGroup}
             <RootStack.Screen
