@@ -28,7 +28,7 @@ export function WorkoutStartInitialScreen() {
     const firstWorkoutExercise = workout.exercises[0];
 
     const onNextExercise = () => {
-        replace('WorkoutResting', {
+        replace('WorkoutExercising', {
             workoutKey,
             index: 0,
         });

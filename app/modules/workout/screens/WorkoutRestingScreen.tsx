@@ -4,12 +4,13 @@ import { Info } from '@tamagui/lucide-icons';
 import dayjs from 'dayjs';
 import { StatusBar } from 'expo-status-bar';
 import LottieView from 'lottie-react-native';
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { Pressable } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Button, getTokenValue, View } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Sheet } from '../../../components/Sheet';
+import { useRootNavigation } from '../../../navigation/useAppNavigation';
 import { useCountdown } from '../../../utils/useCountdown';
 import { WorkoutExerciseDetailsSheetContent } from '../components/WorkoutExerciseDetailsSheet';
 import { EXERCISES } from '../data/exercises';
@@ -21,6 +22,7 @@ const REST_TIME = 20;
 export function WorkoutRestingScreen() {
     const insets = useSafeAreaInsets();
     const sheetRef = useRef<BottomSheetModal>(null);
+    const { replace } = useRootNavigation();
 
     const {
         params: { workoutKey, index },
@@ -31,9 +33,19 @@ export function WorkoutRestingScreen() {
 
     const { seconds, startCountdown, stopCountdown } = useCountdown();
 
+    const onFinishRest = useCallback(() => {
+        replace('WorkoutExercising', { workoutKey, index });
+    }, [index, replace, workoutKey]);
+
     useEffect(() => {
         startCountdown(REST_TIME);
     }, [startCountdown]);
+
+    useEffect(() => {
+        if (seconds === 0) {
+            onFinishRest();
+        }
+    }, [seconds, onFinishRest]);
 
     return (
         <>
@@ -124,6 +136,7 @@ export function WorkoutRestingScreen() {
                     <Button
                         m="$4"
                         borderRadius="$8"
+                        onPress={onFinishRest}
                     >
                         Skip
                     </Button>
