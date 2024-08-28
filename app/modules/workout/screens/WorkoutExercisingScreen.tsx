@@ -57,13 +57,19 @@ export function WorkoutExercisingScreen() {
                     style="dark"
                     animated
                 />
-                <LottieView
-                    source={exercise.lottieSource}
-                    autoPlay
-                    loop
-                    speed={1.5}
-                    style={{ width: '100%', flex: 1, padding: 16 }}
-                />
+                <View
+                    flex={1}
+                    justifyContent="center"
+                    alignItems="center"
+                >
+                    <LottieView
+                        source={exercise.lottieSource}
+                        autoPlay
+                        loop
+                        speed={1.5}
+                        style={{ width: '100%', padding: 16, height: '90%' }}
+                    />
+                </View>
                 <View flex={1}>
                     <View
                         flexDirection="row"
@@ -102,7 +108,7 @@ export function WorkoutExercisingScreen() {
                         borderRadius="$8"
                         onPress={onFinishExercise}
                     >
-                        Skip
+                        {workoutExercise.type === 'duration' ? 'Skip' : 'Done'}
                     </Button>
                 </View>
             </Screen>
