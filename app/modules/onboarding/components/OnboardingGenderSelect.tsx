@@ -29,6 +29,7 @@ export function OnboardingGenderSelect({ gender, setGender }: ComponentProps) {
                 Let us know you better
             </Label>
             <XStack
+                width="70%"
                 alignItems="center"
                 justifyContent="center"
                 p="$4"

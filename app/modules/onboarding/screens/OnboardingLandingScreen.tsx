@@ -71,7 +71,7 @@ export function OnboardingLandingScreen() {
     return (
         <ScrollView>
             <YStack
-                px="$4"
+                p="$4"
                 justifyContent="space-between"
             >
                 <YStack>
