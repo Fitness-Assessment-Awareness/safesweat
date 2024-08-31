@@ -1,16 +1,12 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useContext } from 'react';
 import { Pressable } from 'react-native';
 import { Button, Progress, ScrollView, View, YStack } from 'tamagui';
 import { Chip } from '../../../components/Chip';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
+import { UserContext } from '../../../context/UserContext';
+import { Difficulty } from '../data/Difficulty';
 import { useOnboardingNavigation } from '../navigation/useOnboardingNavigation';
-
-export enum Difficulty {
-    Beginner = 'Beginner',
-    Intermediate = 'Intermediate',
-    Advanced = 'Advanced',
-}
 
 const DIFFICULTY_DETAILS = [
     {
@@ -28,8 +24,8 @@ const DIFFICULTY_DETAILS = [
 ] as const;
 
 export function OnboardingDifficultySelectScreen() {
+    const { user, setUser } = useContext(UserContext)!;
     const navigation = useOnboardingNavigation<'OnboardingDifficultySelect'>();
-    const [difficulty, setDifficulty] = useState<Difficulty | null>(null);
 
     return (
         <View flex={1}>
@@ -60,13 +56,13 @@ export function OnboardingDifficultySelectScreen() {
                             <Fragment key={detail.label}>
                                 <Pressable
                                     onPress={() => {
-                                        setDifficulty(detail.label as Difficulty);
+                                        setUser({ ...user, difficulty: detail.label });
                                     }}
                                 >
                                     <Chip
                                         height="$6"
                                         borderRadius="$4"
-                                        backgroundColor={difficulty === detail.label ? '$gray6' : 'white'}
+                                        backgroundColor={user.difficulty === detail.label ? '$gray6' : 'white'}
                                         borderStyle="solid"
                                         borderColor="$gray5"
                                         borderWidth={1}
@@ -95,7 +91,7 @@ export function OnboardingDifficultySelectScreen() {
                 onPress={() => {
                     navigation.navigate('OnboardingHealthProbSelect');
                 }}
-                disabled={difficulty === null}
+                disabled={user.difficulty === Difficulty.NONE}
             >
                 Next
             </Button>

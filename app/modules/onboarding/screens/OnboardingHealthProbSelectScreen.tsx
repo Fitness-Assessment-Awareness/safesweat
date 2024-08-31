@@ -1,24 +1,16 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useContext } from 'react';
 import { Pressable } from 'react-native';
 import { Button, Progress, ScrollView, View, YStack } from 'tamagui';
 import { Chip } from '../../../components/Chip';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
+import { UserContext } from '../../../context/UserContext';
+import { HealthProblem } from '../data/HealthProblem';
 import { useOnboardingNavigation } from '../navigation/useOnboardingNavigation';
 
-export enum HealthProblem {
-    HeartCondition = 'Heart Condition',
-    ChestPainWithPhysicalActivity = 'Chest Pain with Physical Activity',
-    ChestPainWithoutPhysicalActivity = 'Chest Pain without Physical Activity',
-    Dizziness = 'Dizziness',
-    BoneOrJointProblem = 'Bone/Joint Problem',
-    UnderBloodPressureDrugs = 'Under Blood Pressure Drugs',
-    None = 'None',
-}
-
 export function OnboardingHealthProbSelectScreen() {
+    const { user, setUser } = useContext(UserContext)!;
     const navigation = useOnboardingNavigation<'OnboardingHealthProbSelect'>();
-    const [healthProblems, setHealthProblems] = useState<HealthProblem[]>([]);
 
     return (
         <View flex={1}>
@@ -49,17 +41,23 @@ export function OnboardingHealthProbSelectScreen() {
                             <Fragment key={problem}>
                                 <Pressable
                                     onPress={() => {
-                                        if (healthProblems.includes(problem)) {
-                                            setHealthProblems(healthProblems.filter((h) => h !== problem));
+                                        if (user.healthProblems.includes(problem)) {
+                                            setUser({
+                                                ...user,
+                                                healthProblems: user.healthProblems.filter((h) => h !== problem),
+                                            });
                                         } else {
-                                            setHealthProblems([...healthProblems, problem]);
+                                            setUser({
+                                                ...user,
+                                                healthProblems: [...user.healthProblems, problem],
+                                            });
                                         }
                                     }}
                                 >
                                     <Chip
                                         height="$6"
                                         borderRadius="$4"
-                                        backgroundColor={healthProblems.includes(problem) ? '$gray6' : 'white'}
+                                        backgroundColor={user.healthProblems.includes(problem) ? '$gray6' : 'white'}
                                         borderStyle="solid"
                                         borderColor="$gray5"
                                         borderWidth={1}
@@ -88,7 +86,7 @@ export function OnboardingHealthProbSelectScreen() {
                 onPress={() => {
                     navigation.navigate('OnboardingBodyInfoSelect');
                 }}
-                disabled={healthProblems.length === 0}
+                disabled={user.healthProblems.length === 0}
             >
                 Next
             </Button>

@@ -1,14 +1,14 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import { RulerPicker } from 'react-native-ruler-picker';
 import { Button, Progress, ScrollView, View, YStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
+import { UserContext } from '../../../context/UserContext';
 import { useRootNavigation } from '../../../navigation/useAppNavigation';
 
 export function OnboardingBodyInfoSelectScreen() {
+    const { user, setUser } = useContext(UserContext)!;
     const { navigate } = useRootNavigation();
-    const [weight, setWeight] = useState(50);
-    const [height, setHeight] = useState(160);
 
     return (
         <View flex={1}>
@@ -54,10 +54,12 @@ export function OnboardingBodyInfoSelectScreen() {
                             min={0}
                             max={700}
                             fractionDigits={0}
-                            initialValue={weight}
+                            initialValue={user.weight}
                             indicatorColor="#0055D3"
                             valueTextStyle={{ color: '#0055D3' }}
-                            onValueChangeEnd={(value) => setWeight(+value)}
+                            onValueChangeEnd={(value) => {
+                                setUser({ ...user, weight: +value });
+                            }}
                             unit="kg"
                         />
                         <Heading
@@ -73,10 +75,12 @@ export function OnboardingBodyInfoSelectScreen() {
                             min={0}
                             max={300}
                             fractionDigits={0}
-                            initialValue={height}
+                            initialValue={user.height}
                             indicatorColor="#0055D3"
                             valueTextStyle={{ color: '#0055D3' }}
-                            onValueChangeEnd={(value) => setHeight(+value)}
+                            onValueChangeEnd={(value) => {
+                                setUser({ ...user, height: +value });
+                            }}
                             unit="cm"
                         />
                     </YStack>

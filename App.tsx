@@ -10,11 +10,14 @@ import durationPlugin from 'dayjs/plugin/duration';
 import relativeTimePlugin from 'dayjs/plugin/relativeTime';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import { LogBox } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { PortalProvider, TamaguiProvider } from 'tamagui';
+import { User, UserContext } from './app/context/UserContext';
+import { Difficulty } from './app/modules/onboarding/data/Difficulty';
+import { Gender } from './app/modules/onboarding/data/Gender';
 import { Screens } from './app/navigation/Screens';
 import appConfig from './tamagui.config';
 
@@ -27,6 +30,15 @@ dayjs.extend(relativeTimePlugin);
 
 // eslint-disable-next-line import/no-default-export
 export default function App() {
+    const [user, setUser] = useState<User>({
+        gender: Gender.Male,
+        focusAreas: [],
+        difficulty: Difficulty.NONE,
+        healthProblems: [],
+        weight: 50,
+        height: 160,
+    });
+    const userContextValue = useMemo(() => ({ user, setUser }), [user]);
     const [loaded] = useFonts({
         Inter: require('@tamagui/font-inter/otf/Inter-Medium.otf'),
         InterBold: require('@tamagui/font-inter/otf/Inter-Bold.otf'),
@@ -51,7 +63,9 @@ export default function App() {
                         <NavigationContainer onReady={onNavigationReady}>
                             <BottomSheetModalProvider>
                                 <PortalProvider shouldAddRootHost>
-                                    <Screens />
+                                    <UserContext.Provider value={userContextValue}>
+                                        <Screens />
+                                    </UserContext.Provider>
                                 </PortalProvider>
                             </BottomSheetModalProvider>
                         </NavigationContainer>

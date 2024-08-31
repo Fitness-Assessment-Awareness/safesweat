@@ -1,22 +1,16 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useContext } from 'react';
 import { Pressable } from 'react-native';
 import { Button, Progress, ScrollView, View, YStack } from 'tamagui';
 import { Chip } from '../../../components/Chip';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
+import { UserContext } from '../../../context/UserContext';
+import { FocusArea } from '../data/FocusArea';
 import { useOnboardingNavigation } from '../navigation/useOnboardingNavigation';
 
-export enum FocusArea {
-    FullBody = 'Full Body',
-    Arm = 'Arm',
-    Abs = 'Abs',
-    Butt = 'Butt',
-    Leg = 'Leg',
-}
-
 export function OnboardingFocusAreaSelectScreen() {
+    const { user, setUser } = useContext(UserContext)!;
     const navigation = useOnboardingNavigation<'OnboardingFocusAreaSelect'>();
-    const [focusAreas, setFocusAreas] = useState<FocusArea[]>([]);
 
     return (
         <View flex={1}>
@@ -47,10 +41,16 @@ export function OnboardingFocusAreaSelectScreen() {
                             <Fragment key={focusArea}>
                                 <Pressable
                                     onPress={() => {
-                                        if (focusAreas.includes(focusArea)) {
-                                            setFocusAreas(focusAreas.filter((f) => f !== focusArea));
+                                        if (user.focusAreas.includes(focusArea)) {
+                                            setUser({
+                                                ...user,
+                                                focusAreas: user.focusAreas.filter((f) => f !== focusArea),
+                                            });
                                         } else {
-                                            setFocusAreas([...focusAreas, focusArea]);
+                                            setUser({
+                                                ...user,
+                                                focusAreas: [...user.focusAreas, focusArea],
+                                            });
                                         }
                                     }}
                                 >
@@ -58,7 +58,7 @@ export function OnboardingFocusAreaSelectScreen() {
                                         height="$6"
                                         borderRadius="$4"
                                         backgroundColor={
-                                            focusAreas.includes(focusArea as FocusArea) ? '$gray6' : 'white'
+                                            user.focusAreas.includes(focusArea as FocusArea) ? '$gray6' : 'white'
                                         }
                                         borderStyle="solid"
                                         borderColor="$gray5"
@@ -87,7 +87,7 @@ export function OnboardingFocusAreaSelectScreen() {
                 onPress={() => {
                     navigation.navigate('OnboardingDifficultySelect');
                 }}
-                disabled={focusAreas.length === 0}
+                disabled={user.focusAreas.length === 0}
             >
                 Next
             </Button>

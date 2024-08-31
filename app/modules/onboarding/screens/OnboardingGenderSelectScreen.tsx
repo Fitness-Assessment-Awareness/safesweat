@@ -1,19 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { Pressable } from 'react-native';
 import { Button, Image, Progress, ScrollView, View, XStack, YStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
+import { UserContext } from '../../../context/UserContext';
 import { OnboardingAssets } from '../assets';
+import { Gender } from '../data/Gender';
 import { useOnboardingNavigation } from '../navigation/useOnboardingNavigation';
 
-export enum Gender {
-    Male,
-    Female,
-}
-
 export function OnboardingGenderSelectScreen() {
+    const { user, setUser } = useContext(UserContext)!;
     const navigation = useOnboardingNavigation<'OnboardingGenderSelect'>();
-    const [gender, setGender] = useState(Gender.Male);
 
     return (
         <View flex={1}>
@@ -49,12 +46,12 @@ export function OnboardingGenderSelectScreen() {
                     >
                         <Pressable
                             onPress={() => {
-                                setGender(Gender.Male);
+                                setUser({ ...user, gender: Gender.Male });
                             }}
                         >
                             <Image
                                 style={
-                                    gender !== Gender.Male && {
+                                    user.gender !== Gender.Male && {
                                         opacity: 0.5,
                                         height: '70%',
                                     }
@@ -65,12 +62,12 @@ export function OnboardingGenderSelectScreen() {
                         </Pressable>
                         <Pressable
                             onPress={() => {
-                                setGender(Gender.Female);
+                                setUser({ ...user, gender: Gender.Female });
                             }}
                         >
                             <Image
                                 style={
-                                    gender !== Gender.Female && {
+                                    user.gender !== Gender.Female && {
                                         opacity: 0.5,
                                         height: '70%',
                                     }
