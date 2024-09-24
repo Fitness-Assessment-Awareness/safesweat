@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useMemo, useState } from 'react';
+import { createContext, ReactNode, useContext, useMemo, useState } from 'react';
 import { Difficulty } from '../modules/onboarding/data/Difficulty';
 import { Gender } from '../modules/onboarding/data/Gender';
 import { User } from '../modules/onboarding/data/User';
@@ -22,4 +22,13 @@ export function UserProvider({ children }: ComponentProps) {
     const value = useMemo(() => ({ user, setUser }), [user, setUser]);
 
     return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
+}
+
+export function useUser() {
+    const context = useContext(UserContext);
+    if (!context) {
+        throw new Error('useUser must be used within a UserProvider');
+    }
+
+    return context;
 }

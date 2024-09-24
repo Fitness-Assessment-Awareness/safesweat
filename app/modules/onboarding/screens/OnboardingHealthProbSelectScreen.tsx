@@ -1,15 +1,15 @@
-import { Fragment, useContext } from 'react';
+import { Fragment } from 'react';
 import { Pressable } from 'react-native';
 import { Button, Progress, ScrollView, View, YStack } from 'tamagui';
 import { Chip } from '../../../components/Chip';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
-import { UserContext } from '../../../context/UserProvider';
+import { useUser } from '../../../context/UserProvider';
 import { HealthProblem } from '../data/HealthProblem';
 import { useOnboardingNavigation } from '../navigation/useOnboardingNavigation';
 
 export function OnboardingHealthProbSelectScreen() {
-    const { user, setUser } = useContext(UserContext)!;
+    const { user, setUser } = useUser();
     const navigation = useOnboardingNavigation<'OnboardingHealthProbSelect'>();
 
     return (

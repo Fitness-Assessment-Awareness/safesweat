@@ -1,13 +1,12 @@
-import { useContext } from 'react';
 import { RulerPicker } from 'react-native-ruler-picker';
 import { Button, Progress, ScrollView, View, YStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
-import { UserContext } from '../../../context/UserProvider';
+import { useUser } from '../../../context/UserProvider';
 import { useRootNavigation } from '../../../navigation/useAppNavigation';
 
 export function OnboardingBodyInfoSelectScreen() {
-    const { user, setUser } = useContext(UserContext)!;
+    const { user, setUser } = useUser();
     const { navigate } = useRootNavigation();
 
     return (

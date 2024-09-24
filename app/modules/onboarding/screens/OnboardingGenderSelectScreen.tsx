@@ -1,15 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Pressable } from 'react-native';
 import { Button, Image, Progress, ScrollView, View, XStack, YStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
-import { UserContext } from '../../../context/UserProvider';
+import { useUser } from '../../../context/UserProvider';
 import { OnboardingAssets } from '../assets';
 import { Gender } from '../data/Gender';
 import { useOnboardingNavigation } from '../navigation/useOnboardingNavigation';
 
 export function OnboardingGenderSelectScreen() {
-    const { user, setUser } = useContext(UserContext)!;
+    const { user, setUser } = useUser();
     const navigation = useOnboardingNavigation<'OnboardingGenderSelect'>();
 
     return (
