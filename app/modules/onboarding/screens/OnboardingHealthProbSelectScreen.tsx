@@ -5,7 +5,7 @@ import { Chip } from '../../../components/Chip';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
 import { useUser } from '../../../context/UserProvider';
-import { HealthProblem } from '../data/HealthProblem';
+import { HealthProblem } from '../data/entities/HealthProblem';
 import { useOnboardingNavigation } from '../navigation/useOnboardingNavigation';
 
 export function OnboardingHealthProbSelectScreen() {

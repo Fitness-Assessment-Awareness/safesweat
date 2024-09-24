@@ -5,7 +5,7 @@ import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
 import { useUser } from '../../../context/UserProvider';
 import { OnboardingAssets } from '../assets';
-import { Gender } from '../data/Gender';
+import { Gender } from '../data/entities/Gender';
 import { useOnboardingNavigation } from '../navigation/useOnboardingNavigation';
 
 export function OnboardingGenderSelectScreen() {

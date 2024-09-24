@@ -1,7 +1,18 @@
-import { createContext, Dispatch, ReactNode, SetStateAction, useCallback, useContext, useMemo, useState } from 'react';
-import { Difficulty } from '../modules/onboarding/data/Difficulty';
-import { Gender } from '../modules/onboarding/data/Gender';
-import { User } from '../modules/onboarding/data/User';
+import {
+    createContext,
+    Dispatch,
+    ReactNode,
+    SetStateAction,
+    useCallback,
+    useContext,
+    useEffect,
+    useMemo,
+    useState,
+} from 'react';
+import { Difficulty } from '../modules/onboarding/data/entities/Difficulty';
+import { Gender } from '../modules/onboarding/data/entities/Gender';
+import { User } from '../modules/onboarding/data/entities/User';
+import { StoragePublicRepository } from '../storage/domain/useCases/StoragePublicRepository';
 
 const UserContext = createContext<{ user: User; setUser: Dispatch<SetStateAction<User>> } | null>(null);
 
@@ -20,7 +31,42 @@ export function UserProvider({ children }: ComponentProps) {
         workoutHistories: [],
     });
 
-    const value = useMemo(() => ({ user, setUser }), [user, setUser]);
+    useEffect(() => {
+        const rehydrateUser = async () => {
+            const storedUser = await StoragePublicRepository.instance.get({
+                namespace: 'onboarding',
+                key: 'user',
+            });
+
+            if (storedUser) {
+                setUser(storedUser);
+            }
+        };
+
+        rehydrateUser();
+    }, []);
+
+    const setUserInternal = useCallback(
+        (payload: SetStateAction<User>) => {
+            if (typeof payload === 'function') {
+                setUser((prevUser) => {
+                    const newUser = payload(prevUser);
+                    StoragePublicRepository.instance.set({
+                        namespace: 'onboarding',
+                        key: 'user',
+                        value: newUser,
+                    });
+                    return { ...prevUser, ...newUser };
+                });
+            } else {
+                setUser(payload);
+                StoragePublicRepository.instance.set({ namespace: 'onboarding', key: 'user', value: payload });
+            }
+        },
+        [setUser],
+    );
+
+    const value = useMemo(() => ({ user, setUser: setUserInternal }), [user, setUserInternal]);
 
     return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 }

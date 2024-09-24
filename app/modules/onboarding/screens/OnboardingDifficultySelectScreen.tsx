@@ -5,7 +5,7 @@ import { Chip } from '../../../components/Chip';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
 import { useUser } from '../../../context/UserProvider';
-import { Difficulty } from '../data/Difficulty';
+import { Difficulty } from '../data/entities/Difficulty';
 import { useOnboardingNavigation } from '../navigation/useOnboardingNavigation';
 
 const DIFFICULTY_DETAILS = [
