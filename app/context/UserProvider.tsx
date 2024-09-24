@@ -1,9 +1,9 @@
-import { createContext, ReactNode, useContext, useMemo, useState } from 'react';
+import { createContext, Dispatch, ReactNode, SetStateAction, useCallback, useContext, useMemo, useState } from 'react';
 import { Difficulty } from '../modules/onboarding/data/Difficulty';
 import { Gender } from '../modules/onboarding/data/Gender';
 import { User } from '../modules/onboarding/data/User';
 
-const UserContext = createContext<{ user: User; setUser: (u: User) => void } | null>(null);
+const UserContext = createContext<{ user: User; setUser: Dispatch<SetStateAction<User>> } | null>(null);
 
 interface ComponentProps {
     children: ReactNode;
@@ -17,6 +17,7 @@ export function UserProvider({ children }: ComponentProps) {
         healthProblems: [],
         weight: 50,
         height: 160,
+        workoutHistories: [],
     });
 
     const value = useMemo(() => ({ user, setUser }), [user, setUser]);
@@ -31,5 +32,14 @@ export function useUser() {
         throw new Error('useUser must be used within a UserProvider');
     }
 
-    return context;
+    const { user, setUser } = context;
+
+    const updateUser = useCallback(
+        (update: Partial<User>) => {
+            setUser({ ...user, ...update });
+        },
+        [setUser, user],
+    );
+
+    return { user, updateUser, setUser };
 }

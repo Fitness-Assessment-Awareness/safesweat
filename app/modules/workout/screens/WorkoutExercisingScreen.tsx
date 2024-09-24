@@ -10,6 +10,7 @@ import { Button, View } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Screen } from '../../../components/Screen';
 import { Sheet } from '../../../components/Sheet';
+import { useUser } from '../../../context/UserProvider';
 import { useRootNavigation } from '../../../navigation/useAppNavigation';
 import { useCountdown } from '../../../utils/useCountdown';
 import { WorkoutExerciseDetailsSheetContent } from '../components/WorkoutExerciseDetailsSheet';
@@ -18,6 +19,7 @@ import { WORKOUTS } from '../data/workouts';
 import { WorkoutRootStackParamList } from '../navigation/WorkoutStackParamList';
 
 export function WorkoutExercisingScreen() {
+    const { setUser } = useUser();
     const sheetRef = useRef<BottomSheetModal>(null);
     const { replace } = useRootNavigation();
     const {
@@ -33,10 +35,21 @@ export function WorkoutExercisingScreen() {
     const onFinishExercise = useCallback(() => {
         if (index === workout.exercises.length - 1) {
             replace('WorkoutSuccess', { workoutKey });
+            setUser((user) => ({
+                ...user,
+                workoutHistories: [
+                    ...user.workoutHistories,
+                    {
+                        workoutKey,
+                        timestamp: dayjs().toISOString(),
+                        rating: null,
+                    },
+                ],
+            }));
             return;
         }
         replace('WorkoutResting', { workoutKey, index: index + 1 });
-    }, [index, replace, workout.exercises, workoutKey]);
+    }, [index, replace, setUser, workout.exercises.length, workoutKey]);
 
     useEffect(() => {
         if (workoutExercise.type === 'duration') {
