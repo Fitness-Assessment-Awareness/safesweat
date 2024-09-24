@@ -4,7 +4,7 @@ import { Button, Progress, ScrollView, View, YStack } from 'tamagui';
 import { Chip } from '../../../components/Chip';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
-import { UserContext } from '../../../context/UserContext';
+import { UserContext } from '../../../context/UserProvider';
 import { Difficulty } from '../data/Difficulty';
 import { useOnboardingNavigation } from '../navigation/useOnboardingNavigation';
 
