@@ -26,3 +26,7 @@ export const likeEducationPost = async (educationPostLike: EducationPostLike) =>
 export const dislikeEducationPost = async (educationPostLike: EducationPostLike) => {
     await Network.post<EducationPostLike>('/education-post/dislike', educationPostLike);
 };
+
+export const removeAllLikes = async (userId: string) => {
+    await Network.delete<void>(`/education-post/likes/${userId}`);
+};
