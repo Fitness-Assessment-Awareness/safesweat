@@ -27,13 +27,6 @@ export function UserProvider({ children }: ComponentProps) {
 }
 
 export function useUser() {
-    const context = useContext(UserContext);
-
-    if (!context) {
-        throw new Error('useUser must be used within a UserProvider');
-    }
-
-    const userSession = context;
-
+    const userSession = useContext(UserContext);
     return userSession;
 }
