@@ -1,17 +1,25 @@
 import { RouteProp } from '@react-navigation/native';
-import { Heart, Share2 } from '@tamagui/lucide-icons';
+import { Bookmark, Heart } from '@tamagui/lucide-icons';
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
 import { Pressable } from 'react-native';
 import { TapGestureHandler } from 'react-native-gesture-handler';
+import Toast from 'react-native-toast-message';
 import { Image, ScrollView, View, XStack, YStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Paragraph } from '../../../components/Paragraph';
 import { Screen } from '../../../components/Screen';
 import { useUser } from '../../../context/UserProvider';
 import { EducationPost } from '../data/entities/EducationPost';
+import { EducationPostBookmark } from '../data/entities/EducationPostBookmark';
 import { EducationPostLike } from '../data/entities/EducationPostLike';
-import { dislikeEducationPost, fetchEducationPostById, likeEducationPost } from '../data/services/EducationPostService';
+import {
+    bookmarkEducationPost,
+    dislikeEducationPost,
+    fetchEducationPostById,
+    likeEducationPost,
+    removeBookmarkEducationPost,
+} from '../data/services/EducationPostService';
 import { ExploreEducationPostDetailsParams } from '../navigation/ExploreStackParamList';
 
 interface ComponentProps {
@@ -25,6 +33,7 @@ export function ExploreEducationPostDetailsScreen({ route }: ComponentProps) {
     const userSession = useUser();
     const [educationPost, setEducationPost] = useState<EducationPost | null>(null);
     const [postLikes, setPostLikes] = useState<EducationPostLike[]>([]);
+    const [postBookmarks, setPostBookmarks] = useState<EducationPostBookmark[]>([]);
 
     useEffect(() => {
         if (userSession) {
@@ -37,6 +46,7 @@ export function ExploreEducationPostDetailsScreen({ route }: ComponentProps) {
     useEffect(() => {
         if (educationPost) {
             setPostLikes(educationPost.educationPostLikeDtos);
+            setPostBookmarks(educationPost.educationPostBookmarkDtos);
         }
     }, [educationPost]);
 
@@ -60,7 +70,34 @@ export function ExploreEducationPostDetailsScreen({ route }: ComponentProps) {
         }
     };
 
+    const handleBookmarkPost = () => {
+        if (!userSession) {
+            return;
+        }
+        const bookmark = postBookmarks.find((b) => b.userId === userSession.user.id);
+        if (bookmark) {
+            removeBookmarkEducationPost({
+                userId: userSession.user.id,
+                postId,
+            });
+            setPostBookmarks(postBookmarks.filter((b) => b.userId !== userSession.user.id));
+        } else {
+            bookmarkEducationPost({
+                userId: userSession.user.id,
+                postId,
+            });
+            setPostBookmarks([...postBookmarks, { userId: userSession.user.id, postId }]);
+            Toast.show({
+                type: 'success',
+                text1: 'Bookmark added',
+                visibilityTime: 1500,
+            });
+        }
+    };
+
     const isLiked = userSession && postLikes.some((l) => l.userId === userSession.user.id);
+
+    const isBookmark = userSession && postBookmarks.some((b) => b.userId === userSession.user.id);
 
     return (
         <TapGestureHandler
@@ -106,7 +143,15 @@ export function ExploreEducationPostDetailsScreen({ route }: ComponentProps) {
                                     </Pressable>
                                     <Heading size="small">{postLikes.length}</Heading>
                                 </XStack>
-                                <Share2 />
+                                <Pressable
+                                    onPress={handleBookmarkPost}
+                                    hitSlop={8}
+                                >
+                                    <Bookmark
+                                        fill={isBookmark ? 'black' : 'none'}
+                                        strokeWidth={isBookmark ? '$0' : '$0.25'}
+                                    />
+                                </Pressable>
                             </View>
                         </TapGestureHandler>
                         <YStack gap="$3">

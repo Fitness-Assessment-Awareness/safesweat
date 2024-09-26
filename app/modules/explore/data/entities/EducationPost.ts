@@ -1,4 +1,5 @@
 import { EducationCategory } from './EducationCategory';
+import { EducationPostBookmark } from './EducationPostBookmark';
 import { EducationPostLike } from './EducationPostLike';
 
 export type EducationPost = {
@@ -15,6 +16,7 @@ export type EducationPost = {
     lastUpdatedBy?: string;
     categoryDto: EducationCategory;
     educationPostLikeDtos: EducationPostLike[];
+    educationPostBookmarkDtos: EducationPostBookmark[];
 };
 
 export type EducationPostSummary = {

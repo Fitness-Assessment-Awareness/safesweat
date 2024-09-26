@@ -1,3 +1,4 @@
-import { removeAllLikes } from './EducationPostService';
+import { removeAllBookmarks, removeAllLikes } from './EducationPostService';
 
-export { removeAllLikes };
+export { removeAllBookmarks, removeAllLikes };
+

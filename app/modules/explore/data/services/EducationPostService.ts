@@ -1,6 +1,7 @@
 import { Network } from '../../../../network/Network';
 import { EducationCategory } from '../entities/EducationCategory';
 import { EducationPost, EducationPostSummary } from '../entities/EducationPost';
+import { EducationPostBookmark } from '../entities/EducationPostBookmark';
 import { EducationPostLike } from '../entities/EducationPostLike';
 
 export const fetchEducationPosts = async () => {
@@ -29,4 +30,17 @@ export const dislikeEducationPost = async (educationPostLike: EducationPostLike)
 
 export const removeAllLikes = async (userId: string) => {
     await Network.delete<void>(`/education-post/likes/${userId}`);
+};
+
+export const bookmarkEducationPost = async (educationPostBookmark: EducationPostBookmark) => {
+    const response = await Network.post<EducationPostBookmark>('/education-post/bookmark', educationPostBookmark);
+    return response.data;
+};
+
+export const removeBookmarkEducationPost = async (educationPostBookmark: EducationPostBookmark) => {
+    await Network.post<EducationPostBookmark>('/education-post/bookmark-remove', educationPostBookmark);
+};
+
+export const removeAllBookmarks = async (userId: string) => {
+    await Network.delete<void>(`/education-post/bookmark/${userId}`);
 };
