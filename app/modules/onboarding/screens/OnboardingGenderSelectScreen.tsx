@@ -39,10 +39,11 @@ export function OnboardingGenderSelectScreen() {
                         Let us know you better
                     </Label>
                     <XStack
-                        width="70%"
                         alignItems="center"
                         justifyContent="center"
                         p="$4"
+                        mt="$6"
+                        gap="$4"
                     >
                         <Pressable
                             onPress={() => {
