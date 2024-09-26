@@ -25,6 +25,9 @@ export function SettingsLandingScreen() {
     };
 
     const handleDeleteAccount = async () => {
+        if (!userSession) {
+            throw new Error('User not found');
+        }
         const { error } = await deleteUserAccount(userSession.user.id);
         Toast.show({
             type: error ? 'error' : 'success',
