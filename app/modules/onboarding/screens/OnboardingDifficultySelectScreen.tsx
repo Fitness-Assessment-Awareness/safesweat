@@ -4,7 +4,7 @@ import { Button, Progress, ScrollView, View, YStack } from 'tamagui';
 import { Chip } from '../../../components/Chip';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
-import { useUser } from '../../../context/UserProvider';
+import { useAssessmentResult } from '../../../context/AssessmentResultProvider';
 import { Difficulty } from '../data/entities/Difficulty';
 import { useOnboardingNavigation } from '../navigation/useOnboardingNavigation';
 
@@ -24,7 +24,7 @@ const DIFFICULTY_DETAILS = [
 ] as const;
 
 export function OnboardingDifficultySelectScreen() {
-    const { user, setUser } = useUser();
+    const { assessmentResult, setAssessmentResult } = useAssessmentResult();
     const navigation = useOnboardingNavigation<'OnboardingDifficultySelect'>();
 
     return (
@@ -56,13 +56,15 @@ export function OnboardingDifficultySelectScreen() {
                             <Fragment key={detail.label}>
                                 <Pressable
                                     onPress={() => {
-                                        setUser({ ...user, difficulty: detail.label });
+                                        setAssessmentResult({ ...assessmentResult, difficulty: detail.label });
                                     }}
                                 >
                                     <Chip
                                         height="$6"
                                         borderRadius="$4"
-                                        backgroundColor={user.difficulty === detail.label ? '$gray6' : 'white'}
+                                        backgroundColor={
+                                            assessmentResult.difficulty === detail.label ? '$gray6' : 'white'
+                                        }
                                         borderStyle="solid"
                                         borderColor="$gray5"
                                         borderWidth={1}
@@ -91,7 +93,7 @@ export function OnboardingDifficultySelectScreen() {
                 onPress={() => {
                     navigation.navigate('OnboardingHealthProbSelect');
                 }}
-                disabled={user.difficulty === Difficulty.NONE}
+                disabled={assessmentResult.difficulty === Difficulty.NONE}
             >
                 Next
             </Button>

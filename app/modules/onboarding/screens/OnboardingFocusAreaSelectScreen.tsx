@@ -4,12 +4,12 @@ import { Button, Progress, ScrollView, View, YStack } from 'tamagui';
 import { Chip } from '../../../components/Chip';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
-import { useUser } from '../../../context/UserProvider';
+import { useAssessmentResult } from '../../../context/AssessmentResultProvider';
 import { FocusArea } from '../data/entities/FocusArea';
 import { useOnboardingNavigation } from '../navigation/useOnboardingNavigation';
 
 export function OnboardingFocusAreaSelectScreen() {
-    const { user, setUser } = useUser();
+    const { assessmentResult, setAssessmentResult } = useAssessmentResult();
     const navigation = useOnboardingNavigation<'OnboardingFocusAreaSelect'>();
 
     return (
@@ -41,15 +41,15 @@ export function OnboardingFocusAreaSelectScreen() {
                             <Fragment key={focusArea}>
                                 <Pressable
                                     onPress={() => {
-                                        if (user.focusAreas.includes(focusArea)) {
-                                            setUser({
-                                                ...user,
-                                                focusAreas: user.focusAreas.filter((f) => f !== focusArea),
+                                        if (assessmentResult.focusAreas.includes(focusArea)) {
+                                            setAssessmentResult({
+                                                ...assessmentResult,
+                                                focusAreas: assessmentResult.focusAreas.filter((f) => f !== focusArea),
                                             });
                                         } else {
-                                            setUser({
-                                                ...user,
-                                                focusAreas: [...user.focusAreas, focusArea],
+                                            setAssessmentResult({
+                                                ...assessmentResult,
+                                                focusAreas: [...assessmentResult.focusAreas, focusArea],
                                             });
                                         }
                                     }}
@@ -58,7 +58,9 @@ export function OnboardingFocusAreaSelectScreen() {
                                         height="$6"
                                         borderRadius="$4"
                                         backgroundColor={
-                                            user.focusAreas.includes(focusArea as FocusArea) ? '$gray6' : 'white'
+                                            assessmentResult.focusAreas.includes(focusArea as FocusArea)
+                                                ? '$gray6'
+                                                : 'white'
                                         }
                                         borderStyle="solid"
                                         borderColor="$gray5"
@@ -87,7 +89,7 @@ export function OnboardingFocusAreaSelectScreen() {
                 onPress={() => {
                     navigation.navigate('OnboardingDifficultySelect');
                 }}
-                disabled={user.focusAreas.length === 0}
+                disabled={assessmentResult.focusAreas.length === 0}
             >
                 Next
             </Button>

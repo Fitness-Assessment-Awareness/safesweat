@@ -1,4 +1,5 @@
 import { EducationCategory } from './EducationCategory';
+import { EducationPostLike } from './EducationPostLike';
 
 export type EducationPost = {
     postId: string;
@@ -8,10 +9,19 @@ export type EducationPost = {
     contentMs: string;
     categoryId: string;
     imageUrl: string;
-    likeCount: number;
     createdDate: Date;
     createdBy: string;
     lastUpdatedDate?: Date;
     lastUpdatedBy?: string;
     categoryDto: EducationCategory;
+    educationPostLikeDtos: EducationPostLike[];
+};
+
+export type EducationPostSummary = {
+    postId: string;
+    titleEn: string;
+    titleMs: string;
+    imageUrl: string;
+    categoryId: string;
+    likeCount: number;
 };

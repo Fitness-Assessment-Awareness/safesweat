@@ -1,5 +1,5 @@
-import { User } from './User';
+import { AssessmentResult } from './AssessmentResult';
 
 export interface OnboardingPublicData {
-    user: User;
+    assessmentResult: AssessmentResult;
 }

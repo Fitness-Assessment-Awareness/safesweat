@@ -2,11 +2,11 @@ import { RulerPicker } from 'react-native-ruler-picker';
 import { Button, Progress, ScrollView, View, YStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
-import { useUser } from '../../../context/UserProvider';
+import { useAssessmentResult } from '../../../context/AssessmentResultProvider';
 import { useRootNavigation } from '../../../navigation/useAppNavigation';
 
 export function OnboardingBodyInfoSelectScreen() {
-    const { user, setUser } = useUser();
+    const { assessmentResult, setAssessmentResult } = useAssessmentResult();
     const { navigate } = useRootNavigation();
 
     return (
@@ -53,11 +53,11 @@ export function OnboardingBodyInfoSelectScreen() {
                             min={0}
                             max={700}
                             fractionDigits={0}
-                            initialValue={user.weight}
+                            initialValue={assessmentResult.weight}
                             indicatorColor="#0055D3"
                             valueTextStyle={{ color: '#0055D3' }}
                             onValueChangeEnd={(value) => {
-                                setUser({ ...user, weight: +value });
+                                setAssessmentResult({ ...assessmentResult, weight: +value });
                             }}
                             unit="kg"
                         />
@@ -74,11 +74,11 @@ export function OnboardingBodyInfoSelectScreen() {
                             min={0}
                             max={300}
                             fractionDigits={0}
-                            initialValue={user.height}
+                            initialValue={assessmentResult.height}
                             indicatorColor="#0055D3"
                             valueTextStyle={{ color: '#0055D3' }}
                             onValueChangeEnd={(value) => {
-                                setUser({ ...user, height: +value });
+                                setAssessmentResult({ ...assessmentResult, height: +value });
                             }}
                             unit="cm"
                         />

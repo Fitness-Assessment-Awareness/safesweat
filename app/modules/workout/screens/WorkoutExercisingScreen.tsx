@@ -10,7 +10,7 @@ import { Button, View } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Screen } from '../../../components/Screen';
 import { Sheet } from '../../../components/Sheet';
-import { useUser } from '../../../context/UserProvider';
+import { useAssessmentResult } from '../../../context/AssessmentResultProvider';
 import { useRootNavigation } from '../../../navigation/useAppNavigation';
 import { useCountdown } from '../../../utils/useCountdown';
 import { WorkoutExerciseDetailsSheetContent } from '../components/WorkoutExerciseDetailsSheet';
@@ -19,7 +19,7 @@ import { WORKOUTS } from '../data/workouts';
 import { WorkoutRootStackParamList } from '../navigation/WorkoutStackParamList';
 
 export function WorkoutExercisingScreen() {
-    const { setUser } = useUser();
+    const { setAssessmentResult } = useAssessmentResult();
     const sheetRef = useRef<BottomSheetModal>(null);
     const { replace } = useRootNavigation();
     const {
@@ -35,10 +35,10 @@ export function WorkoutExercisingScreen() {
     const onFinishExercise = useCallback(() => {
         if (index === workout.exercises.length - 1) {
             replace('WorkoutSuccess', { workoutKey });
-            setUser((user) => ({
-                ...user,
+            setAssessmentResult((assessmentResult) => ({
+                ...assessmentResult,
                 workoutHistories: [
-                    ...user.workoutHistories,
+                    ...assessmentResult.workoutHistories,
                     {
                         workoutKey,
                         timestamp: dayjs().toISOString(),
@@ -49,7 +49,7 @@ export function WorkoutExercisingScreen() {
             return;
         }
         replace('WorkoutResting', { workoutKey, index: index + 1 });
-    }, [index, replace, setUser, workout.exercises.length, workoutKey]);
+    }, [index, replace, setAssessmentResult, workout.exercises.length, workoutKey]);
 
     useEffect(() => {
         if (workoutExercise.type === 'duration') {

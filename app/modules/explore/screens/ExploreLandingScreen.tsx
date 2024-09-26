@@ -1,15 +1,16 @@
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
 import { useNetInfo } from '@react-native-community/netinfo';
-import { ArrowDown, ArrowUp, Settings2, WifiOff } from '@tamagui/lucide-icons';
+import { ArrowDown, ArrowUp, Settings2 } from '@tamagui/lucide-icons';
 import React, { useEffect, useRef, useState } from 'react';
 import { Pressable } from 'react-native';
-import { Paragraph, ScrollView, Separator, Text, View, XStack, YStack } from 'tamagui';
+import { Paragraph, ScrollView, Separator, View, XStack, YStack } from 'tamagui';
 import { SearchBar } from '../../../components/SearchBar';
 import { Sheet } from '../../../components/Sheet';
+import { useUser } from '../../../context/UserProvider';
 import { ExploreEducationPostCard } from '../components/ExploreEducationPostCard';
 import { ExploreSortFilterSheetContent } from '../components/ExploreSortFilterSheet';
 import { EducationCategory } from '../data/entities/EducationCategory';
-import { EducationPost } from '../data/entities/EducationPost';
+import { EducationPostSummary } from '../data/entities/EducationPost';
 import { fetchEducationCategories, fetchEducationPosts } from '../data/services/EducationPostService';
 import { SortOption } from '../data/SortOption';
 import { useExploreNavigation } from '../navigation/useExploreNavigation';
@@ -19,40 +20,42 @@ const sortOptions: SortOption[] = [
         name: 'Title',
         icon: <ArrowUp />,
         orderBy: 'asc',
-        sort: (a, b) => a.titleEn.localeCompare(b.titleEn),
+        sort: (a: EducationPostSummary, b: EducationPostSummary) => a.titleEn.localeCompare(b.titleEn),
     },
     {
         name: 'Like',
         icon: <ArrowDown />,
         orderBy: 'desc',
-        sort: (a, b) => b.likeCount - a.likeCount,
+        sort: (a: EducationPostSummary, b: EducationPostSummary) => b.likeCount - a.likeCount,
     },
 ] as const;
 
 export function ExploreLandingScreen() {
+    const navigation = useExploreNavigation<'ExploreLanding'>();
     const sheetRef = useRef<BottomSheetModal>(null);
-    const [educationPosts, setEducationPosts] = useState<EducationPost[]>([]);
+    const userSession = useUser();
+    const [educationSummaryPosts, setEducationSummaryPosts] = useState<EducationPostSummary[]>([]);
     const [searchText, setSearchText] = useState('');
     const [categories, setCategories] = useState<EducationCategory[]>([]);
     const [selectedOption, setSelectedOption] = useState<SortOption | null>(null);
     const [selectedCategory, setSelectedCategory] = useState<EducationCategory | null>(null);
     const { isConnected } = useNetInfo();
-    const navigation = useExploreNavigation<'ExploreLanding'>();
-    const filteredEducationPosts = educationPosts
+
+    const filteredEducationSummaryPosts = educationSummaryPosts
         .filter((post) => post.titleEn.toLowerCase().includes(searchText.toLowerCase()))
-        .filter((post) => (selectedCategory ? post.categoryDto.name === selectedCategory.name : true))
+        .filter((post) => (selectedCategory ? post.categoryId === selectedCategory.categoryId : true))
         .sort((a, b) => (selectedOption ? selectedOption.sort(a, b) : 0));
 
     useEffect(() => {
-        if (isConnected) {
+        if (isConnected && userSession) {
             fetchEducationPosts().then((p) => {
-                setEducationPosts(p);
+                setEducationSummaryPosts(p);
             });
             fetchEducationCategories().then((c) => {
                 setCategories(c);
             });
         }
-    }, [isConnected]);
+    }, [isConnected, userSession]);
 
     return (
         <View flex={1}>
@@ -82,31 +85,26 @@ export function ExploreLandingScreen() {
                     </XStack>
                 </View>
                 <Separator borderColor="#D0D3D8" />
-                {isConnected && (
+                {isConnected && userSession && (
                     <YStack
                         gap="$4"
                         p="$3"
                     >
-                        {filteredEducationPosts.length > 0 ? (
-                            filteredEducationPosts.map((post) => (
+                        {filteredEducationSummaryPosts.length > 0 ? (
+                            filteredEducationSummaryPosts.map((post) => (
                                 <ExploreEducationPostCard
                                     key={post.postId}
                                     title={post.titleEn}
-                                    imageSource={{
-                                        uri: post.imageUrl,
-                                    }}
-                                    backgroundColor="$colorTransparent"
+                                    imageSource={{ uri: post.imageUrl }}
                                     onPress={() => {
                                         navigation.navigate('ExploreEducationPostDetails', {
-                                            title: post.titleEn,
-                                            thumbnailUrl: post.imageUrl,
-                                            content: post.contentEn,
-                                            likeCount: post.likeCount,
-                                            category: post.categoryDto.name,
-                                            createdBy: post.createdBy,
-                                            lastUpdatedBy: post.lastUpdatedBy,
+                                            postDetails: {
+                                                postId: post.postId,
+                                                imageUrl: post.imageUrl,
+                                            },
                                         });
                                     }}
+                                    backgroundColor="$colorTransparent"
                                 />
                             ))
                         ) : (
@@ -120,10 +118,20 @@ export function ExploreLandingScreen() {
                     </YStack>
                 )}
                 {isConnected === false && (
-                    <XStack gap="$2">
-                        <WifiOff color="red" />
-                        <Text>You&apos;re currrently offline</Text>
-                    </XStack>
+                    <Paragraph
+                        m="$8"
+                        alignSelf="center"
+                    >
+                        You&apos;re currrently offline
+                    </Paragraph>
+                )}
+                {!userSession && (
+                    <Paragraph
+                        m="$8"
+                        alignSelf="center"
+                    >
+                        Only logged in user can view the posts...
+                    </Paragraph>
                 )}
             </ScrollView>
             <Sheet

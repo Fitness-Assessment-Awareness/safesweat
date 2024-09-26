@@ -1,13 +1,13 @@
-import { EXPO_PUBLIC_SUPABASE_ANON_KEY, EXPO_PUBLIC_SUPABASE_URL } from '@env';
+import { EXPO_PUBLIC_SERVICE_ROLE_KEY, EXPO_PUBLIC_SUPABASE_URL } from '@env';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createClient } from '@supabase/supabase-js';
 import { AppState } from 'react-native';
 import 'react-native-url-polyfill/auto';
 
 const supabaseUrl = EXPO_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = EXPO_PUBLIC_SUPABASE_ANON_KEY;
+const supabaseServiceKey = EXPO_PUBLIC_SERVICE_ROLE_KEY;
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+export const supabase = createClient(supabaseUrl, supabaseServiceKey, {
     auth: {
         storage: AsyncStorage,
         autoRefreshToken: true,

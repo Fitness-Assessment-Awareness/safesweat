@@ -14,7 +14,9 @@ import React from 'react';
 import { LogBox } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import Toast from 'react-native-toast-message';
 import { PortalProvider, TamaguiProvider } from 'tamagui';
+import { AssessmentResultProvider } from './app/context/AssessmentResultProvider';
 import { UserProvider } from './app/context/UserProvider';
 import { Screens } from './app/navigation/Screens';
 import appConfig from './tamagui.config';
@@ -53,7 +55,10 @@ export default function App() {
                             <BottomSheetModalProvider>
                                 <PortalProvider shouldAddRootHost>
                                     <UserProvider>
-                                        <Screens />
+                                        <AssessmentResultProvider>
+                                            <Screens />
+                                            <Toast position="bottom" />
+                                        </AssessmentResultProvider>
                                     </UserProvider>
                                 </PortalProvider>
                             </BottomSheetModalProvider>

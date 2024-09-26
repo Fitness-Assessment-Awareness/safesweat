@@ -1,27 +1,38 @@
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
-import { Session } from '@supabase/supabase-js';
-import { AlertTriangle, ChevronRight, Globe, PencilLine, RefreshCw } from '@tamagui/lucide-icons';
-import React, { useEffect, useRef, useState } from 'react';
+import { AlertTriangle, ChevronRight, Eye, Globe, LogOut, PencilLine, RefreshCw } from '@tamagui/lucide-icons';
+import React, { useRef, useState } from 'react';
+import Toast from 'react-native-toast-message';
 import { Button, Image, ListItem, ScrollView, Separator, View, YGroup } from 'tamagui';
+import { Dialog } from '../../../components/Dialog';
 import { Heading } from '../../../components/Heading';
 import { Sheet } from '../../../components/Sheet';
-import { supabase } from '../../../utils/Supabase';
+import { useUser } from '../../../context/UserProvider';
 import { SettingsAssets } from '../assets';
 import { SettingsAuthSheetContent } from '../components/SettingsAuthSheet';
+import { useSettingsNavigation } from '../navigation/useSettingsNavigation';
+import { deleteUserAccount, signOut } from '../services/AuthService';
 
 export function SettingsLandingScreen() {
+    const { navigate } = useSettingsNavigation<'SettingsLanding'>();
     const sheetRef = useRef<BottomSheetModal>(null);
-    const [userSession, setUserSession] = useState<Session | null>(null);
+    const userSession = useUser();
+    const [openLogoutDialog, setOpenLogoutDialog] = useState(false);
+    const [openDeleteAccountDialog, setOpenDeleteAccountDialog] = useState(false);
+    const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
-        supabase.auth.getSession().then(({ data: { session } }) => {
-            setUserSession(session);
-        });
+    const handleDismissSheet = () => {
+        sheetRef.current?.dismiss();
+    };
 
-        supabase.auth.onAuthStateChange((_event, session) => {
-            setUserSession(session);
+    const handleDeleteAccount = async () => {
+        const { error } = await deleteUserAccount(userSession.user.id);
+        Toast.show({
+            type: error ? 'error' : 'success',
+            text1: error ? 'Error deleting account' : 'Account deleted successfully!',
+            visibilityTime: 2000,
         });
-    }, []);
+        signOut();
+    };
 
     return (
         <View flex={1}>
@@ -45,6 +56,7 @@ export function SettingsLandingScreen() {
                                     iconAfter={RefreshCw}
                                 />
                             </YGroup.Item>
+
                             <Separator borderColor="#D0D3D8" />
                             <YGroup.Item>
                                 <ListItem
@@ -60,6 +72,15 @@ export function SettingsLandingScreen() {
                     <YGroup.Item>
                         <ListItem
                             pressTheme
+                            title="Emergency Contacts"
+                            icon={AlertTriangle}
+                            iconAfter={ChevronRight}
+                        />
+                    </YGroup.Item>
+                    <Separator borderColor="#D0D3D8" />
+                    <YGroup.Item>
+                        <ListItem
+                            pressTheme
                             title="Language Options"
                             icon={Globe}
                             iconAfter={ChevronRight}
@@ -68,33 +89,83 @@ export function SettingsLandingScreen() {
                     <Separator borderColor="#D0D3D8" />
                     <YGroup.Item>
                         <ListItem
+                            onPress={() => {
+                                navigate('SettingsAssessmentResult');
+                            }}
                             pressTheme
-                            title="Emergency Contacts"
-                            icon={AlertTriangle}
+                            title="Assessment Result"
+                            icon={Eye}
                             iconAfter={ChevronRight}
                         />
                     </YGroup.Item>
                     <Separator borderColor="#D0D3D8" />
+                    {userSession != null && (
+                        <>
+                            <YGroup.Item>
+                                <ListItem
+                                    pressTheme
+                                    title="Logout"
+                                    icon={LogOut}
+                                    onPress={() => {
+                                        setOpenLogoutDialog(true);
+                                    }}
+                                />
+                            </YGroup.Item>
+                            <Separator borderColor="#D0D3D8" />
+                        </>
+                    )}
                 </YGroup>
                 <Button
-                    backgroundColor="$green11"
-                    pressStyle={{ backgroundColor: '$green10' }}
+                    backgroundColor={userSession ? '$red11' : '$green11'}
+                    pressStyle={{ backgroundColor: userSession ? '$red10' : '$green10' }}
                     color="white"
                     m="$4"
                     borderRadius="$8"
                     onPress={() => {
-                        sheetRef.current?.present();
+                        if (!userSession) {
+                            sheetRef.current?.present();
+                        } else {
+                            setOpenDeleteAccountDialog(true);
+                        }
                     }}
                 >
-                    Login
+                    {userSession ? 'Delete Account' : 'Login'}
                 </Button>
             </ScrollView>
+            <Dialog
+                title="Logout Confirmation"
+                description="Are you sure you want to logout?"
+                onPressOk={() => {
+                    signOut();
+                    Toast.show({
+                        type: 'success',
+                        text1: 'Logged out successfully!',
+                        visibilityTime: 2000,
+                    });
+                }}
+                open={openLogoutDialog}
+                setOpen={setOpenLogoutDialog}
+            />
+            <Dialog
+                title="Account Delete"
+                description="Do you want to delete this account? You cannot undo this action."
+                onPressOk={() => {
+                    handleDeleteAccount();
+                }}
+                open={openDeleteAccountDialog}
+                setOpen={setOpenDeleteAccountDialog}
+            />
             <Sheet
+                onBackdropPressBehavior={loading ? 'none' : 'close'}
                 ref={sheetRef}
                 enableDynamicSizing
             >
-                <Sheet.ScrollView>
-                    <SettingsAuthSheetContent />
+                <Sheet.ScrollView pointerEvents={loading ? 'none' : 'auto'}>
+                    <SettingsAuthSheetContent
+                        handleDismissSheet={handleDismissSheet}
+                        loading={loading}
+                        setLoading={setLoading}
+                    />
                 </Sheet.ScrollView>
             </Sheet>
         </View>

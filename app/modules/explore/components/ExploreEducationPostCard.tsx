@@ -1,7 +1,6 @@
-import { Heart } from '@tamagui/lucide-icons';
 import { ImageSourcePropType } from 'react-native';
 import { Card, CardProps, Image } from 'tamagui';
-import { Label } from '../../../components/Label';
+import { Heading } from '../../../components/Heading';
 
 interface ComponentProps extends CardProps {
     title: string;
@@ -17,23 +16,16 @@ export function ExploreEducationPostCard({ title, imageSource, ...cardProps }: C
             pt="$13"
             {...cardProps}
         >
-            <Card.Footer
-                flexDirection="row"
-                justifyContent="space-between"
-                alignItems="center"
-            >
-                <Label
-                    size="large"
-                    fontWeight="semibold"
+            <Card.Footer flexDirection="row">
+                <Heading
                     color="white"
                     textShadowRadius={1}
                     textShadowColor="black"
                 >
                     {title}
-                </Label>
-                <Heart color="white" />
+                </Heading>
             </Card.Footer>
-            <Card.Background opacity={0.65}>
+            <Card.Background opacity={0.8}>
                 <Image
                     objectFit="cover"
                     style={{ width: '100%', height: '100%' }}
