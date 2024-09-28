@@ -1,5 +1,5 @@
-import { AssessmentResult } from './AssessmentResult';
+import { WorkoutProfile } from './AssessmentResult';
 
 export interface OnboardingPublicData {
-    assessmentResult: AssessmentResult;
+    workoutProfile: WorkoutProfile;
 }

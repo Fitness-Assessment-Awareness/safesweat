@@ -3,13 +3,13 @@ import { Pressable } from 'react-native';
 import { Button, Image, Progress, ScrollView, View, XStack, YStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
-import { useAssessmentResult } from '../../../context/AssessmentResultProvider';
+import { useWorkoutProfile } from '../../../context/WorkoutProfileProvider';
 import { OnboardingAssets } from '../assets';
 import { Gender } from '../data/entities/Gender';
 import { useOnboardingNavigation } from '../navigation/useOnboardingNavigation';
 
 export function OnboardingGenderSelectScreen() {
-    const { assessmentResult, setAssessmentResult } = useAssessmentResult();
+    const { workoutProfile, setWorkoutProfile } = useWorkoutProfile();
     const navigation = useOnboardingNavigation<'OnboardingGenderSelect'>();
 
     return (
@@ -47,12 +47,12 @@ export function OnboardingGenderSelectScreen() {
                     >
                         <Pressable
                             onPress={() => {
-                                setAssessmentResult({ ...assessmentResult, gender: Gender.Male });
+                                setWorkoutProfile({ ...workoutProfile, gender: Gender.Male });
                             }}
                         >
                             <Image
                                 style={
-                                    assessmentResult.gender !== Gender.Male && {
+                                    workoutProfile.gender !== Gender.Male && {
                                         opacity: 0.5,
                                         height: '70%',
                                     }
@@ -63,12 +63,12 @@ export function OnboardingGenderSelectScreen() {
                         </Pressable>
                         <Pressable
                             onPress={() => {
-                                setAssessmentResult({ ...assessmentResult, gender: Gender.Female });
+                                setWorkoutProfile({ ...workoutProfile, gender: Gender.Female });
                             }}
                         >
                             <Image
                                 style={
-                                    assessmentResult.gender !== Gender.Female && {
+                                    workoutProfile.gender !== Gender.Female && {
                                         opacity: 0.5,
                                         height: '70%',
                                     }

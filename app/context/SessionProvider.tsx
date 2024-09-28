@@ -2,13 +2,13 @@ import { Session } from '@supabase/supabase-js';
 import { createContext, ReactNode, useContext, useEffect, useMemo, useState } from 'react';
 import { supabase } from '../utils/Supabase';
 
-const UserContext = createContext<Session | null>(null);
+const SessionContext = createContext<Session | null>(null);
 
 interface ComponentProps {
     children: ReactNode;
 }
 
-export function UserProvider({ children }: ComponentProps) {
+export function SessionProvider({ children }: ComponentProps) {
     const [userSession, setUserSession] = useState<Session | null>(null);
 
     useEffect(() => {
@@ -23,10 +23,10 @@ export function UserProvider({ children }: ComponentProps) {
 
     const value = useMemo(() => userSession, [userSession]);
 
-    return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
+    return <SessionContext.Provider value={value}>{children}</SessionContext.Provider>;
 }
 
-export function useUser() {
-    const userSession = useContext(UserContext);
+export function useSession() {
+    const userSession = useContext(SessionContext);
     return userSession;
 }

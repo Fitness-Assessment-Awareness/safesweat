@@ -6,7 +6,7 @@ import { Pressable } from 'react-native';
 import { Paragraph, ScrollView, Separator, View, XStack, YStack } from 'tamagui';
 import { SearchBar } from '../../../components/SearchBar';
 import { Sheet } from '../../../components/Sheet';
-import { useUser } from '../../../context/UserProvider';
+import { useSession } from '../../../context/SessionProvider';
 import { ExploreEducationPostCard } from '../components/ExploreEducationPostCard';
 import { ExploreSortFilterSheetContent } from '../components/ExploreSortFilterSheet';
 import { EducationCategory } from '../data/entities/EducationCategory';
@@ -33,7 +33,7 @@ const sortOptions: SortOption[] = [
 export function ExploreLandingScreen() {
     const navigation = useExploreNavigation<'ExploreLanding'>();
     const sheetRef = useRef<BottomSheetModal>(null);
-    const userSession = useUser();
+    const userSession = useSession();
     const [educationSummaryPosts, setEducationSummaryPosts] = useState<EducationPostSummary[]>([]);
     const [searchText, setSearchText] = useState('');
     const [categories, setCategories] = useState<EducationCategory[]>([]);

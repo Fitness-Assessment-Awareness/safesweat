@@ -9,7 +9,7 @@ import { Image, ScrollView, View, XStack, YStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Paragraph } from '../../../components/Paragraph';
 import { Screen } from '../../../components/Screen';
-import { useUser } from '../../../context/UserProvider';
+import { useSession } from '../../../context/SessionProvider';
 import { EducationPost } from '../data/entities/EducationPost';
 import { EducationPostBookmark } from '../data/entities/EducationPostBookmark';
 import { EducationPostLike } from '../data/entities/EducationPostLike';
@@ -30,7 +30,7 @@ export function ExploreEducationPostDetailsScreen({ route }: ComponentProps) {
     const { postDetails } = route.params;
     const { postId, imageUrl } = postDetails;
 
-    const userSession = useUser();
+    const userSession = useSession();
     const [educationPost, setEducationPost] = useState<EducationPost | null>(null);
     const [postLikes, setPostLikes] = useState<EducationPostLike[]>([]);
     const [postBookmarks, setPostBookmarks] = useState<EducationPostBookmark[]>([]);

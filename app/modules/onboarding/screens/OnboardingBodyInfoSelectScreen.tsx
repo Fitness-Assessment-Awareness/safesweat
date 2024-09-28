@@ -2,11 +2,11 @@ import { RulerPicker } from 'react-native-ruler-picker';
 import { Button, Progress, ScrollView, View, YStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
-import { useAssessmentResult } from '../../../context/AssessmentResultProvider';
+import { useWorkoutProfile } from '../../../context/WorkoutProfileProvider';
 import { useRootNavigation } from '../../../navigation/useAppNavigation';
 
 export function OnboardingBodyInfoSelectScreen() {
-    const { assessmentResult, setAssessmentResult } = useAssessmentResult();
+    const { workoutProfile, setWorkoutProfile } = useWorkoutProfile();
     const { navigate } = useRootNavigation();
 
     return (
@@ -53,11 +53,11 @@ export function OnboardingBodyInfoSelectScreen() {
                             min={0}
                             max={700}
                             fractionDigits={0}
-                            initialValue={assessmentResult.weight}
+                            initialValue={workoutProfile.weight}
                             indicatorColor="#0055D3"
                             valueTextStyle={{ color: '#0055D3' }}
                             onValueChangeEnd={(value) => {
-                                setAssessmentResult({ ...assessmentResult, weight: +value });
+                                setWorkoutProfile({ ...workoutProfile, weight: +value });
                             }}
                             unit="kg"
                         />
@@ -74,11 +74,11 @@ export function OnboardingBodyInfoSelectScreen() {
                             min={0}
                             max={300}
                             fractionDigits={0}
-                            initialValue={assessmentResult.height}
+                            initialValue={workoutProfile.height}
                             indicatorColor="#0055D3"
                             valueTextStyle={{ color: '#0055D3' }}
                             onValueChangeEnd={(value) => {
-                                setAssessmentResult({ ...assessmentResult, height: +value });
+                                setWorkoutProfile({ ...workoutProfile, height: +value });
                             }}
                             unit="cm"
                         />

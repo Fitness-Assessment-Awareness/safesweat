@@ -3,20 +3,20 @@ import React, { useState } from 'react';
 import { Dropdown, MultiSelect } from 'react-native-element-dropdown';
 import Toast from 'react-native-toast-message';
 import { Button, Input, Label, ScrollView, Text, View, YStack } from 'tamagui';
-import { useAssessmentResult } from '../../../context/AssessmentResultProvider';
+import { useWorkoutProfile } from '../../../context/WorkoutProfileProvider';
 import { Difficulty } from '../../onboarding/data/entities/Difficulty';
 import { FocusArea } from '../../onboarding/data/entities/FocusArea';
 import { Gender } from '../../onboarding/data/entities/Gender';
 import { HealthProblem } from '../../onboarding/data/entities/HealthProblem';
 
 export function SettingsAssessmentResultScreen() {
-    const { assessmentResult, setAssessmentResult } = useAssessmentResult();
-    const [gender, setGender] = useState(assessmentResult.gender);
-    const [focusAreas, setFocusAreas] = useState(assessmentResult.focusAreas);
-    const [difficulty, setDifficulty] = useState(assessmentResult.difficulty);
-    const [healthProblems, setHealthProblems] = useState(assessmentResult.healthProblems);
-    const [height, setHeight] = useState(assessmentResult.height);
-    const [weight, setWeight] = useState(assessmentResult.weight);
+    const { workoutProfile, setWorkoutProfile } = useWorkoutProfile();
+    const [gender, setGender] = useState(workoutProfile.gender);
+    const [focusAreas, setFocusAreas] = useState(workoutProfile.focusAreas);
+    const [difficulty, setDifficulty] = useState(workoutProfile.difficulty);
+    const [healthProblems, setHealthProblems] = useState(workoutProfile.healthProblems);
+    const [height, setHeight] = useState(workoutProfile.height);
+    const [weight, setWeight] = useState(workoutProfile.weight);
     const [edit, setEdit] = useState(false);
 
     const isFocusAreaValid = focusAreas.length > 0;
@@ -301,8 +301,8 @@ export function SettingsAssessmentResultScreen() {
                 borderRadius="$8"
                 onPress={() => {
                     if (edit) {
-                        setAssessmentResult({
-                            ...assessmentResult,
+                        setWorkoutProfile({
+                            ...workoutProfile,
                             gender,
                             focusAreas,
                             difficulty,
