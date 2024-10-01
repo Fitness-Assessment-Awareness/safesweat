@@ -1,13 +1,16 @@
 import { RouteProp } from '@react-navigation/native';
 import React from 'react';
 import { EducationPostScreen } from '../../common/education/screens/EducationPostScreen';
-import { ExploreEducationPostDetailsParams } from '../navigation/ExploreStackParamList';
+import { SettingsEducationPostDetailsParams } from '../navigation/SettingsStackParamList';
 
 interface ComponentProps {
-    route: RouteProp<{ ExploreEducationPostDetails: ExploreEducationPostDetailsParams }, 'ExploreEducationPostDetails'>;
+    route: RouteProp<
+        { SettingsEducationPostDetails: SettingsEducationPostDetailsParams },
+        'SettingsEducationPostDetails'
+    >;
 }
 
-export function ExploreEducationPostDetailsScreen({ route }: ComponentProps) {
+export function SettingsEducationPostDetailsScreen({ route }: ComponentProps) {
     const { postDetails } = route.params;
     const { postId, imageUrl } = postDetails;
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, XStack } from 'tamagui';
-import { Chip } from '../../../components/Chip';
-import { Heading } from '../../../components/Heading';
+import { Chip } from '../../../../components/Chip';
+import { Heading } from '../../../../components/Heading';
 import { EducationCategory } from '../data/entities/EducationCategory';
 import { SortOption } from '../data/SortOption';
 
@@ -14,7 +14,7 @@ interface ComponentProps {
     setSelectedCategory: (category: EducationCategory | null) => void;
 }
 
-export function ExploreSortFilterSheetContent({
+export function SortFilterSheetContent({
     sortOptions,
     categories,
     selectedOption,

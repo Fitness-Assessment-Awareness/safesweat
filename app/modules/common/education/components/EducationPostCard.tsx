@@ -1,13 +1,13 @@
 import { ImageSourcePropType } from 'react-native';
 import { Card, CardProps, Image } from 'tamagui';
-import { Heading } from '../../../components/Heading';
+import { Heading } from '../../../../components/Heading';
 
 interface ComponentProps extends CardProps {
     title: string;
     imageSource: ImageSourcePropType;
 }
 
-export function ExploreEducationPostCard({ title, imageSource, ...cardProps }: ComponentProps) {
+export function EducationPostCard({ title, imageSource, ...cardProps }: ComponentProps) {
     return (
         <Card
             borderRadius="$9"

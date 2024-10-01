@@ -1,5 +1,14 @@
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
-import { AlertTriangle, ChevronRight, Eye, Globe, LogOut, PencilLine, RefreshCw } from '@tamagui/lucide-icons';
+import {
+    AlertTriangle,
+    Bookmark,
+    ChevronRight,
+    Eye,
+    Globe,
+    LogOut,
+    PencilLine,
+    RefreshCw,
+} from '@tamagui/lucide-icons';
 import React, { useRef, useState } from 'react';
 import Toast from 'react-native-toast-message';
 import { Button, Image, ListItem, ScrollView, Separator, View, YGroup } from 'tamagui';
@@ -104,6 +113,18 @@ export function SettingsLandingScreen() {
                     <Separator borderColor="#D0D3D8" />
                     {userSession != null && (
                         <>
+                            <YGroup.Item>
+                                <ListItem
+                                    pressTheme
+                                    title="Bookmarked Posts"
+                                    icon={Bookmark}
+                                    iconAfter={ChevronRight}
+                                    onPress={() => {
+                                        navigate('SettingsBookmarkPosts');
+                                    }}
+                                />
+                            </YGroup.Item>
+                            <Separator borderColor="#D0D3D8" />
                             <YGroup.Item>
                                 <ListItem
                                     pressTheme

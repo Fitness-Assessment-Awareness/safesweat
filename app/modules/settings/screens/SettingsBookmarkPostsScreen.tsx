@@ -1,28 +1,27 @@
 import { useNetInfo } from '@react-native-community/netinfo';
 import React, { useEffect, useState } from 'react';
-
 import { useUser } from '../../../context/UserProvider';
 import { EducationPostSummary } from '../../common/education/data/entities/EducationPost';
-import { fetchEducationPosts } from '../../common/education/data/services/EducationPostService';
+import { fetchBookmarkEducationPosts } from '../../common/education/data/services/EducationPostService';
 import { EducationFeedScreen } from '../../common/education/screens/EducationFeedScreen';
-import { useExploreNavigation } from '../navigation/useExploreNavigation';
+import { useSettingsNavigation } from '../navigation/useSettingsNavigation';
 
-export function ExploreLandingScreen() {
-    const navigation = useExploreNavigation<'ExploreLanding'>();
+export function SettingsBookmarkPostsScreen() {
+    const navigation = useSettingsNavigation<'SettingsBookmarkPosts'>();
     const { isConnected } = useNetInfo();
     const userSession = useUser();
     const [educationPostsSummary, setEducationPostsSummary] = useState<EducationPostSummary[]>([]);
 
     useEffect(() => {
         if (isConnected && userSession) {
-            fetchEducationPosts().then((p) => {
+            fetchBookmarkEducationPosts(userSession.user.id).then((p) => {
                 setEducationPostsSummary(p);
             });
         }
     }, [isConnected, userSession]);
 
     const handleFeedOnPress = (post: EducationPostSummary) => {
-        navigation.navigate('ExploreEducationPostDetails', {
+        navigation.navigate('SettingsEducationPostDetails', {
             postDetails: {
                 postId: post.postId,
                 imageUrl: post.imageUrl,

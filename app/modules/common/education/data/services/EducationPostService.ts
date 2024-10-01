@@ -1,4 +1,4 @@
-import { Network } from '../../../../network/Network';
+import { Network } from '../../../../../network/Network';
 import { EducationCategory } from '../entities/EducationCategory';
 import { EducationPost, EducationPostSummary } from '../entities/EducationPost';
 import { EducationPostBookmark } from '../entities/EducationPostBookmark';
@@ -6,6 +6,11 @@ import { EducationPostLike } from '../entities/EducationPostLike';
 
 export const fetchEducationPosts = async () => {
     const response = await Network.get<EducationPostSummary[]>('/education-post/list-summary');
+    return response.data;
+};
+
+export const fetchBookmarkEducationPosts = async (userId: string) => {
+    const response = await Network.get<EducationPostSummary[]>(`/education-post/list-summary/bookmark/${userId}`);
     return response.data;
 };
 
