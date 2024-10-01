@@ -16,6 +16,7 @@ function HomeTabScreens() {
             initialRouteName="WorkoutStack"
             screenOptions={{
                 headerShown: false,
+                unmountOnBlur: true,
             }}
         >
             <Tab.Screen
