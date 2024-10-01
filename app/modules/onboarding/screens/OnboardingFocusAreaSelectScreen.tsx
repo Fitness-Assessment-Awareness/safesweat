@@ -4,12 +4,12 @@ import { Button, Progress, ScrollView, View, YStack } from 'tamagui';
 import { Chip } from '../../../components/Chip';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
-import { useAssessmentResult } from '../../../context/AssessmentResultProvider';
+import { useWorkoutProfile } from '../../../context/WorkoutProfileProvider';
 import { FocusArea } from '../data/entities/FocusArea';
 import { useOnboardingNavigation } from '../navigation/useOnboardingNavigation';
 
 export function OnboardingFocusAreaSelectScreen() {
-    const { assessmentResult, setAssessmentResult } = useAssessmentResult();
+    const { workoutProfile, setWorkoutProfile } = useWorkoutProfile();
     const navigation = useOnboardingNavigation<'OnboardingFocusAreaSelect'>();
 
     return (
@@ -41,15 +41,15 @@ export function OnboardingFocusAreaSelectScreen() {
                             <Fragment key={focusArea}>
                                 <Pressable
                                     onPress={() => {
-                                        if (assessmentResult.focusAreas.includes(focusArea)) {
-                                            setAssessmentResult({
-                                                ...assessmentResult,
-                                                focusAreas: assessmentResult.focusAreas.filter((f) => f !== focusArea),
+                                        if (workoutProfile.focusAreas.includes(focusArea)) {
+                                            setWorkoutProfile({
+                                                ...workoutProfile,
+                                                focusAreas: workoutProfile.focusAreas.filter((f) => f !== focusArea),
                                             });
                                         } else {
-                                            setAssessmentResult({
-                                                ...assessmentResult,
-                                                focusAreas: [...assessmentResult.focusAreas, focusArea],
+                                            setWorkoutProfile({
+                                                ...workoutProfile,
+                                                focusAreas: [...workoutProfile.focusAreas, focusArea],
                                             });
                                         }
                                     }}
@@ -58,7 +58,7 @@ export function OnboardingFocusAreaSelectScreen() {
                                         height="$6"
                                         borderRadius="$4"
                                         backgroundColor={
-                                            assessmentResult.focusAreas.includes(focusArea as FocusArea)
+                                            workoutProfile.focusAreas.includes(focusArea as FocusArea)
                                                 ? '$gray6'
                                                 : 'white'
                                         }
@@ -89,7 +89,7 @@ export function OnboardingFocusAreaSelectScreen() {
                 onPress={() => {
                     navigation.navigate('OnboardingDifficultySelect');
                 }}
-                disabled={assessmentResult.focusAreas.length === 0}
+                disabled={workoutProfile.focusAreas.length === 0}
             >
                 Next
             </Button>

@@ -4,12 +4,12 @@ import { Button, Progress, ScrollView, View, YStack } from 'tamagui';
 import { Chip } from '../../../components/Chip';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
-import { useAssessmentResult } from '../../../context/AssessmentResultProvider';
+import { useWorkoutProfile } from '../../../context/WorkoutProfileProvider';
 import { HealthProblem } from '../data/entities/HealthProblem';
 import { useOnboardingNavigation } from '../navigation/useOnboardingNavigation';
 
 export function OnboardingHealthProbSelectScreen() {
-    const { assessmentResult, setAssessmentResult } = useAssessmentResult();
+    const { workoutProfile, setWorkoutProfile } = useWorkoutProfile();
     const navigation = useOnboardingNavigation<'OnboardingHealthProbSelect'>();
 
     return (
@@ -41,17 +41,17 @@ export function OnboardingHealthProbSelectScreen() {
                             <Fragment key={problem}>
                                 <Pressable
                                     onPress={() => {
-                                        if (assessmentResult.healthProblems.includes(problem)) {
-                                            setAssessmentResult({
-                                                ...assessmentResult,
-                                                healthProblems: assessmentResult.healthProblems.filter(
+                                        if (workoutProfile.healthProblems.includes(problem)) {
+                                            setWorkoutProfile({
+                                                ...workoutProfile,
+                                                healthProblems: workoutProfile.healthProblems.filter(
                                                     (h) => h !== problem,
                                                 ),
                                             });
                                         } else {
-                                            setAssessmentResult({
-                                                ...assessmentResult,
-                                                healthProblems: [...assessmentResult.healthProblems, problem],
+                                            setWorkoutProfile({
+                                                ...workoutProfile,
+                                                healthProblems: [...workoutProfile.healthProblems, problem],
                                             });
                                         }
                                     }}
@@ -60,7 +60,7 @@ export function OnboardingHealthProbSelectScreen() {
                                         height="$6"
                                         borderRadius="$4"
                                         backgroundColor={
-                                            assessmentResult.healthProblems.includes(problem) ? '$gray6' : 'white'
+                                            workoutProfile.healthProblems.includes(problem) ? '$gray6' : 'white'
                                         }
                                         borderStyle="solid"
                                         borderColor="$gray5"
@@ -90,7 +90,7 @@ export function OnboardingHealthProbSelectScreen() {
                 onPress={() => {
                     navigation.navigate('OnboardingBodyInfoSelect');
                 }}
-                disabled={assessmentResult.healthProblems.length === 0}
+                disabled={workoutProfile.healthProblems.length === 0}
             >
                 Next
             </Button>

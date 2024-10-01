@@ -6,7 +6,7 @@ import { Pressable } from 'react-native';
 import { Paragraph, ScrollView, Separator, View, XStack, YStack } from 'tamagui';
 import { SearchBar } from '../../../../components/SearchBar';
 import { Sheet } from '../../../../components/Sheet';
-import { useUser } from '../../../../context/UserProvider';
+import { useSession } from '../../../../context/SessionProvider';
 import { EducationPostCard } from '../components/EducationPostCard';
 import { SortFilterSheetContent } from '../components/SortFilterSheet';
 import { EducationCategory } from '../data/entities/EducationCategory';
@@ -37,7 +37,7 @@ interface ComponentProps {
 export function EducationFeedScreen({ educationPostsSummary, handleFeedOnPress }: ComponentProps) {
     const sheetRef = useRef<BottomSheetModal>(null);
     const { isConnected } = useNetInfo();
-    const userSession = useUser();
+    const userSession = useSession();
     const [searchText, setSearchText] = useState('');
     const [selectedOption, setSelectedOption] = useState<SortOption | null>(null);
     const [selectedCategory, setSelectedCategory] = useState<EducationCategory | null>(null);

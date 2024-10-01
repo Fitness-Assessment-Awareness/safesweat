@@ -15,7 +15,7 @@ import { Button, Image, ListItem, ScrollView, Separator, View, YGroup } from 'ta
 import { Dialog } from '../../../components/Dialog';
 import { Heading } from '../../../components/Heading';
 import { Sheet } from '../../../components/Sheet';
-import { useUser } from '../../../context/UserProvider';
+import { useSession } from '../../../context/SessionProvider';
 import { SettingsAssets } from '../assets';
 import { SettingsAuthSheetContent } from '../components/SettingsAuthSheet';
 import { useSettingsNavigation } from '../navigation/useSettingsNavigation';
@@ -24,7 +24,7 @@ import { deleteUserAccount, signOut } from '../services/AuthService';
 export function SettingsLandingScreen() {
     const { navigate } = useSettingsNavigation<'SettingsLanding'>();
     const sheetRef = useRef<BottomSheetModal>(null);
-    const userSession = useUser();
+    const userSession = useSession();
     const [openLogoutDialog, setOpenLogoutDialog] = useState(false);
     const [openDeleteAccountDialog, setOpenDeleteAccountDialog] = useState(false);
     const [loading, setLoading] = useState(false);

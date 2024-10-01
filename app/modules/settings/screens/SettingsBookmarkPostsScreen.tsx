@@ -1,6 +1,6 @@
 import { useNetInfo } from '@react-native-community/netinfo';
 import React, { useEffect, useState } from 'react';
-import { useUser } from '../../../context/UserProvider';
+import { useSession } from '../../../context/SessionProvider';
 import { EducationPostSummary } from '../../common/education/data/entities/EducationPost';
 import { fetchBookmarkEducationPosts } from '../../common/education/data/services/EducationPostService';
 import { EducationFeedScreen } from '../../common/education/screens/EducationFeedScreen';
@@ -9,7 +9,7 @@ import { useSettingsNavigation } from '../navigation/useSettingsNavigation';
 export function SettingsBookmarkPostsScreen() {
     const navigation = useSettingsNavigation<'SettingsBookmarkPosts'>();
     const { isConnected } = useNetInfo();
-    const userSession = useUser();
+    const userSession = useSession();
     const [educationPostsSummary, setEducationPostsSummary] = useState<EducationPostSummary[]>([]);
 
     useEffect(() => {
