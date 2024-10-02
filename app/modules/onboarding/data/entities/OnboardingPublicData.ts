@@ -1,4 +1,4 @@
-import { WorkoutProfile } from './AssessmentResult';
+import { WorkoutProfile } from './WorkoutProfile';
 
 export interface OnboardingPublicData {
     workoutProfile: WorkoutProfile;

@@ -9,9 +9,9 @@ import {
     useMemo,
     useState,
 } from 'react';
-import { WorkoutProfile } from '../modules/onboarding/data/entities/AssessmentResult';
 import { Difficulty } from '../modules/onboarding/data/entities/Difficulty';
 import { Gender } from '../modules/onboarding/data/entities/Gender';
+import { WorkoutProfile } from '../modules/onboarding/data/entities/WorkoutProfile';
 import { StoragePublicRepository } from '../storage/domain/useCases/StoragePublicRepository';
 
 const WorkoutProfileContext = createContext<{
@@ -35,7 +35,7 @@ export function WorkoutProfileProvider({ children }: ComponentProps) {
     });
 
     useEffect(() => {
-        const rehydrateAssessmentResult = async () => {
+        const rehydrateWorkoutProfile = async () => {
             const storedWorkoutProfile = await StoragePublicRepository.instance.get({
                 namespace: 'onboarding',
                 key: 'workoutProfile',
@@ -46,7 +46,7 @@ export function WorkoutProfileProvider({ children }: ComponentProps) {
             }
         };
 
-        rehydrateAssessmentResult();
+        rehydrateWorkoutProfile();
     }, []);
 
     const setWorkoutProfileInternal = useCallback(
@@ -85,7 +85,7 @@ export function useWorkoutProfile() {
     const context = useContext(WorkoutProfileContext);
 
     if (!context) {
-        throw new Error('useWorkoutProfile must be used within a AssessmentResultProvider');
+        throw new Error('useWorkoutProfile must be used within a WorkoutProfileProvider');
     }
 
     const { workoutProfile, setWorkoutProfile } = context;

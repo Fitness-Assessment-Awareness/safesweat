@@ -7,7 +7,7 @@ export interface SettingsEducationPostDetailsParams {
 
 export type SettingsStackParamList = {
     SettingsLanding: undefined;
-    SettingsAssessmentResult: undefined;
+    SettingsWorkoutProfile: undefined;
     SettingsBookmarkPosts: undefined;
     SettingsEducationPostDetails: SettingsEducationPostDetailsParams;
 };

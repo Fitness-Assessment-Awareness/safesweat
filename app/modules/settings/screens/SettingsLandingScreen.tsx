@@ -102,10 +102,10 @@ export function SettingsLandingScreen() {
                     <YGroup.Item>
                         <ListItem
                             onPress={() => {
-                                navigate('SettingsAssessmentResult');
+                                navigate('SettingsWorkoutProfile');
                             }}
                             pressTheme
-                            title="Assessment Result"
+                            title="Workout Profile"
                             icon={Eye}
                             iconAfter={ChevronRight}
                         />

@@ -35,10 +35,10 @@ export function WorkoutExercisingScreen() {
     const onFinishExercise = useCallback(() => {
         if (index === workout.exercises.length - 1) {
             replace('WorkoutSuccess', { workoutKey });
-            setWorkoutProfile((assessmentResult) => ({
-                ...assessmentResult,
+            setWorkoutProfile((workoutProfile) => ({
+                ...workoutProfile,
                 workoutHistories: [
-                    ...assessmentResult.workoutHistories,
+                    ...workoutProfile.workoutHistories,
                     {
                         workoutKey,
                         timestamp: dayjs().toISOString(),

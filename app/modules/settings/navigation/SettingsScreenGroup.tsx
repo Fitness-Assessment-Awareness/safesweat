@@ -1,10 +1,10 @@
 /* eslint-disable react/no-unstable-nested-components */
 import { HeaderBackButton } from '../../../components/HeaderBackButton';
 import { HeaderTitle } from '../../../components/HeaderTitle';
-import { SettingsAssessmentResultScreen } from '../screens/SettingsAssessmentResultScreen';
 import { SettingsBookmarkPostsScreen } from '../screens/SettingsBookmarkPostsScreen';
 import { SettingsEducationPostDetailsScreen } from '../screens/SettingsEducationPostDetailsScreen';
 import { SettingsLandingScreen } from '../screens/SettingsLandingScreen';
+import { SettingsWorkoutProfileScreen } from '../screens/SettingsWorkoutProfileScreen';
 import { SettingsStack } from './SettingsStack';
 import { useSettingsNavigation } from './useSettingsNavigation';
 
@@ -37,10 +37,10 @@ export function SettingsScreens() {
                 }}
             />
             <SettingsStack.Screen
-                name="SettingsAssessmentResult"
-                component={SettingsAssessmentResultScreen}
+                name="SettingsWorkoutProfile"
+                component={SettingsWorkoutProfileScreen}
                 options={{
-                    headerTitle: () => <HeaderTitle mx="$2">ASSESSMENT RESULT</HeaderTitle>,
+                    headerTitle: () => <HeaderTitle mx="$2">WORKOUT PROFILE</HeaderTitle>,
                     headerBackVisible: false,
                 }}
             />

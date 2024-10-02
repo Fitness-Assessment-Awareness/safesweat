@@ -9,7 +9,7 @@ import { FocusArea } from '../../onboarding/data/entities/FocusArea';
 import { Gender } from '../../onboarding/data/entities/Gender';
 import { HealthProblem } from '../../onboarding/data/entities/HealthProblem';
 
-export function SettingsAssessmentResultScreen() {
+export function SettingsWorkoutProfileScreen() {
     const { workoutProfile, setWorkoutProfile } = useWorkoutProfile();
     const [gender, setGender] = useState(workoutProfile.gender);
     const [focusAreas, setFocusAreas] = useState(workoutProfile.focusAreas);
