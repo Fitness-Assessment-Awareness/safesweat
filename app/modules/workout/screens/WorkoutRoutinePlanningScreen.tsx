@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Button, Paragraph, Select, View, XStack } from 'tamagui';
+import { Button, Select, View, XStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
+import { Paragraph } from '../../../components/Paragraph';
 import { useWorkoutProfile } from '../../../context/WorkoutProfileProvider';
 import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
 
@@ -24,7 +25,7 @@ export function WorkoutRoutinePlanningScreen() {
                     alignItems="center"
                     rowGap="$3"
                 >
-                    <Paragraph>🎯 Weekly training days</Paragraph>
+                    <Paragraph size="large">🎯 Weekly training days</Paragraph>
                     <XStack
                         flexWrap="wrap"
                         justifyContent="center"
@@ -48,7 +49,7 @@ export function WorkoutRoutinePlanningScreen() {
             <Button
                 themeInverse
                 m="$4"
-                borderRadius={'$8'}
+                borderRadius="$8"
                 onPress={() => {
                     updateWorkoutProfile({
                         weeklyGoal: selectedDay,

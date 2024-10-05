@@ -1,22 +1,15 @@
-import { Pencil } from '@tamagui/lucide-icons';
 import React from 'react';
-import { Card, Circle, ScrollView, View, XStack, YStack } from 'tamagui';
+import { ScrollView, View, XStack, YStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
-import { Label } from '../../../components/Label';
 import { Paragraph } from '../../../components/Paragraph';
 import { WorkoutAssets } from '../assets';
 import { WorkoutLandingTabs } from '../components/WorkoutLandingTabs';
 import { WorkoutPlanCard } from '../components/WorkoutPlanCard';
+import { WorkoutRoutineCard } from '../components/WorkoutRoutineCard';
 import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
 
 export function WorkoutLandingScreen() {
-    const daysInWeek: number[] = [6, 7, 8, 9, 10, 11, 12];
-
     const navigation = useWorkoutNavigation<'WorkoutLanding'>();
-
-    const onSetWeeklyTarget = () => {
-        navigation.navigate('WorkoutRoutinePlanning');
-    };
 
     return (
         <View>
@@ -50,41 +43,7 @@ export function WorkoutLandingScreen() {
                         <Paragraph>MINUTE</Paragraph>
                     </YStack>
                 </XStack>
-                <Card
-                    backgroundColor="#E7EBFB"
-                    p="$4"
-                    borderRadius="$8"
-                    rowGap="$3"
-                    onPress={onSetWeeklyTarget}
-                >
-                    <XStack justifyContent="space-between">
-                        <XStack
-                            alignItems="center"
-                            columnGap="$2"
-                        >
-                            <Label>Weekly Target</Label>
-                            <Pencil
-                                color="black"
-                                size="$1"
-                            />
-                        </XStack>
-                        <Label color="$green10">2/3</Label>
-                    </XStack>
-                    <XStack
-                        justifyContent="space-evenly"
-                        columnGap="$4"
-                    >
-                        {daysInWeek.map((day) => (
-                            <Circle
-                                key={day}
-                                size="$4"
-                                backgroundColor="#DCE0EC"
-                            >
-                                <Heading size="small">{day}</Heading>
-                            </Circle>
-                        ))}
-                    </XStack>
-                </Card>
+                <WorkoutRoutineCard />
                 <WorkoutLandingTabs tabs={['beginner', 'intermediate', 'advanced']}>
                     <WorkoutLandingTabs.Content
                         selectedTab="beginner"
