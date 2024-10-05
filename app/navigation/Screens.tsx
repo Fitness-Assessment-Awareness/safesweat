@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unstable-nested-components */
 import { BookMarked, Dumbbell, Globe2, Settings } from '@tamagui/lucide-icons';
 import { HeaderBackButton } from '../components/HeaderBackButton';
+import { useWorkoutProfile } from '../context/WorkoutProfileProvider';
 import { CatalogueScreens } from '../modules/catalogue/navigation/CatalogueScreenGroup';
 import { ExploreScreens } from '../modules/explore/navigation/ExploreScreenGroup';
 import { OnboardingScreenGroup } from '../modules/onboarding/navigation/OnboardingScreenGroup';
@@ -76,6 +77,7 @@ function HomeTabScreens() {
 }
 
 export function Screens() {
+    const { workoutProfile } = useWorkoutProfile();
     return (
         <RootStack.Navigator
             id="root"
@@ -97,6 +99,7 @@ export function Screens() {
                 },
                 headerTintColor: 'black',
             }}
+            initialRouteName={workoutProfile ? 'HomeTab' : 'OnboardingLanding'}
         >
             {OnboardingScreenGroup}
             <RootStack.Screen
