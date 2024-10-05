@@ -3,6 +3,7 @@ import { HeaderBackButton } from '../../../components/HeaderBackButton';
 import { HeaderTitle } from '../../../components/HeaderTitle';
 import { WorkoutLandingScreen } from '../screens/WorkoutLandingScreen';
 import { WorkoutPlanDetailsScreen } from '../screens/WorkoutPlanDetailsScreen';
+import { WorkoutRoutinePlanningScreen } from '../screens/WorkoutRoutinePlanningScreen';
 import { WorkoutStack } from './WorkoutStack';
 import { useWorkoutNavigation } from './useWorkoutNavigation';
 
@@ -24,6 +25,7 @@ export function WorkoutScreens() {
                         />
                     );
                 },
+                headerTintColor: 'black',
             }}
         >
             <WorkoutStack.Screen
@@ -37,6 +39,10 @@ export function WorkoutScreens() {
                 name="WorkoutPlanDetails"
                 component={WorkoutPlanDetailsScreen}
                 options={{ headerTransparent: true, headerTintColor: 'white' }}
+            />
+            <WorkoutStack.Screen
+                name="WorkoutRoutinePlanning"
+                component={WorkoutRoutinePlanningScreen}
             />
         </WorkoutStack.Navigator>
     );

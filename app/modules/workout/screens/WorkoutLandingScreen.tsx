@@ -14,6 +14,10 @@ export function WorkoutLandingScreen() {
 
     const navigation = useWorkoutNavigation<'WorkoutLanding'>();
 
+    const onSetWeeklyTarget = () => {
+        navigation.navigate('WorkoutRoutinePlanning');
+    };
+
     return (
         <View>
             <ScrollView
@@ -51,6 +55,7 @@ export function WorkoutLandingScreen() {
                     p="$4"
                     borderRadius="$8"
                     rowGap="$3"
+                    onPress={onSetWeeklyTarget}
                 >
                     <XStack justifyContent="space-between">
                         <XStack

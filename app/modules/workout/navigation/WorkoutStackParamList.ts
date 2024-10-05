@@ -25,6 +25,7 @@ interface WorkoutSuccessParams {
 export type WorkoutStackParamList = {
     WorkoutLanding: undefined;
     WorkoutPlanDetails: WorkoutPlanDetailsParams;
+    WorkoutRoutinePlanning: undefined;
 };
 
 export type WorkoutRootStackParamList = {
