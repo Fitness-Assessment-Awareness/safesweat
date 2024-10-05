@@ -19,6 +19,7 @@
     },
     "plugins": ["@typescript-eslint", "@tanstack/query"],
     "rules": {
+        "no-use-before-define": ["error", { "functions": false, "classes": false }],
         "@typescript-eslint/dot-notation": "off",
         "import/no-default-export": "error",
         "import/prefer-default-export": "off",
