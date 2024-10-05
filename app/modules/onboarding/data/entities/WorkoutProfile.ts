@@ -11,5 +11,6 @@ export interface WorkoutProfile {
     healthProblems: HealthProblem[];
     weight: number;
     height: number;
+    weeklyGoal: number | null;
     workoutHistories: WorkoutHistory[];
 }

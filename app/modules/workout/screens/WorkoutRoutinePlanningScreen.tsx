@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { Button, Paragraph, Select, View, XStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
+import { useWorkoutProfile } from '../../../context/WorkoutProfileProvider';
 import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
 
 export function WorkoutRoutinePlanningScreen() {
-    const daysInWeek: number[] = [1, 2, 3, 4, 5, 6, 7];
-    const [selectedDay, setSelectedDay] = useState<number>(7);
+    const { workoutProfile, updateWorkoutProfile } = useWorkoutProfile();
+    const [selectedDay, setSelectedDay] = useState<number | null>(workoutProfile.weeklyGoal);
     const { pop } = useWorkoutNavigation();
+
+    const daysInWeek: number[] = [1, 2, 3, 4, 5, 6, 7];
 
     return (
         <View flex={1}>
@@ -33,7 +36,9 @@ export function WorkoutRoutinePlanningScreen() {
                                 key={day}
                                 day={day}
                                 isSelected={selectedDay === day}
-                                setIsSelected={setSelectedDay}
+                                setIsSelected={() => {
+                                    setSelectedDay(day === selectedDay ? null : day);
+                                }}
                             />
                         ))}
                     </XStack>
@@ -45,6 +50,9 @@ export function WorkoutRoutinePlanningScreen() {
                 m="$4"
                 borderRadius={'$8'}
                 onPress={() => {
+                    updateWorkoutProfile({
+                        weeklyGoal: selectedDay,
+                    });
                     pop();
                 }}
             >

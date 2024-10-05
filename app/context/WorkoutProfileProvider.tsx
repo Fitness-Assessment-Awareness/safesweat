@@ -31,6 +31,7 @@ export function WorkoutProfileProvider({ children }: ComponentProps) {
         healthProblems: [],
         weight: 50,
         height: 160,
+        weeklyGoal: null,
         workoutHistories: [],
     });
 
