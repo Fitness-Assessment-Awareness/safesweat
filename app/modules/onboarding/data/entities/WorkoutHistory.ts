@@ -1,4 +1,4 @@
-import { WorkoutKey } from '../../workout/data/workouts';
+import { WorkoutKey } from '../../../workout/data/workouts';
 
 export interface WorkoutHistory {
     workoutKey: WorkoutKey;
