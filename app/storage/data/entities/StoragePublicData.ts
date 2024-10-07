@@ -1,4 +1,5 @@
 import { OnboardingPublicData } from '../../../modules/onboarding/data/entities/OnboardingPublicData';
+import { SettingsPublicData } from '../../../modules/settings/data/entities/SettingsPublicData';
 
 /**
  * Intersect your states here so that intellisense and linting can work properly
@@ -9,4 +10,5 @@ import { OnboardingPublicData } from '../../../modules/onboarding/data/entities/
  */
 export type StoragePublicData = {
     onboarding: OnboardingPublicData;
+    settings: SettingsPublicData;
 };

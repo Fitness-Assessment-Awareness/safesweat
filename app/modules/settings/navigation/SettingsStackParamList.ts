@@ -10,4 +10,5 @@ export type SettingsStackParamList = {
     SettingsWorkoutProfile: undefined;
     SettingsBookmarkPosts: undefined;
     SettingsEducationPostDetails: SettingsEducationPostDetailsParams;
+    SettingsEmergencyContact: undefined;
 };

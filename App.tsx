@@ -16,6 +16,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Toast from 'react-native-toast-message';
 import { PortalProvider, TamaguiProvider } from 'tamagui';
+import { EmergencyContactsProvider } from './app/context/EmergencyContactProvider';
 import { SessionProvider } from './app/context/SessionProvider';
 import { WorkoutProfileProvider } from './app/context/WorkoutProfileProvider';
 import { Screens } from './app/navigation/Screens';
@@ -52,16 +53,18 @@ export default function App() {
                 <SafeAreaProvider>
                     <QueryClientProvider client={queryClient}>
                         <NavigationContainer onReady={onNavigationReady}>
-                            <BottomSheetModalProvider>
-                                <PortalProvider shouldAddRootHost>
-                                    <SessionProvider>
-                                        <WorkoutProfileProvider>
-                                            <Screens />
-                                            <Toast position="bottom" />
-                                        </WorkoutProfileProvider>
-                                    </SessionProvider>
-                                </PortalProvider>
-                            </BottomSheetModalProvider>
+                            <EmergencyContactsProvider>
+                                <SessionProvider>
+                                    <WorkoutProfileProvider>
+                                        <BottomSheetModalProvider>
+                                            <PortalProvider shouldAddRootHost>
+                                                <Screens />
+                                                <Toast position="bottom" />
+                                            </PortalProvider>
+                                        </BottomSheetModalProvider>
+                                    </WorkoutProfileProvider>
+                                </SessionProvider>
+                            </EmergencyContactsProvider>
                         </NavigationContainer>
                     </QueryClientProvider>
                 </SafeAreaProvider>

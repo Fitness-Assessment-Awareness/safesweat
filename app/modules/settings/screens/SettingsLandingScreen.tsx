@@ -83,6 +83,9 @@ export function SettingsLandingScreen() {
                     )}
                     <YGroup.Item>
                         <ListItem
+                            onPress={() => {
+                                navigate('SettingsEmergencyContact');
+                            }}
                             pressTheme
                             title="Emergency Contacts"
                             icon={AlertTriangle}

@@ -3,6 +3,7 @@ import { HeaderBackButton } from '../../../components/HeaderBackButton';
 import { HeaderTitle } from '../../../components/HeaderTitle';
 import { SettingsBookmarkPostsScreen } from '../screens/SettingsBookmarkPostsScreen';
 import { SettingsEducationPostDetailsScreen } from '../screens/SettingsEducationPostDetailsScreen';
+import { SettingsEmergencyContactScreen } from '../screens/SettingsEmergencyContactScreen';
 import { SettingsLandingScreen } from '../screens/SettingsLandingScreen';
 import { SettingsWorkoutProfileScreen } from '../screens/SettingsWorkoutProfileScreen';
 import { SettingsStack } from './SettingsStack';
@@ -56,6 +57,14 @@ export function SettingsScreens() {
                 name="SettingsEducationPostDetails"
                 component={SettingsEducationPostDetailsScreen}
                 options={{ headerTransparent: true, headerTintColor: 'white' }}
+            />
+            <SettingsStack.Screen
+                name="SettingsEmergencyContact"
+                component={SettingsEmergencyContactScreen}
+                options={{
+                    headerTitle: () => <HeaderTitle mx="$2">Emergency Contacts</HeaderTitle>,
+                    headerBackVisible: false,
+                }}
             />
         </SettingsStack.Navigator>
     );
