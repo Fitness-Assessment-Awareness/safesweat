@@ -1,5 +1,6 @@
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
 import { useRef, useState } from 'react';
+import Toast from 'react-native-toast-message';
 import { Button, ScrollView, View, YStack } from 'tamagui';
 import { Dialog } from '../../../components/Dialog';
 import { Sheet } from '../../../components/Sheet';
@@ -27,6 +28,14 @@ export function SettingsEmergencyContactScreen() {
     const deleteContact = () => {
         if (!contactOnDelete) {
             throw new Error('contactOnDelete is not set');
+        }
+        if (emergencyContacts.length === 1) {
+            Toast.show({
+                type: 'info',
+                text1: 'You cannot delete the last contact',
+                visibilityTime: 2000,
+            });
+            return;
         }
         setEmergencyContacts(emergencyContacts.filter((contact) => contact.id !== contactOnDelete.id));
         setOpenDeleteContactDialog(false);
