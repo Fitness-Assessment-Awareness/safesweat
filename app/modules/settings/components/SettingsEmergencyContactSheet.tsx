@@ -6,6 +6,7 @@ import { Button, Input, YStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
 import { useEmergencyContacts } from '../../../context/EmergencyContactProvider';
+import { EMERGENCY_CONTACT_MALAYSIA } from '../constant/EmergencyContactMalaysia';
 import { EmergencyContact } from '../data/entities/EmergencyContact';
 
 interface ComponentProps {
@@ -20,7 +21,6 @@ export enum SettingsEmergencyContactSheetAction {
 }
 
 const phoneNumMalaysiaRegex = /^(\+?6?01)[02-46-9]-*[0-9]{7}$|^(\+?6?01)[1]-*[0-9]{8}$/;
-const emergencyContactNumMalaysia = '999';
 
 export function SettingsEmergencyContactSheetContent({ handleDismissSheet, action, contactOnEdit }: ComponentProps) {
     const { emergencyContacts, setEmergencyContacts, updateEmergencyContact } = useEmergencyContacts();
@@ -41,7 +41,10 @@ export function SettingsEmergencyContactSheetContent({ handleDismissSheet, actio
             });
             return false;
         }
-        if (!phoneNumMalaysiaRegex.test(form.phoneNumber) && form.phoneNumber !== emergencyContactNumMalaysia) {
+        if (
+            !phoneNumMalaysiaRegex.test(form.phoneNumber) &&
+            form.phoneNumber !== EMERGENCY_CONTACT_MALAYSIA.phoneNumber
+        ) {
             setForm({
                 ...form,
                 errorMsg: 'Invalid phone number format',

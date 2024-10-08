@@ -9,7 +9,7 @@ import {
     useMemo,
     useState,
 } from 'react';
-import uuid from 'react-native-uuid';
+import { EMERGENCY_CONTACT_MALAYSIA } from '../modules/settings/constant/EmergencyContactMalaysia';
 import { EmergencyContact } from '../modules/settings/data/entities/EmergencyContact';
 import { StoragePublicRepository } from '../storage/domain/useCases/StoragePublicRepository';
 
@@ -61,9 +61,7 @@ export function EmergencyContactsProvider({ children }: ComponentProps) {
             } else {
                 setEmergencyContactsInternal([
                     {
-                        id: uuid.v4().toString(),
-                        fullName: 'Ambulance Service',
-                        phoneNumber: '999',
+                        ...EMERGENCY_CONTACT_MALAYSIA,
                     },
                 ]);
             }
