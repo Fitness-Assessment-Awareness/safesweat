@@ -20,7 +20,8 @@
                 "foregroundImage": "./assets/adaptive-icon.png",
                 "backgroundColor": "#ffffff"
             },
-            "package": "com.fyp.safesweat"
+            "package": "com.fyp.safesweat",
+            "permissions": ["android.permission.CALL_PHONE"]
         },
         "web": {
             "favicon": "./assets/favicon.png"

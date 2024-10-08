@@ -1,4 +1,5 @@
 import React, { useId, useState } from 'react';
+import { Linking } from 'react-native';
 import Toast from 'react-native-toast-message';
 import uuid from 'react-native-uuid';
 import { Button, Input, YStack } from 'tamagui';
@@ -44,6 +45,13 @@ export function SettingsEmergencyContactSheetContent({ handleDismissSheet, actio
             setForm({
                 ...form,
                 errorMsg: 'Invalid phone number format',
+            });
+            return false;
+        }
+        if (!Linking.canOpenURL(`tel:${form.phoneNumber}`)) {
+            setForm({
+                ...form,
+                errorMsg: 'Phone number is not callable',
             });
             return false;
         }

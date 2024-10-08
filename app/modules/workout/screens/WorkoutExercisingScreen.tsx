@@ -1,6 +1,6 @@
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
 import { RouteProp, useRoute } from '@react-navigation/native';
-import { Info } from '@tamagui/lucide-icons';
+import { Info, PhoneCall } from '@tamagui/lucide-icons';
 import dayjs from 'dayjs';
 import { StatusBar } from 'expo-status-bar';
 import LottieView from 'lottie-react-native';
@@ -13,6 +13,7 @@ import { Sheet } from '../../../components/Sheet';
 import { useWorkoutProfile } from '../../../context/WorkoutProfileProvider';
 import { useRootNavigation } from '../../../navigation/useAppNavigation';
 import { useCountdown } from '../../../utils/useCountdown';
+import { WorkoutEmergencyCallSheetContent } from '../components/WorkoutEmergencyCallSheet';
 import { WorkoutExerciseDetailsSheetContent } from '../components/WorkoutExerciseDetailsSheet';
 import { EXERCISES } from '../data/exercises';
 import { WORKOUTS } from '../data/workouts';
@@ -20,7 +21,8 @@ import { WorkoutRootStackParamList } from '../navigation/WorkoutStackParamList';
 
 export function WorkoutExercisingScreen() {
     const { setWorkoutProfile } = useWorkoutProfile();
-    const sheetRef = useRef<BottomSheetModal>(null);
+    const sheetRefExerciseDetails = useRef<BottomSheetModal>(null);
+    const sheetRefEmergencyCall = useRef<BottomSheetModal>(null);
     const { replace } = useRootNavigation();
     const {
         params: { workoutKey, index },
@@ -94,7 +96,7 @@ export function WorkoutExercisingScreen() {
                         <Heading>{exercise.title}</Heading>
                         <Pressable
                             onPress={() => {
-                                sheetRef.current?.present();
+                                sheetRefExerciseDetails.current?.present();
                                 if (workoutExercise.type === 'duration') {
                                     stopCountdown();
                                 }
@@ -114,6 +116,22 @@ export function WorkoutExercisingScreen() {
                                 ? dayjs.duration(seconds, 'seconds').format('mm:ss')
                                 : `x${workoutExercise.reps}`}
                         </Heading>
+                        <Button
+                            icon={PhoneCall}
+                            backgroundColor="$red11"
+                            pressStyle={{ backgroundColor: '$red10' }}
+                            color="white"
+                            m="$4"
+                            borderRadius="$8"
+                            onPress={() => {
+                                sheetRefEmergencyCall.current?.present();
+                                if (workoutExercise.type === 'duration') {
+                                    stopCountdown();
+                                }
+                            }}
+                        >
+                            Emergency Call
+                        </Button>
                     </View>
                     <Button
                         themeInverse
@@ -126,7 +144,7 @@ export function WorkoutExercisingScreen() {
                 </View>
             </Screen>
             <Sheet
-                ref={sheetRef}
+                ref={sheetRefExerciseDetails}
                 snapPoints={['85%']}
                 onDismiss={() => {
                     if (workoutExercise.type === 'duration') {
@@ -138,6 +156,19 @@ export function WorkoutExercisingScreen() {
                     {...exercise}
                     {...workoutExercise}
                 />
+            </Sheet>
+            <Sheet
+                ref={sheetRefEmergencyCall}
+                enableDynamicSizing
+                onDismiss={() => {
+                    if (workoutExercise.type === 'duration') {
+                        startCountdown(seconds);
+                    }
+                }}
+            >
+                <Sheet.ScrollView>
+                    <WorkoutEmergencyCallSheetContent />
+                </Sheet.ScrollView>
             </Sheet>
         </>
     );
