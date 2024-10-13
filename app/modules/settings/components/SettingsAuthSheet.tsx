@@ -1,10 +1,12 @@
-import { Mail } from '@tamagui/lucide-icons';
-import React, { useId, useState } from 'react';
+import { useNetInfo } from '@react-native-community/netinfo';
+import { Mail, WifiOff } from '@tamagui/lucide-icons';
+import React, { useEffect, useId, useState } from 'react';
 import { Pressable } from 'react-native';
 import Toast from 'react-native-toast-message';
 import { Button, Input, Spinner, Text, XStack, YStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
+import { Paragraph } from '../../../components/Paragraph';
 import { sendPasswordResetEmail, sendSignupEmail, signIn, signUp } from '../services/AuthService';
 
 interface ComponentProps {
@@ -18,15 +20,26 @@ enum AuthAction {
     SIGN_UP = 'Sign up',
     EMAIL_VERIFICATION = 'Email Verification',
     FORGOT_PASSWORD = 'Forgot Password',
+    NO_INTERNET = 'No Internet Found',
 }
 
 export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoading }: ComponentProps) {
+    const { isConnected } = useNetInfo();
     const [form, setForm] = useState({
         email: '',
         password: '',
         errorMsg: '',
     });
+
     const [authAction, setAuthAction] = useState<AuthAction>(AuthAction.SIGN_IN);
+    useEffect(() => {
+        if (!isConnected) {
+            setAuthAction(AuthAction.NO_INTERNET);
+        } else {
+            setAuthAction(AuthAction.SIGN_IN);
+        }
+    }, [isConnected]);
+
     const id = useId();
 
     async function handleSignin() {
@@ -107,6 +120,24 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
     return (
         <>
             <Heading m="$4">{authAction}</Heading>
+            {authAction === AuthAction.NO_INTERNET && (
+                <YStack
+                    my="$2"
+                    alignSelf="center"
+                    width="85%"
+                    gap="$4"
+                    mx="$4"
+                    alignItems="center"
+                >
+                    <WifiOff size="$8" />
+                    <Paragraph
+                        p="$3"
+                        alignSelf="center"
+                    >
+                        Connect to the internet to continue...
+                    </Paragraph>
+                </YStack>
+            )}
             {authAction === AuthAction.SIGN_IN && (
                 <YStack
                     width="85%"

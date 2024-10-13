@@ -1,3 +1,4 @@
+import { useNetInfo } from '@react-native-community/netinfo';
 import { Session } from '@supabase/supabase-js';
 import { createContext, ReactNode, useContext, useEffect, useMemo, useState } from 'react';
 import { supabase } from '../utils/Supabase';
@@ -10,16 +11,19 @@ interface ComponentProps {
 
 export function SessionProvider({ children }: ComponentProps) {
     const [userSession, setUserSession] = useState<Session | null>(null);
+    const { isConnected } = useNetInfo();
 
     useEffect(() => {
-        supabase.auth.getSession().then(({ data: { session } }) => {
-            setUserSession(session);
-        });
+        if (isConnected) {
+            supabase.auth.getSession().then(({ data: { session } }) => {
+                setUserSession(session);
+            });
 
-        supabase.auth.onAuthStateChange((_event, session) => {
-            setUserSession(session);
-        });
-    }, []);
+            supabase.auth.onAuthStateChange((_event, session) => {
+                setUserSession(session);
+            });
+        }
+    }, [isConnected]);
 
     const value = useMemo(() => userSession, [userSession]);
 
