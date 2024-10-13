@@ -74,8 +74,6 @@ export function SettingsEmergencyContactSheetContent({ handleDismissSheet, actio
                 phoneNumber: form.phoneNumber,
             },
         ]);
-
-        handleDismissSheet();
         Toast.show({ type: 'success', text1: 'New contact added successfully!', visibilityTime: 2000 });
     }
 
@@ -90,7 +88,6 @@ export function SettingsEmergencyContactSheetContent({ handleDismissSheet, actio
                 phoneNumber: form.phoneNumber,
             });
 
-            handleDismissSheet();
             Toast.show({ type: 'success', text1: 'Contact edited successfully!', visibilityTime: 2000 });
         } else {
             throw new Error('contactOnEdit & setContactOnEdit props is required for editing');
@@ -150,6 +147,7 @@ export function SettingsEmergencyContactSheetContent({ handleDismissSheet, actio
                         } else if (action === SettingsEmergencyContactSheetAction.EDIT) {
                             handleEdit();
                         }
+                        handleDismissSheet();
                     }}
                 >
                     OK
