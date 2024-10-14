@@ -1,10 +1,8 @@
-import { EXPO_PUBLIC_LOCAL_IP_ADDR } from '@env';
+import { EXPO_PUBLIC_BACKEND_BASE_URL } from '@env';
 import axios from 'axios';
 
-const getLocalIpAddr = () => EXPO_PUBLIC_LOCAL_IP_ADDR;
-
 export const Network = axios.create({
-    baseURL: `http://${getLocalIpAddr()}:8080`,
+    baseURL: EXPO_PUBLIC_BACKEND_BASE_URL,
     validateStatus: axios.defaults.validateStatus,
     timeout: 12000,
 });
