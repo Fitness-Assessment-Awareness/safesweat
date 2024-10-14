@@ -110,7 +110,11 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
             });
             return;
         }
-        Toast.show({ type: 'success', text1: 'Check email to reset your password', visibilityTime: 1000 });
+        Toast.show({
+            type: 'success',
+            text1: 'Password reset email is sent if your account exists',
+            visibilityTime: 1000,
+        });
         setForm({
             ...form,
             errorMsg: '',
