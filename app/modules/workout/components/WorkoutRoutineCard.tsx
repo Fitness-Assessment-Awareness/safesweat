@@ -7,13 +7,11 @@ import { useWorkoutProfile } from '../../../context/WorkoutProfileProvider';
 import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
 
 export function WorkoutRoutineCard() {
-    const startOfWeek = dayjs().startOf('week').date();
-    const endOfWeek = dayjs().endOf('week').date();
+    const startOfWeek = dayjs().startOf('week');
+    const startOfWeekDay = startOfWeek.date();
+    const endOfWeek = dayjs().endOf('week');
     const daysInMonth = dayjs().daysInMonth();
-    const daysInWeek: number[] = Array.from(
-        { length: endOfWeek - startOfWeek + 1 },
-        (_, i) => ((i + startOfWeek - 1) % daysInMonth) + 1,
-    );
+    const daysInWeek: number[] = Array.from({ length: 7 }, (_, i) => ((i + startOfWeekDay - 1) % daysInMonth) + 1);
 
     const navigation = useWorkoutNavigation<'WorkoutLanding'>();
     const { workoutProfile } = useWorkoutProfile();
@@ -21,6 +19,14 @@ export function WorkoutRoutineCard() {
     const onSetWeeklyTarget = () => {
         navigation.navigate('WorkoutRoutinePlanning');
     };
+
+    const workoutDoneInThisWeek = workoutProfile.workoutHistories.reduce((prev, curr) => {
+        const workoutDate = dayjs(curr.timestamp);
+        if (workoutDate.isBetween(startOfWeek, endOfWeek, 'day')) {
+            return prev + 1;
+        }
+        return prev;
+    }, 0);
 
     return (
         <Card
@@ -41,7 +47,9 @@ export function WorkoutRoutineCard() {
                         size="$1"
                     />
                 </XStack>
-                <Label color="$green10">2/{workoutProfile.weeklyGoal ?? '?'}</Label>
+                <Label color="$green10">
+                    {workoutDoneInThisWeek}/{workoutProfile.weeklyGoal ?? '?'}
+                </Label>
             </XStack>
             <XStack
                 justifyContent="space-evenly"

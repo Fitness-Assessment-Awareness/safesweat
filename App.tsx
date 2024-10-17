@@ -7,6 +7,7 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/ms';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import durationPlugin from 'dayjs/plugin/duration';
+import isBetweenPlugin from 'dayjs/plugin/isBetween';
 import relativeTimePlugin from 'dayjs/plugin/relativeTime';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
@@ -28,6 +29,7 @@ const queryClient = new QueryClient();
 dayjs.extend(customParseFormat);
 dayjs.extend(durationPlugin);
 dayjs.extend(relativeTimePlugin);
+dayjs.extend(isBetweenPlugin);
 dayjs.locale('ms');
 
 // eslint-disable-next-line import/no-default-export
