@@ -7,14 +7,14 @@ import { useWorkoutProfile } from '../../../context/WorkoutProfileProvider';
 import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
 
 export function WorkoutRoutineCard() {
+    const navigation = useWorkoutNavigation<'WorkoutLanding'>();
+    const { workoutProfile } = useWorkoutProfile();
+
     const startOfWeek = dayjs().startOf('week');
     const startOfWeekDay = startOfWeek.date();
     const endOfWeek = dayjs().endOf('week');
     const daysInMonth = dayjs().daysInMonth();
     const daysInWeek: number[] = Array.from({ length: 7 }, (_, i) => ((i + startOfWeekDay - 1) % daysInMonth) + 1);
-
-    const navigation = useWorkoutNavigation<'WorkoutLanding'>();
-    const { workoutProfile } = useWorkoutProfile();
 
     const onSetWeeklyTarget = () => {
         navigation.navigate('WorkoutRoutinePlanning');
