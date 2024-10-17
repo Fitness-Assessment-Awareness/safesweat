@@ -1,4 +1,5 @@
 import { Pencil } from '@tamagui/lucide-icons';
+import dayjs from 'dayjs';
 import { Card, Circle, XStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
@@ -6,7 +7,13 @@ import { useWorkoutProfile } from '../../../context/WorkoutProfileProvider';
 import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
 
 export function WorkoutRoutineCard() {
-    const daysInWeek: number[] = [6, 7, 8, 9, 10, 11, 12];
+    const startOfWeek = dayjs().startOf('week').date();
+    const endOfWeek = dayjs().endOf('week').date();
+    const daysInMonth = dayjs().daysInMonth();
+    const daysInWeek: number[] = Array.from(
+        { length: endOfWeek - startOfWeek + 1 },
+        (_, i) => ((i + startOfWeek - 1) % daysInMonth) + 1,
+    );
 
     const navigation = useWorkoutNavigation<'WorkoutLanding'>();
     const { workoutProfile } = useWorkoutProfile();

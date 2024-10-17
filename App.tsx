@@ -28,6 +28,7 @@ const queryClient = new QueryClient();
 dayjs.extend(customParseFormat);
 dayjs.extend(durationPlugin);
 dayjs.extend(relativeTimePlugin);
+dayjs.locale('ms');
 
 // eslint-disable-next-line import/no-default-export
 export default function App() {
