@@ -20,6 +20,10 @@ export function WorkoutRoutineCard() {
         navigation.navigate('WorkoutRoutinePlanning');
     };
 
+    const onVisitWorkoutHistory = () => {
+        navigation.navigate('WorkoutHistory');
+    };
+
     const workoutDoneInThisWeek = workoutProfile.workoutHistories.reduce((prev, curr) => {
         const workoutDate = dayjs(curr.timestamp);
         if (workoutDate.isBetween(startOfWeek, endOfWeek, 'day')) {
@@ -34,12 +38,14 @@ export function WorkoutRoutineCard() {
             p="$4"
             borderRadius="$8"
             rowGap="$3"
-            onPress={onSetWeeklyTarget}
+            onPress={onVisitWorkoutHistory}
         >
             <XStack justifyContent="space-between">
                 <XStack
                     alignItems="center"
                     columnGap="$2"
+                    onPress={onSetWeeklyTarget}
+                    hitSlop={4}
                 >
                     <Label>Weekly Target</Label>
                     <Pencil

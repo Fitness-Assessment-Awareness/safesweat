@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unstable-nested-components */
 import { HeaderBackButton } from '../../../components/HeaderBackButton';
 import { HeaderTitle } from '../../../components/HeaderTitle';
+import { WorkoutHistoryScreen } from '../screens/WorkoutHistoryScreen';
 import { WorkoutLandingScreen } from '../screens/WorkoutLandingScreen';
 import { WorkoutPlanDetailsScreen } from '../screens/WorkoutPlanDetailsScreen';
 import { WorkoutRoutinePlanningScreen } from '../screens/WorkoutRoutinePlanningScreen';
@@ -43,6 +44,10 @@ export function WorkoutScreens() {
             <WorkoutStack.Screen
                 name="WorkoutRoutinePlanning"
                 component={WorkoutRoutinePlanningScreen}
+            />
+            <WorkoutStack.Screen
+                name="WorkoutHistory"
+                component={WorkoutHistoryScreen}
             />
         </WorkoutStack.Navigator>
     );

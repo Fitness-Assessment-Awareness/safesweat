@@ -35,7 +35,7 @@ dayjs.locale('ms');
 // eslint-disable-next-line import/no-default-export
 export default function App() {
     const [loaded] = useFonts({
-        Inter: require('@tamagui/font-inter/otf/Inter-Medium.otf'),
+        Inter: require('@tamagui/font-inter/otf/Inter-Regular.otf'),
         InterBold: require('@tamagui/font-inter/otf/Inter-Bold.otf'),
     });
 
