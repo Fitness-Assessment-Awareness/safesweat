@@ -4,7 +4,6 @@ import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { NavigationContainer } from '@react-navigation/native';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import dayjs from 'dayjs';
-import 'dayjs/locale/ms';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import durationPlugin from 'dayjs/plugin/duration';
 import isBetweenPlugin from 'dayjs/plugin/isBetween';
@@ -30,7 +29,6 @@ dayjs.extend(customParseFormat);
 dayjs.extend(durationPlugin);
 dayjs.extend(relativeTimePlugin);
 dayjs.extend(isBetweenPlugin);
-dayjs.locale('ms');
 
 // eslint-disable-next-line import/no-default-export
 export default function App() {

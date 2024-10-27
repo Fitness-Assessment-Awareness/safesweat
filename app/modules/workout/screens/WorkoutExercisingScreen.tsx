@@ -40,12 +40,12 @@ export function WorkoutExercisingScreen() {
             setWorkoutProfile((workoutProfile) => ({
                 ...workoutProfile,
                 workoutHistories: [
-                    ...workoutProfile.workoutHistories,
                     {
                         workoutKey,
                         timestamp: dayjs().toISOString(),
                         rating: null,
                     },
+                    ...workoutProfile.workoutHistories,
                 ],
             }));
             return;
