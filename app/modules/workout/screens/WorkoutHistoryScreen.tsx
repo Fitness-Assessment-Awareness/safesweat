@@ -90,6 +90,7 @@ export function WorkoutHistoryScreen() {
 
     return (
         <ScrollView
+            bounces={false}
             contentContainerStyle={{
                 flexGrow: 1,
             }}
