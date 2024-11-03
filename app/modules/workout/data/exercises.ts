@@ -286,6 +286,68 @@ export const EXERCISES = {
             'This can help to stabilize your core and ensure proper form.',
         ],
     },
+    cobraStretch: {
+        title: 'COBRA STRETCH',
+        lottieSource: LottieAssets.cobraStretch,
+        instructions:
+            'Lie down on your stomach and bend your elbows with your hands beneath your shoulders.\n\nThen push your chest up off the ground as far as possible. Hold this position for seconds.',
+        focusAreas: ['Abs', 'Glutes', 'Hamstrings'],
+        commonMistakes: [
+            {
+                title: 'Overarching the back',
+                description:
+                    'One common mistake is over-arching the neck during the exercise, which can lead to nech strain or injury. Instead, keep the neck in a neutral position and focus on engaging the muscles of the upper back to lif the chest off the ground.',
+            },
+            {
+                title: 'Using the arms to lift the chest',
+                description:
+                    'Another mistake is using the arms to lift the chest, which can put unnecessary strain on the shoulders and arms. Instead, focus on using the muscles of the upper back to lift the chest off the gorund.',
+            },
+            {
+                title: 'Shrugging and tucking in the chest',
+                description:
+                    'When the upper body is raised, shrugging and tucking in the chest will increase the pressure on the elbow joints and prevent the upper back muscles from being well stretched.',
+            },
+        ],
+        breathingTips: [
+            'Breathe deeply before you begin the stretch can help prepare your body.',
+            'Focus on your breath and keep it steady and even throughout the stretch. Holding your breath can cause tension and discomfort',
+        ],
+    },
+    lumbarTwist: {
+        title: 'SPINE LUMBAR TWIST STRETCH',
+        lottieSource: LottieAssets.lumbarTwist,
+        instructions:
+            'Lie on your back with your legs extended.\n\nExhale, lift your left leg up and use your right hand to pull your left knee to the right. Keep your other arm extended to the side on the floor.\n\nBreathe naturally. Hold this position for a few seconds.',
+        focusAreas: ['Abs', 'Glutes', 'Back', 'Traps'],
+        commonMistakes: [
+            {
+                title: 'Using momentum to force the twist',
+                description:
+                    'This can lead to excessive strain on the spine and may cause injuries. Intead, focus on a controlled and gradual movement.',
+            },
+            {
+                title: 'Overstretching',
+                description:
+                    'Twisting the spine beyond its natural range of motion can cause discomfort or injury. It is important to listen to your body and only twist as far as is comfortable.',
+            },
+            {
+                title: 'Lifting the back off the floor',
+                description:
+                    'When doing this exercise, the back should remain flat on the floor. Lifting the back can place too much pressure on the lower back, causing potential injury.',
+            },
+            {
+                title: 'Not keeping the shoulders on the ground',
+                description:
+                    'Try to keep your shoulders on the ground while doing this exercise. Lifting shoulders can decrease the effectiveness of the stretch and potentially cause injury.',
+            },
+        ],
+
+        breathingTips: [
+            'Breathe deeply before you begin the stretch can help prepare your body.',
+            'Focus on your breath and keep it steady and even throughout the stretch. Holding your breath can cause tension and discomfort',
+        ],
+    },
 } as const satisfies Record<string, Exercise>;
 
 export type ExerciseKey = keyof typeof EXERCISES;
