@@ -13,8 +13,7 @@ export function WorkoutLandingScreen() {
         <View>
             <ScrollView
                 contentContainerStyle={{
-                    px: '$3',
-                    py: '$8',
+                    p: '$3',
                     rowGap: '$4',
                 }}
             >
