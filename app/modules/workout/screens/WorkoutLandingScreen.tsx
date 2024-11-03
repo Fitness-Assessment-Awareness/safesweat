@@ -1,7 +1,5 @@
 import React from 'react';
-import { ScrollView, View, XStack, YStack } from 'tamagui';
-import { Heading } from '../../../components/Heading';
-import { Paragraph } from '../../../components/Paragraph';
+import { ScrollView, View } from 'tamagui';
 import { WorkoutAssets } from '../assets';
 import { WorkoutLandingTabs } from '../components/WorkoutLandingTabs';
 import { WorkoutPlanCard } from '../components/WorkoutPlanCard';
@@ -20,29 +18,6 @@ export function WorkoutLandingScreen() {
                     rowGap: '$4',
                 }}
             >
-                <XStack justifyContent="space-evenly">
-                    <YStack
-                        justifyContent="center"
-                        alignItems="center"
-                    >
-                        <Heading>2</Heading>
-                        <Paragraph>Workout</Paragraph>
-                    </YStack>
-                    <YStack
-                        justifyContent="center"
-                        alignItems="center"
-                    >
-                        <Heading>0</Heading>
-                        <Paragraph>KCAL</Paragraph>
-                    </YStack>
-                    <YStack
-                        justifyContent="center"
-                        alignItems="center"
-                    >
-                        <Heading>0</Heading>
-                        <Paragraph>MINUTE</Paragraph>
-                    </YStack>
-                </XStack>
                 <WorkoutRoutineCard />
                 <WorkoutLandingTabs tabs={['beginner', 'intermediate', 'advanced']}>
                     <WorkoutLandingTabs.Content
