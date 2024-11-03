@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable global-require */
+import { useMMKVDevTools } from '@dev-plugins/react-native-mmkv';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { NavigationContainer } from '@react-navigation/native';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -32,6 +33,8 @@ dayjs.extend(isBetweenPlugin);
 
 // eslint-disable-next-line import/no-default-export
 export default function App() {
+    useMMKVDevTools();
+
     const [loaded] = useFonts({
         Inter: require('@tamagui/font-inter/otf/Inter-Regular.otf'),
         InterBold: require('@tamagui/font-inter/otf/Inter-Bold.otf'),
