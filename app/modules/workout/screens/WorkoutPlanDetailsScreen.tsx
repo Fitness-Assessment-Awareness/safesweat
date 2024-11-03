@@ -13,8 +13,6 @@ import { WORKOUTS } from '../data/workouts';
 import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
 import { WorkoutStackParamList } from '../navigation/WorkoutStackParamList';
 
-const { absBeginner } = WORKOUTS;
-
 export function WorkoutPlanDetailsScreen() {
     const { navigate } = useWorkoutNavigation<'WorkoutPlanDetails'>();
     const { params } = useRoute<RouteProp<WorkoutStackParamList, 'WorkoutPlanDetails'>>();
@@ -38,7 +36,7 @@ export function WorkoutPlanDetailsScreen() {
                 <Image
                     style={{ height: 250, width: '100%' }}
                     objectFit="cover"
-                    source={absBeginner.thumbnail}
+                    source={workoutPlan.thumbnail}
                 />
                 <Heading
                     position="absolute"
@@ -48,7 +46,7 @@ export function WorkoutPlanDetailsScreen() {
                     textShadowRadius={1}
                     textShadowColor="black"
                 >
-                    {absBeginner.title}
+                    {workoutPlan.title}
                 </Heading>
             </View>
             <XStack
@@ -58,12 +56,12 @@ export function WorkoutPlanDetailsScreen() {
                 alignItems="center"
             >
                 <Paragraph>
-                    {absBeginner.estimatedDuration} MINS | {absBeginner.exercises.length} EXERCISES
+                    {workoutPlan.estimatedDuration} MINS | {workoutPlan.exercises.length} EXERCISES
                 </Paragraph>
             </XStack>
             <Separator borderColor="#D0D3D8" />
             <ScrollView flex={1}>
-                {absBeginner.exercises.map((exercise, index) => {
+                {workoutPlan.exercises.map((exercise, index) => {
                     const exerciseDetails = EXERCISES[exercise.exerciseKey];
                     return (
                         // Not having a stable key here is fine because the exercises are static

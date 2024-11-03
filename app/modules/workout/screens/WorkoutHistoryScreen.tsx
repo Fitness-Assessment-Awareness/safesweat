@@ -6,7 +6,6 @@ import { Label } from '../../../components/Label';
 import { Paragraph } from '../../../components/Paragraph';
 import { useWorkoutProfile } from '../../../context/WorkoutProfileProvider';
 import { WorkoutHistory } from '../../onboarding/data/entities/WorkoutHistory';
-import { WorkoutAssets } from '../assets';
 import { WORKOUTS } from '../data/workouts';
 
 export function WorkoutHistoryScreen() {
@@ -71,7 +70,7 @@ export function WorkoutHistoryScreen() {
                             borderColor="$gray5"
                         >
                             <Image
-                                source={WorkoutAssets.workoutBeginner}
+                                source={WORKOUTS[history.workoutKey].thumbnail}
                                 width={64}
                                 height={64}
                                 borderRadius="$4"

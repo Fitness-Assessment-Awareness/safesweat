@@ -1,9 +1,9 @@
 import React from 'react';
 import { ScrollView, View } from 'tamagui';
-import { WorkoutAssets } from '../assets';
 import { WorkoutLandingTabs } from '../components/WorkoutLandingTabs';
 import { WorkoutPlanCard } from '../components/WorkoutPlanCard';
 import { WorkoutRoutineCard } from '../components/WorkoutRoutineCard';
+import { WorkoutKey, WORKOUTS } from '../data/workouts';
 import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
 
 export function WorkoutLandingScreen() {
@@ -23,65 +23,34 @@ export function WorkoutLandingScreen() {
                         selectedTab="beginner"
                         rowGap="$4"
                     >
-                        <WorkoutPlanCard
-                            title="ABS BEGINNER"
-                            description="20 MINS | 16 EXERCISES"
-                            imageSource={WorkoutAssets.workoutBeginner}
-                            onPress={() => {
-                                navigation.navigate('WorkoutPlanDetails', { workoutKey: 'absBeginner' });
-                            }}
-                        />
-                        <WorkoutPlanCard
-                            title="ABS BEGINNER"
-                            description="20 MINS | 16 EXERCISES"
-                            imageSource={WorkoutAssets.workoutBeginner}
-                        />
-                        <WorkoutPlanCard
-                            title="ABS BEGINNER"
-                            description="20 MINS | 16 EXERCISES"
-                            imageSource={WorkoutAssets.workoutBeginner}
-                        />
+                        {Object.entries(WORKOUTS).map(([workoutKey, value]) => {
+                            if (value.difficulty !== 'beginner') {
+                                return null;
+                            }
+
+                            return (
+                                <WorkoutPlanCard
+                                    key={workoutKey}
+                                    title={value.title}
+                                    description={`${value.estimatedDuration} MINS | ${value.exercises.length} EXERCISES`}
+                                    imageSource={value.thumbnail}
+                                    onPress={() => {
+                                        navigation.navigate('WorkoutPlanDetails', {
+                                            workoutKey: workoutKey as WorkoutKey,
+                                        });
+                                    }}
+                                />
+                            );
+                        })}
                     </WorkoutLandingTabs.Content>
                     <WorkoutLandingTabs.Content
                         selectedTab="intermediate"
                         rowGap="$4"
-                    >
-                        <WorkoutPlanCard
-                            title="ABS BEGINNER"
-                            description="20 MINS | 16 EXERCISES"
-                            imageSource={WorkoutAssets.workoutBeginner}
-                        />
-                        <WorkoutPlanCard
-                            title="ABS BEGINNER"
-                            description="20 MINS | 16 EXERCISES"
-                            imageSource={WorkoutAssets.workoutBeginner}
-                        />
-                        <WorkoutPlanCard
-                            title="ABS BEGINNER"
-                            description="20 MINS | 16 EXERCISES"
-                            imageSource={WorkoutAssets.workoutBeginner}
-                        />
-                    </WorkoutLandingTabs.Content>
+                    />
                     <WorkoutLandingTabs.Content
                         selectedTab="advanced"
                         rowGap="$4"
-                    >
-                        <WorkoutPlanCard
-                            title="ABS BEGINNER"
-                            description="20 MINS | 16 EXERCISES"
-                            imageSource={WorkoutAssets.workoutBeginner}
-                        />
-                        <WorkoutPlanCard
-                            title="ABS BEGINNER"
-                            description="20 MINS | 16 EXERCISES"
-                            imageSource={WorkoutAssets.workoutBeginner}
-                        />
-                        <WorkoutPlanCard
-                            title="ABS BEGINNER"
-                            description="20 MINS | 16 EXERCISES"
-                            imageSource={WorkoutAssets.workoutBeginner}
-                        />
-                    </WorkoutLandingTabs.Content>
+                    />
                 </WorkoutLandingTabs>
             </ScrollView>
         </View>

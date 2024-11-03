@@ -17,7 +17,26 @@ export const WORKOUTS = {
             { type: 'duration', duration: 30, exerciseKey: 'cobraStretch' },
             { type: 'duration', duration: 30, exerciseKey: 'lumbarTwist' },
         ],
-        thumbnail: WorkoutAssets.workoutBeginner,
+        thumbnail: WorkoutAssets.absBeginner,
+    },
+    chestBeginner: {
+        title: 'CHEST BEGINNER',
+        estimatedDuration: 11,
+        difficulty: 'beginner',
+        exercises: [
+            { type: 'duration', duration: 30, exerciseKey: 'jumpingJacks' },
+            { type: 'reps', reps: 16, exerciseKey: 'inclinePushUp' },
+            { type: 'reps', reps: 12, exerciseKey: 'kneePushUp' },
+            { type: 'reps', reps: 10, exerciseKey: 'pushUp' },
+            { type: 'reps', reps: 10, exerciseKey: 'wideArmPushUp' },
+            { type: 'reps', reps: 12, exerciseKey: 'inclinePushUp' },
+            { type: 'reps', reps: 12, exerciseKey: 'kneePushUp' },
+            { type: 'reps', reps: 10, exerciseKey: 'pushUp' },
+            { type: 'reps', reps: 10, exerciseKey: 'wideArmPushUp' },
+            { type: 'duration', duration: 20, exerciseKey: 'cobraStretch' },
+            { type: 'duration', duration: 20, exerciseKey: 'doorwayStretch' },
+        ],
+        thumbnail: WorkoutAssets.chestBeginner,
     },
 } as const satisfies Record<string, Workout>;
 

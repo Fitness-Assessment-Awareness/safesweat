@@ -1,5 +1,7 @@
-import workoutBeginner from './workout-beginner.png';
+import absBeginner from './abs-beginner.png';
+import chestBeginner from './chest-beginner.webp';
 
 export const WorkoutAssets = {
-    workoutBeginner,
+    absBeginner,
+    chestBeginner,
 } as const;
