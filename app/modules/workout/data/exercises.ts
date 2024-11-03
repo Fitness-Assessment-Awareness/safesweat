@@ -186,7 +186,7 @@ export const EXERCISES = {
     },
     wideArmPushUp: {
         title: 'WIDE ARM PUSH UP',
-        lottieSource: LottieAssets.mountainClimber,
+        lottieSource: LottieAssets.wideArmPushUp,
         instructions:
             'Start in the regular push-up position but with your hands spread wider than your shoulders.\n\nThen push your body up and down. Remember to keep your body straight.',
         focusAreas: ['Chest', 'Triceps', 'Shoulders'],
