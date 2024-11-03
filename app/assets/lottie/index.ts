@@ -11,15 +11,15 @@ import squat from './squat.json';
 import wideArmPushUp from './wide-arm-push-up.json';
 
 export const LottieAssets = {
-    jumpingJacks,
-    pushUp,
     abdominalCrunches,
     cobraStretch,
-    lumbarTwist,
     inclinePushUp,
-    legRaises,
-    mountainClimber,
-    wideArmPushUp,
-    squat,
+    jumpingJacks,
     kneePushUp,
+    legRaises,
+    lumbarTwist,
+    mountainClimber,
+    pushUp,
+    squat,
+    wideArmPushUp,
 };
