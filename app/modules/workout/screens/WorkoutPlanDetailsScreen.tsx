@@ -52,7 +52,7 @@ export function WorkoutPlanDetailsScreen() {
                 </Heading>
             </View>
             <XStack
-                py="$2"
+                py="$3"
                 px="$4"
                 justifyContent="space-between"
                 alignItems="center"
@@ -60,12 +60,6 @@ export function WorkoutPlanDetailsScreen() {
                 <Paragraph>
                     {absBeginner.estimatedDuration} MINS | {absBeginner.exercises.length} EXERCISES
                 </Paragraph>
-                <Button
-                    borderRadius="$8"
-                    themeInverse
-                >
-                    History
-                </Button>
             </XStack>
             <Separator borderColor="#D0D3D8" />
             <ScrollView flex={1}>
