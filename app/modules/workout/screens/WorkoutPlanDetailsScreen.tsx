@@ -69,10 +69,12 @@ export function WorkoutPlanDetailsScreen() {
             </XStack>
             <Separator borderColor="#D0D3D8" />
             <ScrollView flex={1}>
-                {absBeginner.exercises.map((exercise) => {
+                {absBeginner.exercises.map((exercise, index) => {
                     const exerciseDetails = EXERCISES[exercise.exerciseKey];
                     return (
-                        <Fragment key={exercise.exerciseKey}>
+                        // Not having a stable key here is fine because the exercises are static
+                        // eslint-disable-next-line react/no-array-index-key
+                        <Fragment key={exercise.exerciseKey + index}>
                             {exercise.type === 'duration' ? (
                                 <WorkoutExerciseOverview
                                     type={exercise.type}

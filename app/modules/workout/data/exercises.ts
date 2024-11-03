@@ -29,6 +29,7 @@ export const EXERCISES = {
             'Exhale as you jump your feet back together.',
             'Take deep breaths to fully oxygenate your body.',
         ],
+        difficulty: 'vigorous',
     },
     pushUp: {
         title: 'PUSH UP',
@@ -57,6 +58,7 @@ export const EXERCISES = {
             'Exhale as you jump your feet back together.',
             'Take deep breaths to fully oxygenate your body.',
         ],
+        difficulty: 'moderate',
     },
     abdominalCrunches: {
         title: 'ABDOMINAL CRUNCHES',
@@ -85,6 +87,7 @@ export const EXERCISES = {
             'Exhaling as you lift your torso off the ground helps engage the upper abdominals, which are the primary muscles targeted in this exercise.',
             'Inhaling as you lower back down helps you maintain control and avoid straining your back',
         ],
+        difficulty: 'low',
     },
     inclinePushUp: {
         title: 'INCLINE PUSH UP',
@@ -118,6 +121,7 @@ export const EXERCISES = {
             'Inhale as you lower your body towards the elevated surface.',
             'Exhale as you push your body back up to the starting position.',
         ],
+        difficulty: 'low',
     },
     legRaises: {
         title: 'LEG RAISES',
@@ -150,6 +154,7 @@ export const EXERCISES = {
             'Exhaling as you raise your legs helps you better control the movement.',
             'Inhaling as you lower them reduces the stress on your spine.',
         ],
+        difficulty: 'moderate',
     },
     mountainClimber: {
         title: 'MOUNTAIN CLIMBER',
@@ -183,6 +188,7 @@ export const EXERCISES = {
             'Take natural and deep breaths. Avoid holding your breath.',
             'Keep a consistent breathing rhythm throughout the exercise.',
         ],
+        difficulty: 'moderate',
     },
     wideArmPushUp: {
         title: 'WIDE ARM PUSH UP',
@@ -217,6 +223,7 @@ export const EXERCISES = {
             'Exhale as you push your body back up to the starting position.',
             'Taking deep breaths throughtout an exercise can increase oxygen flow to your muscles, which helps them work more efficiently and can help enhance your performance.',
         ],
+        difficulty: 'moderate',
     },
     kneePushUp: {
         title: 'KNEE PUSH UP',
@@ -251,6 +258,7 @@ export const EXERCISES = {
             'Exhale as you push your body back up to the starting position.',
             'Its important to keep your breathing steady and controlled throughout the exercise to maintain good form and prevent dizziness.',
         ],
+        difficulty: 'low',
     },
     squat: {
         title: 'SQUAT',
@@ -285,6 +293,7 @@ export const EXERCISES = {
             'Exhale as you push yourself back up.',
             'This can help to stabilize your core and ensure proper form.',
         ],
+        difficulty: 'low',
     },
     cobraStretch: {
         title: 'COBRA STRETCH',
@@ -313,6 +322,7 @@ export const EXERCISES = {
             'Breathe deeply before you begin the stretch can help prepare your body.',
             'Focus on your breath and keep it steady and even throughout the stretch. Holding your breath can cause tension and discomfort',
         ],
+        difficulty: 'low',
     },
     lumbarTwist: {
         title: 'SPINE LUMBAR TWIST STRETCH',
@@ -342,11 +352,45 @@ export const EXERCISES = {
                     'Try to keep your shoulders on the ground while doing this exercise. Lifting shoulders can decrease the effectiveness of the stretch and potentially cause injury.',
             },
         ],
-
         breathingTips: [
             'Breathe deeply before you begin the stretch can help prepare your body.',
             'Focus on your breath and keep it steady and even throughout the stretch. Holding your breath can cause tension and discomfort',
         ],
+        difficulty: 'low',
+    },
+    doorwayStretch: {
+        title: 'Chest Stretch',
+        lottieSource: LottieAssets.doorwayStretch,
+        instructions:
+            "Find a doorway, take a lunge position in the doorway with your arms on the doorframe and your elbows a little lower than your shoulders, then slowly bring your chest forward.\n\nHold this position for 30-40 seconds. Then slowly come out of it, bring your arms down and do a couple of shoulder rolls.\n\nDon't pull your head forward, and keep your neck relaxed.",
+        focusAreas: ['Chest', 'Shoulders', 'Biceps', 'Back'],
+        commonMistakes: [
+            {
+                title: 'Arching the lower back',
+                description:
+                    'Arching the lower back can make the stretch feel deeper. However, this can put unnecessary strain on the lower back and may cause discomfort or injury.',
+            },
+            {
+                title: 'Shrugging the shoulders',
+                description:
+                    "This can cause tension in the neck and upper back, which can lead to discomfort or injury. It's important to keep your shoulders relaxed and down.",
+            },
+            {
+                title: 'Overstrething',
+                description:
+                    'Push yourself properly in a chess stretch but do not overdo it. Overstretching can cause injury and may even make the muscles tighter.',
+            },
+            {
+                title: 'Holding the stretch too long',
+                description:
+                    "Holding a chest stretch for too long can actually cause the muscle to tighten up again, undoing the work you just did. It's best to hold the stretch for about 15-30 seconds.",
+            },
+        ],
+        breathingTips: [
+            'Inhale deeply and slowly, feeling your chest expand.',
+            'Exhale slowly, feeling your chest contract.',
+        ],
+        difficulty: 'low',
     },
 } as const satisfies Record<string, Exercise>;
 

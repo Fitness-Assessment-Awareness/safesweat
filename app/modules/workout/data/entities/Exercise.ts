@@ -7,4 +7,5 @@ export interface Exercise {
     focusAreas: string[];
     commonMistakes: { title: string; description: string }[];
     breathingTips: string[];
+    difficulty: 'low' | 'moderate' | 'vigorous';
 }
