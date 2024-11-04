@@ -46,11 +46,53 @@ export function WorkoutLandingScreen() {
                     <WorkoutLandingTabs.Content
                         selectedTab="intermediate"
                         rowGap="$4"
-                    />
+                    >
+                        {Object.entries(WORKOUTS).map(([workoutKey, value]) => {
+                            // @ts-expect-error remove this once we have more difficulty levels
+                            if (value.difficulty !== 'intermediate') {
+                                return null;
+                            }
+
+                            return (
+                                <WorkoutPlanCard
+                                    key={workoutKey}
+                                    title={value.title}
+                                    description={`${value.estimatedDuration} MINS | ${value.exercises.length} EXERCISES`}
+                                    imageSource={value.thumbnail}
+                                    onPress={() => {
+                                        navigation.navigate('WorkoutPlanDetails', {
+                                            workoutKey: workoutKey as WorkoutKey,
+                                        });
+                                    }}
+                                />
+                            );
+                        })}
+                    </WorkoutLandingTabs.Content>
                     <WorkoutLandingTabs.Content
                         selectedTab="advanced"
                         rowGap="$4"
-                    />
+                    >
+                        {Object.entries(WORKOUTS).map(([workoutKey, value]) => {
+                            // @ts-expect-error remove this once we have more difficulty levels in the constant
+                            if (value.difficulty !== 'advanced') {
+                                return null;
+                            }
+
+                            return (
+                                <WorkoutPlanCard
+                                    key={workoutKey}
+                                    title={value.title}
+                                    description={`${value.estimatedDuration} MINS | ${value.exercises.length} EXERCISES`}
+                                    imageSource={value.thumbnail}
+                                    onPress={() => {
+                                        navigation.navigate('WorkoutPlanDetails', {
+                                            workoutKey: workoutKey as WorkoutKey,
+                                        });
+                                    }}
+                                />
+                            );
+                        })}
+                    </WorkoutLandingTabs.Content>
                 </WorkoutLandingTabs>
             </ScrollView>
         </View>
