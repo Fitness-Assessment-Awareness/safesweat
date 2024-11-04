@@ -18,6 +18,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Toast from 'react-native-toast-message';
 import { PortalProvider, TamaguiProvider } from 'tamagui';
 import { EmergencyContactsProvider } from './app/context/EmergencyContactProvider';
+import { LanguageCodeProvider } from './app/context/LanguageCodeProvider';
 import { SessionProvider } from './app/context/SessionProvider';
 import { WorkoutProfileProvider } from './app/context/WorkoutProfileProvider';
 import { Screens } from './app/navigation/Screens';
@@ -59,14 +60,16 @@ export default function App() {
                         <NavigationContainer onReady={onNavigationReady}>
                             <EmergencyContactsProvider>
                                 <SessionProvider>
-                                    <WorkoutProfileProvider>
-                                        <BottomSheetModalProvider>
-                                            <PortalProvider shouldAddRootHost>
-                                                <Screens />
-                                                <Toast position="bottom" />
-                                            </PortalProvider>
-                                        </BottomSheetModalProvider>
-                                    </WorkoutProfileProvider>
+                                    <LanguageCodeProvider>
+                                        <WorkoutProfileProvider>
+                                            <BottomSheetModalProvider>
+                                                <PortalProvider shouldAddRootHost>
+                                                    <Screens />
+                                                    <Toast position="bottom" />
+                                                </PortalProvider>
+                                            </BottomSheetModalProvider>
+                                        </WorkoutProfileProvider>
+                                    </LanguageCodeProvider>
                                 </SessionProvider>
                             </EmergencyContactsProvider>
                         </NavigationContainer>
