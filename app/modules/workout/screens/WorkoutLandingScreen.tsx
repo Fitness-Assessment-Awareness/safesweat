@@ -3,6 +3,7 @@ import React from 'react';
 import { ScrollView, View } from 'tamagui';
 import { Label } from '../../../components/Label';
 import { useWorkoutProfile } from '../../../context/WorkoutProfileProvider';
+import { Difficulty } from '../../onboarding/data/entities/Difficulty';
 import { WorkoutLandingTabs } from '../components/WorkoutLandingTabs';
 import { WorkoutPlanCard } from '../components/WorkoutPlanCard';
 import { WorkoutRoutineCard } from '../components/WorkoutRoutineCard';
@@ -14,7 +15,13 @@ export function WorkoutLandingScreen() {
     const navigation = useWorkoutNavigation<'WorkoutLanding'>();
     const { workoutProfile } = useWorkoutProfile();
 
-    const workoutPoints = workoutProfile.workoutHistories.reduce((acc, history) => {
+    const workoutDifficultyInPoints =
+        workoutProfile.difficulty === Difficulty.Beginner
+            ? 0
+            : workoutProfile.difficulty === Difficulty.Intermediate
+              ? 15
+              : 30;
+    const workoutHistoriesInPoints = workoutProfile.workoutHistories.reduce((acc, history) => {
         const workout = WORKOUTS[history.workoutKey];
         if (dayjs(history.timestamp).diff(dayjs(), 'days') <= 30) {
             workout.difficulty === 'beginner'
@@ -25,6 +32,7 @@ export function WorkoutLandingScreen() {
         }
         return acc;
     }, 0);
+    const workoutPoints = workoutDifficultyInPoints + workoutHistoriesInPoints;
     const workoutLevel = workoutPoints < 15 ? 'beginner' : workoutPoints < 30 ? 'intermediate' : 'advanced';
     const filteredWorkouts = (Object.entries(WORKOUTS) as [WorkoutKey, Workout][])
         .filter(
@@ -38,8 +46,8 @@ export function WorkoutLandingScreen() {
             if (workoutB.difficulty === workoutLevel) return 1;
             if (workoutA.difficulty === 'beginner') return 1;
             if (workoutB.difficulty === 'beginner') return -1;
-            if (workoutA.difficulty === 'intermediate') return 1;
-            if (workoutB.difficulty === 'intermediate') return -1;
+            if (workoutA.difficulty === 'intermediate') return -1;
+            if (workoutB.difficulty === 'intermediate') return 1;
             return 0;
         });
 
