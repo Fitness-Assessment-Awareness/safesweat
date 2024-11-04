@@ -38,6 +38,34 @@ export const WORKOUTS = {
         ],
         thumbnail: WorkoutAssets.chestBeginner,
     },
+    absIntermediate: {
+        title: 'ABS INTERMEDIATE',
+        estimatedDuration: 20,
+        difficulty: 'intermediate',
+        exercises: [{ type: 'duration', duration: 20, exerciseKey: 'jumpingJacks' }],
+        thumbnail: WorkoutAssets.absBeginner,
+    },
+    chestIntermediate: {
+        title: 'CHEST INTERMEDIATE',
+        estimatedDuration: 20,
+        difficulty: 'intermediate',
+        exercises: [{ type: 'duration', duration: 20, exerciseKey: 'jumpingJacks' }],
+        thumbnail: WorkoutAssets.absBeginner,
+    },
+    absAdvanced: {
+        title: 'ABS ADVANCED',
+        estimatedDuration: 20,
+        difficulty: 'advanced',
+        exercises: [{ type: 'duration', duration: 20, exerciseKey: 'jumpingJacks' }],
+        thumbnail: WorkoutAssets.absBeginner,
+    },
+    chestAdvanced: {
+        title: 'CHEST ADVANCED',
+        estimatedDuration: 20,
+        difficulty: 'advanced',
+        exercises: [{ type: 'duration', duration: 20, exerciseKey: 'jumpingJacks' }],
+        thumbnail: WorkoutAssets.absBeginner,
+    },
 } as const satisfies Record<string, Workout>;
 
 export type WorkoutKey = keyof typeof WORKOUTS;

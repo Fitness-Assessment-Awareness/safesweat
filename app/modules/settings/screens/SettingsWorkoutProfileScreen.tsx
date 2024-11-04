@@ -21,8 +21,6 @@ export function SettingsWorkoutProfileScreen() {
 
     const isFocusAreaValid = focusAreas.length > 0;
 
-    const isHealthProblemValid = healthProblems.length > 0;
-
     const isHeightValid = height > 0 && height <= 300;
 
     const isWeightValid = weight > 0 && weight <= 700;
@@ -179,7 +177,7 @@ export function SettingsWorkoutProfileScreen() {
                         inside
                         style={{
                             minHeight: 60,
-                            borderColor: !isHealthProblemValid ? 'red' : 'gray',
+                            borderColor: 'gray',
                             borderWidth: 0.5,
                             borderRadius: 8,
                             paddingHorizontal: 8,
@@ -194,7 +192,7 @@ export function SettingsWorkoutProfileScreen() {
                             color: edit ? 'black' : 'gray',
                         }}
                         search
-                        placeholder="Select item..."
+                        placeholder={healthProblems.length === 0 ? 'None' : 'Select item...'}
                         data={Object.values(HealthProblem).map((p) => ({
                             label: p,
                             value: p,
@@ -214,17 +212,6 @@ export function SettingsWorkoutProfileScreen() {
                         )}
                         renderRightIcon={edit ? undefined : () => null}
                     />
-                    {!isHealthProblemValid && (
-                        <Text
-                            backgroundColor="red"
-                            color="white"
-                            borderRadius="$3"
-                            textAlign="center"
-                            p="$2"
-                        >
-                            Please select at least one health condition
-                        </Text>
-                    )}
 
                     <Label>Height (cm)</Label>
                     <Input
@@ -292,7 +279,7 @@ export function SettingsWorkoutProfileScreen() {
                 </YStack>
             </ScrollView>
             <Button
-                disabled={edit && (!isFocusAreaValid || !isHealthProblemValid || !isHeightValid || !isWeightValid)}
+                disabled={edit && (!isFocusAreaValid || !isHeightValid || !isWeightValid)}
                 disabledStyle={{ backgroundColor: '$green7' }}
                 backgroundColor={edit ? '$green11' : 'darkblue'}
                 pressStyle={{ backgroundColor: edit ? '$green10' : '$blue11' }}

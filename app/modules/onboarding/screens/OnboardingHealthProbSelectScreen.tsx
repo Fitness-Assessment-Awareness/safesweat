@@ -90,7 +90,6 @@ export function OnboardingHealthProbSelectScreen() {
                 onPress={() => {
                     navigation.navigate('OnboardingBodyInfoSelect');
                 }}
-                disabled={workoutProfile.healthProblems.length === 0}
             >
                 Next
             </Button>
