@@ -18,19 +18,25 @@ import { Sheet } from '../../../components/Sheet';
 import { useSession } from '../../../context/SessionProvider';
 import { SettingsAssets } from '../assets';
 import { SettingsAuthSheetContent } from '../components/SettingsAuthSheet';
+import { SettingsLanguageSheetContent } from '../components/SettingsLanguageSheet';
 import { useSettingsNavigation } from '../navigation/useSettingsNavigation';
 import { deleteUserAccount, signOut } from '../services/AuthService';
 
 export function SettingsLandingScreen() {
     const { navigate } = useSettingsNavigation<'SettingsLanding'>();
-    const sheetRef = useRef<BottomSheetModal>(null);
+    const authSheetRef = useRef<BottomSheetModal>(null);
+    const languageSheetRef = useRef<BottomSheetModal>(null);
     const userSession = useSession();
     const [openLogoutDialog, setOpenLogoutDialog] = useState(false);
     const [openDeleteAccountDialog, setOpenDeleteAccountDialog] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    const handleDismissSheet = () => {
-        sheetRef.current?.dismiss();
+    const handleDismissAuthSheet = () => {
+        authSheetRef.current?.dismiss();
+    };
+
+    const handleDismissLanguageSheet = () => {
+        languageSheetRef.current?.dismiss();
     };
 
     const handleDeleteAccount = async () => {
@@ -95,6 +101,9 @@ export function SettingsLandingScreen() {
                     <Separator borderColor="#D0D3D8" />
                     <YGroup.Item>
                         <ListItem
+                            onPress={() => {
+                                languageSheetRef.current?.present();
+                            }}
                             pressTheme
                             title="Language Options"
                             icon={Globe}
@@ -150,7 +159,7 @@ export function SettingsLandingScreen() {
                     borderRadius="$8"
                     onPress={() => {
                         if (!userSession) {
-                            sheetRef.current?.present();
+                            authSheetRef.current?.present();
                         } else {
                             setOpenDeleteAccountDialog(true);
                         }
@@ -184,15 +193,23 @@ export function SettingsLandingScreen() {
             />
             <Sheet
                 onBackdropPressBehavior={loading ? 'none' : 'close'}
-                ref={sheetRef}
+                ref={authSheetRef}
                 enableDynamicSizing
             >
                 <Sheet.ScrollView pointerEvents={loading ? 'none' : 'auto'}>
                     <SettingsAuthSheetContent
-                        handleDismissSheet={handleDismissSheet}
+                        handleDismissSheet={handleDismissAuthSheet}
                         loading={loading}
                         setLoading={setLoading}
                     />
+                </Sheet.ScrollView>
+            </Sheet>
+            <Sheet
+                ref={languageSheetRef}
+                enableDynamicSizing
+            >
+                <Sheet.ScrollView>
+                    <SettingsLanguageSheetContent handleDismissSheet={handleDismissLanguageSheet} />
                 </Sheet.ScrollView>
             </Sheet>
         </View>
