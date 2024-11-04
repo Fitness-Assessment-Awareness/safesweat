@@ -95,8 +95,7 @@ export function Screens() {
             workoutProfile.gender !== Gender.NONE &&
             !Number.isNaN(workoutProfile.weight) &&
             !Number.isNaN(workoutProfile.height) &&
-            workoutProfile.focusAreas.length > 0 &&
-            workoutProfile.healthProblems.length > 0;
+            workoutProfile.focusAreas.length > 0;
 
         const timer = setTimeout(() => {
             // eslint-disable-next-line @typescript-eslint/no-unused-expressions

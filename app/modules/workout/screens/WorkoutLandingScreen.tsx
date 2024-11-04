@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import React from 'react';
 import { ScrollView, View } from 'tamagui';
 import { Label } from '../../../components/Label';
@@ -12,11 +13,35 @@ import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
 export function WorkoutLandingScreen() {
     const navigation = useWorkoutNavigation<'WorkoutLanding'>();
     const { workoutProfile } = useWorkoutProfile();
-    const filteredWorkouts = (Object.entries(WORKOUTS) as [WorkoutKey, Workout][]).filter(
-        ([, workout]) =>
-            workoutProfile.healthProblems.length === 0 ||
-            (workoutProfile.healthProblems.length > 0 && workout.difficulty === 'beginner'),
-    );
+
+    const workoutPoints = workoutProfile.workoutHistories.reduce((acc, history) => {
+        const workout = WORKOUTS[history.workoutKey];
+        if (dayjs(history.timestamp).diff(dayjs(), 'days') <= 30) {
+            workout.difficulty === 'beginner'
+                ? (acc += 1)
+                : workout.difficulty === 'intermediate'
+                  ? (acc += 2)
+                  : (acc += 3);
+        }
+        return acc;
+    }, 0);
+    const workoutLevel = workoutPoints < 15 ? 'beginner' : workoutPoints < 30 ? 'intermediate' : 'advanced';
+    const filteredWorkouts = (Object.entries(WORKOUTS) as [WorkoutKey, Workout][])
+        .filter(
+            ([, workout]) =>
+                workoutProfile.healthProblems.length === 0 ||
+                (workoutProfile.healthProblems.length > 0 && workout.difficulty === 'beginner'),
+        )
+        .sort(([, workoutA], [, workoutB]) => {
+            if (workoutA.difficulty === workoutB.difficulty) return 0;
+            if (workoutA.difficulty === workoutLevel) return -1;
+            if (workoutB.difficulty === workoutLevel) return 1;
+            if (workoutA.difficulty === 'beginner') return 1;
+            if (workoutB.difficulty === 'beginner') return -1;
+            if (workoutA.difficulty === 'intermediate') return 1;
+            if (workoutB.difficulty === 'intermediate') return -1;
+            return 0;
+        });
 
     return (
         <View>
