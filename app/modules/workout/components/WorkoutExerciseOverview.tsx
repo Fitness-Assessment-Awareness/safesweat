@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import LottieView, { AnimationObject } from 'lottie-react-native';
 import React from 'react';
 import { XStack, YStack } from 'tamagui';
@@ -46,7 +47,9 @@ export function WorkoutExerciseOverview({ value, title, lottieSource, onValueCha
                 <Label size="large">{title}</Label>
                 {/* TODO: Use dayjs to parse duration */}
                 <Paragraph size="large">
-                    {props.type === 'duration' ? `0:${props.duration}` : `x${props.reps}`}
+                    {props.type === 'duration'
+                        ? dayjs.duration(props.duration, 'seconds').format('mm:ss')
+                        : `x${props.reps}`}
                 </Paragraph>
             </YStack>
         </XStack>

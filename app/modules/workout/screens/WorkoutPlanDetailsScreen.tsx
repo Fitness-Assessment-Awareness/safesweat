@@ -60,7 +60,8 @@ export function WorkoutPlanDetailsScreen() {
                 alignItems="center"
             >
                 <Paragraph>
-                    {workoutPlan.estimatedDuration} MINS | {workoutPlan.exercises.length} EXERCISES
+                    {(workoutPlan.estimatedDuration * multiplier).toFixed(0)} MINS | {workoutPlan.exercises.length}{' '}
+                    EXERCISES
                 </Paragraph>
                 <XStack
                     alignItems="center"
@@ -118,7 +119,7 @@ export function WorkoutPlanDetailsScreen() {
                                     type={exercise.type}
                                     value={exercise.exerciseKey}
                                     title={exerciseDetails.title}
-                                    duration={exercise.duration}
+                                    duration={exercise.duration * multiplier}
                                     lottieSource={exerciseDetails.lottieSource}
                                     onValueChange={(exerciseKey) => {
                                         setSelectedExercise(exerciseKey);
@@ -130,7 +131,7 @@ export function WorkoutPlanDetailsScreen() {
                                     type={exercise.type}
                                     value={exercise.exerciseKey}
                                     title={exerciseDetails.title}
-                                    reps={exercise.reps}
+                                    reps={exercise.reps * multiplier}
                                     lottieSource={exerciseDetails.lottieSource}
                                     onValueChange={(exerciseKey) => {
                                         setSelectedExercise(exerciseKey);
