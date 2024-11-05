@@ -1,9 +1,11 @@
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
 import { RouteProp, useRoute } from '@react-navigation/native';
+import { Minus, Plus } from '@tamagui/lucide-icons';
 import { StatusBar } from 'expo-status-bar';
 import React, { Fragment, useRef, useState } from 'react';
 import { Button, Image, ScrollView, Separator, View, XStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
+import { Label } from '../../../components/Label';
 import { Paragraph } from '../../../components/Paragraph';
 import { Sheet } from '../../../components/Sheet';
 import { WorkoutExerciseDetailsSheetContent } from '../components/WorkoutExerciseDetailsSheet';
@@ -17,6 +19,8 @@ export function WorkoutPlanDetailsScreen() {
     const { navigate } = useWorkoutNavigation<'WorkoutPlanDetails'>();
     const { params } = useRoute<RouteProp<WorkoutStackParamList, 'WorkoutPlanDetails'>>();
     const { workoutKey } = params;
+
+    const [multiplier, setMultiplier] = useState(1);
 
     const sheetRef = useRef<BottomSheetModal>(null);
 
@@ -58,6 +62,48 @@ export function WorkoutPlanDetailsScreen() {
                 <Paragraph>
                     {workoutPlan.estimatedDuration} MINS | {workoutPlan.exercises.length} EXERCISES
                 </Paragraph>
+                <XStack
+                    alignItems="center"
+                    justifyContent="center"
+                    columnGap="$2"
+                >
+                    <Button
+                        circular
+                        size="$2.5"
+                        themeInverse
+                        icon={
+                            <Minus
+                                size="$1"
+                                strokeWidth={3}
+                            />
+                        }
+                        onPress={() => {
+                            if (multiplier - 0.25 < 0.5) return;
+                            setMultiplier((prev) => prev - 0.25);
+                        }}
+                    />
+                    <Label
+                        textAlign="center"
+                        width={40}
+                    >
+                        {multiplier.toFixed(2)}x
+                    </Label>
+                    <Button
+                        circular
+                        size="$2.5"
+                        themeInverse
+                        icon={
+                            <Plus
+                                size="$1"
+                                strokeWidth={3}
+                            />
+                        }
+                        onPress={() => {
+                            if (multiplier + 0.25 > 2) return;
+                            setMultiplier((prev) => prev + 0.25);
+                        }}
+                    />
+                </XStack>
             </XStack>
             <Separator borderColor="#D0D3D8" />
             <ScrollView flex={1}>
