@@ -44,7 +44,7 @@ export function WorkoutRestingScreen() {
     }, [startCountdown]);
 
     useEffect(() => {
-        if (seconds === 0) {
+        if (seconds <= 0) {
             onFinishRest();
         }
     }, [seconds, onFinishRest]);
@@ -116,8 +116,8 @@ export function WorkoutRestingScreen() {
                                 color="white"
                             >
                                 {workoutExercise.type === 'duration'
-                                    ? dayjs.duration(workoutExercise.duration).format('mm:ss')
-                                    : `x ${workoutExercise.reps}`}
+                                    ? dayjs.duration(workoutExercise.duration * multiplier).format('mm:ss')
+                                    : `x ${(workoutExercise.reps * multiplier).toFixed(0)}`}
                             </Heading>
                         </View>
                     </View>

@@ -56,12 +56,12 @@ export function WorkoutExercisingScreen() {
 
     useEffect(() => {
         if (workoutExercise.type === 'duration') {
-            startCountdown(workoutExercise.duration);
+            startCountdown(workoutExercise.duration * multiplier);
         }
-    }, [startCountdown, workoutExercise]);
+    }, [multiplier, startCountdown, workoutExercise]);
 
     useEffect(() => {
-        if (seconds === 0) {
+        if (seconds <= 0) {
             onFinishExercise();
         }
     }, [onFinishExercise, seconds]);
@@ -115,7 +115,7 @@ export function WorkoutExercisingScreen() {
                         <Heading size="x-large">
                             {workoutExercise.type === 'duration'
                                 ? dayjs.duration(seconds, 'seconds').format('mm:ss')
-                                : `x${workoutExercise.reps}`}
+                                : `x${(workoutExercise.reps * multiplier).toFixed(0)}`}
                         </Heading>
                         <Button
                             icon={PhoneCall}
