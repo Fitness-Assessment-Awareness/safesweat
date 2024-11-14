@@ -25,7 +25,7 @@ export function WorkoutExercisingScreen() {
     const sheetRefEmergencyCall = useRef<BottomSheetModal>(null);
     const { replace } = useRootNavigation();
     const {
-        params: { workoutKey, index },
+        params: { workoutKey, index, multiplier },
     } = useRoute<RouteProp<WorkoutRootStackParamList, 'WorkoutExercising'>>();
 
     const workout = WORKOUTS[workoutKey];
@@ -44,14 +44,15 @@ export function WorkoutExercisingScreen() {
                         workoutKey,
                         timestamp: dayjs().toISOString(),
                         rating: null,
+                        multiplier,
                     },
                     ...workoutProfile.workoutHistories,
                 ],
             }));
             return;
         }
-        replace('WorkoutResting', { workoutKey, index: index + 1 });
-    }, [index, replace, setWorkoutProfile, workout.exercises.length, workoutKey]);
+        replace('WorkoutResting', { workoutKey, index: index + 1, multiplier });
+    }, [index, multiplier, replace, setWorkoutProfile, workout.exercises.length, workoutKey]);
 
     useEffect(() => {
         if (workoutExercise.type === 'duration') {

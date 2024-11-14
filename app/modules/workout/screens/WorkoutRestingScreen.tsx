@@ -27,7 +27,7 @@ export function WorkoutRestingScreen() {
     const { replace } = useRootNavigation();
 
     const {
-        params: { workoutKey, index },
+        params: { workoutKey, index, multiplier },
     } = useRoute<RouteProp<WorkoutRootStackParamList, 'WorkoutResting'>>();
     const workout = WORKOUTS[workoutKey];
     const workoutExercise = workout.exercises[index];
@@ -36,8 +36,8 @@ export function WorkoutRestingScreen() {
     const { seconds, startCountdown, stopCountdown } = useCountdown();
 
     const onFinishRest = useCallback(() => {
-        replace('WorkoutExercising', { workoutKey, index });
-    }, [index, replace, workoutKey]);
+        replace('WorkoutExercising', { workoutKey, index, multiplier });
+    }, [index, multiplier, replace, workoutKey]);
 
     useEffect(() => {
         startCountdown(REST_TIME);

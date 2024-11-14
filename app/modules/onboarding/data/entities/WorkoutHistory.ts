@@ -4,4 +4,5 @@ export interface WorkoutHistory {
     workoutKey: WorkoutKey;
     timestamp: string;
     rating: number | null;
+    multiplier: number;
 }

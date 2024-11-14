@@ -6,16 +6,19 @@ interface WorkoutPlanDetailsParams {
 
 interface WorkoutStartInitialParams {
     workoutKey: WorkoutKey;
+    multiplier: number;
 }
 
 interface WorkoutRestingParams {
     workoutKey: WorkoutKey;
     index: number;
+    multiplier: number;
 }
 
 interface WorkoutExercisingParams {
     workoutKey: WorkoutKey;
     index: number;
+    multiplier: number;
 }
 
 interface WorkoutSuccessParams {

@@ -30,6 +30,7 @@ export function WorkoutStartInitialScreen() {
     const onNextExercise = () => {
         replace('WorkoutExercising', {
             workoutKey,
+            multiplier: params.multiplier,
             index: 0,
         });
     };

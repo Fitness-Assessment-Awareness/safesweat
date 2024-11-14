@@ -149,7 +149,7 @@ export function WorkoutPlanDetailsScreen() {
                 m="$4"
                 borderRadius="$8"
                 onPress={() => {
-                    navigate('WorkoutStartInitial', { workoutKey });
+                    navigate('WorkoutStartInitial', { workoutKey, multiplier });
                 }}
             >
                 Start
