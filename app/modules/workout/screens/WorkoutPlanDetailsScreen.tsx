@@ -8,6 +8,7 @@ import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
 import { Paragraph } from '../../../components/Paragraph';
 import { Sheet } from '../../../components/Sheet';
+import { useWorkoutProfile } from '../../../context/WorkoutProfileProvider';
 import { WorkoutExerciseDetailsSheetContent } from '../components/WorkoutExerciseDetailsSheet';
 import { WorkoutExerciseOverview } from '../components/WorkoutExerciseOverview';
 import { EXERCISES, ExerciseKey } from '../data/exercises';
@@ -19,12 +20,51 @@ export function WorkoutPlanDetailsScreen() {
     const { navigate } = useWorkoutNavigation<'WorkoutPlanDetails'>();
     const { params } = useRoute<RouteProp<WorkoutStackParamList, 'WorkoutPlanDetails'>>();
     const { workoutKey } = params;
+    const { workoutProfile } = useWorkoutProfile();
+    const { workoutPoints } = workoutProfile;
+    const workoutPlan = WORKOUTS[workoutKey];
 
-    const [multiplier, setMultiplier] = useState(1);
+    const getInitialMultiplier = () => {
+        if (workoutPoints < 15) {
+            switch (workoutPlan.difficulty) {
+                case 'beginner':
+                    return 1;
+                case 'intermediate':
+                    return 0.75;
+                case 'advanced':
+                    return 0.5;
+                default:
+                    return 1;
+            }
+        }
+        if (workoutPoints < 30) {
+            switch (workoutPlan.difficulty) {
+                case 'beginner':
+                    return 1.25;
+                case 'intermediate':
+                    return 1;
+                case 'advanced':
+                    return 0.75;
+                default:
+                    return 1;
+            }
+        }
+        switch (workoutPlan.difficulty) {
+            case 'beginner':
+                return 1.5;
+            case 'intermediate':
+                return 1.25;
+            case 'advanced':
+                return 1;
+            default:
+                return 1;
+        }
+    };
+
+    const [multiplier, setMultiplier] = useState(getInitialMultiplier());
 
     const sheetRef = useRef<BottomSheetModal>(null);
 
-    const workoutPlan = WORKOUTS[workoutKey];
     const [selectedExercise, setSelectedExercise] = useState<ExerciseKey>('jumpingJacks');
     const selectedExerciseDetails = workoutPlan.exercises.find(
         (exercise) => exercise.exerciseKey === selectedExercise,

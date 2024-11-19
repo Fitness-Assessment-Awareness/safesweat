@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import {
     createContext,
     Dispatch,
@@ -12,12 +13,15 @@ import {
 import { Difficulty } from '../modules/onboarding/data/entities/Difficulty';
 import { Gender } from '../modules/onboarding/data/entities/Gender';
 import { WorkoutProfile } from '../modules/onboarding/data/entities/WorkoutProfile';
+import { WORKOUTS } from '../modules/workout/data/workouts';
 import { StoragePublicRepository } from '../storage/domain/useCases/StoragePublicRepository';
 
-const WorkoutProfileContext = createContext<{
-    workoutProfile: WorkoutProfile;
+interface WorkoutProfileContextValue {
+    workoutProfile: WorkoutProfile & { workoutPoints: number };
     setWorkoutProfile: Dispatch<SetStateAction<WorkoutProfile>>;
-} | null>(null);
+}
+
+const WorkoutProfileContext = createContext<WorkoutProfileContextValue | null>(null);
 
 interface ComponentProps {
     children: ReactNode;
@@ -74,9 +78,42 @@ export function WorkoutProfileProvider({ children }: ComponentProps) {
         [setWorkoutProfile],
     );
 
-    const value = useMemo(
-        () => ({ workoutProfile, setWorkoutProfile: setWorkoutProfileInternal }),
-        [workoutProfile, setWorkoutProfileInternal],
+    const getWorkoutDifficultyInPoints = (difficulty: Difficulty) => {
+        switch (difficulty) {
+            case Difficulty.Beginner:
+                return 0;
+            case Difficulty.Intermediate:
+                return 15;
+            case Difficulty.Advanced:
+                return 30;
+            default:
+                return 0;
+        }
+    };
+
+    const workoutHistoriesInPoints = workoutProfile.workoutHistories.reduce((acc, history) => {
+        const workout = WORKOUTS[history.workoutKey];
+        if (dayjs(history.timestamp).diff(dayjs(), 'days') <= 30) {
+            if (workout.difficulty === 'beginner') {
+                return acc + 1;
+            }
+            if (workout.difficulty === 'intermediate') {
+                return acc + 2;
+            }
+            return acc + 3;
+        }
+        return acc;
+    }, 0);
+
+    const value: WorkoutProfileContextValue = useMemo(
+        () => ({
+            workoutProfile: {
+                ...workoutProfile,
+                workoutPoints: getWorkoutDifficultyInPoints(workoutProfile.difficulty) + workoutHistoriesInPoints,
+            },
+            setWorkoutProfile: setWorkoutProfileInternal,
+        }),
+        [workoutProfile, workoutHistoriesInPoints, setWorkoutProfileInternal],
     );
 
     return <WorkoutProfileContext.Provider value={value}>{children}</WorkoutProfileContext.Provider>;

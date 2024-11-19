@@ -1,7 +1,5 @@
-import dayjs from 'dayjs';
 import { Label } from '../../../components/Label';
 import { useWorkoutProfile } from '../../../context/WorkoutProfileProvider';
-import { Difficulty } from '../../onboarding/data/entities/Difficulty';
 import { Workout } from '../data/entities/Workout';
 import { WORKOUTS, WorkoutKey } from '../data/workouts';
 import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
@@ -10,33 +8,6 @@ import { WorkoutPlanCard } from './WorkoutPlanCard';
 export function WorkoutLandingRecommendedSection() {
     const navigation = useWorkoutNavigation<'WorkoutLanding'>();
     const { workoutProfile } = useWorkoutProfile();
-
-    const getWorkoutDifficultyInPoints = (difficulty: Difficulty) => {
-        switch (difficulty) {
-            case Difficulty.Beginner:
-                return 0;
-            case Difficulty.Intermediate:
-                return 15;
-            case Difficulty.Advanced:
-                return 30;
-            default:
-                return 0;
-        }
-    };
-
-    const workoutHistoriesInPoints = workoutProfile.workoutHistories.reduce((acc, history) => {
-        const workout = WORKOUTS[history.workoutKey];
-        if (dayjs(history.timestamp).diff(dayjs(), 'days') <= 30) {
-            if (workout.difficulty === 'beginner') {
-                return acc + 1;
-            }
-            if (workout.difficulty === 'intermediate') {
-                return acc + 2;
-            }
-            return acc + 3;
-        }
-        return acc;
-    }, 0);
 
     const getWorkoutLevel = (workoutPoints: number) => {
         if (workoutPoints < 15) {
@@ -63,8 +34,7 @@ export function WorkoutLandingRecommendedSection() {
                 (workoutProfile.healthProblems.length > 0 && workout.difficulty === 'beginner'),
         )
         .sort(([workoutKeyA, workoutA], [workoutKeyB, workoutB]) => {
-            const workoutPoints = getWorkoutDifficultyInPoints(workoutProfile.difficulty) + workoutHistoriesInPoints;
-            const workoutLevel = getWorkoutLevel(workoutPoints);
+            const workoutLevel = getWorkoutLevel(workoutProfile.workoutPoints);
             if (workoutA.difficulty === workoutB.difficulty) {
                 return repeatedWorkouts[workoutKeyA] || 0 - repeatedWorkouts[workoutKeyB] || 0;
             }
