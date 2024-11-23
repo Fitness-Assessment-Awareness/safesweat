@@ -30,12 +30,17 @@ export function EducationPostScreen({ postId, imageUrl }: ComponentProps) {
     const [educationPost, setEducationPost] = useState<EducationPost | null>(null);
     const [postLikes, setPostLikes] = useState<EducationPostLike[]>([]);
     const [postBookmarks, setPostBookmarks] = useState<EducationPostBookmark[]>([]);
+    const [error, setError] = useState<string>('');
 
     useEffect(() => {
         if (userSession) {
-            fetchEducationPostById(postId).then((p) => {
-                setEducationPost(p);
-            });
+            fetchEducationPostById(postId)
+                .then((p) => {
+                    setEducationPost(p);
+                })
+                .catch(() => {
+                    setError('Unable to find the education post. Navigate back and scroll up to refresh.');
+                });
         }
     }, [userSession, postId]);
 
@@ -94,6 +99,23 @@ export function EducationPostScreen({ postId, imageUrl }: ComponentProps) {
     const isLiked = userSession && postLikes.some((l) => l.userId === userSession.user.id);
 
     const isBookmark = userSession && postBookmarks.some((b) => b.userId === userSession.user.id);
+
+    if (error) {
+        return (
+            <Screen
+                flex={1}
+                backgroundColor="$gray6"
+            >
+                <StatusBar style="light" />
+                <Paragraph
+                    m="$10"
+                    alignSelf="center"
+                >
+                    {error}
+                </Paragraph>
+            </Screen>
+        );
+    }
 
     return (
         <TapGestureHandler
