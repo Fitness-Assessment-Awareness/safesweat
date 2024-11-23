@@ -1,8 +1,9 @@
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
 import { useNetInfo } from '@react-native-community/netinfo';
 import { ArrowDown, ArrowUp, Settings2 } from '@tamagui/lucide-icons';
-import { useEffect, useRef, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
 import { Pressable } from 'react-native';
+import { RefreshControl } from 'react-native-gesture-handler';
 import { Paragraph, ScrollView, Separator, View, XStack, YStack } from 'tamagui';
 import { SearchBar } from '../../../../components/SearchBar';
 import { Sheet } from '../../../../components/Sheet';
@@ -32,9 +33,16 @@ const sortOptions: SortOption[] = [
 interface ComponentProps {
     educationPostsSummary: EducationPostSummary[];
     handleFeedOnPress: (post: EducationPostSummary) => void;
+    refreshing: boolean;
+    setRefreshing: Dispatch<SetStateAction<boolean>>;
 }
 
-export function EducationFeedScreen({ educationPostsSummary, handleFeedOnPress }: ComponentProps) {
+export function EducationFeedScreen({
+    educationPostsSummary,
+    handleFeedOnPress,
+    refreshing,
+    setRefreshing,
+}: ComponentProps) {
     const sheetRef = useRef<BottomSheetModal>(null);
     const { isConnected } = useNetInfo();
     const userSession = useSession();
@@ -58,7 +66,17 @@ export function EducationFeedScreen({ educationPostsSummary, handleFeedOnPress }
 
     return (
         <View flex={1}>
-            <ScrollView flex={1}>
+            <ScrollView
+                flex={1}
+                refreshControl={
+                    <RefreshControl
+                        refreshing={refreshing}
+                        onRefresh={() => {
+                            setRefreshing(true);
+                        }}
+                    />
+                }
+            >
                 <View
                     py="$2"
                     px="$3"

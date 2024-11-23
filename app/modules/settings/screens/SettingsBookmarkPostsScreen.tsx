@@ -11,14 +11,18 @@ export function SettingsBookmarkPostsScreen() {
     const { isConnected } = useNetInfo();
     const userSession = useSession();
     const [educationPostsSummary, setEducationPostsSummary] = useState<EducationPostSummary[]>([]);
+    const [refreshing, setRefreshing] = useState(false);
 
     useEffect(() => {
         if (isConnected && userSession) {
             fetchBookmarkEducationPosts(userSession.user.id).then((p) => {
                 setEducationPostsSummary(p);
             });
+            if (refreshing) {
+                setRefreshing(false);
+            }
         }
-    }, [isConnected, userSession]);
+    }, [isConnected, userSession, refreshing]);
 
     const handleFeedOnPress = (post: EducationPostSummary) => {
         navigation.navigate('SettingsEducationPostDetails', {
@@ -33,6 +37,8 @@ export function SettingsBookmarkPostsScreen() {
         <EducationFeedScreen
             educationPostsSummary={educationPostsSummary}
             handleFeedOnPress={handleFeedOnPress}
+            refreshing={refreshing}
+            setRefreshing={setRefreshing}
         />
     );
 }
