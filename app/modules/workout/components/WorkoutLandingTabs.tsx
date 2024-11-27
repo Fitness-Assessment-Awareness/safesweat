@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Tabs, TabsContentProps, TabsProps } from 'tamagui';
 import { Label } from '../../../components/Label';
 
@@ -9,7 +10,21 @@ interface ComponentProps extends TabsProps {
 }
 
 export function WorkoutLandingTabs({ tabs, children, ...tabsProps }: ComponentProps) {
+    const { t } = useTranslation();
     const [selectedTab, setSelectedTab] = useState<TabsValue>('beginner');
+
+    const getTabLabel = (tab: TabsValue) => {
+        switch (tab) {
+            case 'beginner':
+                return t('general.shared.beginner');
+            case 'intermediate':
+                return t('general.shared.intermediate');
+            case 'advanced':
+                return t('general.shared.advanced');
+            default:
+                return '';
+        }
+    };
 
     return (
         <Tabs
@@ -34,7 +49,7 @@ export function WorkoutLandingTabs({ tabs, children, ...tabsProps }: ComponentPr
                             size="large"
                             textDecorationLine={selectedTab === tab ? 'underline' : 'none'}
                         >
-                            {`${tab.charAt(0).toUpperCase()}${tab.slice(1)}`}
+                            {getTabLabel(tab)}
                         </Label>
                     </Tabs.Tab>
                 ))}
