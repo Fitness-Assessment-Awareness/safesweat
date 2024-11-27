@@ -1,5 +1,6 @@
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
 import { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Toast from 'react-native-toast-message';
 import { Button, ScrollView, View, YStack } from 'tamagui';
 import { Dialog } from '../../../components/Dialog';
@@ -13,6 +14,7 @@ import {
 import { EmergencyContact } from '../data/entities/EmergencyContact';
 
 export function SettingsEmergencyContactScreen() {
+    const { t } = useTranslation();
     const { emergencyContacts, setEmergencyContacts } = useEmergencyContacts();
     const sheetRef = useRef<BottomSheetModal>(null);
     const [action, setAction] = useState(SettingsEmergencyContactSheetAction.ADD);
@@ -32,7 +34,7 @@ export function SettingsEmergencyContactScreen() {
         if (emergencyContacts.length === 1) {
             Toast.show({
                 type: 'info',
-                text1: 'You cannot delete the last contact',
+                text1: t('settings.emergency.contact.cannot.delete.last.contact'),
                 visibilityTime: 2000,
             });
             return;
@@ -81,11 +83,13 @@ export function SettingsEmergencyContactScreen() {
                     sheetRef.current?.present();
                 }}
             >
-                {emergencyContacts.length < 3 ? 'Add Contact' : 'Reached 3 Contact Limit'}
+                {emergencyContacts.length < 3
+                    ? t('settings.emergency.contact.add.contact')
+                    : t('settings.emergency.contact.reach.three.limit')}
             </Button>
             <Dialog
-                title="Emergency Contact Delete"
-                description="Do you want to delete this contact? You cannot undo this action."
+                title={t('settings.emergency.contact.delete')}
+                description={t('settings.emergency.contact.delete.confirmation')}
                 onPressOk={deleteContact}
                 open={openDeleteContactDialog}
                 setOpen={setOpenDeleteContactDialog}

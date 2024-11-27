@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Pressable } from 'react-native';
 import { Button, Progress, ScrollView, View, YStack } from 'tamagui';
 import { Chip } from '../../../components/Chip';
@@ -9,8 +10,26 @@ import { FocusArea } from '../data/entities/FocusArea';
 import { useOnboardingNavigation } from '../navigation/useOnboardingNavigation';
 
 export function OnboardingFocusAreaSelectScreen() {
+    const { t } = useTranslation();
     const { workoutProfile, setWorkoutProfile } = useWorkoutProfile();
     const navigation = useOnboardingNavigation<'OnboardingFocusAreaSelect'>();
+
+    const getFocusAreaLabel = (focusArea: FocusArea) => {
+        switch (focusArea) {
+            case FocusArea.FullBody:
+                return t('general.shared.fullbody');
+            case FocusArea.Arm:
+                return t('general.shared.arm');
+            case FocusArea.Abs:
+                return t('general.shared.abs');
+            case FocusArea.Butt:
+                return t('general.shared.butt');
+            case FocusArea.Leg:
+                return t('general.shared.leg');
+            default:
+                return '';
+        }
+    };
 
     return (
         <View flex={1}>
@@ -31,7 +50,7 @@ export function OnboardingFocusAreaSelectScreen() {
                     alignItems="center"
                     p="$4"
                 >
-                    <Heading alignSelf="center">Choose your focus area</Heading>
+                    <Heading alignSelf="center">{t('onboarding.focus.area.choose.area')}</Heading>
                     <YStack
                         pt="$8"
                         gap="$5"
@@ -70,7 +89,7 @@ export function OnboardingFocusAreaSelectScreen() {
                                             fontWeight="bold"
                                             size="large"
                                         >
-                                            {focusArea}
+                                            {getFocusAreaLabel(focusArea)}
                                         </Label>
                                     </Chip>
                                 </Pressable>
@@ -91,7 +110,7 @@ export function OnboardingFocusAreaSelectScreen() {
                 }}
                 disabled={workoutProfile.focusAreas.length === 0}
             >
-                Next
+                {t('general.shared.next')}
             </Button>
         </View>
     );

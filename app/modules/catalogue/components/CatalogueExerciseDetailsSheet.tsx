@@ -1,4 +1,5 @@
 import LottieView, { AnimationObject } from 'lottie-react-native';
+import { useTranslation } from 'react-i18next';
 import { XStack, YStack } from 'tamagui';
 import { BulletPoint } from '../../../components/BulletPoint';
 import { Chip } from '../../../components/Chip';
@@ -30,6 +31,7 @@ export function CatalogueExerciseDetailsSheetContent({
     commonMistakes,
     breathingTips,
 }: ComponentProps) {
+    const { t } = useTranslation();
     return (
         <>
             <Heading
@@ -53,14 +55,14 @@ export function CatalogueExerciseDetailsSheetContent({
                     color="$blue11Light"
                     size="small"
                 >
-                    INSTRUCTIONS
+                    {t('exercise.shared.instructions').toUpperCase()}
                 </Heading>
                 <Paragraph>{instructions}</Paragraph>
                 <Heading
                     color="$blue11Light"
                     size="small"
                 >
-                    FOCUS AREA
+                    {t('exercise.shared.focus.area').toUpperCase()}
                 </Heading>
                 <XStack
                     flexWrap="wrap"
@@ -74,7 +76,7 @@ export function CatalogueExerciseDetailsSheetContent({
                     color="$blue11Light"
                     size="small"
                 >
-                    COMMON MISTAKES
+                    {t('exercise.shared.common.mistakes').toUpperCase()}
                 </Heading>
                 {commonMistakes.map((commonMistake, index) => (
                     <Numbering
@@ -94,7 +96,7 @@ export function CatalogueExerciseDetailsSheetContent({
                     color="$blue11Light"
                     size="small"
                 >
-                    BREATHING TIPS
+                    {t('exercise.shared.breathing.tips').toUpperCase()}
                 </Heading>
                 {breathingTips.map((breathingTip) => (
                     <BulletPoint key={breathingTip}>

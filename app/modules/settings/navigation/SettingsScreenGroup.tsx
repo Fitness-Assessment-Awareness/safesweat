@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unstable-nested-components */
+import { useTranslation } from 'react-i18next';
 import { HeaderBackButton } from '../../../components/HeaderBackButton';
 import { HeaderTitle } from '../../../components/HeaderTitle';
 import { SettingsBookmarkPostsScreen } from '../screens/SettingsBookmarkPostsScreen';
@@ -10,6 +11,7 @@ import { SettingsStack } from './SettingsStack';
 import { useSettingsNavigation } from './useSettingsNavigation';
 
 export function SettingsScreens() {
+    const { t } = useTranslation();
     return (
         <SettingsStack.Navigator
             screenOptions={{
@@ -34,14 +36,16 @@ export function SettingsScreens() {
                 component={SettingsLandingScreen}
                 options={{
                     headerTitle: '',
-                    headerLeft: () => <HeaderTitle>SETTINGS</HeaderTitle>,
+                    headerLeft: () => <HeaderTitle>{t('settings.header.settings').toUpperCase()}</HeaderTitle>,
                 }}
             />
             <SettingsStack.Screen
                 name="SettingsWorkoutProfile"
                 component={SettingsWorkoutProfileScreen}
                 options={{
-                    headerTitle: () => <HeaderTitle mx="$2">WORKOUT PROFILE</HeaderTitle>,
+                    headerTitle: () => (
+                        <HeaderTitle mx="$2">{t('settings.landing.workout.profile').toUpperCase()}</HeaderTitle>
+                    ),
                     headerBackVisible: false,
                 }}
             />
@@ -49,7 +53,9 @@ export function SettingsScreens() {
                 name="SettingsBookmarkPosts"
                 component={SettingsBookmarkPostsScreen}
                 options={{
-                    headerTitle: () => <HeaderTitle mx="$2">Bookmark</HeaderTitle>,
+                    headerTitle: () => (
+                        <HeaderTitle mx="$2">{t('settings.landing.bookmarked.posts').toUpperCase()}</HeaderTitle>
+                    ),
                     headerBackVisible: false,
                 }}
             />
@@ -62,7 +68,9 @@ export function SettingsScreens() {
                 name="SettingsEmergencyContact"
                 component={SettingsEmergencyContactScreen}
                 options={{
-                    headerTitle: () => <HeaderTitle mx="$2">Emergency Contacts</HeaderTitle>,
+                    headerTitle: () => (
+                        <HeaderTitle mx="$2">{t('settings.landing.emergency.contact').toUpperCase()}</HeaderTitle>
+                    ),
                     headerBackVisible: false,
                 }}
             />

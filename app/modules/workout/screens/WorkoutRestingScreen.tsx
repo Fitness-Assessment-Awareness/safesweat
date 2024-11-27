@@ -5,6 +5,7 @@ import dayjs from 'dayjs';
 import { StatusBar } from 'expo-status-bar';
 import LottieView from 'lottie-react-native';
 import { useCallback, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Pressable } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Button, getTokenValue, View } from 'tamagui';
@@ -21,6 +22,7 @@ import { WorkoutRootStackParamList } from '../navigation/WorkoutStackParamList';
 const REST_TIME = 20;
 
 export function WorkoutRestingScreen() {
+    const { t } = useTranslation();
     const insets = useSafeAreaInsets();
     const sheetRefExerciseDetails = useRef<BottomSheetModal>(null);
     const sheetRefEmergencyCall = useRef<BottomSheetModal>(null);
@@ -80,7 +82,7 @@ export function WorkoutRestingScreen() {
                             size="small"
                             color="white"
                         >
-                            NEXT {index + 1}/{workout.exercises.length}
+                            {t('general.shared.next')} {index + 1}/{workout.exercises.length}
                         </Heading>
                         <View
                             flexDirection="row"
@@ -127,7 +129,7 @@ export function WorkoutRestingScreen() {
                         alignItems="center"
                         rowGap="$4"
                     >
-                        <Heading color="white">REST</Heading>
+                        <Heading color="white">{t('workout.resting.rest').toUpperCase()}</Heading>
                         <Heading
                             size="x-large"
                             color="white"
@@ -145,7 +147,7 @@ export function WorkoutRestingScreen() {
                                 stopCountdown();
                             }}
                         >
-                            Emergency Call
+                            {t('workout.emergency.call')}
                         </Button>
                     </View>
                     <Button
@@ -153,7 +155,7 @@ export function WorkoutRestingScreen() {
                         borderRadius="$8"
                         onPress={onFinishRest}
                     >
-                        Skip
+                        {t('general.shared.skip')}
                     </Button>
                 </View>
             </View>

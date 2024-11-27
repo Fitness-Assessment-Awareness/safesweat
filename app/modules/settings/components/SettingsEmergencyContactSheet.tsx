@@ -1,4 +1,5 @@
 import React, { useId, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Linking } from 'react-native';
 import Toast from 'react-native-toast-message';
 import uuid from 'react-native-uuid';
@@ -23,6 +24,7 @@ export enum SettingsEmergencyContactSheetAction {
 const phoneNumMalaysiaRegex = /^(\+?6?01)[02-46-9]-*[0-9]{7}$|^(\+?6?01)[1]-*[0-9]{8}$/;
 
 export function SettingsEmergencyContactSheetContent({ handleDismissSheet, action, contactOnEdit }: ComponentProps) {
+    const { t } = useTranslation();
     const { emergencyContacts, setEmergencyContacts, updateEmergencyContact } = useEmergencyContacts();
 
     const [form, setForm] = useState({
@@ -37,7 +39,7 @@ export function SettingsEmergencyContactSheetContent({ handleDismissSheet, actio
         if (form.fullName === '' || form.phoneNumber === '') {
             setForm({
                 ...form,
-                errorMsg: 'Please fill out all fields',
+                errorMsg: t('settings.emergency.contact.fill.all.fields'),
             });
             return false;
         }
@@ -47,14 +49,14 @@ export function SettingsEmergencyContactSheetContent({ handleDismissSheet, actio
         ) {
             setForm({
                 ...form,
-                errorMsg: 'Invalid phone number format',
+                errorMsg: t('settings.emergency.contact.invalid.phone.format'),
             });
             return false;
         }
         if (!Linking.canOpenURL(`tel:${form.phoneNumber}`)) {
             setForm({
                 ...form,
-                errorMsg: 'Phone number is not callable',
+                errorMsg: t('settings.emergency.contact.phone.not.callable'),
             });
             return false;
         }
@@ -74,7 +76,7 @@ export function SettingsEmergencyContactSheetContent({ handleDismissSheet, actio
                 phoneNumber: form.phoneNumber,
             },
         ]);
-        Toast.show({ type: 'success', text1: 'New contact added successfully!', visibilityTime: 2000 });
+        Toast.show({ type: 'success', text1: t('settings.emergency.contact.added'), visibilityTime: 2000 });
     }
 
     function handleEdit() {
@@ -88,7 +90,7 @@ export function SettingsEmergencyContactSheetContent({ handleDismissSheet, actio
                 phoneNumber: form.phoneNumber,
             });
 
-            Toast.show({ type: 'success', text1: 'Contact edited successfully!', visibilityTime: 2000 });
+            Toast.show({ type: 'success', text1: t('settings.emergency.contact.edited'), visibilityTime: 2000 });
         } else {
             throw new Error('contactOnEdit & setContactOnEdit props is required for editing');
         }
@@ -103,7 +105,7 @@ export function SettingsEmergencyContactSheetContent({ handleDismissSheet, actio
                 my="$2"
                 mx="$4"
             >
-                <Label htmlFor={`${id}-fullname`}>Full name</Label>
+                <Label htmlFor={`${id}-fullname`}>{t('settings.emergency.contact.fullname')}</Label>
                 <Input
                     id={`${id}-fullname`}
                     value={form.fullName}
@@ -113,9 +115,9 @@ export function SettingsEmergencyContactSheetContent({ handleDismissSheet, actio
                             fullName: e,
                         })
                     }
-                    placeholder="Enter contact's full name"
+                    placeholder={t('settings.emergency.contact.enter.fullname')}
                 />
-                <Label htmlFor={`${id}-phonenumber`}>Phone number</Label>
+                <Label htmlFor={`${id}-phonenumber`}>{t('settings.emergency.contact.phone.number')}</Label>
                 <Input
                     keyboardType="phone-pad"
                     id={`${id}-phonenumber`}
@@ -126,7 +128,7 @@ export function SettingsEmergencyContactSheetContent({ handleDismissSheet, actio
                             phoneNumber: e,
                         })
                     }
-                    placeholder="Enter contact's phone number"
+                    placeholder={t('settings.emergency.contact.enter.phone')}
                 />
                 {form.errorMsg && (
                     <Label

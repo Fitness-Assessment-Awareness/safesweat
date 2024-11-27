@@ -1,15 +1,7 @@
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
-import {
-    AlertTriangle,
-    Bookmark,
-    ChevronRight,
-    Eye,
-    Globe,
-    LogOut,
-    PencilLine,
-    RefreshCw,
-} from '@tamagui/lucide-icons';
+import { AlertTriangle, Bookmark, ChevronRight, Globe, LogOut, PencilLine, RefreshCw } from '@tamagui/lucide-icons';
 import React, { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Toast from 'react-native-toast-message';
 import { Button, Image, ListItem, ScrollView, Separator, View, YGroup } from 'tamagui';
 import { Dialog } from '../../../components/Dialog';
@@ -23,6 +15,7 @@ import { useSettingsNavigation } from '../navigation/useSettingsNavigation';
 import { deleteUserAccount, signOut } from '../services/AuthService';
 
 export function SettingsLandingScreen() {
+    const { t } = useTranslation();
     const { navigate } = useSettingsNavigation<'SettingsLanding'>();
     const authSheetRef = useRef<BottomSheetModal>(null);
     const languageSheetRef = useRef<BottomSheetModal>(null);
@@ -46,7 +39,7 @@ export function SettingsLandingScreen() {
         const { error } = await deleteUserAccount(userSession.user.id);
         Toast.show({
             type: error ? 'error' : 'success',
-            text1: error ? 'Error deleting account' : 'Account deleted successfully!',
+            text1: error ? t('settings.landing.error.deleting.account') : t('settings.landing.account.deleted'),
             visibilityTime: 2000,
         });
         signOut();
@@ -62,7 +55,7 @@ export function SettingsLandingScreen() {
                                 <ListItem
                                     size="$5"
                                     pressTheme
-                                    title={<Heading size="small">Backup & Restore</Heading>}
+                                    title={<Heading size="small">{t('settings.landing.backup.and.restore')}</Heading>}
                                     icon={
                                         <Image
                                             objectFit="contain"
@@ -70,20 +63,11 @@ export function SettingsLandingScreen() {
                                             source={SettingsAssets.googleIcon}
                                         />
                                     }
-                                    subTitle="Sign in and synchronize your data"
+                                    subTitle={t('settings.landing.synchronize.data')}
                                     iconAfter={RefreshCw}
                                 />
                             </YGroup.Item>
 
-                            <Separator borderColor="#D0D3D8" />
-                            <YGroup.Item>
-                                <ListItem
-                                    pressTheme
-                                    title="Edit Profile"
-                                    icon={PencilLine}
-                                    iconAfter={ChevronRight}
-                                />
-                            </YGroup.Item>
                             <Separator borderColor="#D0D3D8" />
                         </>
                     )}
@@ -93,7 +77,7 @@ export function SettingsLandingScreen() {
                                 navigate('SettingsEmergencyContact');
                             }}
                             pressTheme
-                            title="Emergency Contacts"
+                            title={t('settings.landing.emergency.contact')}
                             icon={AlertTriangle}
                             iconAfter={ChevronRight}
                         />
@@ -105,7 +89,7 @@ export function SettingsLandingScreen() {
                                 languageSheetRef.current?.present();
                             }}
                             pressTheme
-                            title="Language Options"
+                            title={t('settings.language.options')}
                             icon={Globe}
                             iconAfter={ChevronRight}
                         />
@@ -117,8 +101,8 @@ export function SettingsLandingScreen() {
                                 navigate('SettingsWorkoutProfile');
                             }}
                             pressTheme
-                            title="Workout Profile"
-                            icon={Eye}
+                            title={t('settings.landing.workout.profile')}
+                            icon={PencilLine}
                             iconAfter={ChevronRight}
                         />
                     </YGroup.Item>
@@ -128,7 +112,7 @@ export function SettingsLandingScreen() {
                             <YGroup.Item>
                                 <ListItem
                                     pressTheme
-                                    title="Bookmarked Posts"
+                                    title={t('settings.landing.bookmarked.posts')}
                                     icon={Bookmark}
                                     iconAfter={ChevronRight}
                                     onPress={() => {
@@ -140,7 +124,7 @@ export function SettingsLandingScreen() {
                             <YGroup.Item>
                                 <ListItem
                                     pressTheme
-                                    title="Logout"
+                                    title={t('settings.landing.logout')}
                                     icon={LogOut}
                                     onPress={() => {
                                         setOpenLogoutDialog(true);
@@ -165,17 +149,17 @@ export function SettingsLandingScreen() {
                         }
                     }}
                 >
-                    {userSession ? 'Delete Account' : 'Login'}
+                    {userSession ? t('settings.landing.delete.account') : t('settings.landing.login')}
                 </Button>
             </ScrollView>
             <Dialog
-                title="Logout Confirmation"
-                description="Are you sure you want to logout?"
+                title={t('settings.landing.account.logout')}
+                description={t('settings.landing.logout.logout.confirmation')}
                 onPressOk={() => {
                     signOut();
                     Toast.show({
                         type: 'success',
-                        text1: 'Logged out successfully!',
+                        text1: t('settings.landing.logout.success'),
                         visibilityTime: 2000,
                     });
                 }}
@@ -183,8 +167,8 @@ export function SettingsLandingScreen() {
                 setOpen={setOpenLogoutDialog}
             />
             <Dialog
-                title="Account Delete"
-                description="Do you want to delete this account? You cannot undo this action."
+                title={t('settings.landing.account.delete')}
+                description={t('settings.landing.account.delete.confirmation')}
                 onPressOk={() => {
                     handleDeleteAccount();
                 }}

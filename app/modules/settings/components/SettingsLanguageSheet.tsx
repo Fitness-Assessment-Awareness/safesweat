@@ -1,20 +1,23 @@
 import { Fragment } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Pressable } from 'react-native';
+import Toast from 'react-native-toast-message';
 import { Label, YStack } from 'tamagui';
 import { Chip } from '../../../components/Chip';
 import { Heading } from '../../../components/Heading';
 import { useLanguageCode } from '../../../context/LanguageCodeProvider';
-import { LanguageCode } from '../data/entities/LanguageCode';
+import { LanguageCode } from '../../../lang/LanguageCode';
 
 interface ComponentProps {
     handleDismissSheet: () => void;
 }
 
 export function SettingsLanguageSheetContent({ handleDismissSheet }: ComponentProps) {
+    const { t } = useTranslation();
     const { languageCode, setLanguageCode } = useLanguageCode();
     return (
         <>
-            <Heading m="$4">Language Options</Heading>
+            <Heading m="$4">{t('settings.language.options')}</Heading>
             <YStack
                 width="85%"
                 gap="$4"
@@ -27,6 +30,11 @@ export function SettingsLanguageSheetContent({ handleDismissSheet }: ComponentPr
                             onPress={() => {
                                 setLanguageCode(value);
                                 handleDismissSheet();
+                                Toast.show({
+                                    type: 'success',
+                                    text1: t('settings.language.changed.success'),
+                                    visibilityTime: 2000,
+                                })
                             }}
                         >
                             <Chip

@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Pressable } from 'react-native';
 import { Button, Progress, ScrollView, View, YStack } from 'tamagui';
 import { Chip } from '../../../components/Chip';
@@ -9,8 +10,28 @@ import { HealthProblem } from '../data/entities/HealthProblem';
 import { useOnboardingNavigation } from '../navigation/useOnboardingNavigation';
 
 export function OnboardingHealthProbSelectScreen() {
+    const { t } = useTranslation();
     const { workoutProfile, setWorkoutProfile } = useWorkoutProfile();
     const navigation = useOnboardingNavigation<'OnboardingHealthProbSelect'>();
+
+    const getHealthProblemLabel = (healthProblem: HealthProblem) => {
+        switch (healthProblem) {
+            case HealthProblem.HeartCondition:
+                return t('general.shared.heart.conditions');
+            case HealthProblem.ChestPainWithPhysicalActivity:
+                return t('general.shared.heart.chest.pain.with.physical.activity');
+            case HealthProblem.ChestPainWithoutPhysicalActivity:
+                return t('general.shared.heart.chest.pain.without.physical.activity');
+            case HealthProblem.Dizziness:
+                return t('general.shared.heart.dizziness');
+            case HealthProblem.BoneOrJointProblem:
+                return t('general.shared.heart.bone.or.joint.problem');
+            case HealthProblem.UnderBloodPressureDrugs:
+                return t('general.shared.heart.under.blood.pressure.drug');
+            default:
+                return '';
+        }
+    };
 
     return (
         <View flex={1}>
@@ -31,7 +52,7 @@ export function OnboardingHealthProbSelectScreen() {
                     alignItems="center"
                     p="$4"
                 >
-                    <Heading alignSelf="center">Do you have any recent health consequences?</Heading>
+                    <Heading alignSelf="center">{t('onboarding.health.problem.recent.health.consequences')}</Heading>
                     <YStack
                         pt="$8"
                         gap="$5"
@@ -71,7 +92,7 @@ export function OnboardingHealthProbSelectScreen() {
                                             fontWeight="bold"
                                             size="large"
                                         >
-                                            {problem}
+                                            {getHealthProblemLabel(problem)}
                                         </Label>
                                     </Chip>
                                 </Pressable>
@@ -91,7 +112,7 @@ export function OnboardingHealthProbSelectScreen() {
                     navigation.navigate('OnboardingBodyInfoSelect');
                 }}
             >
-                Next
+                {t('general.shared.next')}
             </Button>
         </View>
     );

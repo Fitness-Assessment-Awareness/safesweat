@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button, Select, View, XStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Paragraph } from '../../../components/Paragraph';
@@ -6,6 +7,7 @@ import { useWorkoutProfile } from '../../../context/WorkoutProfileProvider';
 import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
 
 export function WorkoutRoutinePlanningScreen() {
+    const { t } = useTranslation();
     const { workoutProfile, updateWorkoutProfile } = useWorkoutProfile();
     const [selectedDay, setSelectedDay] = useState<number | null>(workoutProfile.weeklyGoal);
     const { pop } = useWorkoutNavigation();
@@ -20,12 +22,12 @@ export function WorkoutRoutinePlanningScreen() {
                 rowGap="$6"
                 flex={1}
             >
-                <Heading>Set your weekly goal</Heading>
+                <Heading>{t('workout.routine.planning.set.weekly.goal')}</Heading>
                 <View
                     alignItems="center"
                     rowGap="$3"
                 >
-                    <Paragraph size="large">🎯 Weekly training days</Paragraph>
+                    <Paragraph size="large">🎯 {t('workout.routine.planning.weekly.training.days')}</Paragraph>
                     <XStack
                         flexWrap="wrap"
                         justifyContent="center"
@@ -57,7 +59,7 @@ export function WorkoutRoutinePlanningScreen() {
                     pop();
                 }}
             >
-                Save
+                {t('general.shared.save')}
             </Button>
         </View>
     );

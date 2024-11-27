@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unstable-nested-components */
+import { useTranslation } from 'react-i18next';
 import { HeaderBackButton } from '../../../components/HeaderBackButton';
 import { HeaderTitle } from '../../../components/HeaderTitle';
 import { WorkoutHistoryScreen } from '../screens/WorkoutHistoryScreen';
@@ -9,6 +10,7 @@ import { WorkoutStack } from './WorkoutStack';
 import { useWorkoutNavigation } from './useWorkoutNavigation';
 
 export function WorkoutScreens() {
+    const { t } = useTranslation();
     return (
         <WorkoutStack.Navigator
             screenOptions={{
@@ -33,7 +35,7 @@ export function WorkoutScreens() {
                 name="WorkoutLanding"
                 component={WorkoutLandingScreen}
                 options={{
-                    headerLeft: () => <HeaderTitle>TIME TO SWEAT!</HeaderTitle>,
+                    headerLeft: () => <HeaderTitle>{t('workout.header.time.to.sweat').toUpperCase()}</HeaderTitle>,
                 }}
             />
             <WorkoutStack.Screen

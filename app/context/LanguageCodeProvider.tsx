@@ -1,4 +1,5 @@
 import { getLocales } from 'expo-localization';
+import i18next from 'i18next';
 import {
     createContext,
     Dispatch,
@@ -10,7 +11,7 @@ import {
     useMemo,
     useState,
 } from 'react';
-import { LanguageCode } from '../modules/settings/data/entities/LanguageCode';
+import { LanguageCode } from '../lang/LanguageCode';
 import { StoragePublicRepository } from '../storage/domain/useCases/StoragePublicRepository';
 
 const LanguageCodeContext = createContext<{
@@ -35,6 +36,7 @@ export function LanguageCodeProvider({ children }: ComponentProps) {
                         key: 'languageCode',
                         value: newLanguageCode,
                     });
+                    i18next.changeLanguage(newLanguageCode);
                     return newLanguageCode;
                 });
             } else {
@@ -44,6 +46,7 @@ export function LanguageCodeProvider({ children }: ComponentProps) {
                     key: 'languageCode',
                     value: payload,
                 });
+                i18next.changeLanguage(payload);
             }
         },
         [setLanguageCode],
@@ -58,6 +61,7 @@ export function LanguageCodeProvider({ children }: ComponentProps) {
 
             if (storedLanguageCode) {
                 setLanguageCode(storedLanguageCode);
+                i18next.changeLanguage(storedLanguageCode);
             } else {
                 setLanguageCodeInternal(
                     getLocales()[0].languageCode === LanguageCode.MELAYU ? LanguageCode.MELAYU : LanguageCode.ENGLISH,

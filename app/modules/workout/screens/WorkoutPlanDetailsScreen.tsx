@@ -3,6 +3,7 @@ import { RouteProp, useRoute } from '@react-navigation/native';
 import { Minus, Plus } from '@tamagui/lucide-icons';
 import { StatusBar } from 'expo-status-bar';
 import React, { Fragment, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button, Image, ScrollView, Separator, View, XStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
@@ -17,6 +18,7 @@ import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
 import { WorkoutStackParamList } from '../navigation/WorkoutStackParamList';
 
 export function WorkoutPlanDetailsScreen() {
+    const { t } = useTranslation();
     const { navigate } = useWorkoutNavigation<'WorkoutPlanDetails'>();
     const { params } = useRoute<RouteProp<WorkoutStackParamList, 'WorkoutPlanDetails'>>();
     const { workoutKey } = params;
@@ -101,7 +103,7 @@ export function WorkoutPlanDetailsScreen() {
             >
                 <Paragraph>
                     {(workoutPlan.estimatedDuration * multiplier).toFixed(0)} MINS | {workoutPlan.exercises.length}{' '}
-                    EXERCISES
+                    {t('workout.plan.details.exercises').toUpperCase()}
                 </Paragraph>
                 <XStack
                     alignItems="center"
@@ -192,7 +194,7 @@ export function WorkoutPlanDetailsScreen() {
                     navigate('WorkoutStartInitial', { workoutKey, multiplier });
                 }}
             >
-                Start
+                {t('general.shared.start')}
             </Button>
             <Sheet
                 ref={sheetRef}

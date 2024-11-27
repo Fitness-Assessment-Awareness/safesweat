@@ -4,6 +4,7 @@ import { ChevronRight, Info } from '@tamagui/lucide-icons';
 import { StatusBar } from 'expo-status-bar';
 import LottieView from 'lottie-react-native';
 import { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Pressable } from 'react-native';
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
 import { getTokenValue, View } from 'tamagui';
@@ -18,6 +19,7 @@ import { WORKOUTS } from '../data/workouts';
 import { WorkoutRootStackParamList } from '../navigation/WorkoutStackParamList';
 
 export function WorkoutStartInitialScreen() {
+    const { t } = useTranslation();
     const { replace } = useRootNavigation();
     const { params } = useRoute<RouteProp<WorkoutRootStackParamList, 'WorkoutStartInitial'>>();
     const { workoutKey } = params;
@@ -62,7 +64,7 @@ export function WorkoutStartInitialScreen() {
                         color="$blue11Light"
                         size="large"
                     >
-                        READY TO GO!
+                        {t('workout.start.initial.ready.to.go').toUpperCase()}
                     </Heading>
                     <View
                         flexDirection="row"

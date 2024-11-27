@@ -1,9 +1,11 @@
 /* eslint-disable react/no-unstable-nested-components */
+import { useTranslation } from 'react-i18next';
 import { HeaderTitle } from '../../../components/HeaderTitle';
 import { CatalogueLandingScreen } from '../screens/CatalogueLandingScreen';
 import { CatalogueStack } from './CatalogueStack';
 
 export function CatalogueScreens() {
+    const { t } = useTranslation();
     return (
         <CatalogueStack.Navigator>
             <CatalogueStack.Screen
@@ -11,7 +13,7 @@ export function CatalogueScreens() {
                 component={CatalogueLandingScreen}
                 options={{
                     headerTitle: '',
-                    headerLeft: () => <HeaderTitle>CATALOGUE</HeaderTitle>,
+                    headerLeft: () => <HeaderTitle>{t('catalogue.header.catalogue').toUpperCase()}</HeaderTitle>,
                 }}
             />
         </CatalogueStack.Navigator>

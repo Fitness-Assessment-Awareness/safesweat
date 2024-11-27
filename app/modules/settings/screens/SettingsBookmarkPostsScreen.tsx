@@ -1,5 +1,6 @@
 import { useNetInfo } from '@react-native-community/netinfo';
-import React, { useEffect, useState } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
+import React, { useCallback, useState } from 'react';
 import { useSession } from '../../../context/SessionProvider';
 import { EducationPostSummary } from '../../common/education/data/entities/EducationPost';
 import { fetchBookmarkEducationPosts } from '../../common/education/data/services/EducationPostService';
@@ -13,16 +14,18 @@ export function SettingsBookmarkPostsScreen() {
     const [educationPostsSummary, setEducationPostsSummary] = useState<EducationPostSummary[]>([]);
     const [refreshing, setRefreshing] = useState(false);
 
-    useEffect(() => {
-        if (isConnected && userSession) {
-            fetchBookmarkEducationPosts(userSession.user.id).then((p) => {
-                setEducationPostsSummary(p);
-            });
-            if (refreshing) {
-                setRefreshing(false);
+    useFocusEffect(
+        useCallback(() => {
+            if (isConnected && userSession) {
+                fetchBookmarkEducationPosts(userSession.user.id).then((p) => {
+                    setEducationPostsSummary(p);
+                });
+                if (refreshing) {
+                    setRefreshing(false);
+                }
             }
-        }
-    }, [isConnected, userSession, refreshing]);
+        }, [isConnected, userSession, refreshing]),
+    );
 
     const handleFeedOnPress = (post: EducationPostSummary) => {
         navigation.navigate('SettingsEducationPostDetails', {

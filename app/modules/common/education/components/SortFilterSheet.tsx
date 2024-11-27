@@ -1,7 +1,10 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Text, XStack } from 'tamagui';
 import { Chip } from '../../../../components/Chip';
 import { Heading } from '../../../../components/Heading';
+import { useLanguageCode } from '../../../../context/LanguageCodeProvider';
+import { LanguageCode } from '../../../../lang/LanguageCode';
 import { EducationCategory } from '../data/entities/EducationCategory';
 import { SortOption } from '../data/SortOption';
 
@@ -22,13 +25,15 @@ export function SortFilterSheetContent({
     setSelectedOption,
     setSelectedCategory,
 }: ComponentProps) {
+    const { t } = useTranslation();
+    const { languageCode } = useLanguageCode();
     return (
         <>
             <Heading
                 p="$4"
                 pb={0}
             >
-                Sort
+                {t('education.search.sort')}
             </Heading>
             <XStack
                 p="$4"
@@ -37,9 +42,11 @@ export function SortFilterSheetContent({
             >
                 {sortOptions.map((option) => (
                     <Chip
-                        backgroundColor={selectedOption === option ? '$blue8' : '$gray4'}
+                        backgroundColor={selectedOption && selectedOption.key === option.key ? '$blue8' : '$gray4'}
                         key={option.name}
-                        onPress={() => setSelectedOption(selectedOption === option ? null : option)}
+                        onPress={() => {
+                            setSelectedOption(selectedOption?.key === option.key ? null : option);
+                        }}
                     >
                         <XStack alignItems="center">
                             {option.icon}
@@ -54,7 +61,7 @@ export function SortFilterSheetContent({
                         p="$4"
                         pb={0}
                     >
-                        Filter
+                        {t('education.search.filter')}
                     </Heading>
                     <XStack
                         p="$4"
@@ -66,7 +73,7 @@ export function SortFilterSheetContent({
                                 key={category.categoryId}
                                 onPress={() => setSelectedCategory(selectedCategory === category ? null : category)}
                             >
-                                {category.name}
+                                {languageCode === LanguageCode.ENGLISH ? category.name : category.nameMs}
                             </Chip>
                         ))}
                     </XStack>

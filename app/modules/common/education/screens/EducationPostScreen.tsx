@@ -1,6 +1,7 @@
 import { Bookmark, Heart } from '@tamagui/lucide-icons';
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Pressable } from 'react-native';
 import { TapGestureHandler } from 'react-native-gesture-handler';
 import Toast from 'react-native-toast-message';
@@ -8,7 +9,9 @@ import { Image, ScrollView, View, XStack, YStack } from 'tamagui';
 import { Heading } from '../../../../components/Heading';
 import { Paragraph } from '../../../../components/Paragraph';
 import { Screen } from '../../../../components/Screen';
+import { useLanguageCode } from '../../../../context/LanguageCodeProvider';
 import { useSession } from '../../../../context/SessionProvider';
+import { LanguageCode } from '../../../../lang/LanguageCode';
 import { EducationPost } from '../data/entities/EducationPost';
 import { EducationPostBookmark } from '../data/entities/EducationPostBookmark';
 import { EducationPostLike } from '../data/entities/EducationPostLike';
@@ -26,6 +29,8 @@ interface ComponentProps {
 }
 
 export function EducationPostScreen({ postId, imageUrl }: ComponentProps) {
+    const { t } = useTranslation();
+    const { languageCode } = useLanguageCode();
     const userSession = useSession();
     const [educationPost, setEducationPost] = useState<EducationPost | null>(null);
     const [postLikes, setPostLikes] = useState<EducationPostLike[]>([]);
@@ -39,10 +44,10 @@ export function EducationPostScreen({ postId, imageUrl }: ComponentProps) {
                     setEducationPost(p);
                 })
                 .catch(() => {
-                    setError('Unable to find the education post. Navigate back and scroll up to refresh.');
+                    setError(t('education.post.unable.find'));
                 });
         }
-    }, [userSession, postId]);
+    }, [userSession, postId, t]);
 
     useEffect(() => {
         if (educationPost) {
@@ -90,7 +95,7 @@ export function EducationPostScreen({ postId, imageUrl }: ComponentProps) {
             setPostBookmarks([...postBookmarks, { userId: userSession.user.id, postId }]);
             Toast.show({
                 type: 'success',
-                text1: 'Bookmark added',
+                text1: t('education.post.bookmark.added'),
                 visibilityTime: 1500,
             });
         }
@@ -172,20 +177,65 @@ export function EducationPostScreen({ postId, imageUrl }: ComponentProps) {
                                 </Pressable>
                             </View>
                         </TapGestureHandler>
-                        <YStack gap="$3">
-                            <Heading>Title</Heading>
-                            <Paragraph size="large">{educationPost?.titleEn}</Paragraph>
-                            <Heading>Description</Heading>
-                            <Paragraph size="large">{educationPost?.contentEn}</Paragraph>
-                            <Heading>Category</Heading>
-                            <Paragraph size="large">{educationPost?.categoryDto.name}</Paragraph>
-                            <Heading>Author</Heading>
-                            <Paragraph size="large">{educationPost?.createdBy}</Paragraph>
+                        <YStack gap="$5">
+                            <YStack gap="$3">
+                                <Heading
+                                    size="small"
+                                    fontStyle="italic"
+                                >
+                                    {t('education.post.title')}
+                                </Heading>
+                                <Paragraph size="large">
+                                    {languageCode === LanguageCode.ENGLISH
+                                        ? educationPost?.titleEn
+                                        : educationPost?.titleMs}
+                                </Paragraph>
+                            </YStack>
+                            <YStack gap="$3">
+                                <Heading
+                                    size="small"
+                                    fontStyle="italic"
+                                >
+                                    {t('education.post.description')}
+                                </Heading>
+                                <Paragraph size="large">
+                                    {languageCode === LanguageCode.ENGLISH
+                                        ? educationPost?.contentEn
+                                        : educationPost?.contentMs}
+                                </Paragraph>
+                            </YStack>
+                            <YStack gap="$3">
+                                <Heading
+                                    size="small"
+                                    fontStyle="italic"
+                                >
+                                    {t('education.post.category')}
+                                </Heading>
+                                <Paragraph size="large">
+                                    {languageCode === LanguageCode.ENGLISH
+                                        ? educationPost?.categoryDto.name
+                                        : educationPost?.categoryDto.nameMs}
+                                </Paragraph>
+                            </YStack>
+                            <YStack gap="$3">
+                                <Heading
+                                    size="small"
+                                    fontStyle="italic"
+                                >
+                                    {t('education.post.author')}
+                                </Heading>
+                                <Paragraph size="large">{educationPost?.createdBy}</Paragraph>
+                            </YStack>
                             {educationPost?.lastUpdatedBy && (
-                                <>
-                                    <Heading>Last Updated By</Heading>
+                                <YStack gap="$3">
+                                    <Heading
+                                        size="small"
+                                        fontStyle="italic"
+                                    >
+                                        {t('education.post.last.updated.by')}
+                                    </Heading>
                                     <Paragraph size="large">{educationPost.lastUpdatedBy}</Paragraph>
-                                </>
+                                </YStack>
                             )}
                         </YStack>
                     </YStack>

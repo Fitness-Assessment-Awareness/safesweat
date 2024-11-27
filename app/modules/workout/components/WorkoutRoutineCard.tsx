@@ -1,5 +1,6 @@
 import { Pencil } from '@tamagui/lucide-icons';
 import dayjs from 'dayjs';
+import { useTranslation } from 'react-i18next';
 import { Card, Circle, XStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
@@ -7,6 +8,7 @@ import { useWorkoutProfile } from '../../../context/WorkoutProfileProvider';
 import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
 
 export function WorkoutRoutineCard() {
+    const { t } = useTranslation();
     const navigation = useWorkoutNavigation<'WorkoutLanding'>();
     const { workoutProfile } = useWorkoutProfile();
 
@@ -47,7 +49,7 @@ export function WorkoutRoutineCard() {
                     onPress={onSetWeeklyTarget}
                     hitSlop={4}
                 >
-                    <Label>Weekly Target</Label>
+                    <Label>{t('workout.routine.weekly.target')}</Label>
                     <Pencil
                         color="black"
                         size="$1"

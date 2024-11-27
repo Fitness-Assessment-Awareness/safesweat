@@ -1,11 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button, View } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Screen } from '../../../components/Screen';
 import { useRootNavigation } from '../../../navigation/useAppNavigation';
 
 export function WorkoutSuccessScreen() {
+    const { t } = useTranslation();
     const { reset } = useRootNavigation();
     return (
         <Screen flex={1}>
@@ -22,7 +24,7 @@ export function WorkoutSuccessScreen() {
                     size="x-large"
                     textAlign="center"
                 >
-                    Workout Completed!
+                    {t('workout.success.workout.completed').toUpperCase()}
                 </Heading>
             </View>
             <Button
@@ -41,7 +43,7 @@ export function WorkoutSuccessScreen() {
                     });
                 }}
             >
-                Finish
+                {t('general.shared.finish')}
             </Button>
         </Screen>
     );

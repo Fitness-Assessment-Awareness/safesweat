@@ -12,6 +12,7 @@ import relativeTimePlugin from 'dayjs/plugin/relativeTime';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import React from 'react';
+import { I18nextProvider } from 'react-i18next';
 import { LogBox } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -21,6 +22,7 @@ import { EmergencyContactsProvider } from './app/context/EmergencyContactProvide
 import { LanguageCodeProvider } from './app/context/LanguageCodeProvider';
 import { SessionProvider } from './app/context/SessionProvider';
 import { WorkoutProfileProvider } from './app/context/WorkoutProfileProvider';
+import { i18n } from './app/lang/i18n';
 import { Screens } from './app/navigation/Screens';
 import appConfig from './tamagui.config';
 
@@ -58,20 +60,22 @@ export default function App() {
                 <SafeAreaProvider>
                     <QueryClientProvider client={queryClient}>
                         <NavigationContainer onReady={onNavigationReady}>
-                            <EmergencyContactsProvider>
-                                <SessionProvider>
-                                    <LanguageCodeProvider>
-                                        <WorkoutProfileProvider>
-                                            <BottomSheetModalProvider>
-                                                <PortalProvider shouldAddRootHost>
-                                                    <Screens />
-                                                    <Toast position="bottom" />
-                                                </PortalProvider>
-                                            </BottomSheetModalProvider>
-                                        </WorkoutProfileProvider>
-                                    </LanguageCodeProvider>
-                                </SessionProvider>
-                            </EmergencyContactsProvider>
+                            <I18nextProvider i18n={i18n}>
+                                <EmergencyContactsProvider>
+                                    <SessionProvider>
+                                        <LanguageCodeProvider>
+                                            <WorkoutProfileProvider>
+                                                <BottomSheetModalProvider>
+                                                    <PortalProvider shouldAddRootHost>
+                                                        <Screens />
+                                                        <Toast position="bottom" />
+                                                    </PortalProvider>
+                                                </BottomSheetModalProvider>
+                                            </WorkoutProfileProvider>
+                                        </LanguageCodeProvider>
+                                    </SessionProvider>
+                                </EmergencyContactsProvider>
+                            </I18nextProvider>
                         </NavigationContainer>
                     </QueryClientProvider>
                 </SafeAreaProvider>

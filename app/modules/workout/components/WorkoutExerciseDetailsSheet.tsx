@@ -1,4 +1,5 @@
 import LottieView, { AnimationObject } from 'lottie-react-native';
+import { useTranslation } from 'react-i18next';
 import { XStack, YStack } from 'tamagui';
 import { BulletPoint } from '../../../components/BulletPoint';
 import { Chip } from '../../../components/Chip';
@@ -43,6 +44,8 @@ export function WorkoutExerciseDetailsSheetContent({
     breathingTips,
     ...otherProps
 }: ComponentProps) {
+    const { t } = useTranslation();
+
     return (
         <>
             <Heading
@@ -70,7 +73,9 @@ export function WorkoutExerciseDetailsSheetContent({
                         color="$blue11Light"
                         size="small"
                     >
-                        {otherProps.type === 'reps' ? 'REPS' : 'DURATION'}
+                        {otherProps.type === 'reps'
+                            ? t('workout.exercise.details.repetitions').toUpperCase()
+                            : t('workout.exercise.details.duration').toUpperCase()}
                     </Heading>
                     <Label size="large">
                         {otherProps.type === 'reps' ? `x${otherProps.reps}` : `${otherProps.duration}s`}
@@ -80,14 +85,14 @@ export function WorkoutExerciseDetailsSheetContent({
                     color="$blue11Light"
                     size="small"
                 >
-                    INSTRUCTIONS
+                    {t('exercise.shared.instructions')}
                 </Heading>
                 <Paragraph>{instructions}</Paragraph>
                 <Heading
                     color="$blue11Light"
                     size="small"
                 >
-                    FOCUS AREA
+                    {t('exercise.shared.focus.area')}
                 </Heading>
                 <XStack
                     flexWrap="wrap"
@@ -101,7 +106,7 @@ export function WorkoutExerciseDetailsSheetContent({
                     color="$blue11Light"
                     size="small"
                 >
-                    COMMON MISTAKES
+                    {t('exercise.shared.common.mistakes')}
                 </Heading>
                 {commonMistakes.map((commonMistake, index) => (
                     <Numbering
@@ -121,7 +126,7 @@ export function WorkoutExerciseDetailsSheetContent({
                     color="$blue11Light"
                     size="small"
                 >
-                    BREATHING TIPS
+                    {t('exercise.shared.breathing.tips')}
                 </Heading>
                 {breathingTips.map((breathingTip) => (
                     <BulletPoint key={breathingTip}>

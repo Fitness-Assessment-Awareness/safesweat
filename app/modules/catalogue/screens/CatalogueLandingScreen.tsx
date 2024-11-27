@@ -1,5 +1,6 @@
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
 import { Fragment, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Paragraph, ScrollView, Separator, View } from 'tamagui';
 import { SearchBar } from '../../../components/SearchBar';
 import { Sheet } from '../../../components/Sheet';
@@ -13,6 +14,7 @@ interface ScreenContentProps {
 }
 
 function ScreenContent({ onExercisePress }: ScreenContentProps) {
+    const { t } = useTranslation();
     const exercises = Object.entries(EXERCISES) as [ExerciseKey, Exercise][];
     const [searchText, setSearchText] = useState('');
 
@@ -52,7 +54,7 @@ function ScreenContent({ onExercisePress }: ScreenContentProps) {
                         m="$8"
                         alignSelf="center"
                     >
-                        No exercise found...
+                        N{t('catalogue.landing.no.exercise.found')}
                     </Paragraph>
                 )}
             </ScrollView>

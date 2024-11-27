@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Label } from '../../../components/Label';
 import { useWorkoutProfile } from '../../../context/WorkoutProfileProvider';
 import { Workout } from '../data/entities/Workout';
@@ -6,6 +7,7 @@ import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
 import { WorkoutPlanCard } from './WorkoutPlanCard';
 
 export function WorkoutLandingRecommendedSection() {
+    const { t } = useTranslation();
     const navigation = useWorkoutNavigation<'WorkoutLanding'>();
     const { workoutProfile } = useWorkoutProfile();
 
@@ -49,12 +51,12 @@ export function WorkoutLandingRecommendedSection() {
 
     return (
         <>
-            <Label size="large">Recommended</Label>
+            <Label size="large">{t('workout.exercise.details.recommended')}</Label>
             {filteredWorkouts.slice(0, 3).map(([workoutKey, value]) => (
                 <WorkoutPlanCard
                     key={workoutKey}
                     title={value.title}
-                    description={`${value.estimatedDuration} MINS | ${value.exercises.length} EXERCISES`}
+                    description={`${value.estimatedDuration} ${t('workout.exercise.details.mins').toUpperCase()} | ${value.exercises.length} ${t('workout.plan.details.exercises').toUpperCase()}`}
                     imageSource={value.thumbnail}
                     onPress={() => {
                         navigation.navigate('WorkoutPlanDetails', {

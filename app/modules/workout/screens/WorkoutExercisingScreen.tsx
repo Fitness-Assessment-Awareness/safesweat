@@ -5,6 +5,7 @@ import dayjs from 'dayjs';
 import { StatusBar } from 'expo-status-bar';
 import LottieView from 'lottie-react-native';
 import React, { useCallback, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Pressable } from 'react-native';
 import { Button, View } from 'tamagui';
 import { Heading } from '../../../components/Heading';
@@ -20,6 +21,7 @@ import { WORKOUTS } from '../data/workouts';
 import { WorkoutRootStackParamList } from '../navigation/WorkoutStackParamList';
 
 export function WorkoutExercisingScreen() {
+    const { t } = useTranslation();
     const { setWorkoutProfile } = useWorkoutProfile();
     const sheetRefExerciseDetails = useRef<BottomSheetModal>(null);
     const sheetRefEmergencyCall = useRef<BottomSheetModal>(null);
@@ -131,7 +133,7 @@ export function WorkoutExercisingScreen() {
                                 }
                             }}
                         >
-                            Emergency Call
+                            {t('workout.emergency.call')}
                         </Button>
                     </View>
                     <Button
@@ -140,7 +142,7 @@ export function WorkoutExercisingScreen() {
                         borderRadius="$8"
                         onPress={onFinishExercise}
                     >
-                        {workoutExercise.type === 'duration' ? 'Skip' : 'Done'}
+                        {workoutExercise.type === 'duration' ? t('general.shared.skip') : t('general.shared.done')}
                     </Button>
                 </View>
             </Screen>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { ScrollView, View } from 'tamagui';
 import { WorkoutLandingRecommendedSection } from '../components/WorkoutLandingRecommendedSection';
 import { WorkoutLandingTabs } from '../components/WorkoutLandingTabs';
@@ -8,6 +9,7 @@ import { WorkoutKey, WORKOUTS } from '../data/workouts';
 import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
 
 export function WorkoutLandingScreen() {
+    const { t } = useTranslation();
     const navigation = useWorkoutNavigation<'WorkoutLanding'>();
     return (
         <View>
@@ -57,7 +59,7 @@ export function WorkoutLandingScreen() {
                                 <WorkoutPlanCard
                                     key={workoutKey}
                                     title={value.title}
-                                    description={`${value.estimatedDuration} MINS | ${value.exercises.length} EXERCISES`}
+                                    description={`${value.estimatedDuration} ${t('workout.exercise.details.mins').toUpperCase()} | ${value.exercises.length} ${t('workout.plan.details.exercises').toUpperCase()}`}
                                     imageSource={value.thumbnail}
                                     onPress={() => {
                                         navigation.navigate('WorkoutPlanDetails', {

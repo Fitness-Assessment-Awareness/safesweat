@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Pressable } from 'react-native';
 import { Button, Image, Progress, ScrollView, View, XStack, YStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
@@ -9,6 +10,7 @@ import { Gender } from '../data/entities/Gender';
 import { useOnboardingNavigation } from '../navigation/useOnboardingNavigation';
 
 export function OnboardingGenderSelectScreen() {
+    const { t } = useTranslation();
     const { workoutProfile, setWorkoutProfile } = useWorkoutProfile();
     const navigation = useOnboardingNavigation<'OnboardingGenderSelect'>();
 
@@ -31,12 +33,12 @@ export function OnboardingGenderSelectScreen() {
                     alignItems="center"
                     p="$4"
                 >
-                    <Heading alignSelf="center">Choose your gender</Heading>
+                    <Heading alignSelf="center">{t('onboarding.gender.choose.gender')}</Heading>
                     <Label
                         p="$2"
                         fontWeight="normal"
                     >
-                        Let us know you better
+                        {t('onboarding.shared.know.you.better')}
                     </Label>
                     <XStack
                         alignItems="center"
@@ -91,7 +93,7 @@ export function OnboardingGenderSelectScreen() {
                     navigation.navigate('OnboardingFocusAreaSelect');
                 }}
             >
-                Next
+                {t('general.shared.next')}
             </Button>
         </View>
     );

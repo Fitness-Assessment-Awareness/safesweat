@@ -1,6 +1,7 @@
 import { useNetInfo } from '@react-native-community/netinfo';
 import { Mail, WifiOff } from '@tamagui/lucide-icons';
 import React, { useEffect, useId, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Pressable } from 'react-native';
 import Toast from 'react-native-toast-message';
 import { Button, Input, Spinner, Text, XStack, YStack } from 'tamagui';
@@ -24,6 +25,7 @@ enum AuthAction {
 }
 
 export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoading }: ComponentProps) {
+    const { t } = useTranslation();
     const { isConnected } = useNetInfo();
     const [form, setForm] = useState({
         email: '',
@@ -54,7 +56,7 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
             return;
         }
         handleDismissSheet();
-        Toast.show({ type: 'success', text1: 'Logged in successfully!', visibilityTime: 2000 });
+        Toast.show({ type: 'success', text1: t('settings.auth.login.success'), visibilityTime: 2000 });
     }
 
     async function handleSignup() {
@@ -92,7 +94,7 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
             });
             return;
         }
-        Toast.show({ type: 'success', text1: 'Email sent successfully!', visibilityTime: 1000 });
+        Toast.show({ type: 'success', text1: t('settings.auth.sent.signup.email.success'), visibilityTime: 1000 });
         setForm({
             ...form,
             errorMsg: '',
@@ -112,7 +114,7 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
         }
         Toast.show({
             type: 'success',
-            text1: 'Password reset email is sent if your account exists',
+            text1: t('settings.auth.check.reset.password.email'),
             visibilityTime: 1000,
         });
         setForm({
@@ -121,9 +123,26 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
         });
     }
 
+    const getHeading = (a: AuthAction) => {
+        switch (a) {
+            case AuthAction.SIGN_IN:
+                return t('settings.auth.sign.in');
+            case AuthAction.SIGN_UP:
+                return t('settings.auth.sign.up');
+            case AuthAction.EMAIL_VERIFICATION:
+                return t('settings.auth.email.verification');
+            case AuthAction.FORGOT_PASSWORD:
+                return t('settings.auth.forgot.password');
+            case AuthAction.NO_INTERNET:
+                return t('settings.auth.no.internet.found');
+            default:
+                return '';
+        }
+    };
+
     return (
         <>
-            <Heading m="$4">{authAction}</Heading>
+            <Heading m="$4">{getHeading(authAction)}</Heading>
             {authAction === AuthAction.NO_INTERNET && (
                 <YStack
                     my="$2"
@@ -138,7 +157,7 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
                         p="$3"
                         alignSelf="center"
                     >
-                        Connect to the internet to continue...
+                        {t('settings.auth.connect.internet.to.continue')}
                     </Paragraph>
                 </YStack>
             )}
@@ -149,7 +168,7 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
                     my="$2"
                     mx="$4"
                 >
-                    <Label htmlFor={`${id}-signin-email`}>Email</Label>
+                    <Label htmlFor={`${id}-signin-email`}>{t('settings.auth.email')}</Label>
                     <Input
                         disabled={loading}
                         id={`${id}-signin-email`}
@@ -162,7 +181,7 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
                         }
                         placeholder="abc@gmail.com"
                     />
-                    <Label htmlFor={`${id}-signin-password`}>Password</Label>
+                    <Label htmlFor={`${id}-signin-password`}>{t('settings.auth.password')}</Label>
                     <Input
                         disabled={loading}
                         secureTextEntry
@@ -174,7 +193,7 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
                                 password: e,
                             })
                         }
-                        placeholder="Password"
+                        placeholder={t('settings.auth.password')}
                     />
                     <Pressable
                         hitSlop={8}
@@ -187,7 +206,7 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
                             });
                         }}
                     >
-                        <Label alignSelf="flex-end">Forgot your password?</Label>
+                        <Label alignSelf="flex-end">{t('settings.auth.forgot.password')}</Label>
                     </Pressable>
                     {form.errorMsg && (
                         <Text
@@ -214,7 +233,7 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
                         alignSelf="center"
                         mb="$4"
                     >
-                        <Label>Don&#8216;t have an account? </Label>
+                        <Label>{`${t('settings.auth.no.account')} `}</Label>
                         <Label
                             textDecorationLine="underline"
                             onPress={() => {
@@ -226,7 +245,7 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
                                 setAuthAction(AuthAction.SIGN_UP);
                             }}
                         >
-                            Sign Up
+                            {t('settings.auth.sign.up')}
                         </Label>
                     </XStack>
                 </YStack>
@@ -238,7 +257,7 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
                     my="$2"
                     mx="$4"
                 >
-                    <Label htmlFor={`${id}-signup-email`}>Email</Label>
+                    <Label htmlFor={`${id}-signup-email`}>{t('settings.auth.email')}</Label>
                     <Input
                         disabled={loading}
                         id={`${id}-signup-email`}
@@ -252,7 +271,7 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
                         placeholder="abc@gmail.com"
                     />
 
-                    <Label htmlFor={`${id}-signup-password`}>Password</Label>
+                    <Label htmlFor={`${id}-signup-password`}>{t('settings.auth.password')}</Label>
                     <Input
                         disabled={loading}
                         secureTextEntry
@@ -264,7 +283,7 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
                                 password: e,
                             })
                         }
-                        placeholder="Password"
+                        placeholder={t('settings.auth.password')}
                     />
                     {form.errorMsg && (
                         <Text
@@ -291,7 +310,7 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
                         alignSelf="center"
                         mb="$4"
                     >
-                        <Label>Already have an account? </Label>
+                        <Label>{`${t('settings.auth.already.have.account')} `}</Label>
                         <Label
                             textDecorationLine="underline"
                             onPress={() => {
@@ -303,7 +322,7 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
                                 setAuthAction(AuthAction.SIGN_IN);
                             }}
                         >
-                            Sign In
+                            {t('settings.auth.sign.in')}
                         </Label>
                     </XStack>
                 </YStack>
@@ -316,7 +335,7 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
                         my="$2"
                         mx="$4"
                     >
-                        <Label htmlFor={`${id}-forgot-password-email`}>Email</Label>
+                        <Label htmlFor={`${id}-forgot-password-email`}>{t('settings.auth.email')}</Label>
                         <Input
                             disabled={loading}
                             id={`${id}-forgot-password-email`}
@@ -335,7 +354,7 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
                                 handleResetPassword();
                             }}
                         >
-                            <Label alignSelf="flex-end">Send Password Reset Email</Label>
+                            <Label alignSelf="flex-end">{t('settings.auth.send.password.reset.email')}</Label>
                         </Pressable>
                         {form.errorMsg && (
                             <Text
@@ -362,7 +381,7 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
                             });
                         }}
                     >
-                        {loading ? <Spinner size="large" /> : 'Back to Login'}
+                        {loading ? <Spinner size="large" /> : t('settings.auth.back.to.login')}
                     </Button>
                     <Toast position="bottom" />
                 </>
@@ -384,9 +403,9 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
                                 handleResendSignupEmail();
                             }}
                         >
-                            <Label>Resend Email</Label>
+                            <Label>{t('settings.auth.resend.email')}</Label>
                         </Pressable>
-                        <Label size="large">Please check your inbox for email verification!</Label>
+                        <Label size="large">{t('settings.auth.check.inbox.email.verification')}</Label>
                         {form.errorMsg && (
                             <Text
                                 backgroundColor="red"
@@ -413,7 +432,7 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
                             });
                         }}
                     >
-                        {loading ? <Spinner size="large" /> : 'Back to Login'}
+                        {loading ? <Spinner size="large" /> : t('settings.auth.back.to.login')}
                     </Button>
                     <Toast position="bottom" />
                 </>

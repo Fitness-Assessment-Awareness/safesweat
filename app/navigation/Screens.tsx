@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unstable-nested-components */
 import { BookMarked, Dumbbell, Globe2, Settings } from '@tamagui/lucide-icons';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Spinner, View } from 'tamagui';
 import { HeaderBackButton } from '../components/HeaderBackButton';
 import { Paragraph } from '../components/Paragraph';
@@ -19,6 +20,7 @@ import { RootStack, Tab } from './AppNavigator';
 import { useRootNavigation } from './useAppNavigation';
 
 function HomeTabScreens() {
+    const { t } = useTranslation();
     return (
         <Tab.Navigator
             initialRouteName="WorkoutStack"
@@ -31,7 +33,7 @@ function HomeTabScreens() {
                 name="WorkoutStack"
                 component={WorkoutScreens}
                 options={{
-                    tabBarLabel: 'Workout',
+                    tabBarLabel: t('navigation.label.workout'),
                     tabBarIcon: ({ size, color }) => (
                         <Dumbbell
                             size={size}
@@ -44,7 +46,7 @@ function HomeTabScreens() {
                 name="ExploreStack"
                 component={ExploreScreens}
                 options={{
-                    tabBarLabel: 'Explore',
+                    tabBarLabel: t('navigation.label.explore'),
                     tabBarIcon: ({ size, color }) => (
                         <Globe2
                             size={size}
@@ -57,7 +59,7 @@ function HomeTabScreens() {
                 name="CatalogueStack"
                 component={CatalogueScreens}
                 options={{
-                    tabBarLabel: 'Catalogue',
+                    tabBarLabel: t('catalogue.header.catalogue'),
                     tabBarIcon: ({ size, color }) => (
                         <BookMarked
                             size={size}
@@ -70,7 +72,7 @@ function HomeTabScreens() {
                 name="SettingsStack"
                 component={SettingsScreens}
                 options={{
-                    tabBarLabel: 'Settings',
+                    tabBarLabel: t('settings.header.settings'),
                     tabBarIcon: ({ size, color }) => (
                         <Settings
                             size={size}
@@ -84,6 +86,7 @@ function HomeTabScreens() {
 }
 
 export function Screens() {
+    const { t } = useTranslation();
     const { workoutProfile } = useWorkoutProfile();
     const [initialRouteName, setInitialRouteName] = useState<
         'HomeTab' | keyof OnboardingRootStackParamList | keyof WorkoutRootStackParamList | undefined
@@ -113,7 +116,7 @@ export function Screens() {
                 alignItems="center"
             >
                 <Spinner size="large" />
-                <Paragraph m={8}>Setting up your profile...</Paragraph>
+                <Paragraph m={8}>{t('general.shared.setup.profile')}</Paragraph>
             </View>
         );
     }
@@ -141,7 +144,7 @@ export function Screens() {
             }}
             initialRouteName={initialRouteName}
         >
-            {OnboardingScreenGroup}
+            {OnboardingScreenGroup(t('onboarding.header.get.started').toUpperCase())}
             <RootStack.Screen
                 name="HomeTab"
                 component={HomeTabScreens}

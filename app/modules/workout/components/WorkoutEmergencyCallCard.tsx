@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Linking } from 'react-native';
 import SlideButton from 'rn-slide-button-updated';
 import { YStack } from 'tamagui';
@@ -10,6 +11,8 @@ interface ComponentProps {
 }
 
 export function WorkoutEmergencyCallCard({ fullName, phoneNumber }: ComponentProps) {
+    const { t } = useTranslation();
+
     return (
         <YStack
             p="$4"
@@ -35,7 +38,7 @@ export function WorkoutEmergencyCallCard({ fullName, phoneNumber }: ComponentPro
                     color: 'white',
                 }}
                 autoReset
-                title="Swipe to Call"
+                title={t('workout.emergency.call.swipe.to.call')}
                 onReachedToEnd={() => {
                     Linking.openURL(`tel:${phoneNumber}`);
                 }}

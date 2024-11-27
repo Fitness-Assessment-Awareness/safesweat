@@ -1,5 +1,6 @@
 import dayjs from 'dayjs';
 import { Fragment } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Image, ScrollView, View, XStack, YStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
@@ -9,6 +10,7 @@ import { WorkoutHistory } from '../../onboarding/data/entities/WorkoutHistory';
 import { WORKOUTS } from '../data/workouts';
 
 export function WorkoutHistoryScreen() {
+    const { t } = useTranslation();
     const {
         workoutProfile: { workoutHistories },
     } = useWorkoutProfile();
@@ -22,8 +24,8 @@ export function WorkoutHistoryScreen() {
                     alignItems="center"
                     p="$4"
                 >
-                    <Heading>No workout history</Heading>
-                    <Paragraph textAlign="center">Start working out to see your workout history here!</Paragraph>
+                    <Heading>{t('workout.history.empty')}</Heading>
+                    <Paragraph textAlign="center">{t('workout.history.start.exercise.to.see.history')}</Paragraph>
                 </View>
             );
         }
@@ -45,7 +47,7 @@ export function WorkoutHistoryScreen() {
         const groupedByWeekArray = Array.from(groupedByWeek.entries());
         return groupedByWeekArray.map(([weekKey, histories]) => (
             <Fragment key={weekKey}>
-                <Heading p="$3">Weekly Summary</Heading>
+                <Heading p="$3">{t('workout.history.weekly.summary')}</Heading>
                 <View
                     flex={1}
                     backgroundColor="white"
@@ -58,7 +60,7 @@ export function WorkoutHistoryScreen() {
                     >
                         <Label size="large">{weekKey}</Label>
                         <Paragraph>
-                            {histories.length} workout{histories.length > 1 ? 's' : ''}
+                            {`${histories.length} ${t('workout.history.workout')}${histories.length > 1 ? 's' : ''}`}
                         </Paragraph>
                     </View>
                     {histories.map((history, index) => (

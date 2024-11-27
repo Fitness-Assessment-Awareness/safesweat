@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unstable-nested-components */
+import { useTranslation } from 'react-i18next';
 import { HeaderBackButton } from '../../../components/HeaderBackButton';
 import { HeaderTitle } from '../../../components/HeaderTitle';
 import { ExploreEducationPostDetailsScreen } from '../screens/ExploreEducationPostDetailsScreen';
@@ -7,6 +8,7 @@ import { ExploreStack } from './ExploreStack';
 import { useExploreNavigation } from './useExploreNavigation';
 
 export function ExploreScreens() {
+    const { t } = useTranslation();
     return (
         <ExploreStack.Navigator
             screenOptions={{
@@ -31,7 +33,7 @@ export function ExploreScreens() {
                 component={ExploreLandingScreen}
                 options={{
                     headerTitle: '',
-                    headerLeft: () => <HeaderTitle>DISCOVER</HeaderTitle>,
+                    headerLeft: () => <HeaderTitle>{t('explore.header.discover').toUpperCase()}</HeaderTitle>,
                 }}
             />
             <ExploreStack.Screen

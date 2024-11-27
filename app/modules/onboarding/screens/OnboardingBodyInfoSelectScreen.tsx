@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { RulerPicker } from 'react-native-ruler-picker';
 import { Button, Progress, ScrollView, View, YStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
@@ -6,6 +7,7 @@ import { useWorkoutProfile } from '../../../context/WorkoutProfileProvider';
 import { useRootNavigation } from '../../../navigation/useAppNavigation';
 
 export function OnboardingBodyInfoSelectScreen() {
+    const { t } = useTranslation();
     const { workoutProfile, setWorkoutProfile } = useWorkoutProfile();
     const { navigate } = useRootNavigation();
 
@@ -28,13 +30,13 @@ export function OnboardingBodyInfoSelectScreen() {
                     alignItems="center"
                     p="$4"
                 >
-                    <Heading alignSelf="center">Let us know you better</Heading>
+                    <Heading alignSelf="center">{t('onboarding.shared.know.you.better')}</Heading>
                     <Label
                         p="$2"
                         fontWeight="normal"
                         textAlign="center"
                     >
-                        Let us know you better to help boost your workout results and safety
+                        {`${t('onboarding.shared.know.you.better')} ${t('onboarding.body.info.boost.workout.results.and.safety'.toLowerCase())}`}
                     </Label>
                     <YStack
                         py="$8"
@@ -46,7 +48,7 @@ export function OnboardingBodyInfoSelectScreen() {
                             size="small"
                             fontWeight="bold"
                         >
-                            Weight
+                            {t('onboarding.body.info.weight')}
                         </Heading>
                         <RulerPicker
                             height={100}
@@ -67,7 +69,7 @@ export function OnboardingBodyInfoSelectScreen() {
                             size="small"
                             fontWeight="bold"
                         >
-                            Height
+                            {t('onboarding.body.info.height')}
                         </Heading>
                         <RulerPicker
                             height={100}
@@ -96,7 +98,7 @@ export function OnboardingBodyInfoSelectScreen() {
                     navigate('HomeTab', { screen: 'WorkoutStack', params: { screen: 'WorkoutLanding' } });
                 }}
             >
-                Get my plan
+                {t('onboarding.body.info.get.plan')}
             </Button>
         </View>
     );

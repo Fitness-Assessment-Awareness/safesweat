@@ -2,33 +2,21 @@ import { BottomSheetModal } from '@gorhom/bottom-sheet';
 import { useNetInfo } from '@react-native-community/netinfo';
 import { ArrowDown, ArrowUp, Settings2 } from '@tamagui/lucide-icons';
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Pressable } from 'react-native';
 import { RefreshControl } from 'react-native-gesture-handler';
 import { Paragraph, ScrollView, Separator, View, XStack, YStack } from 'tamagui';
 import { SearchBar } from '../../../../components/SearchBar';
 import { Sheet } from '../../../../components/Sheet';
+import { useLanguageCode } from '../../../../context/LanguageCodeProvider';
 import { useSession } from '../../../../context/SessionProvider';
+import { LanguageCode } from '../../../../lang/LanguageCode';
 import { EducationPostCard } from '../components/EducationPostCard';
 import { SortFilterSheetContent } from '../components/SortFilterSheet';
 import { EducationCategory } from '../data/entities/EducationCategory';
 import { EducationPostSummary } from '../data/entities/EducationPost';
 import { fetchEducationCategories } from '../data/services/EducationPostService';
 import { SortOption } from '../data/SortOption';
-
-const sortOptions: SortOption[] = [
-    {
-        name: 'Title',
-        icon: <ArrowUp />,
-        orderBy: 'asc',
-        sort: (a: EducationPostSummary, b: EducationPostSummary) => a.titleEn.localeCompare(b.titleEn),
-    },
-    {
-        name: 'Like',
-        icon: <ArrowDown />,
-        orderBy: 'desc',
-        sort: (a: EducationPostSummary, b: EducationPostSummary) => b.likeCount - a.likeCount,
-    },
-] as const;
 
 interface ComponentProps {
     educationPostsSummary: EducationPostSummary[];
@@ -43,6 +31,24 @@ export function EducationFeedScreen({
     refreshing,
     setRefreshing,
 }: ComponentProps) {
+    const { t } = useTranslation();
+    const { languageCode } = useLanguageCode();
+    const sortOptions: SortOption[] = [
+        {
+            key: 'Feed Title',
+            name: t('education.post.title'),
+            icon: <ArrowUp />,
+            orderBy: 'asc',
+            sort: (a: EducationPostSummary, b: EducationPostSummary) => a.titleEn.localeCompare(b.titleEn),
+        },
+        {
+            key: 'Feed Like',
+            name: t('education.feed.like'),
+            icon: <ArrowDown />,
+            orderBy: 'desc',
+            sort: (a: EducationPostSummary, b: EducationPostSummary) => b.likeCount - a.likeCount,
+        },
+    ] as const;
     const sheetRef = useRef<BottomSheetModal>(null);
     const { isConnected } = useNetInfo();
     const userSession = useSession();
@@ -60,7 +66,11 @@ export function EducationFeedScreen({
     }, [isConnected, userSession]);
 
     const filteredEducationSummaryPosts = educationPostsSummary
-        .filter((post) => post.titleEn.toLowerCase().includes(searchText.toLowerCase()))
+        .filter((post) =>
+            languageCode === LanguageCode.ENGLISH
+                ? post.titleEn.toLowerCase().includes(searchText.toLowerCase())
+                : post.titleMs.toLowerCase().includes(searchText.toLowerCase()),
+        )
         .filter((post) => (selectedCategory ? post.categoryId === selectedCategory.categoryId : true))
         .sort((a, b) => (selectedOption ? selectedOption.sort(a, b) : 0));
 
@@ -90,7 +100,7 @@ export function EducationFeedScreen({
                             w="90%"
                             searchText={searchText}
                             onChangeText={setSearchText}
-                            inputPlaceholder="Post Title"
+                            inputPlaceholder={t('education.feed.post.title')}
                         />
                         <Pressable
                             onPress={() => {
@@ -111,7 +121,7 @@ export function EducationFeedScreen({
                             filteredEducationSummaryPosts.map((post) => (
                                 <EducationPostCard
                                     key={post.postId}
-                                    title={post.titleEn}
+                                    title={languageCode === LanguageCode.ENGLISH ? post.titleEn : post.titleMs}
                                     imageSource={{ uri: post.imageUrl }}
                                     onPress={() => handleFeedOnPress(post)}
                                     backgroundColor="$colorTransparent"
@@ -122,7 +132,7 @@ export function EducationFeedScreen({
                                 m="$8"
                                 alignSelf="center"
                             >
-                                No post found...
+                                {t('education.feed.no.post.found')}
                             </Paragraph>
                         )}
                     </YStack>
@@ -132,7 +142,7 @@ export function EducationFeedScreen({
                         m="$8"
                         alignSelf="center"
                     >
-                        You&apos;re currrently offline
+                        {t('education.feed.currently.offline')}
                     </Paragraph>
                 )}
                 {!userSession && (
@@ -140,7 +150,7 @@ export function EducationFeedScreen({
                         m="$8"
                         alignSelf="center"
                     >
-                        Only logged in user can view the posts...
+                        {t('education.feed.only.login.view.post')}
                     </Paragraph>
                 )}
             </ScrollView>

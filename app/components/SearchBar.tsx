@@ -1,4 +1,5 @@
 import { Search, XCircle } from '@tamagui/lucide-icons';
+import { useTranslation } from 'react-i18next';
 import { Pressable } from 'react-native';
 import { Input, View, ViewProps } from 'tamagui';
 
@@ -9,6 +10,7 @@ interface ComponentProps extends ViewProps {
 }
 
 export function SearchBar({ searchText, onChangeText, inputPlaceholder, ...viewProps }: ComponentProps) {
+    const { t } = useTranslation();
     return (
         <View
             width="100%"
@@ -21,7 +23,7 @@ export function SearchBar({ searchText, onChangeText, inputPlaceholder, ...viewP
                 onChangeText={onChangeText}
                 fontSize={14}
                 letterSpacing={-0.07}
-                placeholder={inputPlaceholder || 'Exercise Name'}
+                placeholder={inputPlaceholder || t('exercise.shared.name')}
                 placeholderTextColor="#A0A3A8"
             />
             <View
