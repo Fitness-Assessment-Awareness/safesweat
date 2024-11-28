@@ -63,34 +63,33 @@ export function SettingsBackupRestoreSheetContent({ handleDismissSheet }: Compon
 
     const restoreUserData = async (userId: string) => {
         setLoading(true);
-        fetchUserBackupDataByUserId(userId).then((userBackupData) => {
-            if (userBackupData !== null) {
-                setWorkoutProfile({
-                    difficulty: userBackupData.difficulty,
-                    focusAreas: userBackupData.userBackupFocusAreaDtos.map((focusArea) => focusArea.focusArea),
-                    gender: userBackupData.gender,
-                    healthProblems: userBackupData.userBackupHealthProblemDtos.map(
-                        (healthProblem) => healthProblem.healthProblem,
-                    ),
-                    height: userBackupData.height,
-                    weight: userBackupData.weight,
-                    weeklyGoal: userBackupData.weeklyGoal,
-                    workoutHistories: userBackupData.userBackupWorkoutHistoryDtos.map((workoutHistory) => ({
-                        workoutKey: workoutHistory.workoutKey,
-                        timestamp: workoutHistory.timestamp,
-                        rating: workoutHistory.rating,
-                        multiplier: workoutHistory.multiplier,
-                    })),
-                });
-                setEmergencyContacts(
-                    userBackupData.userBackupEmergencyContactDtos.map((contact) => ({
-                        phoneId: contact.phoneId,
-                        fullName: contact.fullName,
-                        phoneNumber: contact.phoneNumber,
-                    })),
-                );
-            }
-        });
+        const userBackupData = await fetchUserBackupDataByUserId(userId);
+        if (userBackupData !== null) {
+            setWorkoutProfile({
+                difficulty: userBackupData.difficulty,
+                focusAreas: userBackupData.userBackupFocusAreaDtos.map((focusArea) => focusArea.focusArea),
+                gender: userBackupData.gender,
+                healthProblems: userBackupData.userBackupHealthProblemDtos.map(
+                    (healthProblem) => healthProblem.healthProblem,
+                ),
+                height: userBackupData.height,
+                weight: userBackupData.weight,
+                weeklyGoal: userBackupData.weeklyGoal,
+                workoutHistories: userBackupData.userBackupWorkoutHistoryDtos.map((workoutHistory) => ({
+                    workoutKey: workoutHistory.workoutKey,
+                    timestamp: workoutHistory.timestamp,
+                    rating: workoutHistory.rating,
+                    multiplier: workoutHistory.multiplier,
+                })),
+            });
+            setEmergencyContacts(
+                userBackupData.userBackupEmergencyContactDtos.map((contact) => ({
+                    phoneId: contact.phoneId,
+                    fullName: contact.fullName,
+                    phoneNumber: contact.phoneNumber,
+                })),
+            );
+        }
         setLoading(false);
         setAction(CloudAction.DONE);
     };
