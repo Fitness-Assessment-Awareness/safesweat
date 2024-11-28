@@ -1,5 +1,9 @@
 export interface EmergencyContact {
-    id: string;
+    phoneId: string;
     fullName: string;
     phoneNumber: string;
+}
+
+export interface UserBackupEmergencyContactDto extends EmergencyContact {
+    userId: string;
 }

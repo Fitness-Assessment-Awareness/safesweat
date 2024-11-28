@@ -39,7 +39,7 @@ export function SettingsEmergencyContactScreen() {
             });
             return;
         }
-        setEmergencyContacts(emergencyContacts.filter((contact) => contact.id !== contactOnDelete.id));
+        setEmergencyContacts(emergencyContacts.filter((contact) => contact.phoneId !== contactOnDelete.phoneId));
         setOpenDeleteContactDialog(false);
         setContactOnDelete(null);
     };
@@ -54,7 +54,7 @@ export function SettingsEmergencyContactScreen() {
                 >
                     {emergencyContacts.map((emergencyContact) => (
                         <SettingsEmergencyContactCard
-                            key={emergencyContact.id}
+                            key={emergencyContact.phoneId}
                             fullName={emergencyContact.fullName}
                             phoneNumber={emergencyContact.phoneNumber}
                             handleEdit={() => {

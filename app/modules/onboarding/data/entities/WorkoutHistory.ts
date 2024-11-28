@@ -6,3 +6,7 @@ export interface WorkoutHistory {
     rating: number | null;
     multiplier: number;
 }
+
+export interface UserBackupWorkoutHistoryDto extends WorkoutHistory {
+    userId: string;
+}

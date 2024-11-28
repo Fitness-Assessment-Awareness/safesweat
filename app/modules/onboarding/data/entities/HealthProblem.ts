@@ -6,3 +6,8 @@ export enum HealthProblem {
     BoneOrJointProblem = 'Bone/Joint Problem',
     UnderBloodPressureDrugs = 'Under Blood Pressure Drugs',
 }
+
+export interface UserBackupHealthProblemDto {
+    userId: string;
+    healthProblem: HealthProblem;
+}

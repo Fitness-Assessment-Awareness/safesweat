@@ -5,3 +5,8 @@ export enum FocusArea {
     Butt = 'Butt',
     Leg = 'Leg',
 }
+
+export interface UserBackupFocusAreaDto {
+    userId: string;
+    focusArea: FocusArea;
+}

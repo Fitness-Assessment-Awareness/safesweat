@@ -71,7 +71,7 @@ export function SettingsEmergencyContactSheetContent({ handleDismissSheet, actio
         setEmergencyContacts([
             ...emergencyContacts,
             {
-                id: uuid.v4().toString(),
+                phoneId: uuid.v4().toString(),
                 fullName: form.fullName,
                 phoneNumber: form.phoneNumber,
             },
@@ -85,7 +85,7 @@ export function SettingsEmergencyContactSheetContent({ handleDismissSheet, actio
                 return;
             }
 
-            updateEmergencyContact(contactOnEdit.id, {
+            updateEmergencyContact(contactOnEdit.phoneId, {
                 fullName: form.fullName,
                 phoneNumber: form.phoneNumber,
             });

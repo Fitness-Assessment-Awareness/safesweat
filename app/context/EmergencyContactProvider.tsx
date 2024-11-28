@@ -91,7 +91,7 @@ export function useEmergencyContacts() {
         (id: string, update: Partial<EmergencyContact>) => {
             setEmergencyContacts((prevEmergencyContacts) =>
                 prevEmergencyContacts.map((emergencyContact) =>
-                    emergencyContact.id === id ? { ...emergencyContact, ...update } : emergencyContact,
+                    emergencyContact.phoneId === id ? { ...emergencyContact, ...update } : emergencyContact,
                 ),
             );
         },

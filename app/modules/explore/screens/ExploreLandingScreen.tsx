@@ -1,7 +1,6 @@
 import { useNetInfo } from '@react-native-community/netinfo';
-import React, { useCallback, useState } from 'react';
-
 import { useFocusEffect } from '@react-navigation/native';
+import React, { useCallback, useState } from 'react';
 import { useSession } from '../../../context/SessionProvider';
 import { EducationPostSummary } from '../../common/education/data/entities/EducationPost';
 import { fetchEducationPosts } from '../../common/education/data/services/EducationPostService';

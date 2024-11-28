@@ -1,4 +1,5 @@
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
+import { useNetInfo } from '@react-native-community/netinfo';
 import { AlertTriangle, Bookmark, ChevronRight, Globe, LogOut, PencilLine, RefreshCw } from '@tamagui/lucide-icons';
 import React, { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -10,15 +11,18 @@ import { Sheet } from '../../../components/Sheet';
 import { useSession } from '../../../context/SessionProvider';
 import { SettingsAssets } from '../assets';
 import { SettingsAuthSheetContent } from '../components/SettingsAuthSheet';
+import { SettingsBackupRestoreSheetContent } from '../components/SettingsBackupRestoreSheet';
 import { SettingsLanguageSheetContent } from '../components/SettingsLanguageSheet';
 import { useSettingsNavigation } from '../navigation/useSettingsNavigation';
 import { deleteUserAccount, signOut } from '../services/AuthService';
 
 export function SettingsLandingScreen() {
     const { t } = useTranslation();
+    const { isConnected } = useNetInfo();
     const { navigate } = useSettingsNavigation<'SettingsLanding'>();
     const authSheetRef = useRef<BottomSheetModal>(null);
     const languageSheetRef = useRef<BottomSheetModal>(null);
+    const backupRestoreSheetRef = useRef<BottomSheetModal>(null);
     const userSession = useSession();
     const [openLogoutDialog, setOpenLogoutDialog] = useState(false);
     const [openDeleteAccountDialog, setOpenDeleteAccountDialog] = useState(false);
@@ -30,6 +34,10 @@ export function SettingsLandingScreen() {
 
     const handleDismissLanguageSheet = () => {
         languageSheetRef.current?.dismiss();
+    };
+
+    const handleDismissBackupRestoreSheet = () => {
+        backupRestoreSheetRef.current?.dismiss();
     };
 
     const handleDeleteAccount = async () => {
@@ -65,6 +73,17 @@ export function SettingsLandingScreen() {
                                     }
                                     subTitle={t('settings.landing.synchronize.data')}
                                     iconAfter={RefreshCw}
+                                    onPress={() => {
+                                        if (!isConnected) {
+                                            Toast.show({
+                                                type: 'info',
+                                                text1: t('settings.landing.no.internet'),
+                                                visibilityTime: 2000,
+                                            });
+                                        } else {
+                                            backupRestoreSheetRef.current?.present();
+                                        }
+                                    }}
                                 />
                             </YGroup.Item>
 
@@ -194,6 +213,14 @@ export function SettingsLandingScreen() {
             >
                 <Sheet.ScrollView>
                     <SettingsLanguageSheetContent handleDismissSheet={handleDismissLanguageSheet} />
+                </Sheet.ScrollView>
+            </Sheet>
+            <Sheet
+                ref={backupRestoreSheetRef}
+                enableDynamicSizing
+            >
+                <Sheet.ScrollView>
+                    <SettingsBackupRestoreSheetContent handleDismissSheet={handleDismissBackupRestoreSheet} />
                 </Sheet.ScrollView>
             </Sheet>
         </View>

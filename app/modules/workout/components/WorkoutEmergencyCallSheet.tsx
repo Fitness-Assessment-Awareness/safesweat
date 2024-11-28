@@ -19,7 +19,7 @@ export function WorkoutEmergencyCallSheetContent() {
             >
                 {emergencyContacts.map((emergencyContact) => (
                     <WorkoutEmergencyCallCard
-                        key={emergencyContact.id}
+                        key={emergencyContact.phoneId}
                         fullName={emergencyContact.fullName}
                         phoneNumber={emergencyContact.phoneNumber}
                     />
