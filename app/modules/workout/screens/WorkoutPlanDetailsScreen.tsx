@@ -19,11 +19,11 @@ import { WorkoutStackParamList } from '../navigation/WorkoutStackParamList';
 
 export function WorkoutPlanDetailsScreen() {
     const { t } = useTranslation();
-    const { navigate } = useWorkoutNavigation<'WorkoutPlanDetails'>();
+    const { navigate, goBack } = useWorkoutNavigation<'WorkoutPlanDetails'>();
     const { params } = useRoute<RouteProp<WorkoutStackParamList, 'WorkoutPlanDetails'>>();
     const { workoutKey } = params;
     const { workoutProfile } = useWorkoutProfile();
-    const { workoutPoints } = workoutProfile;
+    const { workoutPoints, healthProblems } = workoutProfile;
     const workoutPlan = WORKOUTS[workoutKey];
 
     const getInitialMultiplier = () => {
@@ -72,6 +72,86 @@ export function WorkoutPlanDetailsScreen() {
         (exercise) => exercise.exerciseKey === selectedExercise,
     )!;
     const [multiplierChangedAlertVisible, setMultiplierChangedAlertVisible] = useState(getInitialMultiplier() !== 1);
+
+    const renderDialogContent = () => {
+        if (healthProblems.length > 0 && workoutPlan.difficulty !== 'beginner') {
+            return (
+                <>
+                    <Heading>Oops</Heading>
+                    <Paragraph>
+                        We have detected health problems in your profile, it is recommended to continue with a workout
+                        plan of beginner difficulty with a lower intensity.
+                    </Paragraph>
+                    <Button
+                        themeInverse
+                        onPress={() => {
+                            goBack();
+                        }}
+                    >
+                        Alright
+                    </Button>
+                    <Button
+                        theme="red_active"
+                        themeInverse
+                        onPress={() => {
+                            setMultiplierChangedAlertVisible(false);
+                        }}
+                    >
+                        I understand the risks
+                    </Button>
+                </>
+            );
+        }
+
+        if (getInitialMultiplier() > 1) {
+            return (
+                <>
+                    <Heading>Great Progress!</Heading>
+                    <Paragraph>
+                        The workout multiplier has been raised to a value that is more suitable for your current fitness
+                        level.
+                    </Paragraph>
+                    <Button
+                        themeInverse
+                        onPress={() => {
+                            setMultiplierChangedAlertVisible(false);
+                        }}
+                    >
+                        Alright
+                    </Button>
+                </>
+            );
+        }
+
+        return (
+            <>
+                <Heading>Adjust Intensity</Heading>
+                <Paragraph>
+                    This workout might not be suitable for your current fitness level, you may choose to continue with
+                    an adjusted intensity or choose a different workout.
+                </Paragraph>
+                <XStack columnGap="$3">
+                    <Button
+                        theme="red_active"
+                        themeInverse
+                        onPress={() => {
+                            goBack();
+                        }}
+                    >
+                        Go back
+                    </Button>
+                    <Button
+                        themeInverse
+                        onPress={() => {
+                            setMultiplierChangedAlertVisible(false);
+                        }}
+                    >
+                        Continue
+                    </Button>
+                </XStack>
+            </>
+        );
+    };
 
     return (
         <View flex={1}>
@@ -217,19 +297,7 @@ export function WorkoutPlanDetailsScreen() {
                         rowGap="$3"
                         key="content"
                     >
-                        <Heading>Multiplier Changed</Heading>
-                        <Paragraph>
-                            The workout multiplier has been changed to a value that is more suitable for your current
-                            fitness level.
-                        </Paragraph>
-                        <Button
-                            themeInverse
-                            onPress={() => {
-                                setMultiplierChangedAlertVisible(false);
-                            }}
-                        >
-                            Ok
-                        </Button>
+                        {renderDialogContent()}
                     </Dialog.Content>
                 </Dialog.Portal>
             </Dialog>
