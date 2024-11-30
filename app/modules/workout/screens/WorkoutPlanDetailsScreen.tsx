@@ -4,7 +4,7 @@ import { Minus, Plus } from '@tamagui/lucide-icons';
 import { StatusBar } from 'expo-status-bar';
 import React, { Fragment, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button, Image, ScrollView, Separator, View, XStack } from 'tamagui';
+import { Button, Dialog, Image, ScrollView, Separator, View, XStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
 import { Paragraph } from '../../../components/Paragraph';
@@ -71,6 +71,7 @@ export function WorkoutPlanDetailsScreen() {
     const selectedExerciseDetails = workoutPlan.exercises.find(
         (exercise) => exercise.exerciseKey === selectedExercise,
     )!;
+    const [multiplierChangedAlertVisible, setMultiplierChangedAlertVisible] = useState(getInitialMultiplier() !== 1);
 
     return (
         <View flex={1}>
@@ -205,6 +206,33 @@ export function WorkoutPlanDetailsScreen() {
                     {...EXERCISES[selectedExercise]}
                 />
             </Sheet>
+            <Dialog
+                open={multiplierChangedAlertVisible}
+                modal
+            >
+                <Dialog.Portal>
+                    <Dialog.Overlay key="overlay" />
+                    <Dialog.Content
+                        margin="$4"
+                        rowGap="$3"
+                        key="content"
+                    >
+                        <Heading>Multiplier Changed</Heading>
+                        <Paragraph>
+                            The workout multiplier has been changed to a value that is more suitable for your current
+                            fitness level.
+                        </Paragraph>
+                        <Button
+                            themeInverse
+                            onPress={() => {
+                                setMultiplierChangedAlertVisible(false);
+                            }}
+                        >
+                            Ok
+                        </Button>
+                    </Dialog.Content>
+                </Dialog.Portal>
+            </Dialog>
         </View>
     );
 }

@@ -10,5 +10,6 @@
     "editor.formatOnSaveMode": "file",
     "editor.linkedEditing": true,
     "editor.rulers": [120],
-    "files.autoSave": "onFocusChange"
+    "files.autoSave": "onFocusChange",
+    "i18n-ally.localesPaths": ["app/lang"]
 }
