@@ -1,7 +1,8 @@
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
 import { Fragment, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Paragraph, ScrollView, Separator, View } from 'tamagui';
+import { FlatList } from 'react-native';
+import { Paragraph, Separator, View } from 'tamagui';
 import { SearchBar } from '../../../components/SearchBar';
 import { Sheet } from '../../../components/Sheet';
 import { Exercise } from '../../workout/data/entities/Exercise';
@@ -34,30 +35,34 @@ function ScreenContent({ onExercisePress }: ScreenContentProps) {
             </View>
 
             <Separator borderColor="#D0D3D8" />
-            <ScrollView>
-                {filteredExercises.length > 0 ? (
-                    filteredExercises.map(([key, value]) => (
-                        <Fragment key={key}>
-                            <CatalogueExerciseOverview
-                                value={key}
-                                title={value.title}
-                                lottieSource={value.lottieSource}
-                                onValueChange={(exerciseKey) => {
-                                    onExercisePress(exerciseKey);
-                                }}
-                            />
-                            <Separator borderColor="#D0D3D8" />
-                        </Fragment>
-                    ))
-                ) : (
-                    <Paragraph
-                        m="$8"
-                        alignSelf="center"
-                    >
-                        N{t('catalogue.landing.no.exercise.found')}
-                    </Paragraph>
-                )}
-            </ScrollView>
+            {filteredExercises.length > 0 ? (
+                <FlatList
+                    data={filteredExercises}
+                    renderItem={({ item }) => {
+                        const [key, value] = item;
+                        return (
+                            <Fragment key={key}>
+                                <CatalogueExerciseOverview
+                                    value={key}
+                                    title={value.title}
+                                    lottieSource={value.lottieSource}
+                                    onValueChange={(exerciseKey) => {
+                                        onExercisePress(exerciseKey);
+                                    }}
+                                />
+                                <Separator borderColor="#D0D3D8" />
+                            </Fragment>
+                        );
+                    }}
+                />
+            ) : (
+                <Paragraph
+                    m="$8"
+                    alignSelf="center"
+                >
+                    {t('catalogue.landing.no.exercise.found')}
+                </Paragraph>
+            )}
         </>
     );
 }
