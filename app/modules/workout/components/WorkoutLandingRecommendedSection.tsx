@@ -38,6 +38,11 @@ export function WorkoutLandingRecommendedSection() {
         .sort(([workoutKeyA, workoutA], [workoutKeyB, workoutB]) => {
             const workoutLevel = getWorkoutLevel(workoutProfile.workoutPoints);
             if (workoutA.difficulty === workoutB.difficulty) {
+                if (workoutA.focusArea !== workoutB.focusArea) {
+                    if (workoutProfile.focusAreas.includes(workoutA.focusArea)) return -1;
+                    if (workoutProfile.focusAreas.includes(workoutB.focusArea)) return 1;
+                }
+
                 return repeatedWorkouts[workoutKeyA] || 0 - repeatedWorkouts[workoutKeyB] || 0;
             }
             if (workoutA.difficulty === workoutLevel) return -1;

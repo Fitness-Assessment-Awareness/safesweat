@@ -1,3 +1,4 @@
+import { FocusArea } from '../../onboarding/data/entities/FocusArea';
 import { WorkoutAssets } from '../assets';
 import { Workout } from './entities/Workout';
 
@@ -6,6 +7,7 @@ export const WORKOUTS = {
         title: 'ABS BEGINNER',
         difficulty: 'beginner',
         estimatedDuration: 20,
+        focusArea: FocusArea.Abs,
         exercises: [
             { type: 'duration', duration: 20, exerciseKey: 'jumpingJacks' },
             { type: 'reps', reps: 16, exerciseKey: 'abdominalCrunches' },
@@ -23,6 +25,7 @@ export const WORKOUTS = {
         title: 'CHEST BEGINNER',
         estimatedDuration: 11,
         difficulty: 'beginner',
+        focusArea: FocusArea.Abs,
         exercises: [
             { type: 'duration', duration: 30, exerciseKey: 'jumpingJacks' },
             { type: 'reps', reps: 16, exerciseKey: 'inclinePushUp' },
@@ -42,12 +45,14 @@ export const WORKOUTS = {
         title: 'ABS INTERMEDIATE',
         estimatedDuration: 20,
         difficulty: 'intermediate',
+        focusArea: FocusArea.Abs,
         exercises: [{ type: 'duration', duration: 20, exerciseKey: 'jumpingJacks' }],
         thumbnail: WorkoutAssets.absBeginner,
     },
     chestIntermediate: {
         title: 'CHEST INTERMEDIATE',
         estimatedDuration: 20,
+        focusArea: FocusArea.Abs,
         difficulty: 'intermediate',
         exercises: [{ type: 'duration', duration: 20, exerciseKey: 'jumpingJacks' }],
         thumbnail: WorkoutAssets.absBeginner,
@@ -55,6 +60,7 @@ export const WORKOUTS = {
     absAdvanced: {
         title: 'ABS ADVANCED',
         estimatedDuration: 20,
+        focusArea: FocusArea.Abs,
         difficulty: 'advanced',
         exercises: [{ type: 'duration', duration: 20, exerciseKey: 'jumpingJacks' }],
         thumbnail: WorkoutAssets.absBeginner,
@@ -63,6 +69,7 @@ export const WORKOUTS = {
         title: 'CHEST ADVANCED',
         estimatedDuration: 20,
         difficulty: 'advanced',
+        focusArea: FocusArea.Abs,
         exercises: [{ type: 'duration', duration: 20, exerciseKey: 'jumpingJacks' }],
         thumbnail: WorkoutAssets.absBeginner,
     },
