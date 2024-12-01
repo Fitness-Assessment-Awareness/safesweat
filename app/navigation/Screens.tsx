@@ -16,6 +16,7 @@ import { useRootNavigation } from './useAppNavigation';
 
 function HomeTabScreens() {
     const { t } = useTranslation();
+
     return (
         <Tab.Navigator
             initialRouteName="WorkoutStack"
