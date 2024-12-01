@@ -38,6 +38,7 @@ export function WorkoutProfileProvider({ children }: ComponentProps) {
         weeklyGoal: null,
         workoutHistories: [],
     });
+    const [isReady, setIsReady] = useState(false);
 
     useEffect(() => {
         const rehydrateWorkoutProfile = async () => {
@@ -49,6 +50,7 @@ export function WorkoutProfileProvider({ children }: ComponentProps) {
             if (storedWorkoutProfile) {
                 setWorkoutProfile(storedWorkoutProfile);
             }
+            setIsReady(true);
         };
 
         rehydrateWorkoutProfile();
@@ -115,6 +117,10 @@ export function WorkoutProfileProvider({ children }: ComponentProps) {
         }),
         [workoutProfile, workoutHistoriesInPoints, setWorkoutProfileInternal],
     );
+
+    if (!isReady) {
+        return null;
+    }
 
     return <WorkoutProfileContext.Provider value={value}>{children}</WorkoutProfileContext.Provider>;
 }
