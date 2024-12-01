@@ -16,7 +16,14 @@ export function WorkoutRoutineCard() {
     const startOfWeekDay = startOfWeek.date();
     const endOfWeek = dayjs().endOf('week');
     const daysInMonth = dayjs().daysInMonth();
-    const daysInWeek: number[] = Array.from({ length: 7 }, (_, i) => ((i + startOfWeekDay - 1) % daysInMonth) + 1);
+    const daysInWeek = Array.from({ length: 7 }, (_, i) => {
+        const day = ((i + startOfWeekDay - 1) % daysInMonth) + 1;
+        const isWorkoutDone = workoutProfile.workoutHistories.some((workoutHistory) => {
+            const workoutDate = dayjs(workoutHistory.timestamp);
+            return workoutDate.isSame(startOfWeek.add(i, 'day'), 'date');
+        });
+        return { day, isWorkoutDone };
+    });
 
     const onSetWeeklyTarget = () => {
         navigation.navigate('WorkoutRoutinePlanning');
@@ -28,11 +35,23 @@ export function WorkoutRoutineCard() {
 
     const workoutDoneInThisWeek = workoutProfile.workoutHistories.reduce((prev, curr) => {
         const workoutDate = dayjs(curr.timestamp);
-        if (workoutDate.isBetween(startOfWeek, endOfWeek, 'day')) {
+        if (workoutDate.isBetween(startOfWeek, endOfWeek)) {
             return prev + 1;
         }
         return prev;
     }, 0);
+
+    const getGoalColor = () => {
+        if (!workoutProfile.weeklyGoal) {
+            return 'black';
+        }
+
+        if (workoutDoneInThisWeek < workoutProfile.weeklyGoal) {
+            return '$red10';
+        }
+
+        return '$green10';
+    };
 
     return (
         <Card
@@ -55,7 +74,7 @@ export function WorkoutRoutineCard() {
                         size="$1"
                     />
                 </XStack>
-                <Label color="$green10">
+                <Label color={getGoalColor()}>
                     {workoutDoneInThisWeek}/{workoutProfile.weeklyGoal ?? '?'}
                 </Label>
             </XStack>
@@ -63,11 +82,11 @@ export function WorkoutRoutineCard() {
                 justifyContent="space-evenly"
                 columnGap="$4"
             >
-                {daysInWeek.map((day) => (
+                {daysInWeek.map(({ day, isWorkoutDone }) => (
                     <Circle
                         key={day}
                         size="$4"
-                        backgroundColor="#DCE0EC"
+                        backgroundColor={isWorkoutDone ? '$green7' : '#DCE0EC'}
                     >
                         <Heading size="small">{day}</Heading>
                     </Circle>
