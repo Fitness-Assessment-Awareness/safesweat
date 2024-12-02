@@ -4,6 +4,7 @@ import {
     BottomSheetModal,
     BottomSheetModalProps,
     BottomSheetScrollView,
+    BottomSheetView,
 } from '@gorhom/bottom-sheet';
 import { BackdropPressBehavior } from '@gorhom/bottom-sheet/lib/typescript/components/bottomSheetBackdrop/types';
 import { ComponentProps, forwardRef, useCallback } from 'react';
@@ -58,6 +59,7 @@ const SheetNamespace = Object.assign(SheetInternal, {
             },
         },
     ),
+    View: styled(BottomSheetView),
 });
 
 export type SheetProps = ComponentProps<typeof SheetInternal>;

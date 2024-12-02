@@ -12,10 +12,7 @@ interface ComponentProps extends ViewProps {
 export function SearchBar({ searchText, onChangeText, inputPlaceholder, ...viewProps }: ComponentProps) {
     const { t } = useTranslation();
     return (
-        <View
-            width="100%"
-            {...viewProps}
-        >
+        <View {...viewProps}>
             <Input
                 size="$4"
                 borderRadius="$8"
