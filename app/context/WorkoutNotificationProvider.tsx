@@ -28,13 +28,12 @@ export function WorkoutNotificationProvider({ children }: ComponentProps) {
     useEffect(() => {
         const setWorkoutNotification = async () => {
             await requestPermissionsAsync();
+            await cancelAllScheduledNotificationsAsync();
             if (!weeklyGoal || workoutDoneInThisWeek >= weeklyGoal) {
                 return;
             }
 
             if (workoutDoneInThisWeek < weeklyGoal) {
-                await cancelAllScheduledNotificationsAsync();
-
                 await scheduleNotificationAsync({
                     content: {
                         title: 'Keep up the good work!',
