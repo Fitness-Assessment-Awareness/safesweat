@@ -10,6 +10,7 @@ import durationPlugin from 'dayjs/plugin/duration';
 import isBetweenPlugin from 'dayjs/plugin/isBetween';
 import relativeTimePlugin from 'dayjs/plugin/relativeTime';
 import { useFonts } from 'expo-font';
+import { AndroidNotificationPriority, setNotificationHandler } from 'expo-notifications';
 import * as SplashScreen from 'expo-splash-screen';
 import React from 'react';
 import { I18nextProvider } from 'react-i18next';
@@ -21,6 +22,7 @@ import { PortalProvider, TamaguiProvider } from 'tamagui';
 import { EmergencyContactsProvider } from './app/context/EmergencyContactProvider';
 import { LanguageCodeProvider } from './app/context/LanguageCodeProvider';
 import { SessionProvider } from './app/context/SessionProvider';
+import { WorkoutNotificationProvider } from './app/context/WorkoutNotificationProvider';
 import { WorkoutProfileProvider } from './app/context/WorkoutProfileProvider';
 import { i18n } from './app/lang/i18n';
 import { Screens } from './app/navigation/Screens';
@@ -49,6 +51,14 @@ export default function App() {
 
     const onNavigationReady = () => {
         SplashScreen.hideAsync();
+        setNotificationHandler({
+            handleNotification: async () => ({
+                shouldShowAlert: true,
+                shouldPlaySound: false,
+                shouldSetBadge: false,
+                priority: AndroidNotificationPriority.MAX,
+            }),
+        });
     };
 
     return (
@@ -65,12 +75,14 @@ export default function App() {
                                     <SessionProvider>
                                         <LanguageCodeProvider>
                                             <WorkoutProfileProvider>
-                                                <BottomSheetModalProvider>
-                                                    <PortalProvider shouldAddRootHost>
-                                                        <Screens />
-                                                        <Toast position="bottom" />
-                                                    </PortalProvider>
-                                                </BottomSheetModalProvider>
+                                                <WorkoutNotificationProvider>
+                                                    <BottomSheetModalProvider>
+                                                        <PortalProvider shouldAddRootHost>
+                                                            <Screens />
+                                                            <Toast position="bottom" />
+                                                        </PortalProvider>
+                                                    </BottomSheetModalProvider>
+                                                </WorkoutNotificationProvider>
                                             </WorkoutProfileProvider>
                                         </LanguageCodeProvider>
                                     </SessionProvider>
