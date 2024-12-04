@@ -180,6 +180,8 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
                             })
                         }
                         placeholder="abc@gmail.com"
+                        autoCorrect={false}
+                        autoCapitalize="none"
                     />
                     <Label htmlFor={`${id}-signin-password`}>{t('settings.auth.password')}</Label>
                     <Input
@@ -194,6 +196,8 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
                             })
                         }
                         placeholder={t('settings.auth.password')}
+                        autoCorrect={false}
+                        autoCapitalize="none"
                     />
                     <Pressable
                         hitSlop={8}
@@ -269,6 +273,8 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
                             })
                         }
                         placeholder="abc@gmail.com"
+                        autoCorrect={false}
+                        autoCapitalize="none"
                     />
 
                     <Label htmlFor={`${id}-signup-password`}>{t('settings.auth.password')}</Label>
@@ -284,6 +290,8 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
                             })
                         }
                         placeholder={t('settings.auth.password')}
+                        autoCorrect={false}
+                        autoCapitalize="none"
                     />
                     {form.errorMsg && (
                         <Text
@@ -347,6 +355,8 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
                                 })
                             }
                             placeholder="abc@gmail.com"
+                            autoCorrect={false}
+                            autoCapitalize="none"
                         />
                         <Pressable
                             hitSlop={8}

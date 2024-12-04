@@ -3,7 +3,8 @@ import { Settings2 } from '@tamagui/lucide-icons';
 import React, { Fragment, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FlatList, Pressable } from 'react-native';
-import { Paragraph, Separator, View, XStack, YStack } from 'tamagui';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { getTokenValue, Paragraph, Separator, View, XStack, YStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { SearchBar } from '../../../components/SearchBar';
 import { SelectableChip } from '../../../components/SelectableChip';
@@ -24,6 +25,7 @@ function ScreenContent({ onExercisePress }: ScreenContentProps) {
     const [difficulty, setDifficulty] = useState<'low' | 'moderate' | 'vigorous' | null>(null);
     const [focusAreas, setFocusAreas] = useState<Exercise['focusAreas']>([]);
     const sheetRef = useRef<BottomSheetModal>(null);
+    const insets = useSafeAreaInsets();
 
     const filteredExercises = exercises.filter(
         ([, details]) =>
@@ -92,6 +94,7 @@ function ScreenContent({ onExercisePress }: ScreenContentProps) {
             >
                 <Sheet.View
                     p="$3"
+                    pb={getTokenValue('$3') + insets.bottom}
                     rowGap="$3"
                 >
                     <YStack rowGap="$2">
