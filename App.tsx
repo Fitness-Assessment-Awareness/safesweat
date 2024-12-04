@@ -43,6 +43,8 @@ export default function App() {
     const [loaded] = useFonts({
         Inter: require('@tamagui/font-inter/otf/Inter-Regular.otf'),
         InterBold: require('@tamagui/font-inter/otf/Inter-Bold.otf'),
+        InterItalic: require('@tamagui/font-inter/otf/Inter-Italic.otf'),
+        InterBoldItalic: require('@tamagui/font-inter/otf/Inter-BoldItalic.otf'),
     });
 
     if (!loaded) {
