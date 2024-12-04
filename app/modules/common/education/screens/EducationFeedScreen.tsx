@@ -76,6 +76,31 @@ export function EducationFeedScreen({
 
     return (
         <View flex={1}>
+            <View
+                py="$2"
+                px="$3"
+            >
+                <XStack
+                    gap="$2"
+                    justifyContent="space-between"
+                    alignItems="center"
+                >
+                    <SearchBar
+                        w="90%"
+                        searchText={searchText}
+                        onChangeText={setSearchText}
+                        inputPlaceholder={t('education.feed.post.title')}
+                    />
+                    <Pressable
+                        onPress={() => {
+                            sheetRef.current?.present();
+                        }}
+                    >
+                        <Settings2 />
+                    </Pressable>
+                </XStack>
+            </View>
+            <Separator borderColor="#D0D3D8" />
             <ScrollView
                 flex={1}
                 refreshControl={
@@ -87,31 +112,6 @@ export function EducationFeedScreen({
                     />
                 }
             >
-                <View
-                    py="$2"
-                    px="$3"
-                >
-                    <XStack
-                        gap="$2"
-                        justifyContent="space-between"
-                        alignItems="center"
-                    >
-                        <SearchBar
-                            w="90%"
-                            searchText={searchText}
-                            onChangeText={setSearchText}
-                            inputPlaceholder={t('education.feed.post.title')}
-                        />
-                        <Pressable
-                            onPress={() => {
-                                sheetRef.current?.present();
-                            }}
-                        >
-                            <Settings2 />
-                        </Pressable>
-                    </XStack>
-                </View>
-                <Separator borderColor="#D0D3D8" />
                 {isConnected && userSession && (
                     <YStack
                         gap="$4"
