@@ -3,7 +3,10 @@ import { useFocusEffect } from '@react-navigation/native';
 import React, { useCallback, useState } from 'react';
 import { useSession } from '../../../context/SessionProvider';
 import { EducationPostSummary } from '../../common/education/data/entities/EducationPost';
-import { fetchEducationPosts } from '../../common/education/data/services/EducationPostService';
+import {
+    fetchEducationPosts,
+    fetchRecommendedEducationPosts,
+} from '../../common/education/data/services/EducationPostService';
 import { EducationFeedScreen } from '../../common/education/screens/EducationFeedScreen';
 import { useExploreNavigation } from '../navigation/useExploreNavigation';
 
@@ -12,11 +15,15 @@ export function ExploreLandingScreen() {
     const { isConnected } = useNetInfo();
     const userSession = useSession();
     const [educationPostsSummary, setEducationPostsSummary] = useState<EducationPostSummary[]>([]);
+    const [recommendedEducationPosts, setRecommendedEducationPosts] = useState<EducationPostSummary[]>([]);
     const [refreshing, setRefreshing] = useState(false);
 
     useFocusEffect(
         useCallback(() => {
             if (isConnected && userSession) {
+                fetchRecommendedEducationPosts(userSession.user.id).then((p) => {
+                    setRecommendedEducationPosts(p);
+                });
                 fetchEducationPosts().then((p) => {
                     setEducationPostsSummary(p);
                 });
@@ -39,6 +46,7 @@ export function ExploreLandingScreen() {
     return (
         <EducationFeedScreen
             educationPostsSummary={educationPostsSummary}
+            recommendedEducationPosts={recommendedEducationPosts}
             handleFeedOnPress={handleFeedOnPress}
             refreshing={refreshing}
             setRefreshing={setRefreshing}

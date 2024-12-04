@@ -9,6 +9,11 @@ export const fetchEducationPosts = async () => {
     return response.data;
 };
 
+export const fetchRecommendedEducationPosts = async (userId: string) => {
+    const response = await Network.get<EducationPostSummary[]>(`/education-post/list-summary/recommended/${userId}`);
+    return response.data;
+};
+
 export const fetchBookmarkEducationPosts = async (userId: string) => {
     const response = await Network.get<EducationPostSummary[]>(`/education-post/list-summary/bookmark/${userId}`);
     return response.data;
