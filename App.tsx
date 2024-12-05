@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable global-require */
 import { useMMKVDevTools } from '@dev-plugins/react-native-mmkv';
+import { useReactQueryDevTools } from '@dev-plugins/react-query';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { NavigationContainer } from '@react-navigation/native';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -39,6 +40,7 @@ dayjs.extend(isBetweenPlugin);
 // eslint-disable-next-line import/no-default-export
 export default function App() {
     useMMKVDevTools();
+    useReactQueryDevTools(queryClient);
 
     const [loaded] = useFonts({
         Inter: require('@tamagui/font-inter/otf/Inter-Regular.otf'),
@@ -64,13 +66,13 @@ export default function App() {
     };
 
     return (
-        <TamaguiProvider
-            defaultTheme="light"
-            config={appConfig}
-        >
-            <GestureHandlerRootView style={{ flex: 1 }}>
-                <SafeAreaProvider>
-                    <QueryClientProvider client={queryClient}>
+        <QueryClientProvider client={queryClient}>
+            <TamaguiProvider
+                defaultTheme="light"
+                config={appConfig}
+            >
+                <GestureHandlerRootView style={{ flex: 1 }}>
+                    <SafeAreaProvider>
                         <NavigationContainer onReady={onNavigationReady}>
                             <I18nextProvider i18n={i18n}>
                                 <EmergencyContactsProvider>
@@ -91,10 +93,10 @@ export default function App() {
                                 </EmergencyContactsProvider>
                             </I18nextProvider>
                         </NavigationContainer>
-                    </QueryClientProvider>
-                </SafeAreaProvider>
-            </GestureHandlerRootView>
-        </TamaguiProvider>
+                    </SafeAreaProvider>
+                </GestureHandlerRootView>
+            </TamaguiProvider>
+        </QueryClientProvider>
     );
 }
 

@@ -8,7 +8,7 @@ import { WorkoutPlanCard } from './WorkoutPlanCard';
 export function WorkoutLandingOnlineExerciseSection() {
     const { navigate } = useWorkoutNavigation<'WorkoutLanding'>();
     const { data, isPending, isError } = useQuery({
-        queryKey: ['workoutListAllPlan'],
+        queryKey: ['workout'],
         queryFn: WorkoutService.listAllPlan,
     });
 
@@ -48,7 +48,7 @@ export function WorkoutLandingOnlineExerciseSection() {
                     See more
                 </Label>
             </XStack>
-            {data.splice(0, 3).map((plan) => (
+            {data.slice(0, 3).map((plan) => (
                 <WorkoutPlanCard
                     key={plan.titleEn}
                     title={plan.titleEn}

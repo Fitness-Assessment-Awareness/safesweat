@@ -16,6 +16,7 @@
     },
     "dependencies": {
         "@dev-plugins/react-native-mmkv": "^0.0.1",
+        "@dev-plugins/react-query": "0.0.2",
         "@gorhom/bottom-sheet": "^4.6.4",
         "@react-native-async-storage/async-storage": "^1.24.0",
         "@react-native-community/netinfo": "^11.3.2",
@@ -28,7 +29,7 @@
         "@tamagui/babel-plugin": "^1.117.2",
         "@tamagui/config": "^1.117.2",
         "@tamagui/lucide-icons": "^1.117.2",
-        "@tanstack/react-query": "^5.51.23",
+        "@tanstack/react-query": "^5.62.2",
         "axios": "^1.7.4",
         "dayjs": "^1.11.13",
         "expo": "~51.0.34",
@@ -62,7 +63,7 @@
     },
     "devDependencies": {
         "@babel/core": "^7.25.2",
-        "@tanstack/eslint-plugin-query": "^5.51.15",
+        "@tanstack/eslint-plugin-query": "^5.62.1",
         "@types/react": "~18.2.67",
         "@typescript-eslint/eslint-plugin": "7.10.0",
         "@typescript-eslint/parser": "7.10.0",
