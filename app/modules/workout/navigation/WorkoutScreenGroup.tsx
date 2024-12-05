@@ -4,6 +4,7 @@ import { HeaderBackButton } from '../../../components/HeaderBackButton';
 import { HeaderTitle } from '../../../components/HeaderTitle';
 import { WorkoutHistoryScreen } from '../screens/WorkoutHistoryScreen';
 import { WorkoutLandingScreen } from '../screens/WorkoutLandingScreen';
+import { WorkoutOnlineExerciseScreen } from '../screens/WorkoutOnlineExerciseScreen';
 import { WorkoutPlanDetailsScreen } from '../screens/WorkoutPlanDetailsScreen';
 import { WorkoutRoutinePlanningScreen } from '../screens/WorkoutRoutinePlanningScreen';
 import { WorkoutStack } from './WorkoutStack';
@@ -50,6 +51,10 @@ export function WorkoutScreens() {
             <WorkoutStack.Screen
                 name="WorkoutHistory"
                 component={WorkoutHistoryScreen}
+            />
+            <WorkoutStack.Screen
+                name="WorkoutOnlineExercise"
+                component={WorkoutOnlineExerciseScreen}
             />
         </WorkoutStack.Navigator>
     );

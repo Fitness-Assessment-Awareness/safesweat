@@ -4,13 +4,13 @@ import { Button, Dialog, ScrollView, View, YStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Paragraph } from '../../../components/Paragraph';
 import { StoragePublicRepository } from '../../../storage/domain/useCases/StoragePublicRepository';
+import { WorkoutLandingOnlineExerciseSection } from '../components/WorkoutLandingOnlineExerciseSection';
 import { WorkoutLandingRecommendedSection } from '../components/WorkoutLandingRecommendedSection';
 import { WorkoutLandingTabs } from '../components/WorkoutLandingTabs';
 import { WorkoutPlanCard } from '../components/WorkoutPlanCard';
 import { WorkoutRoutineCard } from '../components/WorkoutRoutineCard';
 import { WorkoutKey, WORKOUTS } from '../data/workouts';
 import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
-import { WorkoutLandingOnlineExerciseSection } from './WorkoutLandingOnlineExerciseSection';
 
 export function WorkoutLandingScreen() {
     const { t } = useTranslation();

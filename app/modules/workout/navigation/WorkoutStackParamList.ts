@@ -30,6 +30,7 @@ export type WorkoutStackParamList = {
     WorkoutPlanDetails: WorkoutPlanDetailsParams;
     WorkoutRoutinePlanning: undefined;
     WorkoutHistory: undefined;
+    WorkoutOnlineExercise: undefined;
 };
 
 export type WorkoutRootStackParamList = {
