@@ -1,5 +1,5 @@
 import { EXPO_PUBLIC_BACKEND_BASE_URL } from '@env';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 
 export const Network = axios.create({
     baseURL: EXPO_PUBLIC_BACKEND_BASE_URL,
@@ -9,24 +9,8 @@ export const Network = axios.create({
 
 Network.interceptors.response.use(
     (response) => response,
-    (error) => {
-        if (error.response) {
-            console.error('Error Response:', {
-                status: error.response.status,
-                headers: error.response.headers,
-                data: error.response.data,
-            });
-        } else if (error.request) {
-            console.error('Error Request:', {
-                request: error.request,
-            });
-        } else {
-            console.error('Error Message:', error.message);
-        }
-
-        console.error('Error Config:', {
-            config: error.config,
-        });
+    (error: AxiosError) => {
+        console.log(error.toJSON());
 
         return Promise.reject(error);
     },
