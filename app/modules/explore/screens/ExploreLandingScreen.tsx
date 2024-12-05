@@ -20,17 +20,20 @@ export function ExploreLandingScreen() {
 
     useFocusEffect(
         useCallback(() => {
-            if (isConnected && userSession) {
-                fetchRecommendedEducationPosts(userSession.user.id).then((p) => {
-                    setRecommendedEducationPosts(p);
-                });
-                fetchEducationPosts().then((p) => {
-                    setEducationPostsSummary(p);
-                });
-                if (refreshing) {
-                    setRefreshing(false);
+            const fetchPosts = async () => {
+                if (isConnected && userSession) {
+                    await fetchRecommendedEducationPosts(userSession.user.id).then((p) => {
+                        setRecommendedEducationPosts(p);
+                    });
+                    await fetchEducationPosts().then((p) => {
+                        setEducationPostsSummary(p);
+                    });
+                    if (refreshing) {
+                        setRefreshing(false);
+                    }
                 }
-            }
+            };
+            fetchPosts();
         }, [isConnected, userSession, refreshing]),
     );
 
