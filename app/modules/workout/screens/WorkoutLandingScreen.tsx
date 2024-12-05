@@ -10,6 +10,7 @@ import { WorkoutPlanCard } from '../components/WorkoutPlanCard';
 import { WorkoutRoutineCard } from '../components/WorkoutRoutineCard';
 import { WorkoutKey, WORKOUTS } from '../data/workouts';
 import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
+import { WorkoutLandingOnlineExerciseSection } from './WorkoutLandingOnlineExerciseSection';
 
 export function WorkoutLandingScreen() {
     const { t } = useTranslation();
@@ -49,6 +50,7 @@ export function WorkoutLandingScreen() {
                 >
                     <WorkoutRoutineCard />
                     <WorkoutLandingRecommendedSection />
+                    <WorkoutLandingOnlineExerciseSection />
                     <WorkoutLandingTabs tabs={['beginner', 'intermediate', 'advanced']}>
                         <WorkoutLandingTabs.Content
                             selectedTab="beginner"

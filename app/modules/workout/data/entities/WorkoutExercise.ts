@@ -14,4 +14,4 @@ interface WorkoutExerciseDuration extends BaseWorkoutExercise {
     duration: number;
 }
 
-export type orkoutExercise = WorkoutExerciseReps | WorkoutExerciseDuration;
+export type WorkoutExercise = WorkoutExerciseReps | WorkoutExerciseDuration;
