@@ -10,10 +10,7 @@ export function WorkoutOnlineExerciseScreen() {
     const { navigate } = useWorkoutNavigation<'WorkoutOnlineExercise'>();
     const { data, isPending, isError } = useQuery({
         queryKey: ['workout'],
-        queryFn: async () => {
-            const test = await WorkoutService.listAllPlan();
-            return test;
-        },
+        queryFn: WorkoutService.listAllPlan,
     });
     const { languageCode } = useLanguageCode();
 
