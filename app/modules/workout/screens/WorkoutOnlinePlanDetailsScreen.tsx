@@ -20,7 +20,7 @@ import { WorkoutStackParamList } from '../navigation/WorkoutStackParamList';
 
 export function WorkoutOnlinePlanDetailsScreen() {
     const { t } = useTranslation();
-    const { goBack } = useWorkoutNavigation<'WorkoutOnlinePlanDetails'>();
+    const { navigate, goBack } = useWorkoutNavigation<'WorkoutOnlinePlanDetails'>();
     const { params } = useRoute<RouteProp<WorkoutStackParamList, 'WorkoutOnlinePlanDetails'>>();
     const { workoutProfile } = useWorkoutProfile();
     const { workoutPoints, healthProblems } = workoutProfile;
@@ -270,8 +270,7 @@ export function WorkoutOnlinePlanDetailsScreen() {
                 m="$4"
                 borderRadius="$8"
                 onPress={() => {
-                    // TODO
-                    // navigate('WorkoutStartInitial', { workoutKey, multiplier });
+                    navigate('WorkoutOnlineStartInitial', { ...params, multiplier });
                 }}
             >
                 {t('general.shared.start')}

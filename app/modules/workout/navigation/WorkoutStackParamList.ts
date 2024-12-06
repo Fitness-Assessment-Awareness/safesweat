@@ -4,7 +4,11 @@ import { WorkoutKey } from '../data/workouts';
 interface WorkoutPlanDetailsParams {
     workoutKey: WorkoutKey;
 }
+
 type WorkoutOnlinePlanDetailsParams = WorkoutListAllPlan;
+type WorkoutOnlineStartInitialParams = WorkoutListAllPlan & { multiplier: number };
+type WorkoutOnlineExercisingParams = WorkoutListAllPlan & { index: number; multiplier: number };
+type WorkoutOnlineRestingParams = WorkoutListAllPlan & { index: number; multiplier: number };
 
 interface WorkoutStartInitialParams {
     workoutKey: WorkoutKey;
@@ -41,4 +45,8 @@ export type WorkoutRootStackParamList = {
     WorkoutResting: WorkoutRestingParams;
     WorkoutExercising: WorkoutExercisingParams;
     WorkoutSuccess: WorkoutSuccessParams;
+    WorkoutOnlineStartInitial: WorkoutOnlineStartInitialParams;
+    WorkoutOnlineExercising: WorkoutOnlineExercisingParams;
+    WorkoutOnlineResting: WorkoutOnlineRestingParams;
+    WorkoutOnlineSuccess: undefined;
 };

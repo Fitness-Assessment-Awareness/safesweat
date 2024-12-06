@@ -49,7 +49,7 @@ export function WorkoutExerciseOverview({ value, title, lottieSource, onValueCha
                 <Paragraph size="large">
                     {props.type === 'duration'
                         ? dayjs.duration(props.duration, 'seconds').format('mm:ss')
-                        : `x${props.reps}`}
+                        : `x${props.reps.toFixed(0)}`}
                 </Paragraph>
             </YStack>
         </XStack>

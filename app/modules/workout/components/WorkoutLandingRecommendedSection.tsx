@@ -22,10 +22,13 @@ export function WorkoutLandingRecommendedSection() {
     };
 
     const repeatedWorkouts = workoutProfile.workoutHistories.reduce(
-        (acc, history) => ({
-            ...acc,
-            [history.workoutKey]: (acc[history.workoutKey] || 0) + 1,
-        }),
+        (acc, history) =>
+            history.type === 'local'
+                ? {
+                      ...acc,
+                      [history.workoutKey]: (acc[history.workoutKey] || 0) + 1,
+                  }
+                : acc,
         {} as Record<WorkoutKey, number>,
     );
 

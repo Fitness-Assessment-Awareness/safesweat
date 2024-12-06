@@ -15,24 +15,20 @@ import { Sheet } from '../../../components/Sheet';
 import { useRootNavigation } from '../../../navigation/useAppNavigation';
 import { WorkoutExerciseDetailsSheetContent } from '../components/WorkoutExerciseDetailsSheet';
 import { EXERCISES } from '../data/exercises';
-import { WORKOUTS } from '../data/workouts';
 import { WorkoutRootStackParamList } from '../navigation/WorkoutStackParamList';
 
-export function WorkoutStartInitialScreen() {
+export function WorkoutOnlineStartInitialScreen() {
     const { t } = useTranslation();
     const { replace } = useRootNavigation();
-    const { params } = useRoute<RouteProp<WorkoutRootStackParamList, 'WorkoutStartInitial'>>();
-    const { workoutKey } = params;
+    const { params } = useRoute<RouteProp<WorkoutRootStackParamList, 'WorkoutOnlineStartInitial'>>();
     const sheetRef = useRef<BottomSheetModal>(null);
 
     const [isCountingDown, setIsCountingDown] = useState(true);
-    const workout = WORKOUTS[workoutKey];
-    const firstWorkoutExercise = workout.exercises[0];
+    const firstWorkoutExercise = params.exercises[0];
 
     const onNextExercise = () => {
-        replace('WorkoutExercising', {
-            workoutKey,
-            multiplier: params.multiplier,
+        replace('WorkoutOnlineExercising', {
+            ...params,
             index: 0,
         });
     };

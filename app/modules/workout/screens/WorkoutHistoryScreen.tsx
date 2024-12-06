@@ -5,7 +5,9 @@ import { Image, ScrollView, View, XStack, YStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
 import { Paragraph } from '../../../components/Paragraph';
+import { useLanguageCode } from '../../../context/LanguageCodeProvider';
 import { useWorkoutProfile } from '../../../context/WorkoutProfileProvider';
+import { LanguageCode } from '../../../lang/LanguageCode';
 import { WorkoutHistory } from '../../onboarding/data/entities/WorkoutHistory';
 import { WORKOUTS } from '../data/workouts';
 
@@ -14,6 +16,7 @@ export function WorkoutHistoryScreen() {
     const {
         workoutProfile: { workoutHistories },
     } = useWorkoutProfile();
+    const { languageCode } = useLanguageCode();
 
     const renderContent = () => {
         if (workoutHistories.length === 0) {
@@ -72,7 +75,11 @@ export function WorkoutHistoryScreen() {
                             borderColor="$gray5"
                         >
                             <Image
-                                source={WORKOUTS[history.workoutKey].thumbnail}
+                                source={
+                                    history.type === 'local'
+                                        ? WORKOUTS[history.workoutKey].thumbnail
+                                        : { uri: history.imageUrl }
+                                }
                                 width={64}
                                 height={64}
                                 borderRadius="$4"
@@ -80,7 +87,11 @@ export function WorkoutHistoryScreen() {
                             />
                             <YStack rowGap="$2">
                                 <Paragraph>{dayjs(history.timestamp).format('DD MMM YYYY, hh:mm a')}</Paragraph>
-                                <Label size="large">{WORKOUTS[history.workoutKey].title}</Label>
+                                <Label size="large">
+                                    {history.type === 'local'
+                                        ? WORKOUTS[history.workoutKey].title
+                                        : history[languageCode === LanguageCode.ENGLISH ? 'titleEn' : 'titleMs']}
+                                </Label>
                             </YStack>
                         </XStack>
                     ))}

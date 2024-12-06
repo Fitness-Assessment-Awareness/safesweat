@@ -17,20 +17,18 @@ import { useCountdown } from '../../../utils/useCountdown';
 import { WorkoutEmergencyCallSheetContent } from '../components/WorkoutEmergencyCallSheet';
 import { WorkoutExerciseDetailsSheetContent } from '../components/WorkoutExerciseDetailsSheet';
 import { EXERCISES } from '../data/exercises';
-import { WORKOUTS } from '../data/workouts';
 import { WorkoutRootStackParamList } from '../navigation/WorkoutStackParamList';
 
-export function WorkoutExercisingScreen() {
+export function WorkoutOnlineExercisingScreen() {
     const { t } = useTranslation();
     const { setWorkoutProfile } = useWorkoutProfile();
     const sheetRefExerciseDetails = useRef<BottomSheetModal>(null);
     const sheetRefEmergencyCall = useRef<BottomSheetModal>(null);
     const { replace } = useRootNavigation();
     const {
-        params: { workoutKey, index, multiplier },
-    } = useRoute<RouteProp<WorkoutRootStackParamList, 'WorkoutExercising'>>();
+        params: { index, multiplier, ...workout },
+    } = useRoute<RouteProp<WorkoutRootStackParamList, 'WorkoutOnlineExercising'>>();
 
-    const workout = WORKOUTS[workoutKey];
     const workoutExercise = workout.exercises[index];
     const exercise = EXERCISES[workoutExercise.exerciseKey];
 
@@ -38,24 +36,27 @@ export function WorkoutExercisingScreen() {
 
     const onFinishExercise = useCallback(() => {
         if (index === workout.exercises.length - 1) {
-            replace('WorkoutSuccess', { workoutKey });
+            replace('WorkoutOnlineSuccess');
             setWorkoutProfile((workoutProfile) => ({
                 ...workoutProfile,
                 workoutHistories: [
                     {
-                        type: 'local',
-                        workoutKey,
+                        type: 'online',
+                        titleEn: workout.titleEn,
+                        titleMs: workout.titleMs,
                         timestamp: dayjs().toISOString(),
                         rating: null,
                         multiplier,
+                        imageUrl: workout.imageUrl,
+                        difficulty: workout.difficulty,
                     },
                     ...workoutProfile.workoutHistories,
                 ],
             }));
             return;
         }
-        replace('WorkoutResting', { workoutKey, index: index + 1, multiplier });
-    }, [index, multiplier, replace, setWorkoutProfile, workout.exercises.length, workoutKey]);
+        replace('WorkoutOnlineResting', { ...workout, index: index + 1, multiplier });
+    }, [index, multiplier, replace, setWorkoutProfile, workout]);
 
     useEffect(() => {
         if (workoutExercise.type === 'duration') {
