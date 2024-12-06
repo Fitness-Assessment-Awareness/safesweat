@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import { useQuery } from '@tanstack/react-query';
 import { Label, ScrollView, XStack } from 'tamagui';
 import { useLanguageCode } from '../../../context/LanguageCodeProvider';
@@ -6,6 +7,7 @@ import { WorkoutPlanCard } from '../components/WorkoutPlanCard';
 import { WorkoutService } from '../data/services/WorkoutService';
 
 export function WorkoutOnlineExerciseScreen() {
+    const { navigate } = useNavigation();
     const { data, isPending, isError } = useQuery({
         queryKey: ['workout'],
         queryFn: async () => {
@@ -50,6 +52,9 @@ export function WorkoutOnlineExerciseScreen() {
                     title={plan[languageCode === LanguageCode.ENGLISH ? 'titleEn' : 'titleMs']}
                     description={`${plan.estimatedDuration} MINS | ${plan.exercises.length} EXERCISES`}
                     imageSource={{ uri: plan.imageUrl }}
+                    onPress={() => {
+                        navigate('WorkoutOnlinePlanDetails', plan);
+                    }}
                 />
             ))}
         </ScrollView>
