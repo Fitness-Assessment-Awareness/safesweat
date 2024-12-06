@@ -1,6 +1,6 @@
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
 import { RouteProp, useRoute } from '@react-navigation/native';
-import { Minus, Plus } from '@tamagui/lucide-icons';
+import { Download, Minus, Plus } from '@tamagui/lucide-icons';
 import { StatusBar } from 'expo-status-bar';
 import React, { Fragment, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -174,61 +174,68 @@ export function WorkoutOnlinePlanDetailsScreen() {
                     {languageCode === LanguageCode.ENGLISH ? params.titleEn : params.titleMs}
                 </Heading>
             </View>
-            <XStack
-                py="$3"
-                px="$4"
-                justifyContent="space-between"
-                alignItems="center"
-            >
-                <Paragraph>
-                    {(params.estimatedDuration * multiplier).toFixed(0)} MINS | {params.exercises.length}{' '}
-                    {t('workout.plan.details.exercises').toUpperCase()}
-                </Paragraph>
-                <XStack
-                    alignItems="center"
-                    justifyContent="center"
-                    columnGap="$2"
-                >
-                    <Button
-                        circular
-                        size="$2.5"
-                        themeInverse
-                        icon={
-                            <Minus
-                                size="$1"
-                                strokeWidth={3}
-                            />
-                        }
-                        onPress={() => {
-                            if (multiplier - 0.25 < 0.5) return;
-                            setMultiplier((prev) => prev - 0.25);
-                        }}
-                    />
-                    <Label
-                        textAlign="center"
-                        width={40}
-                    >
-                        {multiplier.toFixed(2)}x
-                    </Label>
-                    <Button
-                        circular
-                        size="$2.5"
-                        themeInverse
-                        icon={
-                            <Plus
-                                size="$1"
-                                strokeWidth={3}
-                            />
-                        }
-                        onPress={() => {
-                            if (multiplier + 0.25 > 2) return;
-                            setMultiplier((prev) => prev + 0.25);
-                        }}
-                    />
-                </XStack>
-            </XStack>
-            <Separator borderColor="#D0D3D8" />
             <ScrollView flex={1}>
+                <Paragraph
+                    py="$3"
+                    px="$4"
+                >
+                    {languageCode === LanguageCode.ENGLISH ? params.introductionEn : params.introductionMs}
+                </Paragraph>
+                <Separator borderColor="#D0D3D8" />
+                <XStack
+                    py="$3"
+                    px="$4"
+                    justifyContent="space-between"
+                    alignItems="center"
+                >
+                    <Paragraph>
+                        {(params.estimatedDuration * multiplier).toFixed(0)} MINS | {params.exercises.length}{' '}
+                        {t('workout.plan.details.exercises').toUpperCase()}
+                    </Paragraph>
+                    <XStack
+                        alignItems="center"
+                        justifyContent="center"
+                        columnGap="$2"
+                    >
+                        <Button
+                            circular
+                            size="$2.5"
+                            themeInverse
+                            icon={
+                                <Minus
+                                    size="$1"
+                                    strokeWidth={3}
+                                />
+                            }
+                            onPress={() => {
+                                if (multiplier - 0.25 < 0.5) return;
+                                setMultiplier((prev) => prev - 0.25);
+                            }}
+                        />
+                        <Label
+                            textAlign="center"
+                            width={40}
+                        >
+                            {multiplier.toFixed(2)}x
+                        </Label>
+                        <Button
+                            circular
+                            size="$2.5"
+                            themeInverse
+                            icon={
+                                <Plus
+                                    size="$1"
+                                    strokeWidth={3}
+                                />
+                            }
+                            onPress={() => {
+                                if (multiplier + 0.25 > 2) return;
+                                setMultiplier((prev) => prev + 0.25);
+                            }}
+                        />
+                    </XStack>
+                </XStack>
+                <Separator borderColor="#D0D3D8" />
                 {params.exercises.map((exercise, index) => {
                     const exerciseDetails = EXERCISES[exercise.exerciseKey];
                     return (
@@ -265,16 +272,29 @@ export function WorkoutOnlinePlanDetailsScreen() {
                     );
                 })}
             </ScrollView>
-            <Button
-                themeInverse
-                m="$4"
-                borderRadius="$8"
-                onPress={() => {
-                    navigate('WorkoutOnlineStartInitial', { ...params, multiplier });
-                }}
+            <XStack
+                p="$4"
+                columnGap="$2"
             >
-                {t('general.shared.start')}
-            </Button>
+                <Button
+                    themeInverse
+                    borderRadius="$8"
+                    flex={1}
+                    onPress={() => {
+                        navigate('WorkoutOnlineStartInitial', { ...params, multiplier });
+                    }}
+                >
+                    {t('general.shared.start')}
+                </Button>
+                <Button
+                    themeInverse
+                    borderRadius="$8"
+                    onPress={() => {}}
+                >
+                    <Download color="white" />
+                </Button>
+            </XStack>
+
             <Sheet
                 ref={sheetRef}
                 snapPoints={['85%']}
