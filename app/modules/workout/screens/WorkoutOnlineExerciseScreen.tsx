@@ -1,13 +1,13 @@
-import { useNavigation } from '@react-navigation/native';
 import { useQuery } from '@tanstack/react-query';
 import { Label, ScrollView, XStack } from 'tamagui';
 import { useLanguageCode } from '../../../context/LanguageCodeProvider';
 import { LanguageCode } from '../../../lang/LanguageCode';
 import { WorkoutPlanCard } from '../components/WorkoutPlanCard';
 import { WorkoutService } from '../data/services/WorkoutService';
+import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
 
 export function WorkoutOnlineExerciseScreen() {
-    const { navigate } = useNavigation();
+    const { navigate } = useWorkoutNavigation<'WorkoutOnlineExercise'>();
     const { data, isPending, isError } = useQuery({
         queryKey: ['workout'],
         queryFn: async () => {
