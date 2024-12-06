@@ -1,8 +1,10 @@
+import { WorkoutListAllPlan } from '../data/entities/WorkoutListAll';
 import { WorkoutKey } from '../data/workouts';
 
 interface WorkoutPlanDetailsParams {
     workoutKey: WorkoutKey;
 }
+type WorkoutOnlinePlanDetailsParams = WorkoutListAllPlan;
 
 interface WorkoutStartInitialParams {
     workoutKey: WorkoutKey;
@@ -31,6 +33,7 @@ export type WorkoutStackParamList = {
     WorkoutRoutinePlanning: undefined;
     WorkoutHistory: undefined;
     WorkoutOnlineExercise: undefined;
+    WorkoutOnlinePlanDetails: WorkoutOnlinePlanDetailsParams;
 };
 
 export type WorkoutRootStackParamList = {

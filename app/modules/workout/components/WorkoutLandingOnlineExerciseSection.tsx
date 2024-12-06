@@ -1,6 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import { XStack } from 'tamagui';
 import { Label } from '../../../components/Label';
+import { useLanguageCode } from '../../../context/LanguageCodeProvider';
+import { LanguageCode } from '../../../lang/LanguageCode';
 import { WorkoutService } from '../data/services/WorkoutService';
 import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
 import { WorkoutPlanCard } from './WorkoutPlanCard';
@@ -11,6 +13,7 @@ export function WorkoutLandingOnlineExerciseSection() {
         queryKey: ['workout'],
         queryFn: WorkoutService.listAllPlan,
     });
+    const { languageCode } = useLanguageCode();
 
     if (isPending) {
         return (
@@ -50,10 +53,13 @@ export function WorkoutLandingOnlineExerciseSection() {
             </XStack>
             {data.slice(0, 3).map((plan) => (
                 <WorkoutPlanCard
-                    key={plan.titleEn}
-                    title={plan.titleEn}
+                    key={plan[languageCode === LanguageCode.ENGLISH ? 'titleEn' : 'titleMs']}
+                    title={plan[languageCode === LanguageCode.ENGLISH ? 'titleEn' : 'titleMs']}
                     description={`${plan.estimatedDuration} MINS | ${plan.exercises.length} EXERCISES`}
                     imageSource={{ uri: plan.imageUrl }}
+                    onPress={() => {
+                        navigate('WorkoutOnlinePlanDetails', plan);
+                    }}
                 />
             ))}
         </>

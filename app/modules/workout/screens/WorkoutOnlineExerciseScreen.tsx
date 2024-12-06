@@ -1,5 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { Label, ScrollView, XStack } from 'tamagui';
+import { useLanguageCode } from '../../../context/LanguageCodeProvider';
+import { LanguageCode } from '../../../lang/LanguageCode';
 import { WorkoutPlanCard } from '../components/WorkoutPlanCard';
 import { WorkoutService } from '../data/services/WorkoutService';
 
@@ -11,6 +13,7 @@ export function WorkoutOnlineExerciseScreen() {
             return test;
         },
     });
+    const { languageCode } = useLanguageCode();
 
     if (isPending) {
         return (
@@ -43,8 +46,8 @@ export function WorkoutOnlineExerciseScreen() {
         >
             {data.map((plan) => (
                 <WorkoutPlanCard
-                    key={plan.titleEn}
-                    title={plan.titleEn}
+                    key={plan[languageCode === LanguageCode.ENGLISH ? 'titleEn' : 'titleMs']}
+                    title={plan[languageCode === LanguageCode.ENGLISH ? 'titleEn' : 'titleMs']}
                     description={`${plan.estimatedDuration} MINS | ${plan.exercises.length} EXERCISES`}
                     imageSource={{ uri: plan.imageUrl }}
                 />

@@ -5,6 +5,7 @@ import { HeaderTitle } from '../../../components/HeaderTitle';
 import { WorkoutHistoryScreen } from '../screens/WorkoutHistoryScreen';
 import { WorkoutLandingScreen } from '../screens/WorkoutLandingScreen';
 import { WorkoutOnlineExerciseScreen } from '../screens/WorkoutOnlineExerciseScreen';
+import { WorkoutOnlinePlanDetailsScreen } from '../screens/WorkoutOnlinePlanDetailsScreen';
 import { WorkoutPlanDetailsScreen } from '../screens/WorkoutPlanDetailsScreen';
 import { WorkoutRoutinePlanningScreen } from '../screens/WorkoutRoutinePlanningScreen';
 import { WorkoutStack } from './WorkoutStack';
@@ -55,6 +56,11 @@ export function WorkoutScreens() {
             <WorkoutStack.Screen
                 name="WorkoutOnlineExercise"
                 component={WorkoutOnlineExerciseScreen}
+            />
+            <WorkoutStack.Screen
+                name="WorkoutOnlinePlanDetails"
+                component={WorkoutOnlinePlanDetailsScreen}
+                options={{ headerTransparent: true, headerTintColor: 'white' }}
             />
         </WorkoutStack.Navigator>
     );
