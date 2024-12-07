@@ -1,6 +1,7 @@
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { CheckCircle, Download, Minus, Plus } from '@tamagui/lucide-icons';
+import { Asset } from 'expo-asset';
 import { StatusBar } from 'expo-status-bar';
 import { Fragment, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -293,12 +294,19 @@ export function WorkoutOnlinePlanDetailsScreen() {
                 <Button
                     themeInverse
                     borderRadius="$8"
-                    onPress={() => {
+                    onPress={async () => {
                         if (isWorkoutSaved) {
                             setOfflineWorkouts(offlineWorkouts.filter((workout) => workout.id !== params.id));
                             return;
                         }
-                        setOfflineWorkouts([...offlineWorkouts, params]);
+                        const onlineAsset = await Asset.fromURI(params.imageUrl);
+                        // @ts-expect-error
+                        onlineAsset.type = 'jpg';
+                        const downloadedAsset = await onlineAsset.downloadAsync();
+                        setOfflineWorkouts([
+                            ...offlineWorkouts,
+                            { ...params, imageUrl: downloadedAsset.localUri ?? '' },
+                        ]);
                     }}
                 >
                     {isWorkoutSaved ? <CheckCircle color="white" /> : <Download color="white" />}

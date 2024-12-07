@@ -9,7 +9,6 @@ import {
     useMemo,
     useState,
 } from 'react';
-import { Image } from 'tamagui';
 import { WorkoutListAllPlan } from '../modules/workout/data/entities/WorkoutListAll';
 import { StoragePublicRepository } from '../storage/domain/useCases/StoragePublicRepository';
 
@@ -31,9 +30,6 @@ export function WorkoutOfflineProvider({ children }: ComponentProps) {
         if (typeof payload === 'function') {
             setOfflineWorkouts((prevOfflineWorkouts) => {
                 const newOfflineWorkouts = payload(prevOfflineWorkouts);
-                newOfflineWorkouts.forEach((workout) => {
-                    Image.prefetch(workout.imageUrl);
-                });
                 StoragePublicRepository.instance.set({
                     namespace: 'workout',
                     key: 'offlineWorkouts',
@@ -43,9 +39,6 @@ export function WorkoutOfflineProvider({ children }: ComponentProps) {
             });
         } else {
             setOfflineWorkouts(payload);
-            payload.forEach((workout) => {
-                Image.prefetch(workout.imageUrl);
-            });
             StoragePublicRepository.instance.set({
                 namespace: 'workout',
                 key: 'offlineWorkouts',
