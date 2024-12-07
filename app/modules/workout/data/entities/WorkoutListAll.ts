@@ -2,6 +2,7 @@ import { FocusArea } from '../../../onboarding/data/entities/FocusArea';
 import { WorkoutExercise } from './WorkoutExercise';
 
 export interface WorkoutListAllPlan {
+    id: string;
     titleEn: string;
     titleMs: string;
     introductionEn: string;

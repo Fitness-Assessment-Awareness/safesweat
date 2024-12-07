@@ -8,6 +8,7 @@ export namespace WorkoutService {
         const response = await Network.get<WorkoutListAllPlanAPIModel[]>(`${baseUrl}/list`);
 
         return response.data.map((plan) => ({
+            id: plan.planId,
             titleEn: plan.titleEn,
             titleMs: plan.titleMs,
             introductionEn: plan.introductionEn,
