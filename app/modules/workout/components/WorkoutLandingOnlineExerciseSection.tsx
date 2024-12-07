@@ -20,8 +20,22 @@ export function WorkoutLandingOnlineExerciseSection() {
             <>
                 <XStack justifyContent="space-between">
                     <Label size="large">More Exercise</Label>
+                    <Label
+                        size="large"
+                        textDecorationLine="underline"
+                        onPress={() => {
+                            navigate('WorkoutOnlineExercise');
+                        }}
+                    >
+                        See more
+                    </Label>
                 </XStack>
-                <Label alignSelf="center">Loading...</Label>
+                <Label
+                    alignSelf="center"
+                    textAlign="center"
+                >
+                    Loading...
+                </Label>
             </>
         );
     }
@@ -31,8 +45,22 @@ export function WorkoutLandingOnlineExerciseSection() {
             <>
                 <XStack justifyContent="space-between">
                     <Label size="large">More Exercise</Label>
+                    <Label
+                        size="large"
+                        textDecorationLine="underline"
+                        onPress={() => {
+                            navigate('WorkoutOnlineExercise');
+                        }}
+                    >
+                        See more
+                    </Label>
                 </XStack>
-                <Label alignSelf="center">Error getting data! Please try again</Label>
+                <Label
+                    alignSelf="center"
+                    textAlign="center"
+                >
+                    Error getting data! Please try again. You can still access workout you saved.
+                </Label>
             </>
         );
     }

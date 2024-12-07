@@ -1,8 +1,8 @@
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
 import { RouteProp, useRoute } from '@react-navigation/native';
-import { Download, Minus, Plus } from '@tamagui/lucide-icons';
+import { CheckCircle, Download, Minus, Plus } from '@tamagui/lucide-icons';
 import { StatusBar } from 'expo-status-bar';
-import React, { Fragment, useRef, useState } from 'react';
+import { Fragment, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, Dialog, Image, ScrollView, Separator, View, XStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
@@ -10,6 +10,7 @@ import { Label } from '../../../components/Label';
 import { Paragraph } from '../../../components/Paragraph';
 import { Sheet } from '../../../components/Sheet';
 import { useLanguageCode } from '../../../context/LanguageCodeProvider';
+import { useWorkoutOffline } from '../../../context/WorkoutOfflineProvider';
 import { useWorkoutProfile } from '../../../context/WorkoutProfileProvider';
 import { LanguageCode } from '../../../lang/LanguageCode';
 import { WorkoutExerciseDetailsSheetContent } from '../components/WorkoutExerciseDetailsSheet';
@@ -25,6 +26,7 @@ export function WorkoutOnlinePlanDetailsScreen() {
     const { workoutProfile } = useWorkoutProfile();
     const { workoutPoints, healthProblems } = workoutProfile;
     const { languageCode } = useLanguageCode();
+    const { offlineWorkouts, setOfflineWorkouts } = useWorkoutOffline();
 
     const getInitialMultiplier = () => {
         if (workoutPoints < 15) {
@@ -150,6 +152,8 @@ export function WorkoutOnlinePlanDetailsScreen() {
             </>
         );
     };
+
+    const isWorkoutSaved = offlineWorkouts.some((workout) => workout.id === params.id);
 
     return (
         <View flex={1}>
@@ -289,9 +293,15 @@ export function WorkoutOnlinePlanDetailsScreen() {
                 <Button
                     themeInverse
                     borderRadius="$8"
-                    onPress={() => {}}
+                    onPress={() => {
+                        if (isWorkoutSaved) {
+                            setOfflineWorkouts(offlineWorkouts.filter((workout) => workout.id !== params.id));
+                            return;
+                        }
+                        setOfflineWorkouts([...offlineWorkouts, params]);
+                    }}
                 >
-                    <Download color="white" />
+                    {isWorkoutSaved ? <CheckCircle color="white" /> : <Download color="white" />}
                 </Button>
             </XStack>
 

@@ -56,29 +56,26 @@ export function WorkoutProfileProvider({ children }: ComponentProps) {
         rehydrateWorkoutProfile();
     }, []);
 
-    const setWorkoutProfileInternal = useCallback(
-        (payload: SetStateAction<WorkoutProfile>) => {
-            if (typeof payload === 'function') {
-                setWorkoutProfile((prevWorkoutProfile) => {
-                    const newWorkoutProfile = payload(prevWorkoutProfile);
-                    StoragePublicRepository.instance.set({
-                        namespace: 'onboarding',
-                        key: 'workoutProfile',
-                        value: newWorkoutProfile,
-                    });
-                    return { ...prevWorkoutProfile, ...newWorkoutProfile };
-                });
-            } else {
-                setWorkoutProfile(payload);
+    const setWorkoutProfileInternal = useCallback((payload: SetStateAction<WorkoutProfile>) => {
+        if (typeof payload === 'function') {
+            setWorkoutProfile((prevWorkoutProfile) => {
+                const newWorkoutProfile = payload(prevWorkoutProfile);
                 StoragePublicRepository.instance.set({
                     namespace: 'onboarding',
                     key: 'workoutProfile',
-                    value: payload,
+                    value: newWorkoutProfile,
                 });
-            }
-        },
-        [setWorkoutProfile],
-    );
+                return newWorkoutProfile;
+            });
+        } else {
+            setWorkoutProfile(payload);
+            StoragePublicRepository.instance.set({
+                namespace: 'onboarding',
+                key: 'workoutProfile',
+                value: payload,
+            });
+        }
+    }, []);
 
     const getWorkoutDifficultyInPoints = (difficulty: Difficulty) => {
         switch (difficulty) {

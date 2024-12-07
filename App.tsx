@@ -13,7 +13,6 @@ import relativeTimePlugin from 'dayjs/plugin/relativeTime';
 import { useFonts } from 'expo-font';
 import { AndroidNotificationPriority, setNotificationHandler } from 'expo-notifications';
 import * as SplashScreen from 'expo-splash-screen';
-import React from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { LogBox } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -24,6 +23,7 @@ import { EmergencyContactsProvider } from './app/context/EmergencyContactProvide
 import { LanguageCodeProvider } from './app/context/LanguageCodeProvider';
 import { SessionProvider } from './app/context/SessionProvider';
 import { WorkoutNotificationProvider } from './app/context/WorkoutNotificationProvider';
+import { WorkoutOfflineProvider } from './app/context/WorkoutOfflineProvider';
 import { WorkoutProfileProvider } from './app/context/WorkoutProfileProvider';
 import { i18n } from './app/lang/i18n';
 import { Screens } from './app/navigation/Screens';
@@ -78,16 +78,18 @@ export default function App() {
                                 <EmergencyContactsProvider>
                                     <SessionProvider>
                                         <LanguageCodeProvider>
-                                            <WorkoutProfileProvider>
-                                                <WorkoutNotificationProvider>
-                                                    <BottomSheetModalProvider>
-                                                        <PortalProvider shouldAddRootHost>
-                                                            <Screens />
-                                                            <Toast position="bottom" />
-                                                        </PortalProvider>
-                                                    </BottomSheetModalProvider>
-                                                </WorkoutNotificationProvider>
-                                            </WorkoutProfileProvider>
+                                            <WorkoutOfflineProvider>
+                                                <WorkoutProfileProvider>
+                                                    <WorkoutNotificationProvider>
+                                                        <BottomSheetModalProvider>
+                                                            <PortalProvider shouldAddRootHost>
+                                                                <Screens />
+                                                                <Toast position="bottom" />
+                                                            </PortalProvider>
+                                                        </BottomSheetModalProvider>
+                                                    </WorkoutNotificationProvider>
+                                                </WorkoutProfileProvider>
+                                            </WorkoutOfflineProvider>
                                         </LanguageCodeProvider>
                                     </SessionProvider>
                                 </EmergencyContactsProvider>
