@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 import { ScrollView, Tabs } from 'tamagui';
 import { Label } from '../../../components/Label';
+import { Paragraph } from '../../../components/Paragraph';
 import { useLanguageCode } from '../../../context/LanguageCodeProvider';
 import { useWorkoutOffline } from '../../../context/WorkoutOfflineProvider';
 import { LanguageCode } from '../../../lang/LanguageCode';
@@ -100,7 +101,7 @@ export function WorkoutOnlineExerciseScreen() {
                         size="large"
                         textDecorationLine={selectedTab === 'offline' ? 'underline' : 'none'}
                     >
-                        Saved
+                        Downloaded
                     </Label>
                 </Tabs.Tab>
             </Tabs.List>
@@ -121,6 +122,15 @@ export function WorkoutOnlineExerciseScreen() {
                         flexGrow: 1,
                     }}
                 >
+                    {offlineWorkouts.length === 0 && (
+                        <Paragraph
+                            textAlign="center"
+                            alignSelf="center"
+                            p="$4"
+                        >
+                            No downloaded workout
+                        </Paragraph>
+                    )}
                     {offlineWorkouts.map((plan) => (
                         <WorkoutPlanCard
                             key={plan[languageCode === LanguageCode.ENGLISH ? 'titleEn' : 'titleMs']}
