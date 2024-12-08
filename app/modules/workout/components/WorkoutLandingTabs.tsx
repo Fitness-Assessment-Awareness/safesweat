@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Tabs, TabsContentProps, TabsProps } from 'tamagui';
 import { Label } from '../../../components/Label';
+import { Difficulty } from '../../onboarding/data/entities/Difficulty';
 
-type TabsValue = 'beginner' | 'intermediate' | 'advanced';
+type TabsValue = Difficulty.Beginner | Difficulty.Intermediate | Difficulty.Advanced;
 
 interface ComponentProps extends TabsProps {
     tabs: TabsValue[];
@@ -11,15 +12,15 @@ interface ComponentProps extends TabsProps {
 
 export function WorkoutLandingTabs({ tabs, children, ...tabsProps }: ComponentProps) {
     const { t } = useTranslation();
-    const [selectedTab, setSelectedTab] = useState<TabsValue>('beginner');
+    const [selectedTab, setSelectedTab] = useState<TabsValue>(Difficulty.Beginner);
 
     const getTabLabel = (tab: TabsValue) => {
         switch (tab) {
-            case 'beginner':
+            case Difficulty.Beginner:
                 return t('general.shared.beginner');
-            case 'intermediate':
+            case Difficulty.Intermediate:
                 return t('general.shared.intermediate');
-            case 'advanced':
+            case Difficulty.Advanced:
                 return t('general.shared.advanced');
             default:
                 return '';

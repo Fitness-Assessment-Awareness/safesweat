@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Label } from '../../../components/Label';
 import { useWorkoutProfile } from '../../../context/WorkoutProfileProvider';
+import { Difficulty } from '../../onboarding/data/entities/Difficulty';
 import { Workout } from '../data/entities/Workout';
 import { WORKOUTS, WorkoutKey } from '../data/workouts';
 import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
@@ -13,12 +14,12 @@ export function WorkoutLandingRecommendedSection() {
 
     const getWorkoutLevel = (workoutPoints: number) => {
         if (workoutPoints < 15) {
-            return 'beginner';
+            return Difficulty.Beginner;
         }
         if (workoutPoints < 30) {
-            return 'intermediate';
+            return Difficulty.Intermediate;
         }
-        return 'advanced';
+        return Difficulty.Advanced;
     };
 
     const repeatedWorkouts = workoutProfile.workoutHistories.reduce(
@@ -36,7 +37,7 @@ export function WorkoutLandingRecommendedSection() {
         .filter(
             ([, workout]) =>
                 workoutProfile.healthProblems.length === 0 ||
-                (workoutProfile.healthProblems.length > 0 && workout.difficulty === 'beginner'),
+                (workoutProfile.healthProblems.length > 0 && workout.difficulty === Difficulty.Beginner),
         )
         .sort(([workoutKeyA, workoutA], [workoutKeyB, workoutB]) => {
             const workoutLevel = getWorkoutLevel(workoutProfile.workoutPoints);
@@ -50,10 +51,10 @@ export function WorkoutLandingRecommendedSection() {
             }
             if (workoutA.difficulty === workoutLevel) return -1;
             if (workoutB.difficulty === workoutLevel) return 1;
-            if (workoutA.difficulty === 'beginner') return 1;
-            if (workoutB.difficulty === 'beginner') return -1;
-            if (workoutA.difficulty === 'intermediate') return -1;
-            if (workoutB.difficulty === 'intermediate') return 1;
+            if (workoutA.difficulty === Difficulty.Beginner) return 1;
+            if (workoutB.difficulty === Difficulty.Beginner) return -1;
+            if (workoutA.difficulty === Difficulty.Intermediate) return -1;
+            if (workoutB.difficulty === Difficulty.Intermediate) return 1;
             return 0;
         });
 

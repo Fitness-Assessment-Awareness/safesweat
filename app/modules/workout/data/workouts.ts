@@ -1,3 +1,4 @@
+import { Difficulty } from '../../onboarding/data/entities/Difficulty';
 import { FocusArea } from '../../onboarding/data/entities/FocusArea';
 import { WorkoutAssets } from '../assets';
 import { Workout } from './entities/Workout';
@@ -5,7 +6,7 @@ import { Workout } from './entities/Workout';
 export const WORKOUTS = {
     absBeginner: {
         title: 'ABS BEGINNER',
-        difficulty: 'beginner',
+        difficulty: Difficulty.Beginner,
         estimatedDuration: 20,
         focusArea: FocusArea.Abs,
         exercises: [
@@ -24,7 +25,7 @@ export const WORKOUTS = {
     chestBeginner: {
         title: 'CHEST BEGINNER',
         estimatedDuration: 11,
-        difficulty: 'beginner',
+        difficulty: Difficulty.Beginner,
         focusArea: FocusArea.Abs,
         exercises: [
             { type: 'duration', duration: 30, exerciseKey: 'jumpingJacks' },
@@ -44,7 +45,7 @@ export const WORKOUTS = {
     absIntermediate: {
         title: 'ABS INTERMEDIATE',
         estimatedDuration: 20,
-        difficulty: 'intermediate',
+        difficulty: Difficulty.Intermediate,
         focusArea: FocusArea.Abs,
         exercises: [{ type: 'duration', duration: 20, exerciseKey: 'jumpingJacks' }],
         thumbnail: WorkoutAssets.absBeginner,
@@ -53,7 +54,7 @@ export const WORKOUTS = {
         title: 'CHEST INTERMEDIATE',
         estimatedDuration: 20,
         focusArea: FocusArea.Abs,
-        difficulty: 'intermediate',
+        difficulty: Difficulty.Intermediate,
         exercises: [{ type: 'duration', duration: 20, exerciseKey: 'jumpingJacks' }],
         thumbnail: WorkoutAssets.absBeginner,
     },
@@ -61,14 +62,14 @@ export const WORKOUTS = {
         title: 'ABS ADVANCED',
         estimatedDuration: 20,
         focusArea: FocusArea.Abs,
-        difficulty: 'advanced',
+        difficulty: Difficulty.Advanced,
         exercises: [{ type: 'duration', duration: 20, exerciseKey: 'jumpingJacks' }],
         thumbnail: WorkoutAssets.absBeginner,
     },
     chestAdvanced: {
         title: 'CHEST ADVANCED',
         estimatedDuration: 20,
-        difficulty: 'advanced',
+        difficulty: Difficulty.Advanced,
         focusArea: FocusArea.Abs,
         exercises: [{ type: 'duration', duration: 20, exerciseKey: 'jumpingJacks' }],
         thumbnail: WorkoutAssets.absBeginner,

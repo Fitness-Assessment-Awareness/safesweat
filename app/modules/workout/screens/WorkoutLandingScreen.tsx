@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, Dialog, ScrollView, View, YStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Paragraph } from '../../../components/Paragraph';
 import { StoragePublicRepository } from '../../../storage/domain/useCases/StoragePublicRepository';
+import { Difficulty } from '../../onboarding/data/entities/Difficulty';
 import { WorkoutLandingOnlineExerciseSection } from '../components/WorkoutLandingOnlineExerciseSection';
 import { WorkoutLandingRecommendedSection } from '../components/WorkoutLandingRecommendedSection';
 import { WorkoutLandingTabs } from '../components/WorkoutLandingTabs';
@@ -51,13 +52,13 @@ export function WorkoutLandingScreen() {
                     <WorkoutRoutineCard />
                     <WorkoutLandingRecommendedSection />
                     <WorkoutLandingOnlineExerciseSection />
-                    <WorkoutLandingTabs tabs={['beginner', 'intermediate', 'advanced']}>
+                    <WorkoutLandingTabs tabs={[Difficulty.Beginner, Difficulty.Intermediate, Difficulty.Advanced]}>
                         <WorkoutLandingTabs.Content
-                            selectedTab="beginner"
+                            selectedTab={Difficulty.Beginner}
                             rowGap="$4"
                         >
                             {Object.entries(WORKOUTS).map(([workoutKey, value]) => {
-                                if (value.difficulty !== 'beginner') {
+                                if (value.difficulty !== Difficulty.Beginner) {
                                     return null;
                                 }
 
@@ -77,11 +78,11 @@ export function WorkoutLandingScreen() {
                             })}
                         </WorkoutLandingTabs.Content>
                         <WorkoutLandingTabs.Content
-                            selectedTab="intermediate"
+                            selectedTab={Difficulty.Intermediate}
                             rowGap="$4"
                         >
                             {Object.entries(WORKOUTS).map(([workoutKey, value]) => {
-                                if (value.difficulty !== 'intermediate') {
+                                if (value.difficulty !== Difficulty.Intermediate) {
                                     return null;
                                 }
 
@@ -101,11 +102,11 @@ export function WorkoutLandingScreen() {
                             })}
                         </WorkoutLandingTabs.Content>
                         <WorkoutLandingTabs.Content
-                            selectedTab="advanced"
+                            selectedTab={Difficulty.Advanced}
                             rowGap="$4"
                         >
                             {Object.entries(WORKOUTS).map(([workoutKey, value]) => {
-                                if (value.difficulty !== 'advanced') {
+                                if (value.difficulty !== Difficulty.Advanced) {
                                     return null;
                                 }
 

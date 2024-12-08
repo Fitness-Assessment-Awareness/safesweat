@@ -2,7 +2,7 @@ import { BottomSheetModal } from '@gorhom/bottom-sheet';
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { Minus, Plus } from '@tamagui/lucide-icons';
 import { StatusBar } from 'expo-status-bar';
-import React, { Fragment, useRef, useState } from 'react';
+import { Fragment, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, Dialog, Image, ScrollView, Separator, View, XStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
@@ -10,6 +10,7 @@ import { Label } from '../../../components/Label';
 import { Paragraph } from '../../../components/Paragraph';
 import { Sheet } from '../../../components/Sheet';
 import { useWorkoutProfile } from '../../../context/WorkoutProfileProvider';
+import { Difficulty } from '../../onboarding/data/entities/Difficulty';
 import { WorkoutExerciseDetailsSheetContent } from '../components/WorkoutExerciseDetailsSheet';
 import { WorkoutExerciseOverview } from '../components/WorkoutExerciseOverview';
 import { EXERCISES, ExerciseKey } from '../data/exercises';
@@ -29,11 +30,11 @@ export function WorkoutPlanDetailsScreen() {
     const getInitialMultiplier = () => {
         if (workoutPoints < 15) {
             switch (workoutPlan.difficulty) {
-                case 'beginner':
+                case Difficulty.Beginner:
                     return 1;
-                case 'intermediate':
+                case Difficulty.Intermediate:
                     return 0.75;
-                case 'advanced':
+                case Difficulty.Advanced:
                     return 0.5;
                 default:
                     return 1;
@@ -41,22 +42,22 @@ export function WorkoutPlanDetailsScreen() {
         }
         if (workoutPoints < 30) {
             switch (workoutPlan.difficulty) {
-                case 'beginner':
+                case Difficulty.Beginner:
                     return 1.25;
-                case 'intermediate':
+                case Difficulty.Intermediate:
                     return 1;
-                case 'advanced':
+                case Difficulty.Advanced:
                     return 0.75;
                 default:
                     return 1;
             }
         }
         switch (workoutPlan.difficulty) {
-            case 'beginner':
+            case Difficulty.Beginner:
                 return 1.5;
-            case 'intermediate':
+            case Difficulty.Intermediate:
                 return 1.25;
-            case 'advanced':
+            case Difficulty.Advanced:
                 return 1;
             default:
                 return 1;
@@ -74,7 +75,7 @@ export function WorkoutPlanDetailsScreen() {
     const [multiplierChangedAlertVisible, setMultiplierChangedAlertVisible] = useState(getInitialMultiplier() !== 1);
 
     const renderDialogContent = () => {
-        if (healthProblems.length > 0 && workoutPlan.difficulty !== 'beginner') {
+        if (healthProblems.length > 0 && workoutPlan.difficulty !== Difficulty.Beginner) {
             return (
                 <>
                     <Heading>Oops</Heading>

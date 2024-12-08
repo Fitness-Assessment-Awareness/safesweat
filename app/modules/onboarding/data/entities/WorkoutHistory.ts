@@ -1,4 +1,5 @@
 import { WorkoutKey } from '../../../workout/data/workouts';
+import { Difficulty } from './Difficulty';
 
 interface WorkoutLocalHistory {
     type: 'local';
@@ -16,7 +17,7 @@ interface WorkoutOnlineHistory {
     rating: number | null;
     multiplier: number;
     imageUrl: string;
-    difficulty: 'beginner' | 'intermediate' | 'advanced';
+    difficulty: Difficulty;
 }
 
 export type WorkoutHistory = WorkoutLocalHistory | WorkoutOnlineHistory;

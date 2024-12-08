@@ -14,6 +14,7 @@ import { useLanguageCode } from '../../../context/LanguageCodeProvider';
 import { useWorkoutOffline } from '../../../context/WorkoutOfflineProvider';
 import { useWorkoutProfile } from '../../../context/WorkoutProfileProvider';
 import { LanguageCode } from '../../../lang/LanguageCode';
+import { Difficulty } from '../../onboarding/data/entities/Difficulty';
 import { WorkoutExerciseDetailsSheetContent } from '../components/WorkoutExerciseDetailsSheet';
 import { WorkoutExerciseOverview } from '../components/WorkoutExerciseOverview';
 import { EXERCISES, ExerciseKey } from '../data/exercises';
@@ -32,11 +33,11 @@ export function WorkoutOnlinePlanDetailsScreen() {
     const getInitialMultiplier = () => {
         if (workoutPoints < 15) {
             switch (params.difficulty) {
-                case 'beginner':
+                case Difficulty.Beginner:
                     return 1;
-                case 'intermediate':
+                case Difficulty.Intermediate:
                     return 0.75;
-                case 'advanced':
+                case Difficulty.Advanced:
                     return 0.5;
                 default:
                     return 1;
@@ -44,22 +45,22 @@ export function WorkoutOnlinePlanDetailsScreen() {
         }
         if (workoutPoints < 30) {
             switch (params.difficulty) {
-                case 'beginner':
+                case Difficulty.Beginner:
                     return 1.25;
-                case 'intermediate':
+                case Difficulty.Intermediate:
                     return 1;
-                case 'advanced':
+                case Difficulty.Advanced:
                     return 0.75;
                 default:
                     return 1;
             }
         }
         switch (params.difficulty) {
-            case 'beginner':
+            case Difficulty.Beginner:
                 return 1.5;
-            case 'intermediate':
+            case Difficulty.Intermediate:
                 return 1.25;
-            case 'advanced':
+            case Difficulty.Advanced:
                 return 1;
             default:
                 return 1;
@@ -75,7 +76,7 @@ export function WorkoutOnlinePlanDetailsScreen() {
     const [multiplierChangedAlertVisible, setMultiplierChangedAlertVisible] = useState(getInitialMultiplier() !== 1);
 
     const renderDialogContent = () => {
-        if (healthProblems.length > 0 && params.difficulty !== 'beginner') {
+        if (healthProblems.length > 0 && params.difficulty !== Difficulty.Beginner) {
             return (
                 <>
                     <Heading>Oops</Heading>

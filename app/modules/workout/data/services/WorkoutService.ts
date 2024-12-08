@@ -1,4 +1,5 @@
 import { Network } from '../../../../network/Network';
+import { Difficulty } from '../../../onboarding/data/entities/Difficulty';
 import { WorkoutListAllPlan } from '../entities/WorkoutListAll';
 import { isWorkoutPlanExerciseDuration, WorkoutListAllPlanAPIModel } from '../entities/WorkoutListAllAPIModel';
 
@@ -14,7 +15,7 @@ export namespace WorkoutService {
             introductionEn: plan.introductionEn,
             introductionMs: plan.introductionMs,
             estimatedDuration: plan.estimatedTimeMinute,
-            difficulty: plan.difficulty.toLowerCase() as 'beginner' | 'intermediate' | 'advanced',
+            difficulty: plan.difficulty as Difficulty,
             focusArea: plan.focusAreaDto.name,
             exercises: plan.workoutPlanExerciseDtos.map((exercise) => {
                 if (isWorkoutPlanExerciseDuration(exercise)) {

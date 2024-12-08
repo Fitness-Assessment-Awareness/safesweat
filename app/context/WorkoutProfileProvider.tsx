@@ -93,10 +93,10 @@ export function WorkoutProfileProvider({ children }: ComponentProps) {
     const workoutHistoriesInPoints = workoutProfile.workoutHistories.reduce((acc, history) => {
         const workout = history.type === 'local' ? WORKOUTS[history.workoutKey] : history;
         if (dayjs(history.timestamp).diff(dayjs(), 'days') <= 30) {
-            if (workout.difficulty === 'beginner') {
+            if (workout.difficulty === Difficulty.Beginner) {
                 return acc + 1;
             }
-            if (workout.difficulty === 'intermediate') {
+            if (workout.difficulty === Difficulty.Intermediate) {
                 return acc + 2;
             }
             return acc + 3;
