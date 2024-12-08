@@ -53,8 +53,8 @@ export default function App() {
         return null;
     }
 
-    const onNavigationReady = () => {
-        SplashScreen.hideAsync();
+    const onNavigationReady = async () => {
+        await SplashScreen.hideAsync();
         setNotificationHandler({
             handleNotification: async () => ({
                 shouldShowAlert: true,
@@ -66,39 +66,39 @@ export default function App() {
     };
 
     return (
-        <QueryClientProvider client={queryClient}>
-            <TamaguiProvider
-                defaultTheme="light"
-                config={appConfig}
-            >
-                <GestureHandlerRootView style={{ flex: 1 }}>
-                    <SafeAreaProvider>
-                        <NavigationContainer onReady={onNavigationReady}>
-                            <I18nextProvider i18n={i18n}>
-                                <EmergencyContactsProvider>
-                                    <SessionProvider>
-                                        <LanguageCodeProvider>
-                                            <WorkoutOfflineProvider>
-                                                <WorkoutProfileProvider>
-                                                    <WorkoutNotificationProvider>
+        <TamaguiProvider
+            defaultTheme="light"
+            config={appConfig}
+        >
+            <GestureHandlerRootView style={{ flex: 1 }}>
+                <SafeAreaProvider>
+                    <QueryClientProvider client={queryClient}>
+                        <I18nextProvider i18n={i18n}>
+                            <EmergencyContactsProvider>
+                                <SessionProvider>
+                                    <LanguageCodeProvider>
+                                        <WorkoutOfflineProvider>
+                                            <WorkoutProfileProvider>
+                                                <WorkoutNotificationProvider>
+                                                    <NavigationContainer onReady={onNavigationReady}>
                                                         <BottomSheetModalProvider>
                                                             <PortalProvider shouldAddRootHost>
                                                                 <Screens />
                                                                 <Toast position="bottom" />
                                                             </PortalProvider>
                                                         </BottomSheetModalProvider>
-                                                    </WorkoutNotificationProvider>
-                                                </WorkoutProfileProvider>
-                                            </WorkoutOfflineProvider>
-                                        </LanguageCodeProvider>
-                                    </SessionProvider>
-                                </EmergencyContactsProvider>
-                            </I18nextProvider>
-                        </NavigationContainer>
-                    </SafeAreaProvider>
-                </GestureHandlerRootView>
-            </TamaguiProvider>
-        </QueryClientProvider>
+                                                    </NavigationContainer>
+                                                </WorkoutNotificationProvider>
+                                            </WorkoutProfileProvider>
+                                        </WorkoutOfflineProvider>
+                                    </LanguageCodeProvider>
+                                </SessionProvider>
+                            </EmergencyContactsProvider>
+                        </I18nextProvider>
+                    </QueryClientProvider>
+                </SafeAreaProvider>
+            </GestureHandlerRootView>
+        </TamaguiProvider>
     );
 }
 
