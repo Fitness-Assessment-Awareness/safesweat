@@ -4,7 +4,7 @@ import { Info, PhoneCall } from '@tamagui/lucide-icons';
 import dayjs from 'dayjs';
 import { StatusBar } from 'expo-status-bar';
 import LottieView from 'lottie-react-native';
-import React, { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pressable } from 'react-native';
 import { Button, View } from 'tamagui';
@@ -16,7 +16,7 @@ import { useRootNavigation } from '../../../navigation/useAppNavigation';
 import { useCountdown } from '../../../utils/useCountdown';
 import { WorkoutEmergencyCallSheetContent } from '../components/WorkoutEmergencyCallSheet';
 import { WorkoutExerciseDetailsSheetContent } from '../components/WorkoutExerciseDetailsSheet';
-import { EXERCISES } from '../data/exercises';
+import { useExercises } from '../data/exercises';
 import { WorkoutRootStackParamList } from '../navigation/WorkoutStackParamList';
 
 export function WorkoutOnlineExercisingScreen() {
@@ -29,6 +29,7 @@ export function WorkoutOnlineExercisingScreen() {
         params: { index, multiplier, ...workout },
     } = useRoute<RouteProp<WorkoutRootStackParamList, 'WorkoutOnlineExercising'>>();
 
+    const EXERCISES = useExercises();
     const workoutExercise = workout.exercises[index];
     const exercise = EXERCISES[workoutExercise.exerciseKey];
 

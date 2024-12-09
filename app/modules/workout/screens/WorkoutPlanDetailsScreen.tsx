@@ -13,7 +13,7 @@ import { useWorkoutProfile } from '../../../context/WorkoutProfileProvider';
 import { Difficulty } from '../../onboarding/data/entities/Difficulty';
 import { WorkoutExerciseDetailsSheetContent } from '../components/WorkoutExerciseDetailsSheet';
 import { WorkoutExerciseOverview } from '../components/WorkoutExerciseOverview';
-import { EXERCISES, ExerciseKey } from '../data/exercises';
+import { ExerciseKey, useExercises } from '../data/exercises';
 import { WORKOUTS } from '../data/workouts';
 import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
 import { WorkoutStackParamList } from '../navigation/WorkoutStackParamList';
@@ -26,6 +26,7 @@ export function WorkoutPlanDetailsScreen() {
     const { workoutProfile } = useWorkoutProfile();
     const { workoutPoints, healthProblems } = workoutProfile;
     const workoutPlan = WORKOUTS[workoutKey];
+    const EXERCISES = useExercises();
 
     const getInitialMultiplier = () => {
         if (workoutPoints < 15) {

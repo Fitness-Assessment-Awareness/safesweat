@@ -14,7 +14,7 @@ import { Screen } from '../../../components/Screen';
 import { Sheet } from '../../../components/Sheet';
 import { useRootNavigation } from '../../../navigation/useAppNavigation';
 import { WorkoutExerciseDetailsSheetContent } from '../components/WorkoutExerciseDetailsSheet';
-import { EXERCISES } from '../data/exercises';
+import { useExercises } from '../data/exercises';
 import { WORKOUTS } from '../data/workouts';
 import { WorkoutRootStackParamList } from '../navigation/WorkoutStackParamList';
 
@@ -24,6 +24,7 @@ export function WorkoutStartInitialScreen() {
     const { params } = useRoute<RouteProp<WorkoutRootStackParamList, 'WorkoutStartInitial'>>();
     const { workoutKey } = params;
     const sheetRef = useRef<BottomSheetModal>(null);
+    const EXERCISES = useExercises();
 
     const [isCountingDown, setIsCountingDown] = useState(true);
     const workout = WORKOUTS[workoutKey];

@@ -14,7 +14,6 @@ import { Screen } from '../../../components/Screen';
 import { Sheet } from '../../../components/Sheet';
 import { useRootNavigation } from '../../../navigation/useAppNavigation';
 import { WorkoutExerciseDetailsSheetContent } from '../components/WorkoutExerciseDetailsSheet';
-import { EXERCISES } from '../data/exercises';
 import { WorkoutRootStackParamList } from '../navigation/WorkoutStackParamList';
 
 export function WorkoutOnlineStartInitialScreen() {
@@ -22,6 +21,7 @@ export function WorkoutOnlineStartInitialScreen() {
     const { replace } = useRootNavigation();
     const { params } = useRoute<RouteProp<WorkoutRootStackParamList, 'WorkoutOnlineStartInitial'>>();
     const sheetRef = useRef<BottomSheetModal>(null);
+    const EXERCISES = useExercises();
 
     const [isCountingDown, setIsCountingDown] = useState(true);
     const firstWorkoutExercise = params.exercises[0];

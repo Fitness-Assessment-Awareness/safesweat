@@ -15,7 +15,7 @@ import { useRootNavigation } from '../../../navigation/useAppNavigation';
 import { useCountdown } from '../../../utils/useCountdown';
 import { WorkoutEmergencyCallSheetContent } from '../components/WorkoutEmergencyCallSheet';
 import { WorkoutExerciseDetailsSheetContent } from '../components/WorkoutExerciseDetailsSheet';
-import { EXERCISES } from '../data/exercises';
+import { useExercises } from '../data/exercises';
 import { WORKOUTS } from '../data/workouts';
 import { WorkoutRootStackParamList } from '../navigation/WorkoutStackParamList';
 
@@ -33,6 +33,7 @@ export function WorkoutRestingScreen() {
     } = useRoute<RouteProp<WorkoutRootStackParamList, 'WorkoutResting'>>();
     const workout = WORKOUTS[workoutKey];
     const workoutExercise = workout.exercises[index];
+    const EXERCISES = useExercises();
     const exercise = EXERCISES[workoutExercise.exerciseKey];
 
     const { seconds, startCountdown, stopCountdown } = useCountdown();
