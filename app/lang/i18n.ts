@@ -1,17 +1,27 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import { LanguageCode } from './LanguageCode';
-import en from './en.json';
-import ms from './ms.json';
+import exerciseEn from './en/exercise.json';
+import translationEn from './en/translation.json';
+import translationMs from './ms/translation.json';
 
-const resources = {
-    en,
-    ms,
-};
+export const resources = {
+    en: {
+        translation: translationEn,
+        exercise: exerciseEn,
+    },
+    ms: {
+        translation: translationMs,
+    },
+} as const;
+
+export const defaultNS = 'translation';
 
 i18n.use(initReactI18next).init({
     resources,
+    ns: ['translation', 'exercise'],
     lng: LanguageCode.ENGLISH,
+    defaultNS,
     fallbackLng: [LanguageCode.ENGLISH, LanguageCode.MELAYU],
 });
 
