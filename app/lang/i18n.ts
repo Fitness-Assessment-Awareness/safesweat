@@ -8,7 +8,7 @@ import translationMs from './ms/translation.json';
 export const resources = {
     en: {
         translation: translationEn,
-        exercise: exerciseEn,
+        ...exerciseEn,
     },
     ms: {
         translation: translationMs,
