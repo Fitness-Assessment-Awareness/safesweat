@@ -93,25 +93,27 @@ export function WorkoutRestingScreen() {
                                 justifyContent="center"
                                 alignItems="center"
                                 columnGap="$1.5"
+                                flex={1}
                             >
                                 <Heading
                                     size="small"
                                     color="white"
+                                    flex={1}
                                 >
                                     {exercise.title}
+                                    <Pressable
+                                        onPress={() => {
+                                            sheetRefExerciseDetails.current?.present();
+                                            stopCountdown();
+                                        }}
+                                        hitSlop={4}
+                                    >
+                                        <Info
+                                            color="white"
+                                            strokeWidth={2.5}
+                                        />
+                                    </Pressable>
                                 </Heading>
-                                <Pressable
-                                    onPress={() => {
-                                        sheetRefExerciseDetails.current?.present();
-                                        stopCountdown();
-                                    }}
-                                    hitSlop={4}
-                                >
-                                    <Info
-                                        color="white"
-                                        strokeWidth={2.5}
-                                    />
-                                </Pressable>
                             </View>
                             <Heading
                                 size="small"
