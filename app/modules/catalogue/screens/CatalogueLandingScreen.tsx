@@ -99,7 +99,7 @@ function ScreenContent({ onExercisePress }: ScreenContentProps) {
                     rowGap="$3"
                 >
                     <YStack rowGap="$2">
-                        <Heading>Difficulty</Heading>
+                        <Heading>Intensity</Heading>
                         <XStack gap="$2">
                             <SelectableChip
                                 isSelected={difficulty === 'low'}
