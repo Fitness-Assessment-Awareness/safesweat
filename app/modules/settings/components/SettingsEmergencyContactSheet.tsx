@@ -1,4 +1,4 @@
-import React, { useId, useState } from 'react';
+import { useId, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Linking } from 'react-native';
 import Toast from 'react-native-toast-message';
@@ -35,7 +35,7 @@ export function SettingsEmergencyContactSheetContent({ handleDismissSheet, actio
 
     const id = useId();
 
-    function validateField() {
+    const validateField = () => {
         if (form.fullName === '' || form.phoneNumber === '') {
             setForm({
                 ...form,
@@ -61,9 +61,9 @@ export function SettingsEmergencyContactSheetContent({ handleDismissSheet, actio
             return false;
         }
         return true;
-    }
+    };
 
-    function handleAdd() {
+    const handleAdd = () => {
         if (!validateField()) {
             return;
         }
@@ -76,10 +76,11 @@ export function SettingsEmergencyContactSheetContent({ handleDismissSheet, actio
                 phoneNumber: form.phoneNumber,
             },
         ]);
+        handleDismissSheet();
         Toast.show({ type: 'success', text1: t('settings.emergency.contact.added'), visibilityTime: 2000 });
-    }
+    };
 
-    function handleEdit() {
+    const handleEdit = () => {
         if (contactOnEdit) {
             if (!validateField()) {
                 return;
@@ -89,12 +90,12 @@ export function SettingsEmergencyContactSheetContent({ handleDismissSheet, actio
                 fullName: form.fullName,
                 phoneNumber: form.phoneNumber,
             });
-
+            handleDismissSheet();
             Toast.show({ type: 'success', text1: t('settings.emergency.contact.edited'), visibilityTime: 2000 });
         } else {
             throw new Error('contactOnEdit & setContactOnEdit props is required for editing');
         }
-    }
+    };
 
     return (
         <>
@@ -119,7 +120,6 @@ export function SettingsEmergencyContactSheetContent({ handleDismissSheet, actio
                 />
                 <Label htmlFor={`${id}-phonenumber`}>{t('settings.emergency.contact.phone.number')}</Label>
                 <Input
-                    keyboardType="phone-pad"
                     id={`${id}-phonenumber`}
                     value={form.phoneNumber}
                     onChangeText={(e) =>
@@ -149,7 +149,6 @@ export function SettingsEmergencyContactSheetContent({ handleDismissSheet, actio
                         } else if (action === SettingsEmergencyContactSheetAction.EDIT) {
                             handleEdit();
                         }
-                        handleDismissSheet();
                     }}
                 >
                     OK

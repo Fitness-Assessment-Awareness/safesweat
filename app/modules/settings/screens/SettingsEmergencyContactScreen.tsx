@@ -97,7 +97,6 @@ export function SettingsEmergencyContactScreen() {
             <Sheet
                 ref={sheetRef}
                 enableDynamicSizing
-                onDismiss={handleDismissSheet}
             >
                 <Sheet.ScrollView>
                     <SettingsEmergencyContactSheetContent
