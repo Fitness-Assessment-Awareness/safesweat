@@ -15,7 +15,7 @@ import { useRootNavigation } from '../../../navigation/useAppNavigation';
 import { useCountdown } from '../../../utils/useCountdown';
 import { WorkoutEmergencyCallSheetContent } from '../components/WorkoutEmergencyCallSheet';
 import { WorkoutExerciseDetailsSheetContent } from '../components/WorkoutExerciseDetailsSheet';
-import { EXERCISES } from '../data/exercises';
+import { useExercises } from '../data/exercises';
 import { WORKOUTS } from '../data/workouts';
 import { WorkoutRootStackParamList } from '../navigation/WorkoutStackParamList';
 
@@ -33,6 +33,7 @@ export function WorkoutRestingScreen() {
     } = useRoute<RouteProp<WorkoutRootStackParamList, 'WorkoutResting'>>();
     const workout = WORKOUTS[workoutKey];
     const workoutExercise = workout.exercises[index];
+    const EXERCISES = useExercises();
     const exercise = EXERCISES[workoutExercise.exerciseKey];
 
     const { seconds, startCountdown, stopCountdown } = useCountdown();
@@ -93,25 +94,27 @@ export function WorkoutRestingScreen() {
                                 justifyContent="center"
                                 alignItems="center"
                                 columnGap="$1.5"
+                                flex={1}
                             >
                                 <Heading
                                     size="small"
                                     color="white"
+                                    flex={1}
                                 >
                                     {exercise.title}
+                                    <Pressable
+                                        onPress={() => {
+                                            sheetRefExerciseDetails.current?.present();
+                                            stopCountdown();
+                                        }}
+                                        hitSlop={4}
+                                    >
+                                        <Info
+                                            color="white"
+                                            strokeWidth={2.5}
+                                        />
+                                    </Pressable>
                                 </Heading>
-                                <Pressable
-                                    onPress={() => {
-                                        sheetRefExerciseDetails.current?.present();
-                                        stopCountdown();
-                                    }}
-                                    hitSlop={4}
-                                >
-                                    <Info
-                                        color="white"
-                                        strokeWidth={2.5}
-                                    />
-                                </Pressable>
                             </View>
                             <Heading
                                 size="small"

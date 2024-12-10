@@ -15,7 +15,7 @@ import { useRootNavigation } from '../../../navigation/useAppNavigation';
 import { useCountdown } from '../../../utils/useCountdown';
 import { WorkoutEmergencyCallSheetContent } from '../components/WorkoutEmergencyCallSheet';
 import { WorkoutExerciseDetailsSheetContent } from '../components/WorkoutExerciseDetailsSheet';
-import { EXERCISES } from '../data/exercises';
+import { useExercises } from '../data/exercises';
 import { WorkoutRootStackParamList } from '../navigation/WorkoutStackParamList';
 
 const REST_TIME = 20;
@@ -30,6 +30,7 @@ export function WorkoutOnlineRestingScreen() {
     const {
         params: { index, multiplier, ...workout },
     } = useRoute<RouteProp<WorkoutRootStackParamList, 'WorkoutOnlineResting'>>();
+    const EXERCISES = useExercises();
     const workoutExercise = workout.exercises[index];
     const exercise = EXERCISES[workoutExercise.exerciseKey];
 

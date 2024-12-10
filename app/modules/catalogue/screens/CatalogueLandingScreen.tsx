@@ -1,6 +1,6 @@
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
 import { Settings2 } from '@tamagui/lucide-icons';
-import React, { Fragment, useRef, useState } from 'react';
+import { Fragment, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FlatList, Pressable } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -10,7 +10,7 @@ import { SearchBar } from '../../../components/SearchBar';
 import { SelectableChip } from '../../../components/SelectableChip';
 import { Sheet } from '../../../components/Sheet';
 import { Exercise, EXERCISE_FOCUS_AREAS } from '../../workout/data/entities/Exercise';
-import { ExerciseKey, EXERCISES } from '../../workout/data/exercises';
+import { ExerciseKey, useExercises } from '../../workout/data/exercises';
 import { CatalogueExerciseDetailsSheetContent } from '../components/CatalogueExerciseDetailsSheet';
 import { CatalogueExerciseOverview } from '../components/CatalogueExerciseOverview';
 
@@ -20,7 +20,8 @@ interface ScreenContentProps {
 
 function ScreenContent({ onExercisePress }: ScreenContentProps) {
     const { t } = useTranslation();
-    const exercises = Object.entries(EXERCISES) as [ExerciseKey, Exercise][];
+    const exerciseList = useExercises();
+    const exercises = Object.entries(exerciseList) as [ExerciseKey, Exercise][];
     const [searchText, setSearchText] = useState('');
     const [difficulty, setDifficulty] = useState<'low' | 'moderate' | 'vigorous' | null>(null);
     const [focusAreas, setFocusAreas] = useState<Exercise['focusAreas']>([]);
@@ -98,7 +99,7 @@ function ScreenContent({ onExercisePress }: ScreenContentProps) {
                     rowGap="$3"
                 >
                     <YStack rowGap="$2">
-                        <Heading>Difficulty</Heading>
+                        <Heading>Intensity</Heading>
                         <XStack gap="$2">
                             <SelectableChip
                                 isSelected={difficulty === 'low'}
@@ -158,6 +159,7 @@ function ScreenContent({ onExercisePress }: ScreenContentProps) {
 export function CatalogueLandingScreen() {
     const [selectedWorkout, setSelectedWorkout] = useState<ExerciseKey>('jumpingJacks');
     const sheetRef = useRef<BottomSheetModal>(null);
+    const exercises = useExercises();
 
     const onExercisePress = (workout: ExerciseKey) => {
         setSelectedWorkout(workout);
@@ -171,7 +173,7 @@ export function CatalogueLandingScreen() {
                 ref={sheetRef}
                 snapPoints={['85%']}
             >
-                <CatalogueExerciseDetailsSheetContent {...EXERCISES[selectedWorkout]} />
+                <CatalogueExerciseDetailsSheetContent {...exercises[selectedWorkout]} />
             </Sheet>
         </View>
     );

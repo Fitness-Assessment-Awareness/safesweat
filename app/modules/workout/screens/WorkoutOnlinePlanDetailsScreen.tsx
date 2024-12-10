@@ -17,7 +17,7 @@ import { LanguageCode } from '../../../lang/LanguageCode';
 import { Difficulty } from '../../onboarding/data/entities/Difficulty';
 import { WorkoutExerciseDetailsSheetContent } from '../components/WorkoutExerciseDetailsSheet';
 import { WorkoutExerciseOverview } from '../components/WorkoutExerciseOverview';
-import { EXERCISES, ExerciseKey } from '../data/exercises';
+import { ExerciseKey, useExercises } from '../data/exercises';
 import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
 import { WorkoutStackParamList } from '../navigation/WorkoutStackParamList';
 
@@ -29,6 +29,7 @@ export function WorkoutOnlinePlanDetailsScreen() {
     const { workoutPoints, healthProblems } = workoutProfile;
     const { languageCode } = useLanguageCode();
     const { offlineWorkouts, setOfflineWorkouts } = useWorkoutOffline();
+    const EXERCISES = useExercises();
 
     const getInitialMultiplier = () => {
         if (workoutPoints < 15) {

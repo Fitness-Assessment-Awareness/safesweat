@@ -128,15 +128,9 @@ export function WorkoutLandingScreen() {
                     </WorkoutLandingTabs>
                 </ScrollView>
             </View>
-            <Dialog
-                modal={false}
-                open={shouldShowInitialModal}
-            >
+            <Dialog open={shouldShowInitialModal}>
                 <Dialog.Portal>
-                    <Dialog.Overlay
-                        key="overlay"
-                        animation="slow"
-                    />
+                    <Dialog.Overlay key="overlay" />
                     <Dialog.Content
                         key="content"
                         m="$3"
