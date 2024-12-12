@@ -1,0 +1,307 @@
+{
+    "exercise": {
+        "jumpingJacks": {
+            "title": "LOMPAT BINTANG",
+            "instructions": "Mulakan dengan kaki rapat dan tangan di sisi, kemudian lompat dengan kaki terbuka dan tangan di atas kepala.\n\nKembali ke posisi permulaan kemudian lakukan ulangan seterusnya. Latihan ini memberikan senaman seluruh badan dan melibatkan semua kumpulan otot besar anda.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Mendarat terlalu keras",
+                    "description": "Apabila anda melompat ke udara dan turun, anda meletakkan terlalu banyak impak atau tekanan pada kaki, buku lali, lutut atau sendi lain, ini boleh menyebabkan ketidakselesaan atau kecederaan. Cuba mendarat di atas bola kaki anda daripada tumit. Ia menyerap lebih banyak kejutan."
+                },
+                "2": {
+                    "title": "Tidak membengkokkan lutut",
+                    "description": "Gagal membengkokkan lutut boleh menyebabkan senaman menjadi kurang berkesan."
+                },
+                "3": {
+                    "title": "Tidak melibatkan otot teras",
+                    "description": "Ia memerlukan otot teras untuk terlibat sepanjang senaman. Jika teras tidak terlibat, ia boleh menyebabkan bentuk yang lemah dan senaman yang tidak berkesan."
+                }
+            },
+            "breathingTips": {
+                "1": "Tarik nafas semasa anda melompat kaki terbuka.",
+                "2": "Hembus nafas semasa anda melompat kaki kembali rapat.",
+                "3": "Ambil nafas dalam-dalam untuk mengoksigenkan badan anda sepenuhnya."
+            }
+        },
+        "pushUp": {
+            "title": "TEKAN TUBI",
+            "instructions": "Mulakan dengan kaki rapat dan tangan di sisi, kemudian lompat dengan kaki terbuka dan tangan di atas kepala.\n\nKembali ke posisi permulaan kemudian lakukan ulangan seterusnya. Latihan ini memberikan senaman seluruh badan dan melibatkan semua kumpulan otot besar anda.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Mendarat terlalu keras",
+                    "description": "Apabila anda melompat ke udara dan turun, anda meletakkan terlalu banyak impak atau tekanan pada kaki, buku lali, lutut atau sendi lain, ini boleh menyebabkan ketidakselesaan atau kecederaan. Cuba mendarat di atas bola kaki anda daripada tumit. Ia menyerap lebih banyak kejutan."
+                },
+                "2": {
+                    "title": "Tidak membengkokkan lutut",
+                    "description": "Gagal membengkokkan lutut boleh menyebabkan senaman menjadi kurang berkesan."
+                },
+                "3": {
+                    "title": "Tidak melibatkan otot teras",
+                    "description": "Ia memerlukan otot teras untuk terlibat sepanjang senaman. Jika teras tidak terlibat, ia boleh menyebabkan bentuk yang lemah dan senaman yang tidak berkesan."
+                }
+            },
+            "breathingTips": {
+                "1": "Tarik nafas semasa anda melompat kaki terbuka.",
+                "2": "Hembus nafas semasa anda melompat kaki kembali rapat.",
+                "3": "Ambil nafas dalam-dalam untuk mengoksigenkan badan anda sepenuhnya."
+            }
+        },
+        "abdominalCrunches": {
+            "title": "KETUKAN ABDOMINAL",
+            "instructions": "Berbaring di belakang dengan lutut dibengkokkan dan tangan diluruskan ke hadapan.\n\nKemudian angkat badan atas anda dari lantai. Tahan selama beberapa saat dan perlahan-lahan kembali.\n\nIa terutamanya melibatkan otot rectus abdominis dan obliques.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Menarik leher",
+                    "description": "Menarik leher semasa Ketukan Abdominal boleh menegangkan leher anda dan menyebabkan kecederaan. Sebaliknya, gunakan otot teras anda untuk mengangkat badan atas anda."
+                },
+                "2": {
+                    "title": "Tidak melibatkan otot teras",
+                    "description": "Ia memerlukan otot teras untuk terlibat sepanjang senaman. Jika teras tidak terlibat, ia boleh menyebabkan bentuk yang lemah dan senaman yang tidak berkesan."
+                },
+                "3": {
+                    "title": "Melakukan senaman terlalu cepat atau dengan bentuk yang lemah",
+                    "description": "Ini boleh meningkatkan risiko kecederaan dan menjadikan senaman kurang berkesan."
+                }
+            },
+            "breathingTips": {
+                "1": "Pernafasan yang betul semasa Ketukan Abdominal adalah penting kerana ia membantu melibatkan otot teras dan memberikan kestabilan untuk tulang belakang.",
+                "2": "Menghembus nafas semasa anda mengangkat badan dari tanah membantu melibatkan otot abdominis atas, yang merupakan otot utama yang disasarkan dalam senaman ini.",
+                "3": "Menghirup nafas semasa anda menurunkan kembali membantu anda mengekalkan kawalan dan mengelakkan ketegangan belakang"
+            }
+        },
+        "inclinePushUp": {
+            "title": "TEKAN TUBI CERUN",
+            "instructions": "Mulakan dalam posisi tekan tubi biasa tetapi dengan tangan anda dinaikkan pada kerusi atau bangku.\n\nKemudian tolak badan anda ke atas dan ke bawah menggunakan kekuatan lengan anda.\n\nIngat untuk menjaga badan anda lurus.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Penempatan tangan yang tidak betul",
+                    "description": "Meletakkan tangan anda terlalu lebar atau terlalu rapat boleh menyebabkan ketegangan yang tidak perlu pada siku dan pergelangan tangan anda. Letakkan tangan anda selebar bahu dan terus di bawah bahu anda."
+                },
+                "2": {
+                    "title": "Mengangkat pinggul secara berlebihan atau membiarkan belakang melengkung",
+                    "description": "Membiarkan belakang anda melengkung atau mengangkat pinggul terlalu tinggi semasa Tekan Tubi boleh menyebabkan tekanan yang tidak perlu pada tulang belakang anda dan meningkatkan risiko kecederaan. Jaga badan anda dalam garis lurus dari kepala ke tumit."
+                },
+                "3": {
+                    "title": "Tidak melibatkan otot teras",
+                    "description": "Ia memerlukan otot teras untuk terlibat sepanjang senaman. Jika teras tidak terlibat, ia boleh menyebabkan bentuk yang lemah dan senaman yang tidak berkesan."
+                },
+                "4": {
+                    "title": "Membiarkan siku keluar dari sisi",
+                    "description": "Ini boleh menyebabkan tekanan yang tidak perlu pada sendi bahu dan boleh mengurangkan keberkesanan senaman."
+                }
+            },
+            "breathingTips": {
+                "1": "Tarik nafas semasa anda menurunkan badan ke permukaan yang dinaikkan.",
+                "2": "Hembus nafas semasa anda menolak badan kembali ke posisi permulaan."
+            }
+        },
+        "legRaises": {
+            "title": "ANGKAT KAKI",
+            "instructions": "Berbaring di belakang, dan letakkan tangan anda di bawah pinggul untuk sokongan.\n\nKemudian angkat kaki anda sehingga mereka membentuk sudut tepat dengan lantai.\n\nPerlahan-lahan turunkan kaki anda kembali dan ulangi senaman.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Mengangkat kaki terlalu tinggi",
+                    "description": "Ini boleh menyebabkan lenturan berlebihan pada belakang bawah dan meningkatkan risiko kecederaan."
+                },
+                "2": {
+                    "title": "Tidak mengawal kaki",
+                    "description": "Ini boleh menyebabkan bentuk yang tidak betul, dan mengurangkan keberkesanan senaman."
+                },
+                "3": {
+                    "title": "Bergantung terlalu banyak pada kekuatan kaki",
+                    "description": "Bergantung terlalu banyak pada kekuatan kaki semasa senaman sambil mengabaikan penyertaan kumpulan otot teras akan menjejaskan kesan senaman."
+                },
+                "4": {
+                    "title": "Kekurangan sokongan untuk belakang bawah",
+                    "description": "Ini boleh merosakkan tulang belakang. Anda boleh mengelakkan risiko kecederaan dengan meletakkan tuala yang dilipat di bawah belakang bawah anda."
+                }
+            },
+            "breathingTips": {
+                "1": "Pernafasan yang betul semasa mengangkat kaki adalah penting kerana ia membantu mengaktifkan otot teras, meningkatkan keberkesanan senaman, dan melindungi tulang belakang anda daripada kecederaan.",
+                "2": "Menghembus nafas semasa anda mengangkat kaki membantu anda mengawal pergerakan dengan lebih baik.",
+                "3": "Menghirup nafas semasa anda menurunkan mereka mengurangkan tekanan pada tulang belakang anda."
+            }
+        },
+        "mountainClimber": {
+            "title": "PENDAKI GUNUNG",
+            "instructions": "Mulakan dalam posisi tekan tubi. Bengkokkan lutut kanan anda ke arah dada dan luruskan kaki kiri anda, kemudian dengan cepat tukar dari satu kaki ke kaki yang lain.\n\nLatihan ini menguatkan pelbagai kumpulan otot.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Membongkokkan belakang",
+                    "description": "Membongkokkan belakang boleh meletakkan tekanan yang tidak perlu pada tulang belakang anda dan meningkatkan risiko kecederaan. Kekalkan otot teras anda terlibat dan belakang anda lurus."
+                },
+                "2": {
+                    "title": "Mengangkat pinggul",
+                    "description": "Mengangkat pinggul terlalu tinggi semasa latihan boleh menyebabkan lengkungan pada bahagian bawah belakang dan mengurangkan keberkesanan latihan."
+                },
+                "3": {
+                    "title": "Bergerak terlalu cepat",
+                    "description": "Melakukan latihan terlalu cepat boleh mengurangkan keberkesanannya dan mungkin menyebabkan anda kehilangan bentuk yang betul."
+                },
+                "4": {
+                    "title": "Tidak melibatkan otot teras",
+                    "description": "Ia memerlukan otot teras untuk terlibat sepanjang latihan. Jika teras tidak terlibat, ia boleh menyebabkan bentuk yang lemah dan latihan yang tidak berkesan."
+                }
+            },
+            "breathingTips": {
+                "1": "Ambil nafas semula jadi dan dalam. Elakkan menahan nafas.",
+                "2": "Kekalkan irama pernafasan yang konsisten sepanjang latihan."
+            }
+        },
+        "wideArmPushUp": {
+            "title": "TEKAN TUBI LENGAN LEBAR",
+            "instructions": "Mulakan dalam posisi tekan tubi biasa tetapi dengan tangan anda dibuka lebih lebar daripada bahu anda.\n\nKemudian tolak badan anda ke atas dan ke bawah. Ingat untuk menjaga badan anda lurus.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Membiarkan siku keluar dari sisi",
+                    "description": "Ini meletakkan tekanan yang tidak perlu pada sendi bahu dan boleh mengurangkan keberkesanan senaman."
+                },
+                "2": {
+                    "title": "Gagal melibatkan otot teras",
+                    "description": "Ini boleh menyebabkan bahagian bawah belakang melengkung dan meningkatkan risiko kecederaan. Ketatkan perut anda untuk melibatkan otot teras."
+                },
+                "3": {
+                    "title": "Mengangkat pinggul secara berlebihan atau membiarkan belakang melengkung",
+                    "description": "Membiarkan belakang anda melengkung atau mengangkat pinggul terlalu tinggi semasa Tekan Tubi boleh menyebabkan tekanan yang tidak perlu pada tulang belakang anda dan meningkatkan risiko kecederaan. Jaga badan anda dalam garis lurus dari kepala ke tumit."
+                },
+                "4": {
+                    "title": "Tidak menjaga kepala dalam posisi neutral",
+                    "description": "Ini boleh menyebabkan ketegangan pada leher dan juga mengurangkan keberkesanan senaman."
+                }
+            },
+            "breathingTips": {
+                "1": "Tarik nafas semasa anda menurunkan badan ke arah tanah.",
+                "2": "Hembus nafas semasa anda menolak badan kembali ke posisi permulaan.",
+                "3": "Mengambil nafas dalam-dalam sepanjang senaman boleh meningkatkan aliran oksigen ke otot anda, yang membantu mereka bekerja dengan lebih cekap dan boleh membantu meningkatkan prestasi anda."
+            }
+        },
+        "kneePushUp": {
+            "title": "TEKAN TUBI LUTUT",
+            "instructions": "Mulakan dalam posisi tekan tubi biasa, kemudian biarkan lutut anda menyentuh lantai dan angkat kaki anda dari lantai.\n\nKemudian tolak badan anda ke atas dan ke bawah.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Penempatan tangan yang tidak betul",
+                    "description": "Meletakkan tangan anda terlalu lebar atau terlalu rapat boleh menyebabkan ketegangan yang tidak perlu pada siku dan pergelangan tangan anda. Letakkan tangan anda selebar bahu dan terus di bawah bahu anda."
+                },
+                "2": {
+                    "title": "Tidak melibatkan otot teras",
+                    "description": "Ia memerlukan otot teras untuk terlibat sepanjang senaman. Jika teras tidak terlibat, ia boleh menyebabkan bentuk yang lemah dan senaman yang tidak berkesan."
+                },
+                "3": {
+                    "title": "Mengangkat pinggul secara berlebihan atau membiarkan belakang melengkung",
+                    "description": "Membiarkan belakang anda melengkung atau mengangkat pinggul terlalu tinggi semasa Tekan Tubi boleh menyebabkan tekanan yang tidak perlu pada tulang belakang anda dan meningkatkan risiko kecederaan. Jaga badan anda dalam garis lurus dari kepala ke tumit."
+                },
+                "4": {
+                    "title": "Membiarkan siku keluar dari sisi",
+                    "description": "Ini boleh menyebabkan tekanan yang tidak perlu pada sendi bahu dan boleh mengurangkan keberkesanan senaman."
+                }
+            },
+            "breathingTips": {
+                "1": "Tarik nafas semasa anda menurunkan badan ke arah tanah.",
+                "2": "Hembus nafas semasa anda menolak badan kembali ke posisi permulaan.",
+                "3": "Penting untuk mengekalkan pernafasan yang stabil dan terkawal sepanjang senaman untuk mengekalkan bentuk yang baik dan mengelakkan pening."
+            }
+        },
+        "squat": {
+            "title": "MENCANGKUNG",
+            "instructions": "Berdiri dengan kaki anda selebar bahu dan tangan anda diluruskan ke hadapan, kemudian turunkan badan anda sehingga paha anda selari dengan lantai.\n\nLutut anda harus dilanjutkan ke arah yang sama dengan jari kaki anda. Kembali ke posisi permulaan dan lakukan ulangan seterusnya.\n\nIni melibatkan paha, pinggul, punggung, kuadrisep, hamstring dan bahagian bawah badan.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Membiarkan lutut anda masuk ke dalam",
+                    "description": "Ini boleh meletakkan tekanan yang tidak perlu pada sendi lutut dan meningkatkan risiko kecederaan. Pastikan lutut anda selari dengan jari kaki anda. Juga, jangan biarkan lutut anda melepasi jari kaki anda."
+                },
+                "2": {
+                    "title": "Membongkokkan belakang",
+                    "description": "Membongkokkan belakang boleh meletakkan tekanan yang tidak perlu pada tulang belakang anda dan meningkatkan risiko kecederaan. Kekalkan otot teras anda terlibat dan belakang anda lurus."
+                },
+                "3": {
+                    "title": "Tidak turun cukup rendah",
+                    "description": "Jika anda tidak mencangkung cukup rendah, anda tidak melibatkan glutes dan hamstring anda dengan berkesan. Sasarkan untuk mencangkung sehingga paha anda selari dengan tanah."
+                },
+                "4": {
+                    "title": "Membiarkan tumit anda terangkat dari tanah",
+                    "description": "Mengangkat tumit anda boleh mengalihkan berat badan anda ke hadapan dan meletakkan lebih banyak tekanan pada lutut anda. Pastikan kaki anda rata di atas tanah."
+                }
+            },
+            "breathingTips": {
+                "1": "Tarik nafas semasa anda menurunkan badan.",
+                "2": "Hembus nafas semasa anda menolak diri anda kembali ke atas.",
+                "3": "Ini boleh membantu menstabilkan otot teras anda dan memastikan bentuk yang betul."
+            }
+        },
+        "cobraStretch": {
+            "title": "REGANGAN COBRA",
+            "instructions": "Berbaring di perut anda dan bengkokkan siku dengan tangan di bawah bahu anda.\n\nKemudian tolak dada anda ke atas dari tanah sejauh mungkin. Tahan posisi ini selama beberapa saat.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Melengkungkan belakang secara berlebihan",
+                    "description": "Satu kesilapan biasa adalah melengkungkan leher secara berlebihan semasa senaman, yang boleh menyebabkan ketegangan atau kecederaan leher. Sebaliknya, kekalkan leher dalam posisi neutral dan fokus pada melibatkan otot belakang atas untuk mengangkat dada dari tanah."
+                },
+                "2": {
+                    "title": "Menggunakan lengan untuk mengangkat dada",
+                    "description": "Kesilapan lain adalah menggunakan lengan untuk mengangkat dada, yang boleh meletakkan tekanan yang tidak perlu pada bahu dan lengan. Sebaliknya, fokus pada menggunakan otot belakang atas untuk mengangkat dada dari tanah."
+                },
+                "3": {
+                    "title": "Mengangkat dan menekuk dada",
+                    "description": "Apabila badan atas diangkat, mengangkat dan menekuk dada akan meningkatkan tekanan pada sendi siku dan menghalang otot belakang atas daripada diregangkan dengan baik."
+                }
+            },
+            "breathingTips": {
+                "1": "Bernafas dalam-dalam sebelum memulakan regangan boleh membantu mempersiapkan badan anda.",
+                "2": "Fokus pada pernafasan anda dan kekalkan ia stabil dan sekata sepanjang regangan. Menahan nafas boleh menyebabkan ketegangan dan ketidakselesaan."
+            }
+        },
+        "lumbarTwist": {
+            "title": "REGANGAN PUSINGAN LUMBAR TULANG BELAKANG",
+            "instructions": "Berbaring di belakang dengan kaki diluruskan.\n\nHembus nafas, angkat kaki kiri anda dan gunakan tangan kanan untuk menarik lutut kiri ke kanan. Kekalkan tangan yang lain diluruskan ke sisi di atas lantai.\n\nBernafas secara semula jadi. Tahan posisi ini selama beberapa saat.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Menggunakan momentum untuk memaksa pusingan",
+                    "description": "Ini boleh menyebabkan tekanan berlebihan pada tulang belakang dan mungkin menyebabkan kecederaan. Sebaliknya, fokus pada pergerakan yang terkawal dan beransur-ansur."
+                },
+                "2": {
+                    "title": "Meregangkan secara berlebihan",
+                    "description": "Memusingkan tulang belakang melebihi julat pergerakan semula jadi boleh menyebabkan ketidakselesaan atau kecederaan. Penting untuk mendengar badan anda dan hanya memusingkan sejauh yang selesa."
+                },
+                "3": {
+                    "title": "Mengangkat belakang dari lantai",
+                    "description": "Semasa melakukan senaman ini, belakang harus kekal rata di atas lantai. Mengangkat belakang boleh meletakkan terlalu banyak tekanan pada bahagian bawah belakang, menyebabkan potensi kecederaan."
+                },
+                "4": {
+                    "title": "Tidak mengekalkan bahu di atas tanah",
+                    "description": "Cuba untuk mengekalkan bahu di atas tanah semasa melakukan senaman ini. Mengangkat bahu boleh mengurangkan keberkesanan regangan dan berpotensi menyebabkan kecederaan."
+                }
+            },
+            "breathingTips": {
+                "1": "Bernafas dalam-dalam sebelum memulakan regangan boleh membantu mempersiapkan badan anda.",
+                "2": "Fokus pada pernafasan anda dan kekalkan ia stabil dan sekata sepanjang regangan. Menahan nafas boleh menyebabkan ketegangan dan ketidakselesaan."
+            }
+        },
+        "doorwayStretch": {
+            "title": "REGANGAN DADA",
+            "instructions": "Cari pintu, ambil posisi lunge di pintu dengan tangan anda di bingkai pintu dan siku anda sedikit lebih rendah daripada bahu anda, kemudian perlahan-lahan bawa dada anda ke hadapan.\n\nTahan posisi ini selama 30-40 saat. Kemudian perlahan-lahan keluar dari posisi ini, turunkan tangan anda dan lakukan beberapa gulungan bahu.\n\nJangan tarik kepala anda ke hadapan, dan kekalkan leher anda santai.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Melengkungkan bahagian bawah belakang",
+                    "description": "Melengkungkan bahagian bawah belakang boleh membuat regangan terasa lebih dalam. Walau bagaimanapun, ini boleh meletakkan tekanan yang tidak perlu pada bahagian bawah belakang dan mungkin menyebabkan ketidakselesaan atau kecederaan."
+                },
+                "2": {
+                    "title": "Mengangkat bahu",
+                    "description": "Ini boleh menyebabkan ketegangan pada leher dan bahagian atas belakang, yang boleh menyebabkan ketidakselesaan atau kecederaan. Penting untuk mengekalkan bahu anda santai dan ke bawah."
+                },
+                "3": {
+                    "title": "Meregangkan secara berlebihan",
+                    "description": "Tolak diri anda dengan betul dalam regangan dada tetapi jangan berlebihan. Meregangkan secara berlebihan boleh menyebabkan kecederaan dan mungkin membuat otot lebih ketat."
+                },
+                "4": {
+                    "title": "Menahan regangan terlalu lama",
+                    "description": "Menahan regangan dada terlalu lama sebenarnya boleh menyebabkan otot mengetat semula, membatalkan kerja yang baru anda lakukan. Adalah lebih baik untuk menahan regangan selama kira-kira 15-30 saat."
+                }
+            },
+            "breathingTips": {
+                "1": "Tarik nafas dalam-dalam dan perlahan-lahan, rasakan dada anda mengembang.",
+                "2": "Hembus nafas perlahan-lahan, rasakan dada anda mengecut."
+            }
+        }
+    }
+}
