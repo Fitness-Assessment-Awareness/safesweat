@@ -10,3 +10,7 @@ export const createUserBackupData = async (userBackupData: UserBackupDataDto) =>
     const response = await Network.post<UserBackupDataDto>('/user-backup', userBackupData);
     return response.data;
 };
+
+export const deleteUserBackupData = async (userId: string) => {
+    await Network.delete(`/user-backup/${userId}`);
+};

@@ -1,6 +1,7 @@
 import { EXPO_PUBLIC_PASSWORD_RESET_REDIRECT_URL, EXPO_PUBLIC_SIGNUP_SUCCESS_REDIRECT_URL } from '@env';
 import { supabase } from '../../../utils/Supabase';
 import { removeAllBookmarks, removeAllLikes } from '../../common/education/data/services/EducationPostService';
+import { deleteUserBackupData } from '../data/services/UserBackupService';
 
 export const signIn = async (email: string, password: string) => {
     const { data, error } = await supabase.auth.signInWithPassword({
@@ -47,5 +48,6 @@ export const deleteUserAccount = async (userId: string) => {
     const { data, error } = await supabase.auth.admin.deleteUser(userId);
     removeAllLikes(userId);
     removeAllBookmarks(userId);
+    deleteUserBackupData(userId);
     return { data, error };
 };
