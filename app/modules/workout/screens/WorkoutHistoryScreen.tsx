@@ -9,7 +9,7 @@ import { useLanguageCode } from '../../../context/LanguageCodeProvider';
 import { useWorkoutProfile } from '../../../context/WorkoutProfileProvider';
 import { LanguageCode } from '../../../lang/LanguageCode';
 import { WorkoutHistory } from '../../onboarding/data/entities/WorkoutHistory';
-import { WORKOUTS } from '../data/workouts';
+import { useWorkouts } from '../data/workouts';
 
 export function WorkoutHistoryScreen() {
     const { t } = useTranslation();
@@ -17,6 +17,7 @@ export function WorkoutHistoryScreen() {
         workoutProfile: { workoutHistories },
     } = useWorkoutProfile();
     const { languageCode } = useLanguageCode();
+    const WORKOUTS = useWorkouts();
 
     const renderContent = () => {
         if (workoutHistories.length === 0) {

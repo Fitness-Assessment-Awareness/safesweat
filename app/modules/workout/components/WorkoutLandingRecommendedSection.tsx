@@ -3,13 +3,14 @@ import { Label } from '../../../components/Label';
 import { useWorkoutProfile } from '../../../context/WorkoutProfileProvider';
 import { Difficulty } from '../../onboarding/data/entities/Difficulty';
 import { Workout } from '../data/entities/Workout';
-import { WORKOUTS, WorkoutKey } from '../data/workouts';
+import { useWorkouts, WorkoutKey } from '../data/workouts';
 import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
 import { WorkoutPlanCard } from './WorkoutPlanCard';
 
 export function WorkoutLandingRecommendedSection() {
     const { t } = useTranslation();
     const navigation = useWorkoutNavigation<'WorkoutLanding'>();
+    const WORKOUTS = useWorkouts();
     const { workoutProfile } = useWorkoutProfile();
 
     const getWorkoutLevel = (workoutPoints: number) => {

@@ -14,7 +14,7 @@ import { Difficulty } from '../../onboarding/data/entities/Difficulty';
 import { WorkoutExerciseDetailsSheetContent } from '../components/WorkoutExerciseDetailsSheet';
 import { WorkoutExerciseOverview } from '../components/WorkoutExerciseOverview';
 import { ExerciseKey, useExercises } from '../data/exercises';
-import { WORKOUTS } from '../data/workouts';
+import { useWorkouts } from '../data/workouts';
 import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
 import { WorkoutStackParamList } from '../navigation/WorkoutStackParamList';
 
@@ -25,6 +25,7 @@ export function WorkoutPlanDetailsScreen() {
     const { workoutKey } = params;
     const { workoutProfile } = useWorkoutProfile();
     const { workoutPoints, healthProblems } = workoutProfile;
+    const WORKOUTS = useWorkouts();
     const workoutPlan = WORKOUTS[workoutKey];
     const EXERCISES = useExercises();
 

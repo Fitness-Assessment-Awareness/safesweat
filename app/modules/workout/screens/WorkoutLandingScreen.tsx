@@ -10,13 +10,14 @@ import { WorkoutLandingRecommendedSection } from '../components/WorkoutLandingRe
 import { WorkoutLandingTabs } from '../components/WorkoutLandingTabs';
 import { WorkoutPlanCard } from '../components/WorkoutPlanCard';
 import { WorkoutRoutineCard } from '../components/WorkoutRoutineCard';
-import { WorkoutKey, WORKOUTS } from '../data/workouts';
+import { useWorkouts, WorkoutKey } from '../data/workouts';
 import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
 
 export function WorkoutLandingScreen() {
     const { t } = useTranslation();
     const navigation = useWorkoutNavigation<'WorkoutLanding'>();
     const [shouldShowInitialModal, setShouldShowInitialModal] = useState(false);
+    const WORKOUTS = useWorkouts();
 
     useEffect(() => {
         const showInitialModal = async () => {

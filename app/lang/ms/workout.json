@@ -1,0 +1,22 @@
+{
+    "workouts": {
+        "absBeginner": {
+            "title": "ABS PERMULAAN"
+        },
+        "absIntermediate": {
+            "title": "ABS PERTENGAHAN"
+        },
+        "absAdvanced": {
+            "title": "ABS LANJUTAN"
+        },
+        "chestBeginner": {
+            "title": "DADA PERMULAAN"
+        },
+        "chestIntermediate": {
+            "title": "DADA PERTENGAHAN"
+        },
+        "chestAdvanced": {
+            "title": "DADA LANJUTAN"
+        }
+    }
+}

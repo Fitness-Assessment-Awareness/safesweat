@@ -17,7 +17,7 @@ import { useCountdown } from '../../../utils/useCountdown';
 import { WorkoutEmergencyCallSheetContent } from '../components/WorkoutEmergencyCallSheet';
 import { WorkoutExerciseDetailsSheetContent } from '../components/WorkoutExerciseDetailsSheet';
 import { useExercises } from '../data/exercises';
-import { WORKOUTS } from '../data/workouts';
+import { useWorkouts } from '../data/workouts';
 import { WorkoutRootStackParamList } from '../navigation/WorkoutStackParamList';
 
 export function WorkoutExercisingScreen() {
@@ -29,6 +29,7 @@ export function WorkoutExercisingScreen() {
     const {
         params: { workoutKey, index, multiplier },
     } = useRoute<RouteProp<WorkoutRootStackParamList, 'WorkoutExercising'>>();
+    const WORKOUTS = useWorkouts();
 
     const workout = WORKOUTS[workoutKey];
     const workoutExercise = workout.exercises[index];

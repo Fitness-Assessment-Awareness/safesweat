@@ -15,7 +15,7 @@ import { Sheet } from '../../../components/Sheet';
 import { useRootNavigation } from '../../../navigation/useAppNavigation';
 import { WorkoutExerciseDetailsSheetContent } from '../components/WorkoutExerciseDetailsSheet';
 import { useExercises } from '../data/exercises';
-import { WORKOUTS } from '../data/workouts';
+import { useWorkouts } from '../data/workouts';
 import { WorkoutRootStackParamList } from '../navigation/WorkoutStackParamList';
 
 export function WorkoutStartInitialScreen() {
@@ -27,6 +27,7 @@ export function WorkoutStartInitialScreen() {
     const EXERCISES = useExercises();
 
     const [isCountingDown, setIsCountingDown] = useState(true);
+    const WORKOUTS = useWorkouts();
     const workout = WORKOUTS[workoutKey];
     const firstWorkoutExercise = workout.exercises[0];
 

@@ -13,7 +13,7 @@ import {
 import { Difficulty } from '../modules/onboarding/data/entities/Difficulty';
 import { Gender } from '../modules/onboarding/data/entities/Gender';
 import { WorkoutProfile } from '../modules/onboarding/data/entities/WorkoutProfile';
-import { WORKOUTS } from '../modules/workout/data/workouts';
+import { useWorkouts } from '../modules/workout/data/workouts';
 import { StoragePublicRepository } from '../storage/domain/useCases/StoragePublicRepository';
 
 interface WorkoutProfileContextValue {
@@ -39,6 +39,7 @@ export function WorkoutProfileProvider({ children }: ComponentProps) {
         workoutHistories: [],
     });
     const [isReady, setIsReady] = useState(false);
+    const WORKOUTS = useWorkouts();
 
     useEffect(() => {
         const rehydrateWorkoutProfile = async () => {
