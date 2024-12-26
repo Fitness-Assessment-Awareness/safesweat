@@ -9,6 +9,7 @@ import { Label } from '../../../components/Label';
 import { useEmergencyContacts } from '../../../context/EmergencyContactProvider';
 import { EMERGENCY_CONTACT_MALAYSIA } from '../constant/EmergencyContactMalaysia';
 import { EmergencyContact } from '../data/entities/EmergencyContact';
+import { isPhoneNumber } from '../utils/isPhoneNumber';
 
 interface ComponentProps {
     handleDismissSheet: () => void;
@@ -20,8 +21,6 @@ export enum SettingsEmergencyContactSheetAction {
     ADD = 'Add new',
     EDIT = 'Edit contact',
 }
-
-const phoneNumMalaysiaRegex = /^(\+?6?01)[02-46-9]-*[0-9]{7}$|^(\+?6?01)[1]-*[0-9]{8}$/;
 
 export function SettingsEmergencyContactSheetContent({ handleDismissSheet, action, contactOnEdit }: ComponentProps) {
     const { t } = useTranslation();
@@ -43,10 +42,7 @@ export function SettingsEmergencyContactSheetContent({ handleDismissSheet, actio
             });
             return false;
         }
-        if (
-            !phoneNumMalaysiaRegex.test(form.phoneNumber) &&
-            form.phoneNumber !== EMERGENCY_CONTACT_MALAYSIA.phoneNumber
-        ) {
+        if (!isPhoneNumber(form.phoneNumber) && form.phoneNumber !== EMERGENCY_CONTACT_MALAYSIA.phoneNumber) {
             setForm({
                 ...form,
                 errorMsg: t('settings.emergency.contact.invalid.phone.format'),
