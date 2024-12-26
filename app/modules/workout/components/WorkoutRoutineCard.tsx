@@ -6,6 +6,7 @@ import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
 import { useWorkoutProfile } from '../../../context/WorkoutProfileProvider';
 import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
+import { isDateBetween } from '../utils/isDateBetween';
 
 export function WorkoutRoutineCard() {
     const { t } = useTranslation();
@@ -35,7 +36,7 @@ export function WorkoutRoutineCard() {
 
     const workoutDoneInThisWeek = workoutProfile.workoutHistories.reduce((prev, curr) => {
         const workoutDate = dayjs(curr.timestamp);
-        if (workoutDate.isBetween(startOfWeek, endOfWeek)) {
+        if (isDateBetween(workoutDate, startOfWeek, endOfWeek)) {
             return prev + 1;
         }
         return prev;
