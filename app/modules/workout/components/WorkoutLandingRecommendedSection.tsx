@@ -5,6 +5,7 @@ import { Difficulty } from '../../onboarding/data/entities/Difficulty';
 import { Workout } from '../data/entities/Workout';
 import { useWorkouts, WorkoutKey } from '../data/workouts';
 import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
+import { getWorkoutLevel } from '../utils/getWorkoutLevel';
 import { WorkoutPlanCard } from './WorkoutPlanCard';
 
 export function WorkoutLandingRecommendedSection() {
@@ -12,16 +13,6 @@ export function WorkoutLandingRecommendedSection() {
     const navigation = useWorkoutNavigation<'WorkoutLanding'>();
     const WORKOUTS = useWorkouts();
     const { workoutProfile } = useWorkoutProfile();
-
-    const getWorkoutLevel = (workoutPoints: number) => {
-        if (workoutPoints < 15) {
-            return Difficulty.Beginner;
-        }
-        if (workoutPoints < 30) {
-            return Difficulty.Intermediate;
-        }
-        return Difficulty.Advanced;
-    };
 
     const repeatedWorkouts = workoutProfile.workoutHistories.reduce(
         (acc, history) =>
