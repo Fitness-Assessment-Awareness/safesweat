@@ -1,0 +1,18 @@
+{
+    "catalogue": {
+        "landing": {
+            "filter": {
+                "intensity": {
+                    "title": "Intensiti",
+                    "low": "rendah",
+                    "moderate": "Sederhana",
+                    "vigorous": "cergas"
+                },
+                "focus_area": {
+                    "title": "Kawasan Tumpuan"
+                }
+            },
+            "not_found": "Tiada senaman ditemui..."
+        }
+    }
+}

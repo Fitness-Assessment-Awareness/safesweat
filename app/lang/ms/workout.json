@@ -1,22 +1,76 @@
 {
-    "workouts": {
-        "absBeginner": {
-            "title": "ABS PERMULAAN"
+    "workout": {
+        "landing": {
+            "welcome_sheet": {
+                "title": "Selamat datang ke Safesweat!",
+                "description": "Kami telah menyediakan senarai senaman yang disyorkan untuk anda dalam skrin utama berdasarkan profil senaman anda. Klik pada salah satu latihan untuk bermula.",
+                "cta": "Jom"
+            },
+            "online_exercise": {
+                "more_exercise": "Lebih Banyak Bersenam",
+                "see_more": "Lihat lagi",
+                "error": "Ralat mendapatkan data! Sila cuba lagi. Anda masih boleh mengakses senaman yang anda simpan.",
+                "loading": "Memuatkan..."
+            }
         },
-        "absIntermediate": {
-            "title": "ABS PERTENGAHAN"
+        "online_exercise": {
+            "categories": {
+                "online": "dalam talian",
+                "downloaded": "Dimuat turun"
+            },
+            "empty": "Tiada senaman dimuat turun...",
+            "error": "Ralat mendapatkan data! Sila cuba lagi. Anda masih boleh mengakses senaman yang anda simpan.",
+            "loading": "Memuatkan..."
         },
-        "absAdvanced": {
-            "title": "ABS LANJUTAN"
+        "plan": {
+            "health_problem_sheet": {
+                "title": "Aduh",
+                "description": "Kami telah mengesan masalah kesihatan dalam profil anda, adalah disyorkan untuk meneruskan pelan senaman kesukaran pemula dengan intensiti yang lebih rendah.",
+                "cta": {
+                    "back": "Baiklah",
+                    "cancel": "Saya faham risikonya"
+                }
+            },
+            "low_intensity_sheet": {
+                "title": "Kemajuan Hebat!",
+                "description": "Pengganda senaman telah dinaikkan kepada nilai yang lebih sesuai untuk tahap kecergasan semasa anda.",
+                "cta": {
+                    "back": "Baiklah"
+                }
+            },
+            "high_intensity_sheet": {
+                "title": "Laraskan Intensiti",
+                "description": "Senaman ini mungkin tidak sesuai untuk tahap kecergasan semasa anda, anda boleh memilih untuk meneruskan dengan intensiti yang dilaraskan atau memilih senaman yang berbeza.",
+                "cta": {
+                    "back": "pergi balik",
+                    "cancel": "teruskan"
+                }
+            }
         },
-        "chestBeginner": {
-            "title": "DADA PERMULAAN"
-        },
-        "chestIntermediate": {
-            "title": "DADA PERTENGAHAN"
-        },
-        "chestAdvanced": {
-            "title": "DADA LANJUTAN"
+        "online_plan": {
+            "health_problem_sheet": {
+                "title": "Aduh",
+                "description": "Kami telah mengesan masalah kesihatan dalam profil anda, adalah disyorkan untuk meneruskan pelan senaman kesukaran pemula dengan intensiti yang lebih rendah.",
+                "cta": {
+                    "back": "Baiklah",
+                    "cancel": "Saya faham risikonya"
+                }
+            },
+            "low_intensity_sheet": {
+                "title": "Kemajuan Hebat!",
+                "description": "Pengganda senaman telah dinaikkan kepada nilai yang lebih sesuai untuk tahap kecergasan semasa anda.",
+                "cta": {
+                    "back": "Baiklah"
+                }
+            },
+            "high_intensity_sheet": {
+                "title": "Laraskan Intensiti",
+                "description": "Senaman ini mungkin tidak sesuai untuk tahap kecergasan semasa anda, anda boleh memilih untuk meneruskan dengan intensiti yang dilaraskan atau memilih senaman yang berbeza.",
+                "cta": {
+                    "back": "pergi balik",
+                    "cancel": "teruskan"
+                }
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ScrollView, Tabs } from 'tamagui';
 import { Label } from '../../../components/Label';
 import { Paragraph } from '../../../components/Paragraph';
@@ -11,6 +12,7 @@ import { WorkoutService } from '../data/services/WorkoutService';
 import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
 
 export function WorkoutOnlineExerciseScreen() {
+    const { t } = useTranslation('workout');
     const { navigate } = useWorkoutNavigation<'WorkoutOnlineExercise'>();
     const { data, isPending, isError } = useQuery({
         queryKey: ['workout'],
@@ -28,7 +30,7 @@ export function WorkoutOnlineExerciseScreen() {
                     p="$4"
                     textAlign="center"
                 >
-                    Loading...
+                    {t('online_exercise.loading')}
                 </Label>
             );
         }
@@ -40,7 +42,7 @@ export function WorkoutOnlineExerciseScreen() {
                     p="$4"
                     textAlign="center"
                 >
-                    Error getting data! Please try again. You can still access workout you saved.
+                    {t('online_exercise.error')}
                 </Label>
             );
         }
@@ -90,7 +92,7 @@ export function WorkoutOnlineExerciseScreen() {
                         size="large"
                         textDecorationLine={selectedTab === 'online' ? 'underline' : 'none'}
                     >
-                        Online
+                        {t('online_exercise.categories.online')}
                     </Label>
                 </Tabs.Tab>
                 <Tabs.Tab
@@ -101,7 +103,7 @@ export function WorkoutOnlineExerciseScreen() {
                         size="large"
                         textDecorationLine={selectedTab === 'offline' ? 'underline' : 'none'}
                     >
-                        Downloaded
+                        {t('online_exercise.categories.downloaded')}
                     </Label>
                 </Tabs.Tab>
             </Tabs.List>
@@ -128,7 +130,7 @@ export function WorkoutOnlineExerciseScreen() {
                             alignSelf="center"
                             p="$4"
                         >
-                            No downloaded workout
+                            {t('online_exercise.empty')}
                         </Paragraph>
                     )}
                     {offlineWorkouts.map((plan) => (

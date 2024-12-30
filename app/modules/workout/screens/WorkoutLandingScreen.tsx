@@ -138,11 +138,8 @@ export function WorkoutLandingScreen() {
                         rowGap="$4"
                     >
                         <YStack rowGap="$2">
-                            <Heading>Welcome to Safesweat!</Heading>
-                            <Paragraph>
-                                We have prepared a list of recommendaded exercise for you in the home screen based on
-                                your workout profile. Click on one of the exercises to get started.
-                            </Paragraph>
+                            <Heading>{t('landing.welcome_sheet.title', { ns: 'workout' })}</Heading>
+                            <Paragraph>{t('landing.welcome_sheet.description', { ns: 'workout' })}</Paragraph>
                         </YStack>
                         <Button
                             themeInverse
@@ -150,7 +147,7 @@ export function WorkoutLandingScreen() {
                                 setShouldShowInitialModal(false);
                             }}
                         >
-                            Let&apos;s Go
+                            {t('landing.welcome_sheet.cta', { ns: 'workout' })}
                         </Button>
                     </Dialog.Content>
                 </Dialog.Portal>

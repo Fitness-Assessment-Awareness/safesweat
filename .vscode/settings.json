@@ -11,9 +11,7 @@
     "editor.linkedEditing": true,
     "editor.rulers": [120],
     "files.autoSave": "onFocusChange",
-    "i18n-ally.localesPaths": [
-        "app/lang"
-    ],
+    "i18n-ally.localesPaths": ["app/lang"],
     "typescript.tsdk": "node_modules/typescript/lib",
     "i18n-ally.keystyle": "nested"
 }

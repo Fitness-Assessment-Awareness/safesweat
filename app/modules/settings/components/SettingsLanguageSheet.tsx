@@ -34,7 +34,7 @@ export function SettingsLanguageSheetContent({ handleDismissSheet }: ComponentPr
                                     type: 'success',
                                     text1: t('settings.language.changed.success'),
                                     visibilityTime: 2000,
-                                })
+                                });
                             }}
                         >
                             <Chip

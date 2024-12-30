@@ -1,0 +1,18 @@
+{
+    "catalogue": {
+        "landing": {
+            "filter": {
+                "intensity": {
+                    "title": "Intensity",
+                    "low": "Low",
+                    "moderate": "Moderate",
+                    "vigorous": "Vigorous"
+                },
+                "focus_area": {
+                    "title": "Focus Areas"
+                }
+            },
+            "not_found": "No exercise found..."
+        }
+    }
+}

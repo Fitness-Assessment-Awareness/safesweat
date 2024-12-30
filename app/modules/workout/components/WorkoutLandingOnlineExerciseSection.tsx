@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { useTranslation } from 'react-i18next';
 import { XStack } from 'tamagui';
 import { Label } from '../../../components/Label';
 import { useLanguageCode } from '../../../context/LanguageCodeProvider';
@@ -8,6 +9,7 @@ import { useWorkoutNavigation } from '../navigation/useWorkoutNavigation';
 import { WorkoutPlanCard } from './WorkoutPlanCard';
 
 export function WorkoutLandingOnlineExerciseSection() {
+    const { t } = useTranslation('workout');
     const { navigate } = useWorkoutNavigation<'WorkoutLanding'>();
     const { data, isPending, isError } = useQuery({
         queryKey: ['workout'],
@@ -19,7 +21,7 @@ export function WorkoutLandingOnlineExerciseSection() {
         return (
             <>
                 <XStack justifyContent="space-between">
-                    <Label size="large">More Exercise</Label>
+                    <Label size="large">{t('landing.online_exercise.more_exercise')}</Label>
                     <Label
                         size="large"
                         textDecorationLine="underline"
@@ -27,14 +29,14 @@ export function WorkoutLandingOnlineExerciseSection() {
                             navigate('WorkoutOnlineExercise');
                         }}
                     >
-                        See more
+                        {t('landing.online_exercise.see_more')}
                     </Label>
                 </XStack>
                 <Label
                     alignSelf="center"
                     textAlign="center"
                 >
-                    Loading...
+                    {t('landing.online_exercise.loading')}
                 </Label>
             </>
         );
@@ -44,7 +46,7 @@ export function WorkoutLandingOnlineExerciseSection() {
         return (
             <>
                 <XStack justifyContent="space-between">
-                    <Label size="large">More Exercise</Label>
+                    <Label size="large">{t('landing.online_exercise.more_exercise')}</Label>
                     <Label
                         size="large"
                         textDecorationLine="underline"
@@ -52,14 +54,14 @@ export function WorkoutLandingOnlineExerciseSection() {
                             navigate('WorkoutOnlineExercise');
                         }}
                     >
-                        See more
+                        {t('landing.online_exercise.see_more')}
                     </Label>
                 </XStack>
                 <Label
                     alignSelf="center"
                     textAlign="center"
                 >
-                    Error getting data! Please try again. You can still access workout you saved.
+                    {t('landing.online_exercise.error')}
                 </Label>
             </>
         );
@@ -68,7 +70,7 @@ export function WorkoutLandingOnlineExerciseSection() {
     return (
         <>
             <XStack justifyContent="space-between">
-                <Label size="large">More Exercise</Label>
+                <Label size="large">{t('landing.online_exercise.more_exercise')}</Label>
                 <Label
                     size="large"
                     textDecorationLine="underline"
@@ -76,7 +78,7 @@ export function WorkoutLandingOnlineExerciseSection() {
                         navigate('WorkoutOnlineExercise');
                     }}
                 >
-                    See more
+                    {t('landing.online_exercise.see_more')}
                 </Label>
             </XStack>
             {data.slice(0, 3).map((plan) => (

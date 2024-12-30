@@ -1,0 +1,22 @@
+{
+    "workouts": {
+        "absBeginner": {
+            "title": "ABS BEGINNER"
+        },
+        "absIntermediate": {
+            "title": "ABS INTERMEDIATE"
+        },
+        "absAdvanced": {
+            "title": "ABS ADVANCED"
+        },
+        "chestBeginner": {
+            "title": "CHEST BEGINNER"
+        },
+        "chestIntermediate": {
+            "title": "CHEST INTERMEDIATE"
+        },
+        "chestAdvanced": {
+            "title": "CHEST ADVANCED"
+        }
+    }
+}

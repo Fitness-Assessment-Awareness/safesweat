@@ -19,7 +19,7 @@ interface ScreenContentProps {
 }
 
 function ScreenContent({ onExercisePress }: ScreenContentProps) {
-    const { t } = useTranslation();
+    const { t } = useTranslation('catalogue');
     const exerciseList = useExercises();
     const exercises = Object.entries(exerciseList) as [ExerciseKey, Exercise][];
     const [searchText, setSearchText] = useState('');
@@ -86,7 +86,7 @@ function ScreenContent({ onExercisePress }: ScreenContentProps) {
                     m="$8"
                     alignSelf="center"
                 >
-                    {t('catalogue.landing.no.exercise.found')}
+                    {t('landing.not_found')}
                 </Paragraph>
             )}
             <Sheet
@@ -99,7 +99,7 @@ function ScreenContent({ onExercisePress }: ScreenContentProps) {
                     rowGap="$3"
                 >
                     <YStack rowGap="$2">
-                        <Heading>Intensity</Heading>
+                        <Heading>{t('landing.filter.intensity.title')}</Heading>
                         <XStack gap="$2">
                             <SelectableChip
                                 isSelected={difficulty === 'low'}
@@ -107,7 +107,7 @@ function ScreenContent({ onExercisePress }: ScreenContentProps) {
                                     setDifficulty(difficulty === 'low' ? null : 'low');
                                 }}
                             >
-                                Low
+                                {t('landing.filter.intensity.low')}
                             </SelectableChip>
                             <SelectableChip
                                 isSelected={difficulty === 'moderate'}
@@ -115,7 +115,7 @@ function ScreenContent({ onExercisePress }: ScreenContentProps) {
                                     setDifficulty(difficulty === 'moderate' ? null : 'moderate');
                                 }}
                             >
-                                Moderate
+                                {t('landing.filter.intensity.moderate')}
                             </SelectableChip>
                             <SelectableChip
                                 isSelected={difficulty === 'vigorous'}
@@ -123,12 +123,12 @@ function ScreenContent({ onExercisePress }: ScreenContentProps) {
                                     setDifficulty(difficulty === 'vigorous' ? null : 'vigorous');
                                 }}
                             >
-                                Vigorous
+                                {t('landing.filter.intensity.vigorous')}
                             </SelectableChip>
                         </XStack>
                     </YStack>
                     <YStack rowGap="$2">
-                        <Heading>Focus Areas</Heading>
+                        <Heading>{t('landing.filter.focus_area.title')}</Heading>
                         <XStack
                             gap="$2"
                             flexWrap="wrap"

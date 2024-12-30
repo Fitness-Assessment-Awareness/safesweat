@@ -17,7 +17,7 @@
         "sourceType": "module",
         "project": "./tsconfig.json"
     },
-    "plugins": ["@typescript-eslint", "@tanstack/query"],
+    "plugins": ["@typescript-eslint", "@tanstack/query", "i18next"],
     "rules": {
         "@typescript-eslint/no-use-before-define": ["error", { "functions": false, "classes": false }],
         "@typescript-eslint/dot-notation": "off",
@@ -58,6 +58,7 @@
             {
                 "additionalHooks": "(useAnimatedStyle|useWorkletCallback|useDerivedValue)$"
             }
-        ]
+        ],
+        "i18next/no-literal-string": "warn"
     }
 }
