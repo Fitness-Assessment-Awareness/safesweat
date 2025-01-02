@@ -1,22 +1,76 @@
 {
-    "workouts": {
-        "absBeginner": {
-            "title": "ABS BEGINNER"
+    "workout": {
+        "landing": {
+            "welcome_sheet": {
+                "title": "Welcome to Safesweat!",
+                "description": "We have prepared a list of recommendaded exercise for you in the home screen based on your workout profile. Click on one of the exercises to get started.",
+                "cta": "Let's Go"
+            },
+            "online_exercise": {
+                "more_exercise": "More Exercise",
+                "see_more": "See more",
+                "error": "Error getting data! Please try again. You can still access workout you saved.",
+                "loading": "Loading..."
+            }
         },
-        "absIntermediate": {
-            "title": "ABS INTERMEDIATE"
+        "online_exercise": {
+            "categories": {
+                "online": "Online",
+                "downloaded": "Downloaded"
+            },
+            "empty": "No downloaded workout...",
+            "error": "Error getting data! Please try again. You can still access workout you saved.",
+            "loading": "Loading..."
         },
-        "absAdvanced": {
-            "title": "ABS ADVANCED"
+        "plan": {
+            "health_problem_sheet": {
+                "title": "Oops",
+                "description": "We have detected health problems in your profile, it is recommended to continue with a workout plan of beginner difficulty with a lower intensity.",
+                "cta": {
+                    "back": "Alright",
+                    "cancel": "I understand the risks"
+                }
+            },
+            "low_intensity_sheet": {
+                "title": "Great Progress!",
+                "description": "The workout multiplier has been raised to a value that is more suitable for your current fitness level.",
+                "cta": {
+                    "back": "Alright"
+                }
+            },
+            "high_intensity_sheet": {
+                "title": "Adjust Intensity",
+                "description": "This workout might not be suitable for your current fitness level, you may choose to continue with an adjusted intensity or choose a different workout.",
+                "cta": {
+                    "back": "Go back",
+                    "cancel": "Continue"
+                }
+            }
         },
-        "chestBeginner": {
-            "title": "CHEST BEGINNER"
-        },
-        "chestIntermediate": {
-            "title": "CHEST INTERMEDIATE"
-        },
-        "chestAdvanced": {
-            "title": "CHEST ADVANCED"
+        "online_plan": {
+            "health_problem_sheet": {
+                "title": "Oops",
+                "description": "We have detected health problems in your profile, it is recommended to continue with a workout plan of beginner difficulty with a lower intensity.",
+                "cta": {
+                    "back": "Alright",
+                    "cancel": "I understand the risks"
+                }
+            },
+            "low_intensity_sheet": {
+                "title": "Great Progress!",
+                "description": "The workout multiplier has been raised to a value that is more suitable for your current fitness level.",
+                "cta": {
+                    "back": "Alright"
+                }
+            },
+            "high_intensity_sheet": {
+                "title": "Adjust Intensity",
+                "description": "This workout might not be suitable for your current fitness level, you may choose to continue with an adjusted intensity or choose a different workout.",
+                "cta": {
+                    "back": "Go back",
+                    "cancel": "Continue"
+                }
+            }
         }
     }
 }

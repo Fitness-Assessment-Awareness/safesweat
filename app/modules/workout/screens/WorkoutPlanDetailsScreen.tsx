@@ -80,18 +80,15 @@ export function WorkoutPlanDetailsScreen() {
         if (healthProblems.length > 0 && workoutPlan.difficulty !== Difficulty.Beginner) {
             return (
                 <>
-                    <Heading>Oops</Heading>
-                    <Paragraph>
-                        We have detected health problems in your profile, it is recommended to continue with a workout
-                        plan of beginner difficulty with a lower intensity.
-                    </Paragraph>
+                    <Heading>{t('online_plan.health_problem_sheet.title', { ns: 'workout' })}</Heading>
+                    <Paragraph>{t('online_plan.health_problem_sheet.description', { ns: 'workout' })}</Paragraph>
                     <Button
                         themeInverse
                         onPress={() => {
                             goBack();
                         }}
                     >
-                        Alright
+                        {t('online_plan.health_problem_sheet.cta.back', { ns: 'workout' })}
                     </Button>
                     <Button
                         theme="red_active"
@@ -100,7 +97,7 @@ export function WorkoutPlanDetailsScreen() {
                             setMultiplierChangedAlertVisible(false);
                         }}
                     >
-                        I understand the risks
+                        {t('online_plan.health_problem_sheet.cta.cancel', { ns: 'workout' })}
                     </Button>
                 </>
             );
@@ -109,18 +106,15 @@ export function WorkoutPlanDetailsScreen() {
         if (getInitialMultiplier() > 1) {
             return (
                 <>
-                    <Heading>Great Progress!</Heading>
-                    <Paragraph>
-                        The workout multiplier has been raised to a value that is more suitable for your current fitness
-                        level.
-                    </Paragraph>
+                    <Heading>{t('online_plan.low_intensity_sheet.title', { ns: 'workout' })}</Heading>
+                    <Paragraph>{t('online_plan.low_intensity_sheet.description', { ns: 'workout' })}</Paragraph>
                     <Button
                         themeInverse
                         onPress={() => {
                             setMultiplierChangedAlertVisible(false);
                         }}
                     >
-                        Alright
+                        {t('online_plan.low_intensity_sheet.cta.back', { ns: 'workout' })}
                     </Button>
                 </>
             );
@@ -128,11 +122,8 @@ export function WorkoutPlanDetailsScreen() {
 
         return (
             <>
-                <Heading>Adjust Intensity</Heading>
-                <Paragraph>
-                    This workout might not be suitable for your current fitness level, you may choose to continue with
-                    an adjusted intensity or choose a different workout.
-                </Paragraph>
+                <Heading>{t('online_plan.high_intensity_sheet.title', { ns: 'workout' })}</Heading>
+                <Paragraph>{t('online_plan.high_intensity_sheet.description', { ns: 'workout' })}</Paragraph>
                 <XStack columnGap="$3">
                     <Button
                         theme="red_active"
@@ -141,7 +132,7 @@ export function WorkoutPlanDetailsScreen() {
                             goBack();
                         }}
                     >
-                        Go back
+                        {t('online_plan.high_intensity_sheet.cta.back', { ns: 'workout' })}
                     </Button>
                     <Button
                         themeInverse
@@ -149,7 +140,7 @@ export function WorkoutPlanDetailsScreen() {
                             setMultiplierChangedAlertVisible(false);
                         }}
                     >
-                        Continue
+                        {t('online_plan.high_intensity_sheet.cta.cancel', { ns: 'workout' })}
                     </Button>
                 </XStack>
             </>

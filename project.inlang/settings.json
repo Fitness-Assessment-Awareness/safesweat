@@ -4,7 +4,9 @@
     "modules": ["https://cdn.jsdelivr.net/npm/@inlang/plugin-i18next@latest/dist/index.js"],
     "plugin.inlang.i18next": {
         "pathPattern": {
-            "exercise": "./app/lang/{languageTag}/exercise.json"
+            "catalogue": "./app/lang/{languageTag}/catalogue.json",
+            "exercise": "./app/lang/{languageTag}/exercise.json",
+            "workout": "./app/lang/{languageTag}/workout.json"
         }
     }
 }
