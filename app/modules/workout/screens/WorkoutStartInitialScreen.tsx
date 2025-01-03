@@ -36,6 +36,7 @@ export function WorkoutStartInitialScreen() {
             workoutKey,
             multiplier: params.multiplier,
             index: 0,
+            timeTaken: 0,
         });
     };
 

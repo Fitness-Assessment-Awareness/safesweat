@@ -7,8 +7,8 @@ interface WorkoutPlanDetailsParams {
 
 type WorkoutOnlinePlanDetailsParams = WorkoutListAllPlan;
 type WorkoutOnlineStartInitialParams = WorkoutListAllPlan & { multiplier: number };
-type WorkoutOnlineExercisingParams = WorkoutListAllPlan & { index: number; multiplier: number };
-type WorkoutOnlineRestingParams = WorkoutListAllPlan & { index: number; multiplier: number };
+type WorkoutOnlineExercisingParams = WorkoutListAllPlan & { index: number; multiplier: number; timeTaken: number };
+type WorkoutOnlineRestingParams = WorkoutListAllPlan & { index: number; multiplier: number; timeTaken: number };
 
 interface WorkoutStartInitialParams {
     workoutKey: WorkoutKey;
@@ -19,12 +19,14 @@ interface WorkoutRestingParams {
     workoutKey: WorkoutKey;
     index: number;
     multiplier: number;
+    timeTaken: number;
 }
 
 interface WorkoutExercisingParams {
     workoutKey: WorkoutKey;
     index: number;
     multiplier: number;
+    timeTaken: number;
 }
 
 interface WorkoutSuccessParams {

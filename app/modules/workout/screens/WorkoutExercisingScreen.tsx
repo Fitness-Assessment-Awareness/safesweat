@@ -25,9 +25,10 @@ export function WorkoutExercisingScreen() {
     const { setWorkoutProfile } = useWorkoutProfile();
     const sheetRefExerciseDetails = useRef<BottomSheetModal>(null);
     const sheetRefEmergencyCall = useRef<BottomSheetModal>(null);
+    const startTime = useRef<dayjs.Dayjs>(dayjs());
     const { replace } = useRootNavigation();
     const {
-        params: { workoutKey, index, multiplier },
+        params: { workoutKey, index, multiplier, timeTaken },
     } = useRoute<RouteProp<WorkoutRootStackParamList, 'WorkoutExercising'>>();
     const WORKOUTS = useWorkouts();
 
@@ -39,6 +40,7 @@ export function WorkoutExercisingScreen() {
     const { seconds, startCountdown, stopCountdown } = useCountdown();
 
     const onFinishExercise = useCallback(() => {
+        const exerciseDuration = dayjs().diff(startTime.current, 'seconds');
         if (index === workout.exercises.length - 1) {
             replace('WorkoutSuccess', { workoutKey });
             setWorkoutProfile((workoutProfile) => ({
@@ -50,14 +52,20 @@ export function WorkoutExercisingScreen() {
                         timestamp: dayjs().toISOString(),
                         rating: null,
                         multiplier,
+                        timeTaken: timeTaken + exerciseDuration,
                     },
                     ...workoutProfile.workoutHistories,
                 ],
             }));
             return;
         }
-        replace('WorkoutResting', { workoutKey, index: index + 1, multiplier });
-    }, [index, multiplier, replace, setWorkoutProfile, workout.exercises.length, workoutKey]);
+        replace('WorkoutResting', {
+            workoutKey,
+            index: index + 1,
+            multiplier,
+            timeTaken: timeTaken + exerciseDuration,
+        });
+    }, [index, multiplier, replace, setWorkoutProfile, timeTaken, workout.exercises.length, workoutKey]);
 
     useEffect(() => {
         if (workoutExercise.type === 'duration') {

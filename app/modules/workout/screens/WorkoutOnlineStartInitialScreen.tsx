@@ -14,6 +14,7 @@ import { Screen } from '../../../components/Screen';
 import { Sheet } from '../../../components/Sheet';
 import { useRootNavigation } from '../../../navigation/useAppNavigation';
 import { WorkoutExerciseDetailsSheetContent } from '../components/WorkoutExerciseDetailsSheet';
+import { useExercises } from '../data/exercises';
 import { WorkoutRootStackParamList } from '../navigation/WorkoutStackParamList';
 
 export function WorkoutOnlineStartInitialScreen() {
@@ -30,6 +31,7 @@ export function WorkoutOnlineStartInitialScreen() {
         replace('WorkoutOnlineExercising', {
             ...params,
             index: 0,
+            timeTaken: 0,
         });
     };
 

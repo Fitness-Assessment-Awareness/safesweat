@@ -7,6 +7,7 @@ interface WorkoutLocalHistory {
     timestamp: string;
     rating: number | null;
     multiplier: number;
+    timeTaken: number;
 }
 
 interface WorkoutOnlineHistory {
@@ -18,6 +19,7 @@ interface WorkoutOnlineHistory {
     multiplier: number;
     imageUrl: string;
     difficulty: Difficulty;
+    timeTaken: number;
 }
 
 export type WorkoutHistory = WorkoutLocalHistory | WorkoutOnlineHistory;
