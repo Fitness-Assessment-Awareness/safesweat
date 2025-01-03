@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { Info, PhoneCall } from '@tamagui/lucide-icons';
@@ -14,6 +15,7 @@ import { Sheet } from '../../../components/Sheet';
 import { useWorkoutProfile } from '../../../context/WorkoutProfileProvider';
 import { useRootNavigation } from '../../../navigation/useAppNavigation';
 import { useCountdown } from '../../../utils/useCountdown';
+import { Gender } from '../../onboarding/data/entities/Gender';
 import { WorkoutEmergencyCallSheetContent } from '../components/WorkoutEmergencyCallSheet';
 import { WorkoutExerciseDetailsSheetContent } from '../components/WorkoutExerciseDetailsSheet';
 import { useExercises } from '../data/exercises';
@@ -21,13 +23,13 @@ import { WorkoutRootStackParamList } from '../navigation/WorkoutStackParamList';
 
 export function WorkoutOnlineExercisingScreen() {
     const { t } = useTranslation();
-    const { setWorkoutProfile } = useWorkoutProfile();
+    const { workoutProfile, setWorkoutProfile } = useWorkoutProfile();
     const sheetRefExerciseDetails = useRef<BottomSheetModal>(null);
     const sheetRefEmergencyCall = useRef<BottomSheetModal>(null);
     const startTime = useRef<dayjs.Dayjs>(dayjs());
     const { replace } = useRootNavigation();
     const {
-        params: { index, multiplier, timeTaken, ...workout },
+        params: { index, multiplier, timeTaken, caloriesBurned, ...workout },
     } = useRoute<RouteProp<WorkoutRootStackParamList, 'WorkoutOnlineExercising'>>();
 
     const EXERCISES = useExercises();
@@ -38,10 +40,21 @@ export function WorkoutOnlineExercisingScreen() {
 
     const onFinishExercise = useCallback(() => {
         const exerciseDuration = dayjs().diff(startTime.current, 'seconds');
+        const bmr =
+            (workoutProfile.gender === Gender.Female ? -161 : 5) +
+            workoutProfile.weight * 10 +
+            workoutProfile.height * 6.25 -
+            21 * 5;
+
+        const currentCaloriesBurned =
+            (((bmr * (exercise.difficulty === 'low' ? 3 : exercise.difficulty === 'moderate' ? 5 : 7)) / 24) *
+                exerciseDuration) /
+            60 /
+            60;
         if (index === workout.exercises.length - 1) {
             replace('WorkoutOnlineSuccess');
-            setWorkoutProfile((workoutProfile) => ({
-                ...workoutProfile,
+            setWorkoutProfile((prevWorkoutProfile) => ({
+                ...prevWorkoutProfile,
                 workoutHistories: [
                     {
                         type: 'online',
@@ -53,8 +66,9 @@ export function WorkoutOnlineExercisingScreen() {
                         imageUrl: workout.imageUrl,
                         difficulty: workout.difficulty,
                         timeTaken: timeTaken + exerciseDuration,
+                        caloriesBurned: caloriesBurned + currentCaloriesBurned,
                     },
-                    ...workoutProfile.workoutHistories,
+                    ...prevWorkoutProfile.workoutHistories,
                 ],
             }));
             return;
@@ -64,8 +78,19 @@ export function WorkoutOnlineExercisingScreen() {
             index: index + 1,
             multiplier,
             timeTaken: timeTaken + exerciseDuration,
+            caloriesBurned: caloriesBurned + currentCaloriesBurned,
         });
-    }, [index, multiplier, replace, setWorkoutProfile, timeTaken, workout]);
+    }, [
+        caloriesBurned,
+        exercise.difficulty,
+        index,
+        multiplier,
+        replace,
+        setWorkoutProfile,
+        timeTaken,
+        workout,
+        workoutProfile,
+    ]);
 
     useEffect(() => {
         if (workoutExercise.type === 'duration') {

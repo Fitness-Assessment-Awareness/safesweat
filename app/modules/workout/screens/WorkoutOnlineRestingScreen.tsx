@@ -42,7 +42,8 @@ export function WorkoutOnlineRestingScreen() {
 
     useEffect(() => {
         startCountdown(REST_TIME);
-    }, [startCountdown]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     useEffect(() => {
         if (seconds <= 0) {

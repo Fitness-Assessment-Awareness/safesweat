@@ -7,6 +7,7 @@ interface WorkoutLocalHistory {
     timestamp: string;
     rating: number | null;
     multiplier: number;
+    caloriesBurned: number;
     timeTaken: number;
 }
 
@@ -19,6 +20,7 @@ interface WorkoutOnlineHistory {
     multiplier: number;
     imageUrl: string;
     difficulty: Difficulty;
+    caloriesBurned: number;
     timeTaken: number;
 }
 

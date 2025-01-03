@@ -29,7 +29,7 @@ export function WorkoutRestingScreen() {
     const { replace } = useRootNavigation();
 
     const {
-        params: { workoutKey, index, multiplier },
+        params: { workoutKey, index, multiplier, timeTaken, caloriesBurned },
     } = useRoute<RouteProp<WorkoutRootStackParamList, 'WorkoutResting'>>();
     const WORKOUTS = useWorkouts();
     const workout = WORKOUTS[workoutKey];
@@ -40,12 +40,13 @@ export function WorkoutRestingScreen() {
     const { seconds, startCountdown, stopCountdown } = useCountdown();
 
     const onFinishRest = useCallback(() => {
-        replace('WorkoutExercising', { workoutKey, index, multiplier });
-    }, [index, multiplier, replace, workoutKey]);
+        replace('WorkoutExercising', { workoutKey, index, multiplier, timeTaken, caloriesBurned });
+    }, [caloriesBurned, index, multiplier, replace, timeTaken, workoutKey]);
 
     useEffect(() => {
         startCountdown(REST_TIME);
-    }, [startCountdown]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     useEffect(() => {
         if (seconds <= 0) {

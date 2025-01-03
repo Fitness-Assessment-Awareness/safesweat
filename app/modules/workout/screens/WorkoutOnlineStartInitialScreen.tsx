@@ -32,6 +32,7 @@ export function WorkoutOnlineStartInitialScreen() {
             ...params,
             index: 0,
             timeTaken: 0,
+            caloriesBurned: 0,
         });
     };
 

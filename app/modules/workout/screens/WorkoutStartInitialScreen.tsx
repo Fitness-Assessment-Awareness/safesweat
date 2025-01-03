@@ -37,6 +37,7 @@ export function WorkoutStartInitialScreen() {
             multiplier: params.multiplier,
             index: 0,
             timeTaken: 0,
+            caloriesBurned: 0,
         });
     };
 
