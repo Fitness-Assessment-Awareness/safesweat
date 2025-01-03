@@ -71,7 +71,8 @@ export function WorkoutExercisingScreen() {
         if (workoutExercise.type === 'duration') {
             startCountdown(workoutExercise.duration * multiplier);
         }
-    }, [multiplier, startCountdown, workoutExercise]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     useEffect(() => {
         if (seconds <= 0) {
