@@ -18,7 +18,11 @@ export function WorkoutOnlinecSuccessScreen() {
     const { reset } = useRootNavigation();
 
     const assets = [WorkoutAssets.tooHard, WorkoutAssets.justRight, WorkoutAssets.tooEasy];
-    const label = ['Too hard', 'Just right', 'Too easy'];
+    const label = [
+        t('success.rating.too_hard', { ns: 'workout' }),
+        t('success.rating.just_right', { ns: 'workout' }),
+        t('success.rating.too_easy', { ns: 'workout' }),
+    ];
 
     return (
         <Screen flex={1}>
@@ -63,7 +67,7 @@ export function WorkoutOnlinecSuccessScreen() {
                         </Pressable>
                     ))}
                 </XStack>
-                <Label size="large">How do you feel?</Label>
+                <Label size="large">{t('success.rate', { ns: 'workout' })}</Label>
             </View>
             <Button
                 themeInverse

@@ -71,6 +71,14 @@
                     "cancel": "Continue"
                 }
             }
+        },
+        "success": {
+            "rate": "How do you feel?",
+            "rating": {
+                "too_hard": "Too Hard",
+                "just_right": "Just Right",
+                "too_easy": "Too Easy"
+            }
         }
     }
 }

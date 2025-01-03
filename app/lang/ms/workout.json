@@ -71,6 +71,14 @@
                     "cancel": "teruskan"
                 }
             }
+        },
+        "success": {
+            "rate": "Bagaimana perasaan anda?",
+            "rating": {
+                "too_hard": "Terlalu Keras",
+                "just_right": "Betul",
+                "too_easy": "Terlalu Mudah"
+            }
         }
     }
 }
