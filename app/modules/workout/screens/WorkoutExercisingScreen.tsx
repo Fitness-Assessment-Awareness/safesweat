@@ -50,7 +50,8 @@ export function WorkoutExercisingScreen() {
             21 * 5;
 
         const currentCaloriesBurned =
-            (((bmr * (exercise.difficulty === 'low' ? 3 : exercise.difficulty === 'moderate' ? 5 : 7)) / 24) *
+            ((((bmr < 0 ? 0 : bmr) * (exercise.difficulty === 'low' ? 3 : exercise.difficulty === 'moderate' ? 5 : 7)) /
+                24) *
                 exerciseDuration) /
             60 /
             60;
