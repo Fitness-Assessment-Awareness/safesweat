@@ -39,7 +39,11 @@ export function WorkoutLandingRecommendedSection() {
                     if (workoutProfile.focusAreas.includes(workoutB.focusArea)) return 1;
                 }
 
-                return repeatedWorkouts[workoutKeyA] || 0 - repeatedWorkouts[workoutKeyB] || 0;
+                return (
+                    Math.floor(repeatedWorkouts[workoutKeyA] / 3) ||
+                    0 - Math.floor(repeatedWorkouts[workoutKeyB] / 3) ||
+                    0
+                );
             }
             if (workoutA.difficulty === workoutLevel) return -1;
             if (workoutB.difficulty === workoutLevel) return 1;
