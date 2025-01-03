@@ -6,6 +6,11 @@
                 "description": "Kami telah menyediakan senarai senaman yang disyorkan untuk anda dalam skrin utama berdasarkan profil senaman anda. Klik pada salah satu latihan untuk bermula.",
                 "cta": "Jom"
             },
+            "stats": {
+                "workouts": "Senaman",
+                "calories": "Kalori",
+                "minutes": "Minit"
+            },
             "online_exercise": {
                 "more_exercise": "Lebih Banyak Bersenam",
                 "see_more": "Lihat lagi",

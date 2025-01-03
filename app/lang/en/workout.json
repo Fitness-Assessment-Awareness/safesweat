@@ -6,6 +6,11 @@
                 "description": "We have prepared a list of recommendaded exercise for you in the home screen based on your workout profile. Click on one of the exercises to get started.",
                 "cta": "Let's Go"
             },
+            "stats": {
+                "workouts": "Workouts",
+                "calories": "Calories",
+                "minutes": "Minutes"
+            },
             "online_exercise": {
                 "more_exercise": "More Exercise",
                 "see_more": "See more",
