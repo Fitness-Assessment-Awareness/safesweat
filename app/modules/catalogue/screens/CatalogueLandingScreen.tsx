@@ -20,6 +20,7 @@ interface ScreenContentProps {
 
 function ScreenContent({ onExercisePress }: ScreenContentProps) {
     const { t } = useTranslation('catalogue');
+    const { t: tCommon } = useTranslation('translation');
     const exerciseList = useExercises();
     const exercises = Object.entries(exerciseList) as [ExerciseKey, Exercise][];
     const [searchText, setSearchText] = useState('');
@@ -51,6 +52,7 @@ function ScreenContent({ onExercisePress }: ScreenContentProps) {
                     searchText={searchText}
                     onChangeText={setSearchText}
                     flex={1}
+                    inputPlaceholder={tCommon('exercise.shared.name')}
                 />
                 <Pressable
                     onPress={onFilterPress}
