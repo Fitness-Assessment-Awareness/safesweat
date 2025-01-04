@@ -26,6 +26,23 @@
         "web": {
             "favicon": "./assets/favicon.png"
         },
-        "plugins": ["expo-build-properties", "expo-font", "expo-localization", "expo-asset"]
+        "plugins": [
+            "expo-build-properties",
+            "expo-font",
+            "expo-localization",
+            "expo-asset",
+            [
+                "expo-splash-screen",
+                {
+                    "backgroundColor": "#ffffff",
+                    "image": "./assets/icon.png",
+                    "dark": {
+                        "backgroundColor": "#ffffff",
+                        "image": "./assets/icon.png"
+                    },
+                    "imageWidth": 200
+                }
+            ]
+        ]
     }
 }
