@@ -434,6 +434,274 @@ export const useExercises = () => {
             breathingTips: [t('crunch.breathingTips.1'), t('crunch.breathingTips.2'), t('crunch.breathingTips.3')],
             difficulty: 'moderate',
         },
+        runningInPlace: {
+            title: t('runningInPlace.title'),
+            lottieSource: LottieAssets.runningInPlace,
+            instructions: t('runningInPlace.instructions'),
+            focusAreas: ['Quadriceps', 'Hamstrings', 'Calves', 'Glutes'],
+            commonMistakes: [
+                {
+                    title: t('runningInPlace.commonMistakes.1.title'),
+                    description: t('runningInPlace.commonMistakes.1.description'),
+                },
+                {
+                    title: t('runningInPlace.commonMistakes.2.title'),
+                    description: t('runningInPlace.commonMistakes.2.description'),
+                },
+                {
+                    title: t('runningInPlace.commonMistakes.3.title'),
+                    description: t('runningInPlace.commonMistakes.3.description'),
+                },
+            ],
+            breathingTips: [
+                t('runningInPlace.breathingTips.1'),
+                t('runningInPlace.breathingTips.2'),
+                t('runningInPlace.breathingTips.3'),
+            ],
+            difficulty: 'low',
+        },
+        runningInPlaceAndPunches: {
+            title: t('runningInPlaceAndPunches.title'),
+            lottieSource: LottieAssets.runningInPlaceAndPunches,
+            instructions: t('runningInPlaceAndPunches.instructions'),
+            focusAreas: ['Quadriceps', 'Hamstrings', 'Calves', 'Glutes', 'Shoulders'],
+            commonMistakes: [
+                {
+                    title: t('runningInPlaceAndPunches.commonMistakes.1.title'),
+                    description: t('runningInPlaceAndPunches.commonMistakes.1.description'),
+                },
+                {
+                    title: t('runningInPlaceAndPunches.commonMistakes.2.title'),
+                    description: t('runningInPlaceAndPunches.commonMistakes.2.description'),
+                },
+                {
+                    title: t('runningInPlaceAndPunches.commonMistakes.3.title'),
+                    description: t('runningInPlaceAndPunches.commonMistakes.3.description'),
+                },
+            ],
+            breathingTips: [
+                t('runningInPlaceAndPunches.breathingTips.1'),
+                t('runningInPlaceAndPunches.breathingTips.2'),
+                t('runningInPlaceAndPunches.breathingTips.3'),
+            ],
+            difficulty: 'moderate',
+        },
+        straightLegHipRaise: {
+            title: t('straightLegHipRaise.title'),
+            lottieSource: LottieAssets.straightLegHipRaise,
+            instructions: t('straightLegHipRaise.instructions'),
+            focusAreas: ['Abs'],
+            commonMistakes: [
+                {
+                    title: t('straightLegHipRaise.commonMistakes.1.title'),
+                    description: t('straightLegHipRaise.commonMistakes.1.description'),
+                },
+                {
+                    title: t('straightLegHipRaise.commonMistakes.2.title'),
+                    description: t('straightLegHipRaise.commonMistakes.2.description'),
+                },
+                {
+                    title: t('straightLegHipRaise.commonMistakes.3.title'),
+                    description: t('straightLegHipRaise.commonMistakes.3.description'),
+                },
+            ],
+            breathingTips: [
+                t('straightLegHipRaise.breathingTips.1'),
+                t('straightLegHipRaise.breathingTips.2'),
+                t('straightLegHipRaise.breathingTips.3'),
+            ],
+            difficulty: 'low',
+        },
+        stepUpRightLeg: {
+            title: t('stepUpRightLeg.title'),
+            lottieSource: LottieAssets.stepUpRightLeg,
+            instructions: t('stepUpRightLeg.instructions'),
+            focusAreas: ['Quadriceps', 'Glutes', 'Hamstrings', 'Calves'],
+            commonMistakes: [
+                {
+                    title: t('stepUpRightLeg.commonMistakes.1.title'),
+                    description: t('stepUpRightLeg.commonMistakes.1.description'),
+                },
+                {
+                    title: t('stepUpRightLeg.commonMistakes.2.title'),
+                    description: t('stepUpRightLeg.commonMistakes.2.description'),
+                },
+                {
+                    title: t('stepUpRightLeg.commonMistakes.3.title'),
+                    description: t('stepUpRightLeg.commonMistakes.3.description'),
+                },
+                {
+                    title: t('stepUpRightLeg.commonMistakes.4.title'),
+                    description: t('stepUpRightLeg.commonMistakes.4.description'),
+                },
+            ],
+            breathingTips: [
+                t('stepUpRightLeg.breathingTips.1'),
+                t('stepUpRightLeg.breathingTips.2'),
+                t('stepUpRightLeg.breathingTips.3'),
+            ],
+            difficulty: 'moderate',
+        },
+        stepUpLeftLeg: {
+            title: t('stepUpLeftLeg.title'),
+            lottieSource: LottieAssets.stepUpLeftLeg,
+            instructions: t('stepUpLeftLeg.instructions'),
+            focusAreas: ['Quadriceps', 'Glutes', 'Hamstrings', 'Calves'],
+            commonMistakes: [
+                {
+                    title: t('stepUpLeftLeg.commonMistakes.1.title'),
+                    description: t('stepUpLeftLeg.commonMistakes.1.description'),
+                },
+                {
+                    title: t('stepUpLeftLeg.commonMistakes.2.title'),
+                    description: t('stepUpLeftLeg.commonMistakes.2.description'),
+                },
+                {
+                    title: t('stepUpLeftLeg.commonMistakes.3.title'),
+                    description: t('stepUpLeftLeg.commonMistakes.3.description'),
+                },
+                {
+                    title: t('stepUpLeftLeg.commonMistakes.4.title'),
+                    description: t('stepUpLeftLeg.commonMistakes.4.description'),
+                },
+            ],
+            breathingTips: [
+                t('stepUpLeftLeg.breathingTips.1'),
+                t('stepUpLeftLeg.breathingTips.2'),
+                t('stepUpLeftLeg.breathingTips.3'),
+            ],
+            difficulty: 'moderate',
+        },
+        squatJump: {
+            title: t('squatJump.title'),
+            lottieSource: LottieAssets.squatJump,
+            instructions: t('squatJump.instructions'),
+            focusAreas: ['Quadriceps', 'Glutes', 'Hamstrings', 'Calves'],
+            commonMistakes: [
+                {
+                    title: t('squatJump.commonMistakes.1.title'),
+                    description: t('squatJump.commonMistakes.1.description'),
+                },
+                {
+                    title: t('squatJump.commonMistakes.2.title'),
+                    description: t('squatJump.commonMistakes.2.description'),
+                },
+                {
+                    title: t('squatJump.commonMistakes.3.title'),
+                    description: t('squatJump.commonMistakes.3.description'),
+                },
+                {
+                    title: t('squatJump.commonMistakes.4.title'),
+                    description: t('squatJump.commonMistakes.4.description'),
+                },
+            ],
+            breathingTips: [
+                t('squatJump.breathingTips.1'),
+                t('squatJump.breathingTips.2'),
+                t('squatJump.breathingTips.3'),
+            ],
+            difficulty: 'vigorous',
+        },
+        supermanPullUp: {
+            title: t('supermanPullUp.title'),
+            lottieSource: LottieAssets.supermanPullUp,
+            instructions: t('supermanPullUp.instructions'),
+            focusAreas: ['Back', 'Shoulders', 'Glutes'],
+            commonMistakes: [
+                {
+                    title: t('supermanPullUp.commonMistakes.1.title'),
+                    description: t('supermanPullUp.commonMistakes.1.description'),
+                },
+                {
+                    title: t('supermanPullUp.commonMistakes.2.title'),
+                    description: t('supermanPullUp.commonMistakes.2.description'),
+                },
+                {
+                    title: t('supermanPullUp.commonMistakes.3.title'),
+                    description: t('supermanPullUp.commonMistakes.3.description'),
+                },
+            ],
+            breathingTips: [
+                t('supermanPullUp.breathingTips.1'),
+                t('supermanPullUp.breathingTips.2'),
+                t('supermanPullUp.breathingTips.3'),
+            ],
+            difficulty: 'moderate',
+        },
+        theSuperman: {
+            title: t('theSuperman.title'),
+            lottieSource: LottieAssets.theSuperman,
+            instructions: t('theSuperman.instructions'),
+            focusAreas: ['Back', 'Shoulders', 'Glutes'],
+            commonMistakes: [
+                {
+                    title: t('theSuperman.commonMistakes.1.title'),
+                    description: t('theSuperman.commonMistakes.1.description'),
+                },
+                {
+                    title: t('theSuperman.commonMistakes.2.title'),
+                    description: t('theSuperman.commonMistakes.2.description'),
+                },
+                {
+                    title: t('theSuperman.commonMistakes.3.title'),
+                    description: t('theSuperman.commonMistakes.3.description'),
+                },
+            ],
+            breathingTips: [
+                t('theSuperman.breathingTips.1'),
+                t('theSuperman.breathingTips.2'),
+                t('theSuperman.breathingTips.3'),
+            ],
+            difficulty: 'moderate',
+        },
+        verticalLegCrunches: {
+            title: t('verticalLegCrunches.title'),
+            lottieSource: LottieAssets.verticalLegCrunches,
+            instructions: t('verticalLegCrunches.instructions'),
+            focusAreas: ['Abs'],
+            commonMistakes: [
+                {
+                    title: t('verticalLegCrunches.commonMistakes.1.title'),
+                    description: t('verticalLegCrunches.commonMistakes.1.description'),
+                },
+                {
+                    title: t('verticalLegCrunches.commonMistakes.2.title'),
+                    description: t('verticalLegCrunches.commonMistakes.2.description'),
+                },
+                {
+                    title: t('verticalLegCrunches.commonMistakes.3.title'),
+                    description: t('verticalLegCrunches.commonMistakes.3.description'),
+                },
+            ],
+            breathingTips: [
+                t('verticalLegCrunches.breathingTips.1'),
+                t('verticalLegCrunches.breathingTips.2'),
+                t('verticalLegCrunches.breathingTips.3'),
+            ],
+            difficulty: 'moderate',
+        },
+        wallSit: {
+            title: t('wallSit.title'),
+            lottieSource: LottieAssets.wallSit,
+            instructions: t('wallSit.instructions'),
+            focusAreas: ['Quadriceps', 'Glutes', 'Hamstrings', 'Calves'],
+            commonMistakes: [
+                {
+                    title: t('wallSit.commonMistakes.1.title'),
+                    description: t('wallSit.commonMistakes.1.description'),
+                },
+                {
+                    title: t('wallSit.commonMistakes.2.title'),
+                    description: t('wallSit.commonMistakes.2.description'),
+                },
+                {
+                    title: t('wallSit.commonMistakes.3.title'),
+                    description: t('wallSit.commonMistakes.3.description'),
+                },
+            ],
+            breathingTips: [t('wallSit.breathingTips.1'), t('wallSit.breathingTips.2'), t('wallSit.breathingTips.3')],
+            difficulty: 'moderate',
+        },
     } as const satisfies Record<string, Exercise>;
 };
 

@@ -411,6 +411,260 @@
                 "2": "Inhale as you lower back down to the starting position.",
                 "3": "Maintain a steady and controlled breathing pattern throughout the exercise."
             }
+        },
+        "runningInPlace": {
+            "title": "RUNNING IN PLACE",
+            "instructions": "Stand upright with your feet hip-width apart. Lift your knees and pump your arms as if you were running. Keep your core engaged and maintain a steady pace.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Not lifting the knees high enough",
+                    "description": "Failing to lift the knees high enough can reduce the effectiveness of the exercise. Aim to lift your knees to at least hip height."
+                },
+                "2": {
+                    "title": "Not engaging the core",
+                    "description": "It requires the core muscles to be engaged throughout the entire exercise. If the core is not engaged, it can lead to poor form and an ineffective workout."
+                },
+                "3": {
+                    "title": "Landing too hard",
+                    "description": "Landing too hard can put unnecessary strain on your joints. Try to land softly on the balls of your feet."
+                },
+                "4": {
+                    "title": "Not using the arms",
+                    "description": "Failing to pump your arms can reduce the intensity of the exercise. Use your arms to help drive the movement and increase your heart rate."
+                }
+            },
+            "breathingTips": {
+                "1": "Inhale and exhale steadily as you run in place.",
+                "2": "Maintain a consistent breathing rhythm to help sustain your energy levels.",
+                "3": "Avoid holding your breath, as this can lead to fatigue and dizziness."
+            }
+        },
+        "runningInPlaceAndPunches": {
+            "title": "RUNNING IN PLACE AND PUNCHES",
+            "instructions": "Stand upright with your feet hip-width apart. Lift your knees and pump your arms as if you were running. As you run in place, throw punches in front of you. Keep your core engaged and maintain a steady pace.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Not lifting the knees high enough",
+                    "description": "Failing to lift the knees high enough can reduce the effectiveness of the exercise. Aim to lift your knees to at least hip height."
+                },
+                "2": {
+                    "title": "Not engaging the core",
+                    "description": "It requires the core muscles to be engaged throughout the entire exercise. If the core is not engaged, it can lead to poor form and an ineffective workout."
+                },
+                "3": {
+                    "title": "Landing too hard",
+                    "description": "Landing too hard can put unnecessary strain on your joints. Try to land softly on the balls of your feet."
+                },
+                "4": {
+                    "title": "Not using the arms effectively",
+                    "description": "Failing to throw punches with proper form can reduce the intensity of the exercise. Make sure to fully extend your arms and engage your upper body."
+                }
+            },
+            "breathingTips": {
+                "1": "Inhale and exhale steadily as you run in place and throw punches.",
+                "2": "Maintain a consistent breathing rhythm to help sustain your energy levels.",
+                "3": "Avoid holding your breath, as this can lead to fatigue and dizziness."
+            }
+        },
+        "straightLegHipRaise": {
+            "title": "STRAIGHT LEG HIP RAISE",
+            "instructions": "Lie on your back with your legs straight and your arms by your sides. Lift your legs up towards the ceiling, keeping them straight. Lower them back down without letting them touch the floor and repeat.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Arching the lower back",
+                    "description": "Arching the lower back can put unnecessary strain on the spine. Keep your back flat on the floor and engage your core."
+                },
+                "2": {
+                    "title": "Not controlling the movement",
+                    "description": "Failing to control the movement can reduce the effectiveness of the exercise and increase the risk of injury. Move slowly and with control."
+                },
+                "3": {
+                    "title": "Using momentum",
+                    "description": "Relying on momentum rather than muscle strength can reduce the effectiveness of the exercise and increase the risk of injury."
+                }
+            },
+            "breathingTips": {
+                "1": "Exhale as you lift your legs up.",
+                "2": "Inhale as you lower them back down.",
+                "3": "Maintain a steady and controlled breathing pattern throughout the exercise."
+            }
+        },
+        "stepUpRightLeg": {
+            "title": "STEP UP (RIGHT LEG)",
+            "instructions": "Stand in front of a sturdy bench or step. Place your right foot on the bench and push through your heel to lift your body up. Step down with your left foot and repeat.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Not using the heel to push up",
+                    "description": "Pushing through the toes instead of the heel can reduce the effectiveness of the exercise and put strain on the knee. Make sure to push through the heel."
+                },
+                "2": {
+                    "title": "Not keeping the torso upright",
+                    "description": "Leaning forward can reduce the effectiveness of the exercise and put strain on your lower back. Keep your torso upright and engage your core."
+                },
+                "3": {
+                    "title": "Not stepping up high enough",
+                    "description": "Failing to step up high enough can reduce the effectiveness of the exercise. Make sure to step up high enough so that your thigh is parallel to the ground."
+                },
+                "4": {
+                    "title": "Not engaging the core",
+                    "description": "It requires the core muscles to be engaged throughout the entire exercise. If the core is not engaged, it can lead to poor form and an ineffective workout."
+                }
+            },
+            "breathingTips": {
+                "1": "Inhale as you step up.",
+                "2": "Exhale as you push through your heel to lift your body up.",
+                "3": "Maintain a steady and controlled breathing pattern throughout the exercise."
+            }
+        },
+        "stepUpLeftLeg": {
+            "title": "STEP UP (LEFT LEG)",
+            "instructions": "Stand in front of a sturdy bench or step. Place your left foot on the bench and push through your heel to lift your body up. Step down with your right foot and repeat.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Not using the heel to push up",
+                    "description": "Pushing through the toes instead of the heel can reduce the effectiveness of the exercise and put strain on the knee. Make sure to push through the heel."
+                },
+                "2": {
+                    "title": "Not keeping the torso upright",
+                    "description": "Leaning forward can reduce the effectiveness of the exercise and put strain on your lower back. Keep your torso upright and engage your core."
+                },
+                "3": {
+                    "title": "Not stepping up high enough",
+                    "description": "Failing to step up high enough can reduce the effectiveness of the exercise. Make sure to step up high enough so that your thigh is parallel to the ground."
+                },
+                "4": {
+                    "title": "Not engaging the core",
+                    "description": "It requires the core muscles to be engaged throughout the entire exercise. If the core is not engaged, it can lead to poor form and an ineffective workout."
+                }
+            },
+            "breathingTips": {
+                "1": "Inhale as you step up.",
+                "2": "Exhale as you push through your heel to lift your body up.",
+                "3": "Maintain a steady and controlled breathing pattern throughout the exercise."
+            }
+        },
+        "squatJump": {
+            "title": "SQUAT JUMP",
+            "instructions": "Stand with your feet shoulder-width apart. Lower your body into a squat position, then explosively jump up as high as you can. Land softly and immediately lower back into the squat position for the next rep.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Not landing softly",
+                    "description": "Landing too hard can put unnecessary strain on your joints. Try to land softly on the balls of your feet."
+                },
+                "2": {
+                    "title": "Not going low enough in the squat",
+                    "description": "If you don't squat low enough, you're not engaging your glutes and hamstrings as effectively. Aim to squat until your thighs are parallel to the ground."
+                },
+                "3": {
+                    "title": "Letting the knees cave in",
+                    "description": "This can put unnecessary stress on the knee joint and increase the risk of injury. Keep your knees in line with your toes."
+                },
+                "4": {
+                    "title": "Not engaging the core",
+                    "description": "It requires the core muscles to be engaged throughout the entire exercise. If the core is not engaged, it can lead to poor form and an ineffective workout."
+                }
+            },
+            "breathingTips": {
+                "1": "Inhale as you lower your body into the squat position.",
+                "2": "Exhale as you explosively jump up.",
+                "3": "Maintain a steady and controlled breathing pattern throughout the exercise."
+            }
+        },
+        "supermanPullUp": {
+            "title": "SUPERMAN PULL UP",
+            "instructions": "Lie face down on the floor with your arms extended in front of you and your legs straight. Lift your arms and legs off the ground simultaneously, squeezing your lower back and glutes. Hold for a few seconds, then lower back down and repeat.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Lifting the head too high",
+                    "description": "Lifting your head too high can strain your neck. Keep your head in a neutral position, looking down at the floor."
+                },
+                "2": {
+                    "title": "Not engaging the core",
+                    "description": "Failing to engage the core can lead to poor form and reduce the effectiveness of the exercise."
+                },
+                "3": {
+                    "title": "Using momentum",
+                    "description": "Relying on momentum rather than muscle strength can reduce the effectiveness of the exercise and increase the risk of injury."
+                }
+            },
+            "breathingTips": {
+                "1": "Inhale as you prepare to lift your arms and legs.",
+                "2": "Exhale as you lift your arms and legs off the ground.",
+                "3": "Inhale as you lower back down to the starting position."
+            }
+        },
+        "theSuperman": {
+            "title": "THE SUPERMAN",
+            "instructions": "Lie face down on the floor with your arms extended in front of you and your legs straight. Lift your arms and legs off the ground simultaneously, squeezing your lower back and glutes. Hold for a few seconds, then lower back down and repeat.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Lifting the head too high",
+                    "description": "Lifting your head too high can strain your neck. Keep your head in a neutral position, looking down at the floor."
+                },
+                "2": {
+                    "title": "Not engaging the core",
+                    "description": "Failing to engage the core can lead to poor form and reduce the effectiveness of the exercise."
+                },
+                "3": {
+                    "title": "Using momentum",
+                    "description": "Relying on momentum rather than muscle strength can reduce the effectiveness of the exercise and increase the risk of injury."
+                }
+            },
+            "breathingTips": {
+                "1": "Inhale as you prepare to lift your arms and legs.",
+                "2": "Exhale as you lift your arms and legs off the ground.",
+                "3": "Inhale as you lower back down to the starting position."
+            }
+        },
+        "verticalLegCrunches": {
+            "title": "VERTICAL LEG CRUNCHES",
+            "instructions": "Lie on your back with your legs extended straight up towards the ceiling. Place your hands behind your head or cross them over your chest. Engage your core and lift your upper body towards your legs. Lower back down to the starting position and repeat.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Pulling on the neck",
+                    "description": "Using your hands to pull your neck can strain your neck muscles. Instead, use your core muscles to lift your upper body."
+                },
+                "2": {
+                    "title": "Not engaging the core",
+                    "description": "Failing to engage the core can lead to poor form and reduce the effectiveness of the exercise."
+                },
+                "3": {
+                    "title": "Using momentum",
+                    "description": "Relying on momentum rather than muscle strength can reduce the effectiveness of the exercise and increase the risk of injury."
+                },
+                "4": {
+                    "title": "Arching the lower back",
+                    "description": "Arching the lower back can put unnecessary strain on the spine. Keep your back straight and engage your core."
+                }
+            },
+            "breathingTips": {
+                "1": "Exhale as you lift your upper body towards your legs.",
+                "2": "Inhale as you lower back down to the starting position.",
+                "3": "Maintain a steady and controlled breathing pattern throughout the exercise."
+            }
+        },
+        "wallSit": {
+            "title": "WALL SIT",
+            "instructions": "Stand with your back against a wall and your feet about 2 feet away from it. Slide down the wall until your thighs are parallel to the ground, forming a 90-degree angle at your knees. Keep your back flat against the wall and hold this position for 30-40 seconds.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Allowing knees to go past toes",
+                    "description": "This can strain your knees. Instead, ensure your knees are directly above your ankles."
+                },
+                "2": {
+                    "title": "Leaning forward",
+                    "description": "Leaning forward reduces the effectiveness of the exercise. Keep your back pressed flat against the wall."
+                },
+                "3": {
+                    "title": "Arching the lower back",
+                    "description": "Arching your back can cause strain. Instead, keep your spine neutral and flat against the wall."
+                }
+            },
+            "breathingTips": {
+                "1": "Inhale deeply as you prepare to slide into position.",
+                "2": "Exhale steadily as you hold the wall sit.",
+                "3": "Maintain steady breathing throughout the exercise."
+            }
         }
     }
 }

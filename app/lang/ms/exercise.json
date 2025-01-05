@@ -411,6 +411,260 @@
                 "2": "Tarik nafas semasa anda menurunkan kembali ke posisi permulaan.",
                 "3": "Kekalkan corak pernafasan yang stabil dan terkawal sepanjang senaman."
             }
+        },
+        "runningInPlace": {
+            "title": "LARI DI TEMPAT",
+            "instructions": "Berdiri tegak dengan kaki anda selebar pinggul. Angkat lutut anda dan gerakkan tangan anda seolah-olah anda sedang berlari. Kekalkan otot teras anda terlibat dan kekalkan kadar yang stabil.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Tidak mengangkat lutut cukup tinggi",
+                    "description": "Gagal mengangkat lutut cukup tinggi boleh mengurangkan keberkesanan senaman. Sasarkan untuk mengangkat lutut anda sekurang-kurangnya setinggi pinggul."
+                },
+                "2": {
+                    "title": "Tidak melibatkan otot teras",
+                    "description": "Ia memerlukan otot teras untuk terlibat sepanjang senaman. Jika teras tidak terlibat, ia boleh menyebabkan bentuk yang lemah dan senaman yang tidak berkesan."
+                },
+                "3": {
+                    "title": "Mendarat terlalu keras",
+                    "description": "Mendarat terlalu keras boleh meletakkan tekanan yang tidak perlu pada sendi anda. Cuba mendarat dengan lembut di atas bola kaki anda."
+                },
+                "4": {
+                    "title": "Tidak menggunakan tangan",
+                    "description": "Gagal menggerakkan tangan boleh mengurangkan intensiti senaman. Gunakan tangan anda untuk membantu menggerakkan pergerakan dan meningkatkan kadar jantung anda."
+                }
+            },
+            "breathingTips": {
+                "1": "Tarik nafas dan hembus nafas dengan stabil semasa anda berlari di tempat.",
+                "2": "Kekalkan irama pernafasan yang konsisten untuk membantu mengekalkan tahap tenaga anda.",
+                "3": "Elakkan menahan nafas, kerana ini boleh menyebabkan keletihan dan pening."
+            }
+        },
+        "runningInPlaceAndPunches": {
+            "title": "LARI DI TEMPAT DAN TUMBUKAN",
+            "instructions": "Berdiri tegak dengan kaki anda selebar pinggul. Angkat lutut anda dan gerakkan tangan anda seolah-olah anda sedang berlari. Semasa anda berlari di tempat, lakukan tumbukan di hadapan anda. Kekalkan otot teras anda terlibat dan kekalkan kadar yang stabil.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Tidak mengangkat lutut cukup tinggi",
+                    "description": "Gagal mengangkat lutut cukup tinggi boleh mengurangkan keberkesanan senaman. Sasarkan untuk mengangkat lutut anda sekurang-kurangnya setinggi pinggul."
+                },
+                "2": {
+                    "title": "Tidak melibatkan otot teras",
+                    "description": "Ia memerlukan otot teras untuk terlibat sepanjang senaman. Jika teras tidak terlibat, ia boleh menyebabkan bentuk yang lemah dan senaman yang tidak berkesan."
+                },
+                "3": {
+                    "title": "Mendarat terlalu keras",
+                    "description": "Mendarat terlalu keras boleh meletakkan tekanan yang tidak perlu pada sendi anda. Cuba mendarat dengan lembut di atas bola kaki anda."
+                },
+                "4": {
+                    "title": "Tidak menggunakan tangan dengan berkesan",
+                    "description": "Gagal melakukan tumbukan dengan bentuk yang betul boleh mengurangkan intensiti senaman. Pastikan untuk meluruskan tangan anda sepenuhnya dan melibatkan bahagian atas badan anda."
+                }
+            },
+            "breathingTips": {
+                "1": "Tarik nafas dan hembus nafas dengan stabil semasa anda berlari di tempat dan melakukan tumbukan.",
+                "2": "Kekalkan irama pernafasan yang konsisten untuk membantu mengekalkan tahap tenaga anda.",
+                "3": "Elakkan menahan nafas, kerana ini boleh menyebabkan keletihan dan pening."
+            }
+        },
+        "straightLegHipRaise": {
+            "title": "ANGKAT PINGGUL KAKI LURUS",
+            "instructions": "Berbaring di belakang dengan kaki anda lurus dan tangan anda di sisi. Angkat kaki anda ke arah siling, kekalkan mereka lurus. Turunkan mereka kembali tanpa membiarkan mereka menyentuh lantai dan ulangi.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Melengkungkan bahagian bawah belakang",
+                    "description": "Melengkungkan bahagian bawah belakang boleh meletakkan tekanan yang tidak perlu pada tulang belakang. Kekalkan belakang anda rata di atas lantai dan libatkan otot teras."
+                },
+                "2": {
+                    "title": "Tidak mengawal pergerakan",
+                    "description": "Gagal mengawal pergerakan boleh mengurangkan keberkesanan senaman dan meningkatkan risiko kecederaan. Bergerak perlahan-lahan dan dengan kawalan."
+                },
+                "3": {
+                    "title": "Menggunakan momentum",
+                    "description": "Bergantung pada momentum daripada kekuatan otot boleh mengurangkan keberkesanan senaman dan meningkatkan risiko kecederaan."
+                }
+            },
+            "breathingTips": {
+                "1": "Hembus nafas semasa anda mengangkat kaki anda.",
+                "2": "Tarik nafas semasa anda menurunkan mereka kembali.",
+                "3": "Kekalkan corak pernafasan yang stabil dan terkawal sepanjang senaman."
+            }
+        },
+        "stepUpRightLeg": {
+            "title": "LANGKAH NAIK (KAKI KANAN)",
+            "instructions": "Berdiri di hadapan bangku atau tangga yang kukuh. Letakkan kaki kanan anda di atas bangku dan tolak melalui tumit untuk mengangkat badan anda. Turun dengan kaki kiri dan ulangi.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Tidak menggunakan tumit untuk menolak ke atas",
+                    "description": "Menolak melalui jari kaki dan bukannya tumit boleh mengurangkan keberkesanan senaman dan meletakkan tekanan pada lutut. Pastikan untuk menolak melalui tumit."
+                },
+                "2": {
+                    "title": "Tidak menjaga badan tegak",
+                    "description": "Membongkok ke hadapan boleh mengurangkan keberkesanan senaman dan meletakkan tekanan pada bahagian bawah belakang anda. Kekalkan badan anda tegak dan libatkan otot teras."
+                },
+                "3": {
+                    "title": "Tidak melangkah cukup tinggi",
+                    "description": "Gagal melangkah cukup tinggi boleh mengurangkan keberkesanan senaman. Pastikan untuk melangkah cukup tinggi sehingga paha anda selari dengan tanah."
+                },
+                "4": {
+                    "title": "Tidak melibatkan otot teras",
+                    "description": "Ia memerlukan otot teras untuk terlibat sepanjang senaman. Jika teras tidak terlibat, ia boleh menyebabkan bentuk yang lemah dan senaman yang tidak berkesan."
+                }
+            },
+            "breathingTips": {
+                "1": "Tarik nafas semasa anda melangkah ke atas.",
+                "2": "Hembus nafas semasa anda menolak melalui tumit untuk mengangkat badan anda.",
+                "3": "Kekalkan corak pernafasan yang stabil dan terkawal sepanjang senaman."
+            }
+        },
+        "stepUpLeftLeg": {
+            "title": "LANGKAH NAIK (KAKI KIRI)",
+            "instructions": "Berdiri di hadapan bangku atau tangga yang kukuh. Letakkan kaki kiri anda di atas bangku dan tolak melalui tumit untuk mengangkat badan anda. Turun dengan kaki kanan dan ulangi.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Tidak menggunakan tumit untuk menolak ke atas",
+                    "description": "Menolak melalui jari kaki dan bukannya tumit boleh mengurangkan keberkesanan senaman dan meletakkan tekanan pada lutut. Pastikan untuk menolak melalui tumit."
+                },
+                "2": {
+                    "title": "Tidak menjaga badan tegak",
+                    "description": "Membongkok ke hadapan boleh mengurangkan keberkesanan senaman dan meletakkan tekanan pada bahagian bawah belakang anda. Kekalkan badan anda tegak dan libatkan otot teras."
+                },
+                "3": {
+                    "title": "Tidak melangkah cukup tinggi",
+                    "description": "Gagal melangkah cukup tinggi boleh mengurangkan keberkesanan senaman. Pastikan untuk melangkah cukup tinggi sehingga paha anda selari dengan tanah."
+                },
+                "4": {
+                    "title": "Tidak melibatkan otot teras",
+                    "description": "Ia memerlukan otot teras untuk terlibat sepanjang senaman. Jika teras tidak terlibat, ia boleh menyebabkan bentuk yang lemah dan senaman yang tidak berkesan."
+                }
+            },
+            "breathingTips": {
+                "1": "Tarik nafas semasa anda melangkah ke atas.",
+                "2": "Hembus nafas semasa anda menolak melalui tumit untuk mengangkat badan anda.",
+                "3": "Kekalkan corak pernafasan yang stabil dan terkawal sepanjang senaman."
+            }
+        },
+        "squatJump": {
+            "title": "LONCAT MENCANGKUNG",
+            "instructions": "Berdiri dengan kaki anda selebar bahu. Turunkan badan anda ke dalam posisi mencangkung, kemudian lompat setinggi yang anda boleh. Mendarat dengan lembut dan segera turunkan kembali ke posisi mencangkung untuk ulangan seterusnya.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Tidak mendarat dengan lembut",
+                    "description": "Mendarat terlalu keras boleh meletakkan tekanan yang tidak perlu pada sendi anda. Cuba mendarat dengan lembut di atas bola kaki anda."
+                },
+                "2": {
+                    "title": "Tidak mencangkung cukup rendah",
+                    "description": "Jika anda tidak mencangkung cukup rendah, anda tidak melibatkan glutes dan hamstring anda dengan berkesan. Sasarkan untuk mencangkung sehingga paha anda selari dengan tanah."
+                },
+                "3": {
+                    "title": "Membiarkan lutut masuk ke dalam",
+                    "description": "Ini boleh meletakkan tekanan yang tidak perlu pada sendi lutut dan meningkatkan risiko kecederaan. Pastikan lutut anda selari dengan jari kaki anda."
+                },
+                "4": {
+                    "title": "Tidak melibatkan otot teras",
+                    "description": "Ia memerlukan otot teras untuk terlibat sepanjang senaman. Jika teras tidak terlibat, ia boleh menyebabkan bentuk yang lemah dan senaman yang tidak berkesan."
+                }
+            },
+            "breathingTips": {
+                "1": "Tarik nafas semasa anda menurunkan badan ke dalam posisi mencangkung.",
+                "2": "Hembus nafas semasa anda melompat dengan kuat.",
+                "3": "Kekalkan corak pernafasan yang stabil dan terkawal sepanjang senaman."
+            }
+        },
+        "supermanPullUp": {
+            "title": "TARIKAN SUPERMAN",
+            "instructions": "Berbaring menghadap ke bawah di lantai dengan tangan diluruskan di depan dan kaki lurus. Angkat tangan dan kaki dari tanah serentak sambil memicit bahagian bawah belakang dan glute. Tahan selama beberapa saat, kemudian turunkan semula dan ulangi.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Mengangkat kepala terlalu tinggi",
+                    "description": "Mengangkat kepala terlalu tinggi boleh menyebabkan ketegangan pada leher. Kekalkan kepala dalam posisi neutral dengan melihat ke bawah lantai."
+                },
+                "2": {
+                    "title": "Tidak melibatkan otot core",
+                    "description": "Gagal melibatkan otot core boleh menyebabkan bentuk yang buruk dan mengurangkan keberkesanan senaman."
+                },
+                "3": {
+                    "title": "Menggunakan momentum",
+                    "description": "Bergantung pada momentum daripada kekuatan otot boleh mengurangkan keberkesanan senaman dan meningkatkan risiko kecederaan."
+                }
+            },
+            "breathingTips": {
+                "1": "Tarik nafas semasa bersedia untuk mengangkat tangan dan kaki.",
+                "2": "Hembus nafas semasa anda mengangkat tangan dan kaki dari tanah.",
+                "3": "Tarik nafas semasa anda menurunkan semula ke posisi permulaan."
+            }
+        },
+        "theSuperman": {
+            "title": "SUPERMAN",
+            "instructions": "Berbaring menghadap ke bawah di lantai dengan tangan diluruskan di depan dan kaki lurus. Angkat tangan dan kaki dari tanah serentak sambil memicit bahagian bawah belakang dan glute. Tahan selama beberapa saat, kemudian turunkan semula dan ulangi.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Mengangkat kepala terlalu tinggi",
+                    "description": "Mengangkat kepala terlalu tinggi boleh menyebabkan ketegangan pada leher. Kekalkan kepala dalam posisi neutral dengan melihat ke bawah lantai."
+                },
+                "2": {
+                    "title": "Tidak melibatkan otot core",
+                    "description": "Gagal melibatkan otot core boleh menyebabkan bentuk yang buruk dan mengurangkan keberkesanan senaman."
+                },
+                "3": {
+                    "title": "Menggunakan momentum",
+                    "description": "Bergantung pada momentum daripada kekuatan otot boleh mengurangkan keberkesanan senaman dan meningkatkan risiko kecederaan."
+                }
+            },
+            "breathingTips": {
+                "1": "Tarik nafas semasa bersedia untuk mengangkat tangan dan kaki.",
+                "2": "Hembus nafas semasa anda mengangkat tangan dan kaki dari tanah.",
+                "3": "Tarik nafas semasa anda menurunkan semula ke posisi permulaan."
+            }
+        },
+        "verticalLegCrunches": {
+            "title": "KETUKAN KAKI MENEGAK",
+            "instructions": "Berbaring di belakang dengan kaki diluruskan ke atas menuju ke siling. Letakkan tangan di belakang kepala atau silangkan di atas dada. Libatkan otot core dan angkat bahagian atas badan ke arah kaki. Turunkan semula ke posisi permulaan dan ulangi.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Menarik leher",
+                    "description": "Menggunakan tangan untuk menarik leher boleh menyebabkan ketegangan pada otot leher. Sebaliknya, gunakan otot core untuk mengangkat bahagian atas badan."
+                },
+                "2": {
+                    "title": "Tidak melibatkan otot core",
+                    "description": "Gagal melibatkan otot core boleh menyebabkan bentuk yang buruk dan mengurangkan keberkesanan senaman."
+                },
+                "3": {
+                    "title": "Menggunakan momentum",
+                    "description": "Bergantung pada momentum daripada kekuatan otot boleh mengurangkan keberkesanan senaman dan meningkatkan risiko kecederaan."
+                },
+                "4": {
+                    "title": "Melengkungkan bahagian bawah belakang",
+                    "description": "Melengkungkan bahagian bawah belakang boleh memberi tekanan yang tidak perlu pada tulang belakang. Kekalkan belakang lurus dan libatkan otot core."
+                }
+            },
+            "breathingTips": {
+                "1": "Hembus nafas semasa anda mengangkat bahagian atas badan ke arah kaki.",
+                "2": "Tarik nafas semasa anda menurunkan semula ke posisi permulaan.",
+                "3": "Kekalkan corak pernafasan yang tetap dan terkawal sepanjang senaman."
+            }
+        },
+        "wallSit": {
+            "title": "DUDUK DINDING",
+            "instructions": "Berdiri dengan belakang bersandar pada dinding dan kaki anda kira-kira 2 kaki dari dinding. Gelongsor ke bawah dinding sehingga paha anda selari dengan lantai, membentuk sudut 90 darjah pada lutut. Kekalkan belakang rata pada dinding dan tahan posisi ini selama 30-40 saat.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Membiarkan lutut melepasi jari kaki",
+                    "description": "Ini boleh memberi tekanan pada lutut. Pastikan lutut berada betul-betul di atas pergelangan kaki anda."
+                },
+                "2": {
+                    "title": "Condong ke depan",
+                    "description": "Condong ke depan mengurangkan keberkesanan senaman. Kekalkan belakang anda rata pada dinding."
+                },
+                "3": {
+                    "title": "Melengkungkan bahagian bawah belakang",
+                    "description": "Melengkungkan belakang boleh menyebabkan ketegangan. Kekalkan tulang belakang neutral dan rata pada dinding."
+                }
+            },
+            "breathingTips": {
+                "1": "Tarik nafas dalam-dalam semasa bersedia untuk meluncur ke posisi.",
+                "2": "Hembus nafas dengan stabil semasa menahan duduk dinding.",
+                "3": "Kekalkan pernafasan yang stabil sepanjang senaman."
+            }
         }
     }
 }
