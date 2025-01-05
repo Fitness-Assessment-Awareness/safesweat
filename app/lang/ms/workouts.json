@@ -17,6 +17,33 @@
         },
         "chestAdvanced": {
             "title": "DADA LANJUTAN"
+        },
+        "fullBodyBeginner": {
+            "title": "SELURUH BADAN PERMULAAN"
+        },
+        "fullBodyIntermediate": {
+            "title": "SELURUH BADAN PERTENGAHAN"
+        },
+        "fullBodyAdvanced": {
+            "title": "SELURUH BADAN LANJUTAN"
+        },
+        "upperBodyBeginner": {
+            "title": "BAHAGIAN ATAS BADAN PERMULAAN"
+        },
+        "upperBodyIntermediate": {
+            "title": "BAHAGIAN ATAS BADAN PERTENGAHAN"
+        },
+        "upperBodyAdvanced": {
+            "title": "BAHAGIAN ATAS BADAN LANJUTAN"
+        },
+        "lowerBodyBeginner": {
+            "title": "BAHAGIAN BAWAH BADAN PERMULAAN"
+        },
+        "lowerBodyIntermediate": {
+            "title": "BAHAGIAN BAWAH BADAN PERTENGAHAN"
+        },
+        "lowerBodyAdvanced": {
+            "title": "BAHAGIAN BAWAH BADAN LANJUTAN"
         }
     }
 }

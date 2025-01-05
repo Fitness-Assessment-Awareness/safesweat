@@ -17,6 +17,33 @@
         },
         "chestAdvanced": {
             "title": "CHEST ADVANCED"
+        },
+        "fullBodyBeginner": {
+            "title": "FULL BODY BEGINNER"
+        },
+        "fullBodyIntermediate": {
+            "title": "FULL BODY INTERMEDIATE"
+        },
+        "fullBodyAdvanced": {
+            "title": "FULL BODY ADVANCED"
+        },
+        "upperBodyBeginner": {
+            "title": "UPPER BODY BEGINNER"
+        },
+        "upperBodyIntermediate": {
+            "title": "UPPER BODY INTERMEDIATE"
+        },
+        "upperBodyAdvanced": {
+            "title": "UPPER BODY ADVANCED"
+        },
+        "lowerBodyBeginner": {
+            "title": "LOWER BODY BEGINNER"
+        },
+        "lowerBodyIntermediate": {
+            "title": "LOWER BODY INTERMEDIATE"
+        },
+        "lowerBodyAdvanced": {
+            "title": "LOWER BODY ADVANCED"
         }
     }
 }
