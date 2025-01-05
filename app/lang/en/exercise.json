@@ -434,6 +434,33 @@
                 "2": "Exhale as you lift your hips up to the starting position.",
                 "3": "Maintain a steady and controlled breathing pattern throughout the exercise."
             }
+        },
+        "plankLunges": {
+            "title": "PLANK LUNGES",
+            "instructions": "Start in a plank position with your hands directly under your shoulders and your body in a straight line from head to heels. Step your right foot forward to the outside of your right hand, then return to the plank position. Repeat with your left foot.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Letting the hips sag",
+                    "description": "Allowing your hips to sag can put unnecessary strain on your lower back. Keep your body in a straight line from head to heels."
+                },
+                "2": {
+                    "title": "Not engaging the core",
+                    "description": "Failing to engage the core can lead to poor form and reduce the effectiveness of the exercise."
+                },
+                "3": {
+                    "title": "Not stepping far enough forward",
+                    "description": "Failing to step far enough forward can reduce the effectiveness of the exercise. Make sure to step your foot all the way to the outside of your hand."
+                },
+                "4": {
+                    "title": "Rushing the movement",
+                    "description": "Performing the exercise too quickly can reduce its effectiveness and may cause you to lose proper form."
+                }
+            },
+            "breathingTips": {
+                "1": "Inhale as you step your foot forward.",
+                "2": "Exhale as you return to the plank position.",
+                "3": "Maintain a steady and controlled breathing pattern throughout the exercise."
+            }
         }
     }
 }

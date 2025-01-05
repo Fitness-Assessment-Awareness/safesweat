@@ -460,6 +460,36 @@ export const useExercises = () => {
             ],
             difficulty: 'low',
         },
+        plankLunges: {
+            title: t('plankLunges.title'),
+            lottieSource: LottieAssets.plankLunges,
+            instructions: t('plankLunges.instructions'),
+            focusAreas: ['Abs', 'Glutes', 'Quadriceps', 'Hamstrings'],
+            commonMistakes: [
+                {
+                    title: t('plankLunges.commonMistakes.1.title'),
+                    description: t('plankLunges.commonMistakes.1.description'),
+                },
+                {
+                    title: t('plankLunges.commonMistakes.2.title'),
+                    description: t('plankLunges.commonMistakes.2.description'),
+                },
+                {
+                    title: t('plankLunges.commonMistakes.3.title'),
+                    description: t('plankLunges.commonMistakes.3.description'),
+                },
+                {
+                    title: t('plankLunges.commonMistakes.4.title'),
+                    description: t('plankLunges.commonMistakes.4.description'),
+                },
+            ],
+            breathingTips: [
+                t('plankLunges.breathingTips.1'),
+                t('plankLunges.breathingTips.2'),
+                t('plankLunges.breathingTips.3'),
+            ],
+            difficulty: 'moderate',
+        },
     } as const satisfies Record<string, Exercise>;
 };
 

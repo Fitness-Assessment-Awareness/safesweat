@@ -434,6 +434,33 @@
                 "2": "Hembus nafas semasa anda mengangkat pinggul ke posisi permulaan.",
                 "3": "Kekalkan corak pernafasan yang stabil dan terkawal sepanjang senaman."
             }
+        },
+        "plankLunges": {
+            "title": "PLANK LUNGES",
+            "instructions": "Mulakan dalam posisi plank dengan tangan anda terus di bawah bahu dan badan anda dalam garis lurus dari kepala ke tumit. Langkah kaki kanan anda ke hadapan ke luar tangan kanan anda, kemudian kembali ke posisi plank. Ulangi dengan kaki kiri anda.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Membiarkan pinggul melendut",
+                    "description": "Membiarkan pinggul melendut boleh meletakkan tekanan yang tidak perlu pada bahagian bawah belakang anda. Kekalkan badan anda dalam garis lurus dari kepala ke tumit."
+                },
+                "2": {
+                    "title": "Tidak melibatkan otot teras",
+                    "description": "Gagal melibatkan otot teras boleh menyebabkan bentuk yang lemah dan mengurangkan keberkesanan senaman."
+                },
+                "3": {
+                    "title": "Tidak melangkah cukup jauh ke hadapan",
+                    "description": "Gagal melangkah cukup jauh ke hadapan boleh mengurangkan keberkesanan senaman. Pastikan untuk melangkah kaki anda sepenuhnya ke luar tangan anda."
+                },
+                "4": {
+                    "title": "Melakukan pergerakan terlalu cepat",
+                    "description": "Melakukan senaman terlalu cepat boleh mengurangkan keberkesanannya dan mungkin menyebabkan anda kehilangan bentuk yang betul."
+                }
+            },
+            "breathingTips": {
+                "1": "Tarik nafas semasa anda melangkah kaki ke hadapan.",
+                "2": "Hembus nafas semasa anda kembali ke posisi plank.",
+                "3": "Kekalkan corak pernafasan yang stabil dan terkawal sepanjang senaman."
+            }
         }
     }
 }
