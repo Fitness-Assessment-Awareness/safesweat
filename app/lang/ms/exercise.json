@@ -302,6 +302,33 @@
                 "1": "Tarik nafas dalam-dalam dan perlahan-lahan, rasakan dada anda mengembang.",
                 "2": "Hembus nafas perlahan-lahan, rasakan dada anda mengecut."
             }
+        },
+        "sitUp": {
+            "title": "BANGKIT TUBI",
+            "instructions": "Berbaring di belakang dengan lutut dibengkokkan dan kaki rata di atas lantai. Letakkan tangan anda di belakang kepala atau silang di atas dada.\n\nLibatkan otot teras anda dan angkat badan atas anda ke arah lutut. Turunkan kembali ke posisi permulaan dan ulangi.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Menarik leher",
+                    "description": "Menggunakan tangan untuk menarik leher boleh menegangkan otot leher anda. Sebaliknya, gunakan otot teras anda untuk mengangkat badan atas anda."
+                },
+                "2": {
+                    "title": "Tidak melibatkan otot teras",
+                    "description": "Gagal melibatkan otot teras boleh menyebabkan bentuk yang lemah dan mengurangkan keberkesanan senaman."
+                },
+                "3": {
+                    "title": "Menggunakan momentum",
+                    "description": "Bergantung pada momentum daripada kekuatan otot boleh mengurangkan keberkesanan senaman dan meningkatkan risiko kecederaan."
+                },
+                "4": {
+                    "title": "Melengkungkan belakang bawah",
+                    "description": "Melengkungkan belakang bawah boleh meletakkan tekanan yang tidak perlu pada tulang belakang. Kekalkan belakang anda lurus dan libatkan otot teras."
+                }
+            },
+            "breathingTips": {
+                "1": "Hembus nafas semasa anda mengangkat badan atas ke arah lutut.",
+                "2": "Tarik nafas semasa anda menurunkan kembali ke posisi permulaan.",
+                "3": "Kekalkan corak pernafasan yang stabil dan terkawal sepanjang senaman."
+            }
         }
     }
 }

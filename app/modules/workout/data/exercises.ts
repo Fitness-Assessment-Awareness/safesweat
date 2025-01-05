@@ -321,6 +321,32 @@ export const useExercises = () => {
             breathingTips: [t('doorwayStretch.breathingTips.1'), t('doorwayStretch.breathingTips.2')],
             difficulty: 'low',
         },
+        sitUp: {
+            title: t('sitUp.title'),
+            lottieSource: LottieAssets.sitUp,
+            instructions: t('sitUp.instructions'),
+            focusAreas: ['Abs'],
+            commonMistakes: [
+                {
+                    title: t('sitUp.commonMistakes.1.title'),
+                    description: t('sitUp.commonMistakes.1.description'),
+                },
+                {
+                    title: t('sitUp.commonMistakes.2.title'),
+                    description: t('sitUp.commonMistakes.2.description'),
+                },
+                {
+                    title: t('sitUp.commonMistakes.3.title'),
+                    description: t('sitUp.commonMistakes.3.description'),
+                },
+                {
+                    title: t('sitUp.commonMistakes.4.title'),
+                    description: t('sitUp.commonMistakes.4.description'),
+                },
+            ],
+            breathingTips: [t('sitUp.breathingTips.1'), t('sitUp.breathingTips.2'), t('sitUp.breathingTips.3')],
+            difficulty: 'moderate',
+        },
     } as const satisfies Record<string, Exercise>;
 };
 
