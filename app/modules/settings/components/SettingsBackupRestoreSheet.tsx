@@ -56,7 +56,6 @@ export function SettingsBackupRestoreSheetContent({ handleDismissSheet }: Compon
                 ...workoutHistory,
             })),
         };
-        console.log(userBackupData);
         await createUserBackupData(userBackupData);
         setLoading(false);
         setAction(CloudAction.DONE);
