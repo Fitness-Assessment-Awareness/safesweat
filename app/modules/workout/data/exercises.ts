@@ -345,7 +345,7 @@ export const useExercises = () => {
                 },
             ],
             breathingTips: [t('sitUp.breathingTips.1'), t('sitUp.breathingTips.2'), t('sitUp.breathingTips.3')],
-            difficulty: 'moderate',
+            difficulty: 'low',
         },
         reverseLunges: {
             title: t('reverseLunges.title'),
@@ -407,6 +407,32 @@ export const useExercises = () => {
                 t('burpee.breathingTips.4'),
             ],
             difficulty: 'vigorous',
+        },
+        crunch: {
+            title: t('crunch.title'),
+            lottieSource: LottieAssets.crunch,
+            instructions: t('crunch.instructions'),
+            focusAreas: ['Abs'],
+            commonMistakes: [
+                {
+                    title: t('crunch.commonMistakes.1.title'),
+                    description: t('crunch.commonMistakes.1.description'),
+                },
+                {
+                    title: t('crunch.commonMistakes.2.title'),
+                    description: t('crunch.commonMistakes.2.description'),
+                },
+                {
+                    title: t('crunch.commonMistakes.3.title'),
+                    description: t('crunch.commonMistakes.3.description'),
+                },
+                {
+                    title: t('crunch.commonMistakes.4.title'),
+                    description: t('crunch.commonMistakes.4.description'),
+                },
+            ],
+            breathingTips: [t('crunch.breathingTips.1'), t('crunch.breathingTips.2'), t('crunch.breathingTips.3')],
+            difficulty: 'moderate',
         },
     } as const satisfies Record<string, Exercise>;
 };

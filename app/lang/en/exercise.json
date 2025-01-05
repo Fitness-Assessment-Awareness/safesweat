@@ -384,6 +384,33 @@
                 "3": "Inhale as you return your feet to the squat position.",
                 "4": "Exhale as you jump up and reach your arms overhead."
             }
+        },
+        "crunch": {
+            "title": "CRUNCH",
+            "instructions": "Lie on your back with your knees bent and your feet flat on the floor. Place your hands behind your head or cross them over your chest.\n\nEngage your core and lift your upper body towards your knees. Lower back down to the starting position and repeat.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Pulling on the neck",
+                    "description": "Using your hands to pull your neck can strain your neck muscles. Instead, use your core muscles to lift your upper body."
+                },
+                "2": {
+                    "title": "Not engaging the core",
+                    "description": "Failing to engage the core can lead to poor form and reduce the effectiveness of the exercise."
+                },
+                "3": {
+                    "title": "Using momentum",
+                    "description": "Relying on momentum rather than muscle strength can reduce the effectiveness of the exercise and increase the risk of injury."
+                },
+                "4": {
+                    "title": "Arching the lower back",
+                    "description": "Arching the lower back can put unnecessary strain on the spine. Keep your back straight and engage your core."
+                }
+            },
+            "breathingTips": {
+                "1": "Exhale as you lift your upper body towards your knees.",
+                "2": "Inhale as you lower back down to the starting position.",
+                "3": "Maintain a steady and controlled breathing pattern throughout the exercise."
+            }
         }
     }
 }
