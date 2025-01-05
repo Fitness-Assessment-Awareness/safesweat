@@ -515,6 +515,33 @@
                 "2": "Hembus nafas semasa anda menolak diri anda kembali ke posisi permulaan.",
                 "3": "Kekalkan corak pernafasan yang stabil dan terkawal sepanjang senaman."
             }
+        },
+        "sideCrunches": {
+            "title": "CRUNCH SISI",
+            "instructions": "Berbaring di sisi dengan lutut dibengkokkan dan tangan di belakang kepala. Angkat badan atas ke arah pinggul, melibatkan obliques anda. Turunkan kembali ke posisi permulaan dan ulangi.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Menarik leher",
+                    "description": "Menggunakan tangan untuk menarik leher boleh menegangkan otot leher anda. Sebaliknya, gunakan obliques anda untuk mengangkat badan atas anda."
+                },
+                "2": {
+                    "title": "Tidak melibatkan otot teras",
+                    "description": "Gagal melibatkan otot teras boleh menyebabkan bentuk yang lemah dan mengurangkan keberkesanan senaman."
+                },
+                "3": {
+                    "title": "Menggunakan momentum",
+                    "description": "Bergantung pada momentum daripada kekuatan otot boleh mengurangkan keberkesanan senaman dan meningkatkan risiko kecederaan."
+                },
+                "4": {
+                    "title": "Melengkungkan belakang bawah",
+                    "description": "Melengkungkan belakang bawah boleh meletakkan tekanan yang tidak perlu pada tulang belakang. Kekalkan belakang anda lurus dan libatkan otot teras."
+                }
+            },
+            "breathingTips": {
+                "1": "Hembus nafas semasa anda mengangkat badan atas ke arah pinggul.",
+                "2": "Tarik nafas semasa anda menurunkan kembali ke posisi permulaan.",
+                "3": "Kekalkan corak pernafasan yang stabil dan terkawal sepanjang senaman."
+            }
         }
     }
 }

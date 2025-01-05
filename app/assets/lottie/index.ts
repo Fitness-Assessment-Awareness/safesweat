@@ -14,6 +14,7 @@ import plankLunges from './plank-lunges.json';
 import pushUp from './push-up.json';
 import reverseCrunch from './reverse-crunch.json';
 import reverseLunges from './reverse-lunges.json';
+import sideCrunches from './side-crunches.json';
 import sideLunge from './side-lunge.json';
 import sitUp from './sit-up.json';
 import squat from './squat.json';
@@ -40,4 +41,5 @@ export const LottieAssets = {
     plankLunges,
     reverseCrunch,
     sideLunge,
+    sideCrunches
 };
