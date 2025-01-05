@@ -461,6 +461,33 @@
                 "2": "Exhale as you return to the plank position.",
                 "3": "Maintain a steady and controlled breathing pattern throughout the exercise."
             }
+        },
+        "reverseCrunch": {
+            "title": "REVERSE CRUNCH",
+            "instructions": "Lie on your back with your hands by your sides or under your hips for support. Bend your knees and lift your legs so your thighs are perpendicular to the floor. Use your lower abs to lift your hips off the floor and bring your knees towards your chest. Lower back down to the starting position and repeat.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Using momentum",
+                    "description": "Relying on momentum rather than muscle strength can reduce the effectiveness of the exercise and increase the risk of injury. Focus on using your lower abs to lift your hips."
+                },
+                "2": {
+                    "title": "Not engaging the core",
+                    "description": "Failing to engage the core can lead to poor form and reduce the effectiveness of the exercise."
+                },
+                "3": {
+                    "title": "Arching the lower back",
+                    "description": "Arching the lower back can put unnecessary strain on the spine. Keep your back flat on the floor and engage your core."
+                },
+                "4": {
+                    "title": "Lifting the upper body",
+                    "description": "Lifting your upper body off the floor can reduce the effectiveness of the exercise. Keep your upper body relaxed and focus on lifting your hips."
+                }
+            },
+            "breathingTips": {
+                "1": "Exhale as you lift your hips off the floor.",
+                "2": "Inhale as you lower back down to the starting position.",
+                "3": "Maintain a steady and controlled breathing pattern throughout the exercise."
+            }
         }
     }
 }

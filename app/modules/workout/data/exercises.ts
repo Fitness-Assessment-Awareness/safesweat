@@ -490,6 +490,36 @@ export const useExercises = () => {
             ],
             difficulty: 'moderate',
         },
+        reverseCrunch: {
+            title: t('reverseCrunch.title'),
+            lottieSource: LottieAssets.reverseCrunch,
+            instructions: t('reverseCrunch.instructions'),
+            focusAreas: ['Abs'],
+            commonMistakes: [
+                {
+                    title: t('reverseCrunch.commonMistakes.1.title'),
+                    description: t('reverseCrunch.commonMistakes.1.description'),
+                },
+                {
+                    title: t('reverseCrunch.commonMistakes.2.title'),
+                    description: t('reverseCrunch.commonMistakes.2.description'),
+                },
+                {
+                    title: t('reverseCrunch.commonMistakes.3.title'),
+                    description: t('reverseCrunch.commonMistakes.3.description'),
+                },
+                {
+                    title: t('reverseCrunch.commonMistakes.4.title'),
+                    description: t('reverseCrunch.commonMistakes.4.description'),
+                },
+            ],
+            breathingTips: [
+                t('reverseCrunch.breathingTips.1'),
+                t('reverseCrunch.breathingTips.2'),
+                t('reverseCrunch.breathingTips.3'),
+            ],
+            difficulty: 'moderate',
+        },
     } as const satisfies Record<string, Exercise>;
 };
 
