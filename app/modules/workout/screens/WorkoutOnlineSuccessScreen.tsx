@@ -44,7 +44,10 @@ export function WorkoutOnlinecSuccessScreen() {
                 </Heading>
                 <XStack columnGap="$4">
                     {assets.map((asset, index) => (
-                        <Pressable onPress={() => setRating(index + 1)}>
+                        <Pressable
+                            key={asset.toString()}
+                            onPress={() => setRating(index + 1)}
+                        >
                             <Image
                                 source={asset}
                                 width={80}

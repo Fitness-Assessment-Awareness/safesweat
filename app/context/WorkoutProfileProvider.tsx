@@ -40,6 +40,7 @@ export function WorkoutProfileProvider({ children }: ComponentProps) {
     });
     const [isReady, setIsReady] = useState(false);
     const WORKOUTS = useWorkouts();
+    console.log(workoutProfile);
 
     useEffect(() => {
         const rehydrateWorkoutProfile = async () => {
