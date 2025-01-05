@@ -1,4 +1,5 @@
 import abdominalCrunches from './abdominal-crunches.json';
+import burpee from './burpee.json';
 import cobraStretch from './cobra-stretch.json';
 import doorwayStretch from './doorway-stretch.json';
 import inclinePushUp from './incline-push-up.json';
@@ -28,4 +29,5 @@ export const LottieAssets = {
     wideArmPushUp,
     sitUp,
     reverseLunges,
+    burpee,
 };

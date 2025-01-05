@@ -377,6 +377,37 @@ export const useExercises = () => {
             ],
             difficulty: 'moderate',
         },
+        burpee: {
+            title: t('burpee.title'),
+            lottieSource: LottieAssets.burpee,
+            instructions: t('burpee.instructions'),
+            focusAreas: ['Chest', 'Triceps', 'Shoulders', 'Quadriceps', 'Glutes', 'Abs'],
+            commonMistakes: [
+                {
+                    title: t('burpee.commonMistakes.1.title'),
+                    description: t('burpee.commonMistakes.1.description'),
+                },
+                {
+                    title: t('burpee.commonMistakes.2.title'),
+                    description: t('burpee.commonMistakes.2.description'),
+                },
+                {
+                    title: t('burpee.commonMistakes.3.title'),
+                    description: t('burpee.commonMistakes.3.description'),
+                },
+                {
+                    title: t('burpee.commonMistakes.4.title'),
+                    description: t('burpee.commonMistakes.4.description'),
+                },
+            ],
+            breathingTips: [
+                t('burpee.breathingTips.1'),
+                t('burpee.breathingTips.2'),
+                t('burpee.breathingTips.3'),
+                t('burpee.breathingTips.4'),
+            ],
+            difficulty: 'vigorous',
+        },
     } as const satisfies Record<string, Exercise>;
 };
 

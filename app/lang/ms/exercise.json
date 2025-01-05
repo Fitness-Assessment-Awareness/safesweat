@@ -356,6 +356,34 @@
                 "2": "Hembus nafas semasa anda menolak diri anda kembali ke posisi permulaan.",
                 "3": "Kekalkan corak pernafasan yang stabil dan terkawal sepanjang senaman."
             }
+        },
+        "burpee": {
+            "title": "BURPEE",
+            "instructions": "Mulakan dalam posisi berdiri. Turun ke posisi mencangkung dengan tangan di atas tanah. Tendang kaki anda ke belakang ke dalam posisi plank. Lakukan tekan tubi. Kembalikan kaki anda ke posisi mencangkung. Lompat dari posisi mencangkung dan angkat tangan anda ke atas kepala.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Melangkau tekan tubi",
+                    "description": "Melangkau tekan tubi boleh mengurangkan keberkesanan senaman. Pastikan untuk memasukkan tekan tubi untuk melibatkan otot bahagian atas badan anda."
+                },
+                "2": {
+                    "title": "Tidak melompat cukup tinggi",
+                    "description": "Gagal melompat cukup tinggi boleh mengurangkan intensiti senaman. Sasarkan untuk melompat setinggi yang anda boleh untuk memaksimumkan manfaat."
+                },
+                "3": {
+                    "title": "Membiarkan pinggul melendut semasa plank",
+                    "description": "Membiarkan pinggul melendut semasa plank boleh meletakkan tekanan yang tidak perlu pada bahagian bawah belakang anda. Kekalkan badan anda dalam garis lurus dari kepala ke tumit."
+                },
+                "4": {
+                    "title": "Tidak melibatkan otot teras",
+                    "description": "Ia memerlukan otot teras untuk terlibat sepanjang senaman. Jika teras tidak terlibat, ia boleh menyebabkan bentuk yang lemah dan senaman yang tidak berkesan."
+                }
+            },
+            "breathingTips": {
+                "1": "Tarik nafas semasa anda turun ke posisi mencangkung dan tendang kaki ke belakang.",
+                "2": "Hembus nafas semasa anda melakukan tekan tubi.",
+                "3": "Tarik nafas semasa anda kembalikan kaki ke posisi mencangkung.",
+                "4": "Hembus nafas semasa anda melompat dan angkat tangan ke atas kepala."
+            }
         }
     }
 }

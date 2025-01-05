@@ -356,6 +356,34 @@
                 "2": "Exhale as you push yourself back up to the starting position.",
                 "3": "Maintain a steady and controlled breathing pattern throughout the exercise."
             }
+        },
+        "burpee": {
+            "title": "BURPEE",
+            "instructions": "Start in a standing position. Drop into a squat with your hands on the ground. Kick your feet back into a plank position. Perform a push-up. Return your feet to the squat position. Jump up from the squat position and reach your arms overhead.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Skipping the push-up",
+                    "description": "Skipping the push-up can reduce the effectiveness of the exercise. Make sure to include the push-up to engage your upper body muscles."
+                },
+                "2": {
+                    "title": "Not jumping high enough",
+                    "description": "Failing to jump high enough can reduce the intensity of the exercise. Aim to jump as high as you can to maximize the benefits."
+                },
+                "3": {
+                    "title": "Letting the hips sag during the plank",
+                    "description": "Allowing your hips to sag during the plank can put unnecessary strain on your lower back. Keep your body in a straight line from head to heels."
+                },
+                "4": {
+                    "title": "Not engaging the core",
+                    "description": "It requires the core muscles to be engaged throughout the entire exercise. If the core is not engaged, it can lead to poor form and an ineffective workout."
+                }
+            },
+            "breathingTips": {
+                "1": "Inhale as you drop into the squat and kick your feet back.",
+                "2": "Exhale as you perform the push-up.",
+                "3": "Inhale as you return your feet to the squat position.",
+                "4": "Exhale as you jump up and reach your arms overhead."
+            }
         }
     }
 }
