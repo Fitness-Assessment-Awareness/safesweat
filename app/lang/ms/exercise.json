@@ -329,6 +329,33 @@
                 "2": "Tarik nafas semasa anda menurunkan kembali ke posisi permulaan.",
                 "3": "Kekalkan corak pernafasan yang stabil dan terkawal sepanjang senaman."
             }
+        },
+        "reverseLunges": {
+            "title": "LUNGES TERBALIK",
+            "instructions": "Berdiri tegak dengan kaki anda selebar bahu. Langkah ke belakang dengan kaki kanan anda dan turunkan badan anda sehingga paha kiri anda selari dengan lantai dan lutut kanan anda hampir menyentuh tanah.\n\nKembali ke posisi permulaan dan ulangi dengan kaki yang lain.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Membiarkan lutut depan melepasi jari kaki",
+                    "description": "Ini boleh meletakkan tekanan yang tidak perlu pada sendi lutut dan meningkatkan risiko kecederaan. Pastikan lutut depan anda selari dengan jari kaki anda."
+                },
+                "2": {
+                    "title": "Tidak menjaga badan tegak",
+                    "description": "Membongkok ke hadapan boleh mengurangkan keberkesanan senaman dan meletakkan tekanan pada bahagian bawah belakang anda. Pastikan badan anda tegak dan libatkan otot teras."
+                },
+                "3": {
+                    "title": "Tidak melangkah ke belakang dengan cukup jauh",
+                    "description": "Gagal melangkah ke belakang dengan cukup jauh boleh mengurangkan keberkesanan senaman. Pastikan untuk melangkah ke belakang dengan cukup jauh sehingga lutut belakang anda hampir menyentuh tanah."
+                },
+                "4": {
+                    "title": "Tidak melibatkan otot teras",
+                    "description": "Ia memerlukan otot teras untuk terlibat sepanjang senaman. Jika teras tidak terlibat, ia boleh menyebabkan bentuk yang lemah dan senaman yang tidak berkesan."
+                }
+            },
+            "breathingTips": {
+                "1": "Tarik nafas semasa anda melangkah ke belakang dan menurunkan badan.",
+                "2": "Hembus nafas semasa anda menolak diri anda kembali ke posisi permulaan.",
+                "3": "Kekalkan corak pernafasan yang stabil dan terkawal sepanjang senaman."
+            }
         }
     }
 }

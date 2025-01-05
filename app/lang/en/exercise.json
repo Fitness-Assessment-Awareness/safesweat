@@ -329,6 +329,33 @@
                 "2": "Inhale as you lower back down to the starting position.",
                 "3": "Maintain a steady and controlled breathing pattern throughout the exercise."
             }
+        },
+        "reverseLunges": {
+            "title": "REVERSE LUNGES",
+            "instructions": "Stand upright with your feet shoulder-width apart. Step backward with your right foot and lower your body until your left thigh is parallel to the floor and your right knee is almost touching the ground.\n\nReturn to the starting position and repeat with the other leg.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Letting the front knee go past the toes",
+                    "description": "This can put unnecessary stress on the knee joint and increase the risk of injury. Keep your front knee in line with your toes."
+                },
+                "2": {
+                    "title": "Not keeping the torso upright",
+                    "description": "Leaning forward can reduce the effectiveness of the exercise and put strain on your lower back. Keep your torso upright and engage your core."
+                },
+                "3": {
+                    "title": "Not stepping back far enough",
+                    "description": "Failing to step back far enough can reduce the effectiveness of the exercise. Make sure to step back far enough so that your back knee is almost touching the ground."
+                },
+                "4": {
+                    "title": "Not engaging the core",
+                    "description": "It requires the core muscles to be engaged throughout the entire exercise. If the core is not engaged, it can lead to poor form and an ineffective workout."
+                }
+            },
+            "breathingTips": {
+                "1": "Inhale as you step back and lower your body.",
+                "2": "Exhale as you push yourself back up to the starting position.",
+                "3": "Maintain a steady and controlled breathing pattern throughout the exercise."
+            }
         }
     }
 }
