@@ -6,6 +6,7 @@ import doorwayStretch from './doorway-stretch.json';
 import inclinePushUp from './incline-push-up.json';
 import jumpingJacks from './jumping-jack.json';
 import kneePushUp from './knee-push-up.json';
+import kneelingSquat from './kneeling-squat.json';
 import legRaises from './leg-raises.json';
 import lumbarTwist from './lumbar-twist.json';
 import mountainClimber from './mountain-climber.json';
@@ -32,4 +33,5 @@ export const LottieAssets = {
     reverseLunges,
     burpee,
     crunch,
+    kneelingSquat,
 };

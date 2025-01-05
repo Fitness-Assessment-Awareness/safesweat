@@ -411,6 +411,29 @@
                 "2": "Tarik nafas semasa anda menurunkan kembali ke posisi permulaan.",
                 "3": "Kekalkan corak pernafasan yang stabil dan terkawal sepanjang senaman."
             }
+        },
+        "kneelingSquat": {
+            "title": "MENCANGKUNG BERLUTUT",
+            "instructions": "Mulakan dengan berlutut di lantai dengan lutut selebar pinggul dan jari kaki menghala ke belakang. Duduk di atas tumit anda, kemudian libatkan glutes dan paha anda untuk mengangkat pinggul anda sehingga badan anda membentuk garis lurus dari bahu ke lutut. Turunkan kembali ke posisi permulaan dan ulangi.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Tidak melibatkan glutes",
+                    "description": "Gagal melibatkan glutes boleh mengurangkan keberkesanan senaman dan meletakkan tekanan yang tidak perlu pada bahagian bawah belakang."
+                },
+                "2": {
+                    "title": "Melengkungkan bahagian bawah belakang",
+                    "description": "Melengkungkan bahagian bawah belakang boleh meletakkan tekanan yang tidak perlu pada tulang belakang. Kekalkan belakang anda lurus dan libatkan otot teras."
+                },
+                "3": {
+                    "title": "Tidak menjaga lutut selari",
+                    "description": "Membiarkan lutut melebar atau terlalu rapat boleh mengurangkan keberkesanan senaman dan meningkatkan risiko kecederaan. Pastikan lutut anda selari dengan pinggul."
+                }
+            },
+            "breathingTips": {
+                "1": "Tarik nafas semasa anda duduk di atas tumit.",
+                "2": "Hembus nafas semasa anda mengangkat pinggul ke posisi permulaan.",
+                "3": "Kekalkan corak pernafasan yang stabil dan terkawal sepanjang senaman."
+            }
         }
     }
 }

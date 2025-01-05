@@ -411,6 +411,29 @@
                 "2": "Inhale as you lower back down to the starting position.",
                 "3": "Maintain a steady and controlled breathing pattern throughout the exercise."
             }
+        },
+        "kneelingSquat": {
+            "title": "KNEELING SQUAT",
+            "instructions": "Start by kneeling on the floor with your knees hip-width apart and your toes pointed behind you. Sit back onto your heels, then engage your glutes and thighs to lift your hips up until your body forms a straight line from your shoulders to your knees. Lower back down to the starting position and repeat.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Not engaging the glutes",
+                    "description": "Failing to engage the glutes can reduce the effectiveness of the exercise and put unnecessary strain on the lower back."
+                },
+                "2": {
+                    "title": "Arching the lower back",
+                    "description": "Arching the lower back can put unnecessary strain on the spine. Keep your back straight and engage your core."
+                },
+                "3": {
+                    "title": "Not keeping the knees aligned",
+                    "description": "Allowing the knees to flare out or come too close together can reduce the effectiveness of the exercise and increase the risk of injury. Keep your knees aligned with your hips."
+                }
+            },
+            "breathingTips": {
+                "1": "Inhale as you sit back onto your heels.",
+                "2": "Exhale as you lift your hips up to the starting position.",
+                "3": "Maintain a steady and controlled breathing pattern throughout the exercise."
+            }
         }
     }
 }
