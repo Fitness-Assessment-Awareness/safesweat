@@ -412,6 +412,164 @@
                 "3": "Kekalkan corak pernafasan yang stabil dan terkawal sepanjang senaman."
             }
         },
+        "kneelingSquat": {
+            "title": "MENCANGKUNG BERLUTUT",
+            "instructions": "Mulakan dengan berlutut di lantai dengan lutut selebar pinggul dan jari kaki menghala ke belakang. Duduk di atas tumit anda, kemudian libatkan glutes dan paha anda untuk mengangkat pinggul anda sehingga badan anda membentuk garis lurus dari bahu ke lutut. Turunkan kembali ke posisi permulaan dan ulangi.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Tidak melibatkan glutes",
+                    "description": "Gagal melibatkan glutes boleh mengurangkan keberkesanan senaman dan meletakkan tekanan yang tidak perlu pada bahagian bawah belakang."
+                },
+                "2": {
+                    "title": "Melengkungkan bahagian bawah belakang",
+                    "description": "Melengkungkan bahagian bawah belakang boleh meletakkan tekanan yang tidak perlu pada tulang belakang. Kekalkan belakang anda lurus dan libatkan otot teras."
+                },
+                "3": {
+                    "title": "Tidak menjaga lutut selari",
+                    "description": "Membiarkan lutut melebar atau terlalu rapat boleh mengurangkan keberkesanan senaman dan meningkatkan risiko kecederaan. Pastikan lutut anda selari dengan pinggul."
+                }
+            },
+            "breathingTips": {
+                "1": "Tarik nafas semasa anda duduk di atas tumit.",
+                "2": "Hembus nafas semasa anda mengangkat pinggul ke posisi permulaan.",
+                "3": "Kekalkan corak pernafasan yang stabil dan terkawal sepanjang senaman."
+            }
+        },
+        "plankLunges": {
+            "title": "PLANK LUNGES",
+            "instructions": "Mulakan dalam posisi plank dengan tangan anda terus di bawah bahu dan badan anda dalam garis lurus dari kepala ke tumit. Langkah kaki kanan anda ke hadapan ke luar tangan kanan anda, kemudian kembali ke posisi plank. Ulangi dengan kaki kiri anda.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Membiarkan pinggul melendut",
+                    "description": "Membiarkan pinggul melendut boleh meletakkan tekanan yang tidak perlu pada bahagian bawah belakang anda. Kekalkan badan anda dalam garis lurus dari kepala ke tumit."
+                },
+                "2": {
+                    "title": "Tidak melibatkan otot teras",
+                    "description": "Gagal melibatkan otot teras boleh menyebabkan bentuk yang lemah dan mengurangkan keberkesanan senaman."
+                },
+                "3": {
+                    "title": "Tidak melangkah cukup jauh ke hadapan",
+                    "description": "Gagal melangkah cukup jauh ke hadapan boleh mengurangkan keberkesanan senaman. Pastikan untuk melangkah kaki anda sepenuhnya ke luar tangan anda."
+                },
+                "4": {
+                    "title": "Melakukan pergerakan terlalu cepat",
+                    "description": "Melakukan senaman terlalu cepat boleh mengurangkan keberkesanannya dan mungkin menyebabkan anda kehilangan bentuk yang betul."
+                }
+            },
+            "breathingTips": {
+                "1": "Tarik nafas semasa anda melangkah kaki ke hadapan.",
+                "2": "Hembus nafas semasa anda kembali ke posisi plank.",
+                "3": "Kekalkan corak pernafasan yang stabil dan terkawal sepanjang senaman."
+            }
+        },
+        "reverseCrunch": {
+            "title": "CRUNCH TERBALIK",
+            "instructions": "Berbaring di belakang dengan tangan di sisi anda atau di bawah pinggul untuk sokongan. Bengkokkan lutut dan angkat kaki sehingga paha anda menegak dengan lantai. Gunakan otot abdomen bawah untuk mengangkat pinggul anda dari lantai dan bawa lutut ke arah dada. Turunkan kembali ke posisi permulaan dan ulangi.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Menggunakan momentum",
+                    "description": "Bergantung pada momentum dan bukannya kekuatan otot boleh mengurangkan keberkesanan senaman dan meningkatkan risiko kecederaan. Fokus pada penggunaan otot abdomen bawah untuk mengangkat pinggul."
+                },
+                "2": {
+                    "title": "Tidak melibatkan otot teras",
+                    "description": "Gagal melibatkan otot teras boleh menyebabkan bentuk yang lemah dan mengurangkan keberkesanan senaman."
+                },
+                "3": {
+                    "title": "Melengkungkan belakang bawah",
+                    "description": "Melengkungkan belakang bawah boleh meletakkan tekanan yang tidak perlu pada tulang belakang. Kekalkan belakang anda rata di atas lantai dan libatkan otot teras."
+                },
+                "4": {
+                    "title": "Mengangkat badan atas",
+                    "description": "Mengangkat badan atas anda dari lantai boleh mengurangkan keberkesanan senaman. Kekalkan badan atas anda santai dan fokus pada mengangkat pinggul."
+                }
+            },
+            "breathingTips": {
+                "1": "Hembus nafas semasa anda mengangkat pinggul dari lantai.",
+                "2": "Tarik nafas semasa anda menurunkan kembali ke posisi permulaan.",
+                "3": "Kekalkan corak pernafasan yang stabil dan terkawal sepanjang senaman."
+            }
+        },
+        "sideLunge": {
+            "title": "LUNGE SISI",
+            "instructions": "Berdiri dengan kaki anda selebar bahu. Ambil langkah besar ke sisi dengan kaki kanan anda, bengkokkan lutut kanan dan tolak pinggul anda ke belakang sambil menjaga kaki kiri lurus. Kembali ke posisi permulaan dan ulangi di sisi yang lain.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Tidak melangkah cukup lebar",
+                    "description": "Gagal melangkah cukup lebar boleh mengurangkan keberkesanan senaman. Pastikan untuk mengambil langkah besar ke sisi."
+                },
+                "2": {
+                    "title": "Membiarkan lutut melepasi jari kaki",
+                    "description": "Ini boleh meletakkan tekanan yang tidak perlu pada sendi lutut dan meningkatkan risiko kecederaan. Pastikan lutut anda selari dengan jari kaki anda."
+                },
+                "3": {
+                    "title": "Tidak menjaga badan tegak",
+                    "description": "Membongkok ke hadapan boleh mengurangkan keberkesanan senaman dan meletakkan tekanan pada bahagian bawah belakang anda. Pastikan badan anda tegak dan libatkan otot teras."
+                },
+                "4": {
+                    "title": "Tidak melibatkan otot teras",
+                    "description": "Ia memerlukan otot teras untuk terlibat sepanjang senaman. Jika teras tidak terlibat, ia boleh menyebabkan bentuk yang lemah dan senaman yang tidak berkesan."
+                }
+            },
+            "breathingTips": {
+                "1": "Tarik nafas semasa anda melangkah ke sisi dan menurunkan badan.",
+                "2": "Hembus nafas semasa anda menolak diri anda kembali ke posisi permulaan.",
+                "3": "Kekalkan corak pernafasan yang stabil dan terkawal sepanjang senaman."
+            }
+        },
+        "sideCrunches": {
+            "title": "CRUNCH SISI",
+            "instructions": "Berbaring di sisi dengan lutut dibengkokkan dan tangan di belakang kepala. Angkat badan atas ke arah pinggul, melibatkan obliques anda. Turunkan kembali ke posisi permulaan dan ulangi.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Menarik leher",
+                    "description": "Menggunakan tangan untuk menarik leher boleh menegangkan otot leher anda. Sebaliknya, gunakan obliques anda untuk mengangkat badan atas anda."
+                },
+                "2": {
+                    "title": "Tidak melibatkan otot teras",
+                    "description": "Gagal melibatkan otot teras boleh menyebabkan bentuk yang lemah dan mengurangkan keberkesanan senaman."
+                },
+                "3": {
+                    "title": "Menggunakan momentum",
+                    "description": "Bergantung pada momentum daripada kekuatan otot boleh mengurangkan keberkesanan senaman dan meningkatkan risiko kecederaan."
+                },
+                "4": {
+                    "title": "Melengkungkan belakang bawah",
+                    "description": "Melengkungkan belakang bawah boleh meletakkan tekanan yang tidak perlu pada tulang belakang. Kekalkan belakang anda lurus dan libatkan otot teras."
+                }
+            },
+            "breathingTips": {
+                "1": "Hembus nafas semasa anda mengangkat badan atas ke arah pinggul.",
+                "2": "Tarik nafas semasa anda menurunkan kembali ke posisi permulaan.",
+                "3": "Kekalkan corak pernafasan yang stabil dan terkawal sepanjang senaman."
+            }
+        },
+        "pistolSquat": {
+            "title": "PISTOL SQUAT",
+            "instructions": "Berdiri dengan satu kaki dengan kaki yang lain diluruskan ke hadapan. Turunkan badan anda ke dalam posisi mencangkung sambil memastikan kaki yang diluruskan tidak menyentuh tanah. Tolak melalui tumit anda untuk kembali ke posisi permulaan dan ulangi.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Tidak menjaga kaki yang diluruskan lurus",
+                    "description": "Membengkokkan kaki yang diluruskan boleh mengurangkan keberkesanan senaman dan menyukarkan keseimbangan. Pastikan kaki yang diluruskan lurus dan tidak menyentuh tanah."
+                },
+                "2": {
+                    "title": "Membiarkan lutut masuk ke dalam",
+                    "description": "Membiarkan lutut masuk ke dalam boleh meletakkan tekanan yang tidak perlu pada sendi lutut dan meningkatkan risiko kecederaan. Pastikan lutut anda selari dengan jari kaki anda."
+                },
+                "3": {
+                    "title": "Tidak melibatkan otot teras",
+                    "description": "Gagal melibatkan otot teras boleh menyebabkan bentuk yang lemah dan mengurangkan keberkesanan senaman. Libatkan otot teras anda untuk mengekalkan keseimbangan dan kestabilan."
+                },
+                "4": {
+                    "title": "Membongkokkan belakang",
+                    "description": "Membongkokkan belakang boleh meletakkan tekanan yang tidak perlu pada tulang belakang. Pastikan belakang anda lurus dan libatkan otot teras."
+                }
+            },
+            "breathingTips": {
+                "1": "Tarik nafas semasa anda menurunkan badan.",
+                "2": "Hembus nafas semasa anda menolak diri anda kembali ke posisi permulaan.",
+                "3": "Kekalkan corak pernafasan yang stabil dan terkawal sepanjang senaman."
+            }
+        },
         "runningInPlace": {
             "title": "LARI DI TEMPAT",
             "instructions": "Berdiri tegak dengan kaki anda selebar pinggul. Angkat lutut anda dan gerakkan tangan anda seolah-olah anda sedang berlari. Kekalkan otot teras anda terlibat dan kekalkan kadar yang stabil.",

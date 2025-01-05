@@ -412,6 +412,164 @@
                 "3": "Maintain a steady and controlled breathing pattern throughout the exercise."
             }
         },
+        "kneelingSquat": {
+            "title": "KNEELING SQUAT",
+            "instructions": "Start by kneeling on the floor with your knees hip-width apart and your toes pointed behind you. Sit back onto your heels, then engage your glutes and thighs to lift your hips up until your body forms a straight line from your shoulders to your knees. Lower back down to the starting position and repeat.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Not engaging the glutes",
+                    "description": "Failing to engage the glutes can reduce the effectiveness of the exercise and put unnecessary strain on the lower back."
+                },
+                "2": {
+                    "title": "Arching the lower back",
+                    "description": "Arching the lower back can put unnecessary strain on the spine. Keep your back straight and engage your core."
+                },
+                "3": {
+                    "title": "Not keeping the knees aligned",
+                    "description": "Allowing the knees to flare out or come too close together can reduce the effectiveness of the exercise and increase the risk of injury. Keep your knees aligned with your hips."
+                }
+            },
+            "breathingTips": {
+                "1": "Inhale as you sit back onto your heels.",
+                "2": "Exhale as you lift your hips up to the starting position.",
+                "3": "Maintain a steady and controlled breathing pattern throughout the exercise."
+            }
+        },
+        "plankLunges": {
+            "title": "PLANK LUNGES",
+            "instructions": "Start in a plank position with your hands directly under your shoulders and your body in a straight line from head to heels. Step your right foot forward to the outside of your right hand, then return to the plank position. Repeat with your left foot.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Letting the hips sag",
+                    "description": "Allowing your hips to sag can put unnecessary strain on your lower back. Keep your body in a straight line from head to heels."
+                },
+                "2": {
+                    "title": "Not engaging the core",
+                    "description": "Failing to engage the core can lead to poor form and reduce the effectiveness of the exercise."
+                },
+                "3": {
+                    "title": "Not stepping far enough forward",
+                    "description": "Failing to step far enough forward can reduce the effectiveness of the exercise. Make sure to step your foot all the way to the outside of your hand."
+                },
+                "4": {
+                    "title": "Rushing the movement",
+                    "description": "Performing the exercise too quickly can reduce its effectiveness and may cause you to lose proper form."
+                }
+            },
+            "breathingTips": {
+                "1": "Inhale as you step your foot forward.",
+                "2": "Exhale as you return to the plank position.",
+                "3": "Maintain a steady and controlled breathing pattern throughout the exercise."
+            }
+        },
+        "reverseCrunch": {
+            "title": "REVERSE CRUNCH",
+            "instructions": "Lie on your back with your hands by your sides or under your hips for support. Bend your knees and lift your legs so your thighs are perpendicular to the floor. Use your lower abs to lift your hips off the floor and bring your knees towards your chest. Lower back down to the starting position and repeat.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Using momentum",
+                    "description": "Relying on momentum rather than muscle strength can reduce the effectiveness of the exercise and increase the risk of injury. Focus on using your lower abs to lift your hips."
+                },
+                "2": {
+                    "title": "Not engaging the core",
+                    "description": "Failing to engage the core can lead to poor form and reduce the effectiveness of the exercise."
+                },
+                "3": {
+                    "title": "Arching the lower back",
+                    "description": "Arching the lower back can put unnecessary strain on the spine. Keep your back flat on the floor and engage your core."
+                },
+                "4": {
+                    "title": "Lifting the upper body",
+                    "description": "Lifting your upper body off the floor can reduce the effectiveness of the exercise. Keep your upper body relaxed and focus on lifting your hips."
+                }
+            },
+            "breathingTips": {
+                "1": "Exhale as you lift your hips off the floor.",
+                "2": "Inhale as you lower back down to the starting position.",
+                "3": "Maintain a steady and controlled breathing pattern throughout the exercise."
+            }
+        },
+        "sideLunge": {
+            "title": "SIDE LUNGE",
+            "instructions": "Stand with your feet shoulder-width apart. Take a big step to the side with your right foot, bending your right knee and pushing your hips back while keeping your left leg straight. Return to the starting position and repeat on the other side.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Not stepping wide enough",
+                    "description": "Failing to step wide enough can reduce the effectiveness of the exercise. Make sure to take a big step to the side."
+                },
+                "2": {
+                    "title": "Letting the knee go past the toes",
+                    "description": "This can put unnecessary stress on the knee joint and increase the risk of injury. Keep your knee in line with your toes."
+                },
+                "3": {
+                    "title": "Not keeping the torso upright",
+                    "description": "Leaning forward can reduce the effectiveness of the exercise and put strain on your lower back. Keep your torso upright and engage your core."
+                },
+                "4": {
+                    "title": "Not engaging the core",
+                    "description": "It requires the core muscles to be engaged throughout the entire exercise. If the core is not engaged, it can lead to poor form and an ineffective workout."
+                }
+            },
+            "breathingTips": {
+                "1": "Inhale as you step to the side and lower your body.",
+                "2": "Exhale as you push yourself back up to the starting position.",
+                "3": "Maintain a steady and controlled breathing pattern throughout the exercise."
+            }
+        },
+        "sideCrunches": {
+            "title": "SIDE CRUNCHES",
+            "instructions": "Lie on your side with your knees bent and your hands behind your head. Lift your upper body towards your hips, engaging your obliques. Lower back down to the starting position and repeat.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Pulling on the neck",
+                    "description": "Using your hands to pull your neck can strain your neck muscles. Instead, use your obliques to lift your upper body."
+                },
+                "2": {
+                    "title": "Not engaging the core",
+                    "description": "Failing to engage the core can lead to poor form and reduce the effectiveness of the exercise."
+                },
+                "3": {
+                    "title": "Using momentum",
+                    "description": "Relying on momentum rather than muscle strength can reduce the effectiveness of the exercise and increase the risk of injury."
+                },
+                "4": {
+                    "title": "Arching the lower back",
+                    "description": "Arching the lower back can put unnecessary strain on the spine. Keep your back straight and engage your core."
+                }
+            },
+            "breathingTips": {
+                "1": "Exhale as you lift your upper body towards your hips.",
+                "2": "Inhale as you lower back down to the starting position.",
+                "3": "Maintain a steady and controlled breathing pattern throughout the exercise."
+            }
+        },
+        "pistolSquat": {
+            "title": "PISTOL SQUAT",
+            "instructions": "Stand on one leg with your other leg extended forward. Lower your body down into a squat position while keeping your extended leg off the ground. Push through your heel to return to the starting position and repeat.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Not keeping the extended leg straight",
+                    "description": "Bending the extended leg can reduce the effectiveness of the exercise and make it harder to balance. Keep your extended leg straight and off the ground."
+                },
+                "2": {
+                    "title": "Letting the knee cave in",
+                    "description": "Allowing your knee to cave in can put unnecessary stress on the knee joint and increase the risk of injury. Keep your knee in line with your toes."
+                },
+                "3": {
+                    "title": "Not engaging the core",
+                    "description": "Failing to engage the core can lead to poor form and reduce the effectiveness of the exercise. Engage your core to maintain balance and stability."
+                },
+                "4": {
+                    "title": "Rounding the back",
+                    "description": "Rounding the back can put unnecessary strain on the spine. Keep your back straight and engage your core."
+                }
+            },
+            "breathingTips": {
+                "1": "Inhale as you lower your body down.",
+                "2": "Exhale as you push yourself back up to the starting position.",
+                "3": "Maintain a steady and controlled breathing pattern throughout the exercise."
+            }
+        },
         "runningInPlace": {
             "title": "RUNNING IN PLACE",
             "instructions": "Stand upright with your feet hip-width apart. Lift your knees and pump your arms as if you were running. Keep your core engaged and maintain a steady pace.",
