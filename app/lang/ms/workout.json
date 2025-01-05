@@ -25,6 +25,7 @@
             },
             "empty": "Tiada senaman dimuat turun...",
             "error": "Ralat mendapatkan data! Sila cuba lagi. Anda masih boleh mengakses senaman yang anda simpan.",
+            "retry": "Cuba lagi",
             "loading": "Memuatkan..."
         },
         "plan": {
