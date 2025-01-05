@@ -488,6 +488,33 @@
                 "2": "Inhale as you lower back down to the starting position.",
                 "3": "Maintain a steady and controlled breathing pattern throughout the exercise."
             }
+        },
+        "sideLunge": {
+            "title": "SIDE LUNGE",
+            "instructions": "Stand with your feet shoulder-width apart. Take a big step to the side with your right foot, bending your right knee and pushing your hips back while keeping your left leg straight. Return to the starting position and repeat on the other side.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Not stepping wide enough",
+                    "description": "Failing to step wide enough can reduce the effectiveness of the exercise. Make sure to take a big step to the side."
+                },
+                "2": {
+                    "title": "Letting the knee go past the toes",
+                    "description": "This can put unnecessary stress on the knee joint and increase the risk of injury. Keep your knee in line with your toes."
+                },
+                "3": {
+                    "title": "Not keeping the torso upright",
+                    "description": "Leaning forward can reduce the effectiveness of the exercise and put strain on your lower back. Keep your torso upright and engage your core."
+                },
+                "4": {
+                    "title": "Not engaging the core",
+                    "description": "It requires the core muscles to be engaged throughout the entire exercise. If the core is not engaged, it can lead to poor form and an ineffective workout."
+                }
+            },
+            "breathingTips": {
+                "1": "Inhale as you step to the side and lower your body.",
+                "2": "Exhale as you push yourself back up to the starting position.",
+                "3": "Maintain a steady and controlled breathing pattern throughout the exercise."
+            }
         }
     }
 }

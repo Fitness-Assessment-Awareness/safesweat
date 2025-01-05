@@ -488,6 +488,33 @@
                 "2": "Tarik nafas semasa anda menurunkan kembali ke posisi permulaan.",
                 "3": "Kekalkan corak pernafasan yang stabil dan terkawal sepanjang senaman."
             }
+        },
+        "sideLunge": {
+            "title": "LUNGE SISI",
+            "instructions": "Berdiri dengan kaki anda selebar bahu. Ambil langkah besar ke sisi dengan kaki kanan anda, bengkokkan lutut kanan dan tolak pinggul anda ke belakang sambil menjaga kaki kiri lurus. Kembali ke posisi permulaan dan ulangi di sisi yang lain.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Tidak melangkah cukup lebar",
+                    "description": "Gagal melangkah cukup lebar boleh mengurangkan keberkesanan senaman. Pastikan untuk mengambil langkah besar ke sisi."
+                },
+                "2": {
+                    "title": "Membiarkan lutut melepasi jari kaki",
+                    "description": "Ini boleh meletakkan tekanan yang tidak perlu pada sendi lutut dan meningkatkan risiko kecederaan. Pastikan lutut anda selari dengan jari kaki anda."
+                },
+                "3": {
+                    "title": "Tidak menjaga badan tegak",
+                    "description": "Membongkok ke hadapan boleh mengurangkan keberkesanan senaman dan meletakkan tekanan pada bahagian bawah belakang anda. Pastikan badan anda tegak dan libatkan otot teras."
+                },
+                "4": {
+                    "title": "Tidak melibatkan otot teras",
+                    "description": "Ia memerlukan otot teras untuk terlibat sepanjang senaman. Jika teras tidak terlibat, ia boleh menyebabkan bentuk yang lemah dan senaman yang tidak berkesan."
+                }
+            },
+            "breathingTips": {
+                "1": "Tarik nafas semasa anda melangkah ke sisi dan menurunkan badan.",
+                "2": "Hembus nafas semasa anda menolak diri anda kembali ke posisi permulaan.",
+                "3": "Kekalkan corak pernafasan yang stabil dan terkawal sepanjang senaman."
+            }
         }
     }
 }
