@@ -1,6 +1,7 @@
 import { useId, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Linking } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Toast from 'react-native-toast-message';
 import uuid from 'react-native-uuid';
 import { Button, Input, YStack } from 'tamagui';
@@ -25,6 +26,7 @@ export enum SettingsEmergencyContactSheetAction {
 export function SettingsEmergencyContactSheetContent({ handleDismissSheet, action, contactOnEdit }: ComponentProps) {
     const { t } = useTranslation();
     const { emergencyContacts, setEmergencyContacts, updateEmergencyContact } = useEmergencyContacts();
+    const { bottom } = useSafeAreaInsets();
 
     const [form, setForm] = useState({
         fullName: contactOnEdit ? contactOnEdit.fullName : '',
@@ -101,6 +103,7 @@ export function SettingsEmergencyContactSheetContent({ handleDismissSheet, actio
                 gap="$4"
                 my="$2"
                 mx="$4"
+                pb={bottom}
             >
                 <Label htmlFor={`${id}-fullname`}>{t('settings.emergency.contact.fullname')}</Label>
                 <Input
