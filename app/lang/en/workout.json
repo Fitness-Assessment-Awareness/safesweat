@@ -25,6 +25,7 @@
             },
             "empty": "No downloaded workout...",
             "error": "Error getting data! Please try again. You can still access workout you saved.",
+            "retry": "Retry",
             "loading": "Loading..."
         },
         "plan": {

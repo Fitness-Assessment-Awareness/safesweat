@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
-import { XStack } from 'tamagui';
+import { Button, XStack } from 'tamagui';
 import { Label } from '../../../components/Label';
 import { useLanguageCode } from '../../../context/LanguageCodeProvider';
 import { LanguageCode } from '../../../lang/LanguageCode';
@@ -11,7 +11,7 @@ import { WorkoutPlanCard } from './WorkoutPlanCard';
 export function WorkoutLandingOnlineExerciseSection() {
     const { t } = useTranslation('workout');
     const { navigate } = useWorkoutNavigation<'WorkoutLanding'>();
-    const { data, isPending, isError } = useQuery({
+    const { data, isPending, isError, refetch } = useQuery({
         queryKey: ['workout'],
         queryFn: WorkoutService.listAllPlan,
     });
@@ -60,9 +60,20 @@ export function WorkoutLandingOnlineExerciseSection() {
                 <Label
                     alignSelf="center"
                     textAlign="center"
+                    width="80%"
                 >
                     {t('landing.online_exercise.error')}
                 </Label>
+                <Button
+                    themeInverse
+                    onPress={() => {
+                        refetch();
+                    }}
+                    borderRadius="$8"
+                    alignSelf="center"
+                >
+                    {t('online_exercise.retry')}
+                </Button>
             </>
         );
     }
