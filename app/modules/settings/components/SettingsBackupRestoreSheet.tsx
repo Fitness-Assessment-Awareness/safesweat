@@ -75,26 +75,7 @@ export function SettingsBackupRestoreSheetContent({ handleDismissSheet }: Compon
                 height: userBackupData.height,
                 weight: userBackupData.weight,
                 weeklyGoal: userBackupData.weeklyGoal,
-                workoutHistories: userBackupData.userBackupWorkoutHistoryDtos.map((workoutHistory) =>
-                    workoutHistory.type === 'local'
-                        ? {
-                              type: 'local',
-                              workoutKey: workoutHistory.workoutKey,
-                              timestamp: workoutHistory.timestamp,
-                              rating: workoutHistory.rating,
-                              multiplier: workoutHistory.multiplier,
-                          }
-                        : {
-                              type: 'online',
-                              titleEn: workoutHistory.titleEn,
-                              titleMs: workoutHistory.titleMs,
-                              timestamp: workoutHistory.timestamp,
-                              rating: workoutHistory.rating,
-                              multiplier: workoutHistory.multiplier,
-                              imageUrl: workoutHistory.imageUrl,
-                              difficulty: workoutHistory.difficulty,
-                          },
-                ),
+                workoutHistories: userBackupData.userBackupWorkoutHistoryDtos,
             });
             setEmergencyContacts(
                 userBackupData.userBackupEmergencyContactDtos.map((contact) => ({
