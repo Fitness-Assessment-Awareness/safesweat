@@ -542,6 +542,33 @@
                 "2": "Inhale as you lower back down to the starting position.",
                 "3": "Maintain a steady and controlled breathing pattern throughout the exercise."
             }
+        },
+        "pistolSquat": {
+            "title": "PISTOL SQUAT",
+            "instructions": "Stand on one leg with your other leg extended forward. Lower your body down into a squat position while keeping your extended leg off the ground. Push through your heel to return to the starting position and repeat.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Not keeping the extended leg straight",
+                    "description": "Bending the extended leg can reduce the effectiveness of the exercise and make it harder to balance. Keep your extended leg straight and off the ground."
+                },
+                "2": {
+                    "title": "Letting the knee cave in",
+                    "description": "Allowing your knee to cave in can put unnecessary stress on the knee joint and increase the risk of injury. Keep your knee in line with your toes."
+                },
+                "3": {
+                    "title": "Not engaging the core",
+                    "description": "Failing to engage the core can lead to poor form and reduce the effectiveness of the exercise. Engage your core to maintain balance and stability."
+                },
+                "4": {
+                    "title": "Rounding the back",
+                    "description": "Rounding the back can put unnecessary strain on the spine. Keep your back straight and engage your core."
+                }
+            },
+            "breathingTips": {
+                "1": "Inhale as you lower your body down.",
+                "2": "Exhale as you push yourself back up to the starting position.",
+                "3": "Maintain a steady and controlled breathing pattern throughout the exercise."
+            }
         }
     }
 }

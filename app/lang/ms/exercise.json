@@ -542,6 +542,33 @@
                 "2": "Tarik nafas semasa anda menurunkan kembali ke posisi permulaan.",
                 "3": "Kekalkan corak pernafasan yang stabil dan terkawal sepanjang senaman."
             }
+        },
+        "pistolSquat": {
+            "title": "PISTOL SQUAT",
+            "instructions": "Berdiri dengan satu kaki dengan kaki yang lain diluruskan ke hadapan. Turunkan badan anda ke dalam posisi mencangkung sambil memastikan kaki yang diluruskan tidak menyentuh tanah. Tolak melalui tumit anda untuk kembali ke posisi permulaan dan ulangi.",
+            "commonMistakes": {
+                "1": {
+                    "title": "Tidak menjaga kaki yang diluruskan lurus",
+                    "description": "Membengkokkan kaki yang diluruskan boleh mengurangkan keberkesanan senaman dan menyukarkan keseimbangan. Pastikan kaki yang diluruskan lurus dan tidak menyentuh tanah."
+                },
+                "2": {
+                    "title": "Membiarkan lutut masuk ke dalam",
+                    "description": "Membiarkan lutut masuk ke dalam boleh meletakkan tekanan yang tidak perlu pada sendi lutut dan meningkatkan risiko kecederaan. Pastikan lutut anda selari dengan jari kaki anda."
+                },
+                "3": {
+                    "title": "Tidak melibatkan otot teras",
+                    "description": "Gagal melibatkan otot teras boleh menyebabkan bentuk yang lemah dan mengurangkan keberkesanan senaman. Libatkan otot teras anda untuk mengekalkan keseimbangan dan kestabilan."
+                },
+                "4": {
+                    "title": "Membongkokkan belakang",
+                    "description": "Membongkokkan belakang boleh meletakkan tekanan yang tidak perlu pada tulang belakang. Pastikan belakang anda lurus dan libatkan otot teras."
+                }
+            },
+            "breathingTips": {
+                "1": "Tarik nafas semasa anda menurunkan badan.",
+                "2": "Hembus nafas semasa anda menolak diri anda kembali ke posisi permulaan.",
+                "3": "Kekalkan corak pernafasan yang stabil dan terkawal sepanjang senaman."
+            }
         }
     }
 }

@@ -10,6 +10,7 @@ import kneelingSquat from './kneeling-squat.json';
 import legRaises from './leg-raises.json';
 import lumbarTwist from './lumbar-twist.json';
 import mountainClimber from './mountain-climber.json';
+import pistolSquat from './pistol-squat.json';
 import plankLunges from './plank-lunges.json';
 import pushUp from './push-up.json';
 import reverseCrunch from './reverse-crunch.json';
@@ -41,5 +42,6 @@ export const LottieAssets = {
     plankLunges,
     reverseCrunch,
     sideLunge,
-    sideCrunches
+    sideCrunches,
+    pistolSquat,
 };
