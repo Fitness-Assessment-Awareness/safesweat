@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Pressable } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Toast from 'react-native-toast-message';
-import { Button, Spinner, YStack } from 'tamagui';
+import { Button, getTokenValue, Spinner, YStack } from 'tamagui';
 import { Chip } from '../../../components/Chip';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
@@ -116,7 +116,7 @@ export function SettingsBackupRestoreSheetContent({ handleDismissSheet }: Compon
                     <Button
                         themeInverse
                         m="$4"
-                        mb={bottom}
+                        mb={Math.max(bottom, getTokenValue('$4'))}
                         borderRadius="$8"
                         onPress={() => {
                             handleDismissSheet();

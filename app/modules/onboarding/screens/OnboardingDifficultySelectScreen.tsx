@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pressable } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Button, Progress, ScrollView, View, YStack } from 'tamagui';
+import { Button, getTokenValue, Progress, ScrollView, View, YStack } from 'tamagui';
 import { Chip } from '../../../components/Chip';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
@@ -93,7 +93,7 @@ export function OnboardingDifficultySelectScreen() {
                 disabledStyle={{ backgroundColor: '$blue7' }}
                 color="white"
                 m="$4"
-                mb={bottom}
+                mb={Math.max(bottom, getTokenValue('$4'))}
                 borderRadius="$8"
                 onPress={() => {
                     navigation.navigate('OnboardingHealthProbSelect');

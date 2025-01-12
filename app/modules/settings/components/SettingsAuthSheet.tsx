@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Pressable } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Toast from 'react-native-toast-message';
-import { Button, Input, Spinner, Text, XStack, YStack } from 'tamagui';
+import { Button, getTokenValue, Input, Spinner, Text, XStack, YStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
 import { Paragraph } from '../../../components/Paragraph';
@@ -386,7 +386,7 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
                     <Button
                         themeInverse
                         m="$4"
-                        mb={bottom}
+                        mb={Math.max(bottom, getTokenValue('$4'))}
                         borderRadius="$8"
                         onPress={() => {
                             setAuthAction(AuthAction.SIGN_IN);
@@ -438,7 +438,7 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
                     <Button
                         themeInverse
                         m="$4"
-                        mb={bottom}
+                        mb={Math.max(bottom, getTokenValue('$4'))}
                         borderRadius="$8"
                         onPress={() => {
                             setAuthAction(AuthAction.SIGN_IN);
