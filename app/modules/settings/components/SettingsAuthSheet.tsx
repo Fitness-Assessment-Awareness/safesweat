@@ -1,8 +1,9 @@
 import { useNetInfo } from '@react-native-community/netinfo';
 import { Mail, WifiOff } from '@tamagui/lucide-icons';
-import React, { useEffect, useId, useState } from 'react';
+import { useEffect, useId, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pressable } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Toast from 'react-native-toast-message';
 import { Button, Input, Spinner, Text, XStack, YStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
@@ -27,6 +28,7 @@ enum AuthAction {
 export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoading }: ComponentProps) {
     const { t } = useTranslation();
     const { isConnected } = useNetInfo();
+    const { bottom } = useSafeAreaInsets();
     const [form, setForm] = useState({
         email: '',
         password: '',
@@ -146,6 +148,7 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
             {authAction === AuthAction.NO_INTERNET && (
                 <YStack
                     my="$2"
+                    pb={bottom}
                     alignSelf="center"
                     width="85%"
                     gap="$4"
@@ -167,6 +170,7 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
                     gap="$4"
                     my="$2"
                     mx="$4"
+                    pb={bottom}
                 >
                     <Label htmlFor={`${id}-signin-email`}>{t('settings.auth.email')}</Label>
                     <Input
@@ -260,6 +264,7 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
                     gap="$4"
                     my="$2"
                     mx="$4"
+                    pb={bottom}
                 >
                     <Label htmlFor={`${id}-signup-email`}>{t('settings.auth.email')}</Label>
                     <Input
@@ -381,6 +386,7 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
                     <Button
                         themeInverse
                         m="$4"
+                        mb={bottom}
                         borderRadius="$8"
                         onPress={() => {
                             setAuthAction(AuthAction.SIGN_IN);
@@ -432,6 +438,7 @@ export function SettingsAuthSheetContent({ handleDismissSheet, loading, setLoadi
                     <Button
                         themeInverse
                         m="$4"
+                        mb={bottom}
                         borderRadius="$8"
                         onPress={() => {
                             setAuthAction(AuthAction.SIGN_IN);

@@ -1,5 +1,5 @@
-import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Text, XStack } from 'tamagui';
 import { Chip } from '../../../../components/Chip';
 import { Heading } from '../../../../components/Heading';
@@ -27,6 +27,7 @@ export function SortFilterSheetContent({
 }: ComponentProps) {
     const { t } = useTranslation();
     const { languageCode } = useLanguageCode();
+    const { bottom } = useSafeAreaInsets();
     return (
         <>
             <Heading
@@ -39,6 +40,7 @@ export function SortFilterSheetContent({
                 p="$4"
                 flexWrap="wrap"
                 gap="$3"
+                pb={bottom}
             >
                 {sortOptions.map((option) => (
                     <Chip
@@ -66,6 +68,7 @@ export function SortFilterSheetContent({
                     <XStack
                         p="$4"
                         gap="$3"
+                        pb={bottom}
                     >
                         {categories.map((category) => (
                             <Chip

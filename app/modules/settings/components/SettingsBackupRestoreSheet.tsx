@@ -2,6 +2,7 @@ import { CircleCheck } from '@tamagui/lucide-icons';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pressable } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Toast from 'react-native-toast-message';
 import { Button, Spinner, YStack } from 'tamagui';
 import { Chip } from '../../../components/Chip';
@@ -29,6 +30,7 @@ export function SettingsBackupRestoreSheetContent({ handleDismissSheet }: Compon
     const userSession = useSession();
     const { workoutProfile, setWorkoutProfile } = useWorkoutProfile();
     const { emergencyContacts, setEmergencyContacts } = useEmergencyContacts();
+    const { bottom } = useSafeAreaInsets();
 
     const backupUserData = async (userId: string) => {
         setLoading(true);
@@ -114,6 +116,7 @@ export function SettingsBackupRestoreSheetContent({ handleDismissSheet }: Compon
                     <Button
                         themeInverse
                         m="$4"
+                        mb={bottom}
                         borderRadius="$8"
                         onPress={() => {
                             handleDismissSheet();
@@ -129,6 +132,7 @@ export function SettingsBackupRestoreSheetContent({ handleDismissSheet }: Compon
                     gap="$4"
                     my="$4"
                     mx="$4"
+                    pb={bottom}
                 >
                     <Pressable
                         onPress={() => {
