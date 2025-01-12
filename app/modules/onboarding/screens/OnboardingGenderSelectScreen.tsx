@@ -1,6 +1,6 @@
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pressable } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Button, Image, Progress, ScrollView, View, XStack, YStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
@@ -13,6 +13,7 @@ export function OnboardingGenderSelectScreen() {
     const { t } = useTranslation();
     const { workoutProfile, setWorkoutProfile } = useWorkoutProfile();
     const navigation = useOnboardingNavigation<'OnboardingGenderSelect'>();
+    const { bottom } = useSafeAreaInsets();
 
     return (
         <View flex={1}>
@@ -88,6 +89,7 @@ export function OnboardingGenderSelectScreen() {
                 disabledStyle={{ backgroundColor: '$blue7' }}
                 color="white"
                 m="$4"
+                mb={bottom}
                 borderRadius="$8"
                 onPress={() => {
                     navigation.navigate('OnboardingFocusAreaSelect');

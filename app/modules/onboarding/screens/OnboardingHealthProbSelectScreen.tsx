@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pressable } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Button, Progress, ScrollView, View, YStack } from 'tamagui';
 import { Chip } from '../../../components/Chip';
 import { Heading } from '../../../components/Heading';
@@ -13,6 +14,7 @@ export function OnboardingHealthProbSelectScreen() {
     const { t } = useTranslation();
     const { workoutProfile, setWorkoutProfile } = useWorkoutProfile();
     const navigation = useOnboardingNavigation<'OnboardingHealthProbSelect'>();
+    const { bottom } = useSafeAreaInsets();
 
     const getHealthProblemLabel = (healthProblem: HealthProblem) => {
         switch (healthProblem) {
@@ -107,6 +109,7 @@ export function OnboardingHealthProbSelectScreen() {
                 disabledStyle={{ backgroundColor: '$blue7' }}
                 color="white"
                 m="$4"
+                mb={bottom}
                 borderRadius="$8"
                 onPress={() => {
                     navigation.navigate('OnboardingBodyInfoSelect');

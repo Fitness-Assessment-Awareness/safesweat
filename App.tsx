@@ -13,6 +13,7 @@ import relativeTimePlugin from 'dayjs/plugin/relativeTime';
 import { useFonts } from 'expo-font';
 import { AndroidNotificationPriority, setNotificationHandler } from 'expo-notifications';
 import * as SplashScreen from 'expo-splash-screen';
+import { StatusBar } from 'expo-status-bar';
 import { I18nextProvider } from 'react-i18next';
 import { LogBox } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -70,6 +71,7 @@ export default function App() {
             defaultTheme="light"
             config={appConfig}
         >
+            <StatusBar style="dark" />
             <GestureHandlerRootView style={{ flex: 1 }}>
                 <SafeAreaProvider>
                     <QueryClientProvider client={queryClient}>

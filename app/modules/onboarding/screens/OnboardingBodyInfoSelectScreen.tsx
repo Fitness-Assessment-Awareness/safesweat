@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { RulerPicker } from 'react-native-ruler-picker';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Button, Progress, ScrollView, View, YStack } from 'tamagui';
 import { Heading } from '../../../components/Heading';
 import { Label } from '../../../components/Label';
@@ -10,6 +11,7 @@ export function OnboardingBodyInfoSelectScreen() {
     const { t } = useTranslation();
     const { workoutProfile, setWorkoutProfile } = useWorkoutProfile();
     const { navigate } = useRootNavigation();
+    const { bottom } = useSafeAreaInsets();
 
     return (
         <View flex={1}>
@@ -93,6 +95,7 @@ export function OnboardingBodyInfoSelectScreen() {
                 disabledStyle={{ backgroundColor: '$blue7' }}
                 color="white"
                 m="$4"
+                mb={bottom}
                 borderRadius="$8"
                 onPress={() => {
                     navigate('HomeTab', { screen: 'WorkoutStack', params: { screen: 'WorkoutLanding' } });
