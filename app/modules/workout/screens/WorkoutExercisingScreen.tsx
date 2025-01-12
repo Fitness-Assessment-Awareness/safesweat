@@ -134,24 +134,25 @@ export function WorkoutExercisingScreen() {
                         alignItems="center"
                         pt="$4"
                         columnGap="$1.5"
+                        flexWrap="wrap"
                     >
                         <Heading
                             flexShrink={1}
                             textAlign="center"
                         >
                             {exercise.title}
-                            <Pressable
-                                onPress={() => {
-                                    sheetRefExerciseDetails.current?.present();
-                                    if (workoutExercise.type === 'duration') {
-                                        stopCountdown();
-                                    }
-                                }}
-                                hitSlop={4}
-                            >
-                                <Info strokeWidth={2.5} />
-                            </Pressable>
                         </Heading>
+                        <Pressable
+                            onPress={() => {
+                                sheetRefExerciseDetails.current?.present();
+                                if (workoutExercise.type === 'duration') {
+                                    stopCountdown();
+                                }
+                            }}
+                            hitSlop={4}
+                        >
+                            <Info strokeWidth={2.5} />
+                        </Pressable>
                     </View>
                     <View
                         flex={1}
