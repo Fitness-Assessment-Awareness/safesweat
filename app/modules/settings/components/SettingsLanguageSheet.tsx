@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pressable } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Toast from 'react-native-toast-message';
 import { Label, YStack } from 'tamagui';
 import { Chip } from '../../../components/Chip';
@@ -15,6 +16,7 @@ interface ComponentProps {
 export function SettingsLanguageSheetContent({ handleDismissSheet }: ComponentProps) {
     const { t } = useTranslation();
     const { languageCode, setLanguageCode } = useLanguageCode();
+    const { bottom } = useSafeAreaInsets();
     return (
         <>
             <Heading m="$4">{t('settings.language.options')}</Heading>
@@ -23,6 +25,7 @@ export function SettingsLanguageSheetContent({ handleDismissSheet }: ComponentPr
                 gap="$4"
                 my="$4"
                 mx="$4"
+                pb={bottom}
             >
                 {Object.entries(LanguageCode).map(([key, value]) => (
                     <Fragment key={key}>
