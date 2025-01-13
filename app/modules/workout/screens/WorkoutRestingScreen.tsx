@@ -90,42 +90,47 @@ export function WorkoutRestingScreen() {
                         <View
                             flexDirection="row"
                             justifyContent="space-between"
+                            columnGap="$4"
                         >
                             <View
                                 flexDirection="row"
-                                justifyContent="center"
+                                justifyContent="flex-start"
                                 alignItems="center"
                                 columnGap="$1.5"
+                                flexWrap="wrap"
                                 flex={1}
                             >
                                 <Heading
                                     size="small"
                                     color="white"
-                                    flex={1}
+                                    numberOfLines={1}
                                 >
                                     {exercise.title}
-                                    <Pressable
-                                        onPress={() => {
-                                            sheetRefExerciseDetails.current?.present();
-                                            stopCountdown();
-                                        }}
-                                        hitSlop={4}
-                                    >
-                                        <Info
-                                            color="white"
-                                            strokeWidth={2.5}
-                                        />
-                                    </Pressable>
+                                </Heading>
+                                <Pressable
+                                    onPress={() => {
+                                        sheetRefExerciseDetails.current?.present();
+                                        stopCountdown();
+                                    }}
+                                    hitSlop={4}
+                                >
+                                    <Info
+                                        color="white"
+                                        strokeWidth={2.5}
+                                    />
+                                </Pressable>
+                            </View>
+                            <View alignItems="flex-end">
+                                <Heading
+                                    flex={1}
+                                    size="small"
+                                    color="white"
+                                >
+                                    {workoutExercise.type === 'duration'
+                                        ? dayjs.duration(workoutExercise.duration * multiplier).format('mm:ss')
+                                        : `x ${(workoutExercise.reps * multiplier).toFixed(0)}`}
                                 </Heading>
                             </View>
-                            <Heading
-                                size="small"
-                                color="white"
-                            >
-                                {workoutExercise.type === 'duration'
-                                    ? dayjs.duration(workoutExercise.duration * multiplier).format('mm:ss')
-                                    : `x ${(workoutExercise.reps * multiplier).toFixed(0)}`}
-                            </Heading>
                         </View>
                     </View>
                     <View

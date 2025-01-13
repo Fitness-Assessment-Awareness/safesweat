@@ -90,13 +90,16 @@ export function WorkoutOnlineRestingScreen() {
                         >
                             <View
                                 flexDirection="row"
-                                justifyContent="center"
+                                justifyContent="flex-start"
                                 alignItems="center"
                                 columnGap="$1.5"
+                                flexWrap="wrap"
+                                flex={1}
                             >
                                 <Heading
                                     size="small"
                                     color="white"
+                                    numberOfLines={1}
                                 >
                                     {exercise.title}
                                 </Heading>
